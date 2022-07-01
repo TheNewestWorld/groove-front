@@ -1,0 +1,60 @@
+name: Publish Github Pages
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  gh-pages-main:
+    name: Publish main
+    runs-on: ubuntu-20.04
+
+    permissions:
+      actions: write
+      checks: write
+      repository-projects: read
+
+    steps:
+    - name: Setup locale
+      run: |
+        sudo locale-gen en_US.UTF-8
+        sudo update-locale
+    - name: Checkout source code
+      uses: actions/checkout@master
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build main
+      run: npm run build
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages-main
+
+  gh-pages-storybook:
+    name: Publish storybook
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Setup locale
+      run: |
+        sudo locale-gen en_US.UTF-8
+        sudo update-locale
+    - name: Checkout source code
+      uses: actions/checkout@master
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build storybook
+      run: npm build-storybook
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages-storybook
+  
