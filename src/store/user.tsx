@@ -1,21 +1,20 @@
 import React, { createContext, Dispatch } from "react";
 
-export interface UserState {
-  id: string | undefined;
-  name: string | undefined;
-}
+export type UserState =
+  | {
+      id: string;
+      name: string;
+    }
+  | undefined;
 
-const initialState: UserState = {
-  id: undefined,
-  name: undefined,
-};
+export const UserStateContext = createContext<UserState>(undefined);
 
-export const UserStateContext = createContext<UserState>(initialState);
-
-interface UserAction {
-  type: "SIGN_IN" | "SIGN_OUT";
-  payload: UserState;
-}
+type UserAction =
+  | {
+      type: "SIGN_IN";
+      payload: UserState;
+    }
+  | { type: "SIGN_OUT" };
 
 type UserDispatch = Dispatch<UserAction>;
 
@@ -30,7 +29,7 @@ export const userReducer = (
     case "SIGN_IN":
       return action.payload;
     case "SIGN_OUT":
-      return initialState;
+      return undefined;
     default:
       return state;
   }
@@ -39,7 +38,7 @@ export const userReducer = (
 export const UserContext = ({ children }: { children: React.ReactNode }) => {
   return (
     <UserDispatchContext.Provider value={undefined}>
-      <UserStateContext.Provider value={initialState}>
+      <UserStateContext.Provider value={undefined}>
         {children}
       </UserStateContext.Provider>
     </UserDispatchContext.Provider>
