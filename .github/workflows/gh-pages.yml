@@ -1,0 +1,73 @@
+name: Publish Github Pages
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  gh-pages-main:
+    name: Publish main
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Setup locale
+      run: |
+        sudo locale-gen en_US.UTF-8
+        sudo update-locale
+    - name: Checkout source code
+      uses: actions/checkout@master
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build main
+      run: npm run build
+
+    - name: Rename build to docs
+      run: |
+        mv ./build/ ./docs/
+
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add .
+        git commit -m "Add changes"
+
+    - name: Push changes 
+      run: |
+        git push -f origin HEAD:gh-pages-main
+
+  gh-pages-storybook:
+    name: Publish storybook
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Setup locale
+      run: |
+        sudo locale-gen en_US.UTF-8
+        sudo update-locale
+    - name: Checkout source code
+      uses: actions/checkout@master
+      with:
+        ref: dev
+        fetch-depth: 0
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build storybook
+      run: npm run build-storybook
+
+    - name: Rename build to docs
+      run: |
+        mv ./storybook-static/ ./docs/
+
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add .
+        git commit -m "Add changes"
+
+    - name: Push changes 
+      run: |
+        git push -f origin HEAD:gh-pages-storybook
