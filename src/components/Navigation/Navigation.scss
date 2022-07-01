@@ -1,0 +1,11 @@
+.navigation{
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+
+    & > button{
+        width: 25%;
+        height: 70px;
+    }
+}
