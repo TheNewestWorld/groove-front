@@ -10,7 +10,7 @@ const initialState: UserState = {
   name: undefined,
 };
 
-const UserStateContext = createContext<UserState>(initialState);
+export const UserStateContext = createContext<UserState>(initialState);
 
 interface UserAction {
   type: "SIGN_IN" | "SIGN_OUT";
@@ -19,7 +19,8 @@ interface UserAction {
 
 type UserDispatch = Dispatch<UserAction>;
 
-const UserDispatchContext = createContext<UserDispatch | undefined>(undefined);
+export const UserDispatchContext =
+  createContext<UserDispatch | undefined>(undefined);
 
 export const userReducer = (
   state: UserState,
