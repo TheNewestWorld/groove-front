@@ -7,7 +7,7 @@ interface props {
 
 const TrainerInfoItem = ({title, content}: props): React.ReactElement => {
   return (
-    <div>
+    <div className="trainer-info-item">
       <p className='trainer-info-item__title'>{title}</p>
       <p className='trainer-info-item__content'>{content}</p>
     </div>
