@@ -1,11 +1,21 @@
-.navigation{
-    width: 100%;
-    z-index: 10;
-    position: fixed;
-    bottom: 0;
+.navigation {
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: solid 1px #EBEBEB;
+  font-size: 11px;
 
-    & > button{
-        width: 25%;
-        height: 70px;
+  &>button {
+    width: 25%;
+    height: 70px;
+    border: none;
+    background-color: transparent;
+    color: #8E929B;
+
+    &.blue {
+      color: #437CED;
     }
+  }
 }
