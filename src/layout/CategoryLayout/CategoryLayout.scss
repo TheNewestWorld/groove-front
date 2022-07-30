@@ -1,0 +1,33 @@
+.category-layout {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* Chrome, Safari, Opera*/
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  &__filter {
+    flex-shrink: 0;
+
+    &.active {
+      font-weight: bold;
+      color: blue;
+    }
+  }
+}
