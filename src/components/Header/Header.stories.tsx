@@ -17,4 +17,4 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
-export const 뒤로가기_글작성하기 = Template.bind({});
+export const 기본 = Template.bind({});
