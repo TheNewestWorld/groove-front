@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import Navigation, { props } from "./Navigation";
+import Navigation, { Props } from "./Navigation";
 
 export default {
   title: "components/Navigation",
@@ -9,6 +9,6 @@ export default {
   },
 } as Meta;
 
-const Template = (args: props) => <Navigation {...args} />;
+const Template = (args: Props) => <Navigation {...args} />;
 
 export const 기본 = Template.bind({});
