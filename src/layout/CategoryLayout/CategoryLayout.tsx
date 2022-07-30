@@ -25,6 +25,7 @@ const CategoryLayout = ({
           {title} {listLength}
         </div>
         {filterList.map((filter) => (
+          // TODO: RoundBoardButton 으로 변경
           <div
             key={filter}
             className={classNames([
