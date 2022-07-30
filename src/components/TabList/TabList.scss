@@ -1,0 +1,36 @@
+.tab-list {
+  // height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Chrome, Safari, Opera*/
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__item {
+    padding: 18px 12px;
+    font-size: 16px;
+
+    &.active {
+      font-weight: bold;
+
+      &.round {
+        background-color: #437ced;
+        border-radius: 25px;
+      }
+
+      &.underline {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
