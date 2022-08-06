@@ -52,6 +52,22 @@
       font-weight: bold;
       &.tag{
         display: flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+
+        /* IE and Edge */
+        -ms-overflow-style: none;
+        /* Firefox */
+        scrollbar-width: none;
+
+        /* Chrome, Safari, Opera*/
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
         & > div{
           border-radius: 10px;
           background-color: #F2F4F5;
@@ -59,6 +75,7 @@
           margin-right: 10px;
         }
       }
+
       &.line > div{
         display: flex;
         justify-content: space-between;
