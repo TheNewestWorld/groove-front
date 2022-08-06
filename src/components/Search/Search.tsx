@@ -21,11 +21,11 @@ const Search = ({ list, onClickCancle, onSubmitSearch, deleteItem }: Props) => {
         <button onClick={onClickCancle}>취소</button>
       </div>
       {list.map(({ title, type, itemList }) => (
-        <div className="search__list">
+        <div className="search__list" key={title}>
           <div className="search__list__title">{title}</div>
           <div className={classnames(["search__list__item", type])}>
             {itemList.map((item) => (
-              <div>
+              <div key={item}>
                 <span onClick={() => onSubmitSearch(item)}>{item}</span>
                 {/* TODO: Icon 으로 변경 */}
                 {type === "line" && (
