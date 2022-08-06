@@ -1,5 +1,4 @@
 .tab-list {
-  // height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,15 +16,18 @@
   }
 
   &__item {
-    padding: 18px 12px;
+    padding: 3px 12px;
+    margin: 0px 4px;
     font-size: 16px;
+    color: #8B95A1;
+    font-weight: bold;
+    line-height: 44px;
 
     &.active {
-      font-weight: bold;
-
       &.round {
         background-color: #437ced;
-        border-radius: 25px;
+        border-radius: 28px;
+        color: white;
       }
 
       &.underline {
