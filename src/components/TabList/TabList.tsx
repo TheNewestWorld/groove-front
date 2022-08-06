@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classnames from "classnames";
 import "./TabList.scss";
 
 export interface Props {
@@ -10,10 +10,10 @@ export interface Props {
 
 const TabList = ({ activeTab, tabList, type, onClickTab }: Props) => {
   return (
-    <div className="tab-list">
+    <div className={classnames(["tab-list", type])}>
       {tabList.map((tab) => (
         <div
-          className={classNames([
+          className={classnames([
             "tab-list__item",
             type,
             activeTab === tab && "active",
