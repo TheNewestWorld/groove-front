@@ -1,6 +1,7 @@
 .category-layout {
   &__header {
     display: flex;
+    height: 70px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
@@ -20,14 +21,21 @@
   &__title {
     font-weight: bold;
     flex-shrink: 0;
+    margin: 0px 20px;
   }
 
   &__filter {
     flex-shrink: 0;
+    font-size: 14px;
+    margin-right: 7px;
+    padding: 8px 10px;
+    border-radius: 18px;
+    background-color: #f2f4f5;
+    color: #6B7684;
 
     &.active {
-      font-weight: bold;
-      color: blue;
+      background-color: #191F28;
+      color: #F2F4F5;
     }
   }
 }

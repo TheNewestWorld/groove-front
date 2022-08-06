@@ -22,10 +22,9 @@ const CategoryLayout = ({
     <div className="category-layout">
       <div className="category-layout__header">
         <div className="category-layout__title">
-          {title} {listLength}
+          {title} {listLength}건{/* TODO: icon 추가 */}
         </div>
         {filterList.map((filter) => (
-          // TODO: RoundBoardButton 으로 변경
           <div
             key={filter}
             className={classNames([
