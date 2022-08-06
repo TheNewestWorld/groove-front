@@ -1,8 +1,13 @@
 .floating-layout {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   bottom: 20px;
   right: 20px;
   width: fit-content;
-  height: fit-content;
   z-index: 5;
+  & > * {
+    margin: 5px 0px;
+  }
 }

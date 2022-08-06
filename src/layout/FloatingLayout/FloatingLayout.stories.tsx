@@ -5,7 +5,12 @@ export default {
   title: "layouts/FloatingLayout",
   component: FloatingLayout,
   args: {
-    children: <button>버튼</button>,
+    children: (
+      <>
+        <button>버튼</button>
+        <button>버튼</button>
+      </>
+    ),
   },
 } as Meta;
 
