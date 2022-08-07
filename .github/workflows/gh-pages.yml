@@ -24,6 +24,9 @@ jobs:
         env: 
           CI: false
     
+      - name: Make 404
+        run: cp storybook-static/index.html storybook-static/404.html
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
