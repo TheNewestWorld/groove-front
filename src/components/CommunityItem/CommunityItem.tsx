@@ -32,18 +32,8 @@ const CommunityItem = ({
         <div className="community-item__header__user">{user}</div>
       </div>
       <div className="community-item__body">
-        <textarea
-          className="community-item__body__title"
-          value={title}
-          rows={1}
-          readOnly
-        />
-        <textarea
-          className="community-item__body__description"
-          value={description}
-          rows={2}
-          readOnly
-        />
+        <p className="community-item__body__title">{title}</p>
+        <p className="community-item__body__description">{description}</p>
       </div>
       <div className="community-item__bottom">
         <img src={LikeIcon} />
