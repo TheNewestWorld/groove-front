@@ -2,7 +2,7 @@ name: Publish Github Pages
 on:
   push:
     branches:
-      - feature/deploy-storybook
+      - feature/deploy-storybook-2
 
 jobs:
   deploy:
