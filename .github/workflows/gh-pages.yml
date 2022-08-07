@@ -1,73 +1,31 @@
 name: Publish Github Pages
 on:
   push:
-    branches: [dev]
+    branches:
+      - dev
 
 jobs:
-  gh-pages-main:
-    name: Publish main
-    runs-on: ubuntu-20.04
-
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - name: Setup locale
-      run: |
-        sudo locale-gen en_US.UTF-8
-        sudo update-locale
-    - name: Checkout source code
-      uses: actions/checkout@master
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm install
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
 
-    - name: Build main
-      run: npm run build
+      - name: Install packages
+        run: npm ci
 
-    - name: Rename build to docs
-      run: |
-        mv ./build/ ./docs/
-
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add .
-        git commit -m "Add changes"
-
-    - name: Push changes 
-      run: |
-        git push -f origin HEAD:gh-pages-main
-
-  gh-pages-storybook:
-    name: Publish storybook
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Setup locale
-      run: |
-        sudo locale-gen en_US.UTF-8
-        sudo update-locale
-    - name: Checkout source code
-      uses: actions/checkout@master
-      with:
-        ref: dev
-        fetch-depth: 0
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build storybook
-      run: npm run build-storybook
-
-    - name: Rename build to docs
-      run: |
-        mv ./storybook-static/ ./docs/
-
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add .
-        git commit -m "Add changes"
-
-    - name: Push changes 
-      run: |
-        git push -f origin HEAD:gh-pages-storybook
+      - name: Build Project
+        run: npm run build-storybook
+        env: 
+          CI: false
+    
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
