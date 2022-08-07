@@ -13,11 +13,11 @@ import RoutePath from "../../constants/routePath";
 
 import "./Navigation.scss";
 
-export interface props {
+export interface Props {
   current: "HOME" | "COMMUNITY" | "TRAINING" | "MYPAGE";
 }
 
-const Navigation = ({ current }: props) => {
+const Navigation = ({ current }: Props) => {
   const navigation = useNavigate();
 
   return (
