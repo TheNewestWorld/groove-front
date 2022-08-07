@@ -3,6 +3,7 @@ import CircleImage from '../CircleImage'
 import './CommunityItem.scss'
 
 import LikeIcon from '../../assets/icon/like_small.svg'
+import LikeActiveIcon from '../../assets/icon/like_small_active.svg'
 import CommentIcon from '../../assets/icon/comment_small.svg'
 // TODO(in.heo): Icon Import를 한 파일로 모읍니다.
 
@@ -13,6 +14,7 @@ interface props {
   description: string;
   likeCount: number;
   commentCount: number;
+  liked: boolean;
   onClick: () => void;
 }
 
@@ -23,12 +25,13 @@ const CommunityItem = ({
   description,
   likeCount,
   commentCount,
+  liked,
   onClick
 }: props) => {
   return (
     <div className="community-item border" onClick={onClick}>
       <div className="community-item__header">
-        <CircleImage src={userImageSrc} width={32} height={32} />
+        <CircleImage src={userImageSrc} size={"medium"} fit={"fit-fill"}/>
         <div className="community-item__header__user">{user}</div>
       </div>
       <div className="community-item__body">
@@ -36,7 +39,8 @@ const CommunityItem = ({
         <p className="community-item__body__description">{description}</p>
       </div>
       <div className="community-item__bottom">
-        <img src={LikeIcon} />
+        { liked ? <img src={LikeActiveIcon}/> : <img src={LikeIcon}/> }
+
         <div className="community-item__bottom__number">{likeCount}</div>
         <img src={CommentIcon} />
         <div className="community-item__bottom__number">{commentCount}</div>
