@@ -4,14 +4,15 @@ import './CommunityItem.scss'
 
 import LikeIcon from '../../assets/icon/like_small.svg'
 import CommentIcon from '../../assets/icon/comment_small.svg'
+// TODO(in.heo): Icon Import를 한 파일로 모읍니다.
 
 interface props {
   user: string;
   userImageSrc: string;
   title: string;
   description: string;
-  like: number;
-  comment: number;
+  likeCount: number;
+  commentCount: number;
   onClick: () => void;
 }
 
@@ -20,8 +21,8 @@ const CommunityItem = ({
   userImageSrc,
   title,
   description,
-  like,
-  comment,
+  likeCount,
+  commentCount,
   onClick
 }: props) => {
   return (
@@ -46,9 +47,9 @@ const CommunityItem = ({
       </div>
       <div className="community-item__bottom">
         <img src={LikeIcon} />
-        <div className="community-item__bottom__number">{like}</div>
+        <div className="community-item__bottom__number">{likeCount}</div>
         <img src={CommentIcon} />
-        <div className="community-item__bottom__number">{comment}</div>
+        <div className="community-item__bottom__number">{commentCount}</div>
       </div>
     </div>
   )
