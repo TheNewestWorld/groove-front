@@ -1,3 +1,5 @@
+import classnames from "classnames";
+
 import CircleImage from '../CircleImage'
 
 import './CommunityItem.scss'
@@ -31,7 +33,7 @@ const CommunityItem = ({
   return (
     <div className="community-item border" onClick={onClick}>
       <div className="community-item__header">
-        <CircleImage src={userImageSrc} size={"medium"} fit={"fit-fill"}/>
+        <CircleImage src={userImageSrc} classname={classnames(['item__header__img'])}/>
         <div className="community-item__header__user">{user}</div>
       </div>
       <div className="community-item__body">

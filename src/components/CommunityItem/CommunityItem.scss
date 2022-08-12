@@ -11,12 +11,18 @@
     align-items: center;
     margin: 18px 0px;
 
+    &__img {
+      height: 28px;
+      width: 28px;
+      object-fit: fill;
+    }
+
     &__user {
       font-size: 18px;
       line-height: 44px;
       font-weight: 600;
       margin-left: 12px;
-    }    
+    }
   }
 
   &__body {
