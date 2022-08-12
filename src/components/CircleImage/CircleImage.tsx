@@ -5,23 +5,21 @@ import './CircleImage.scss';
 
 interface props extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
-  size: "small" | "medium" | "large";
-  fit: "fit-contain" | "fit-cover" | "fit-fill";
-  onClick: () => void;
+  classname?: string;
+  onClick?: () => void;
 }
 
 const CircleImage = ({
   src,
-  size,
-  fit,
-  onClick
+  classname,
+  onClick,
+  ...args
 }: props): React.ReactElement => {
   return (
     <div className="circle-image">
-      <img className={classnames([
+      <img {...args} className={classnames([
         "circle-image",
-        size,
-        fit
+        classname
       ])}
         src={src} onClick={onClick}/>
     </div>

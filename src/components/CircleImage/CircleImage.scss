@@ -1,30 +1,9 @@
 .circle-image {
   border-radius: 50%;
+}
 
-  &.small {
-    height: 20px;
-    width: 20px;
-  }
-
-  &.medium {
-    height: 28px;
-    width: 28px;
-  }
-
-  &.large {
-    height: 32px;
-    width: 32px;
-  }
-
-  &.fit-contain {
-    object-fit: contain;
-  }
-  
-  &.fit-cover {
-    object-fit: cover;
-  }
-
-  &.fit-fill {
-    object-fit: fill;
-  }
+img {
+  height: 28px;
+  width: 28px;
+  object-fit: cover;
 }
