@@ -5,13 +5,13 @@ import './CircleImage.scss';
 
 interface props extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
-  classname?: string;
+  className?: string;
   onClick?: () => void;
 }
 
 const CircleImage = ({
   src,
-  classname,
+  className,
   onClick,
   ...args
 }: props): React.ReactElement => {
@@ -19,7 +19,7 @@ const CircleImage = ({
     <div className="circle-image">
       <img {...args} className={classnames([
         "circle-image",
-        classname
+        className
       ])}
         src={src} onClick={onClick}/>
     </div>

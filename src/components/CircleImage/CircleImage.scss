@@ -1,9 +1,9 @@
 .circle-image {
   border-radius: 50%;
-}
 
-img {
-  height: 28px;
-  width: 28px;
-  object-fit: cover;
+  & > img {
+    height: 28px;
+    width: 28px;
+    object-fit: cover;
+  }
 }

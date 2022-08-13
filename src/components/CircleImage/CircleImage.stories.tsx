@@ -2,8 +2,6 @@ import { ComponentStory } from '@storybook/react';
 import CircleImage from './CircleImage';
 import classnames from "classnames";
 
-import './CircleImage.stories.scss';
-
 export default {
   title: 'Components/CircleImage',
   component: CircleImage,
@@ -16,48 +14,3 @@ export default {
 const Template: ComponentStory<typeof CircleImage> = (args) => <CircleImage {...args} />;
 
 export const Default = Template.bind({});
-
-export const Small_Contain = Template.bind({});
-Small_Contain.args = {
-  classname: classnames(['small', 'fit-contain'])
-}
-
-export const Small_Cover = Template.bind({});
-Small_Cover.args = {
-  classname: classnames(['small', 'fit-cover'])
-}
-
-export const Small_Fill = Template.bind({});
-Small_Fill.args = {
-  classname: classnames(['small', 'fit-fill'])
-}
-
-export const Medium_Contain = Template.bind({});
-Medium_Contain.args = {
-  classname: classnames(['medium', 'fit-contain'])
-}
-
-export const Medium_Cover = Template.bind({});
-Medium_Cover.args = {
-  classname: classnames(['medium', 'fit-cover'])
-}
-
-export const Medium_Fill = Template.bind({});
-Medium_Fill.args = {
-  classname: classnames(['medium', 'fit-fill'])
-}
-
-export const Large_Contain = Template.bind({});
-Large_Contain.args = {
-  classname: classnames(['large', 'fit-contain'])
-}
-
-export const Large_Cover = Template.bind({});
-Large_Cover.args = {
-  classname: classnames(['large', 'fit-cover'])
-}
-
-export const Large_Fill = Template.bind({});
-Large_Fill.args = {
-  classname: classnames(['large', 'fit-fill'])
-}
