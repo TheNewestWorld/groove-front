@@ -1,0 +1,16 @@
+.badge {
+  height: fit-content;
+  padding: 5px 9px;
+  border-radius: 9px;
+  font-weight: 700;
+
+  &.ready {
+    background-color: #DFEAFD;
+    color: #1C62D9;
+  }
+
+  &.done{
+   background-color: #F2F4F5;
+    color: #6B7684;
+  }
+}
