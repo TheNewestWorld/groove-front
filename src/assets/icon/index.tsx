@@ -31,3 +31,4 @@ export { ReactComponent as SelectIcon } from "./select.svg";
 export { ReactComponent as SettingIcon } from "./setting.svg";
 export { ReactComponent as YellowStartFillIcon } from "./star_yellow_fill.svg";
 export { ReactComponent as YellowStartBorderIcon } from "./star_yellow_border.svg";
+export { ReactComponent as GreyDeleteCircle } from "./delete_grey_circle.svg";
