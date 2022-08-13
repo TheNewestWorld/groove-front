@@ -3,20 +3,15 @@ import { ButtonHTMLAttributes } from "react";
 import './IconButton.scss';
 
 interface props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  src?: string;
-  alt: string;
+  icon?: React.ReactElement;
 }
 
-const IconButton = ({
-  src,
-  alt,
-  ...options
-}: props) => {
+const IconButton = ({ icon, ...options }: props) => {
   return (
     <button className="icon-button" {...options}>
-      <img src={src} alt={alt}/>
+      {icon}
     </button>
   );
-}
+};
 
 export default IconButton;
