@@ -4,7 +4,7 @@ import useOpen from "../../hooks/useOpen";
 import "./TopDownFilter.scss";
 
 export interface Props {
-  className: string;
+  className?: string;
   activeFilter: string;
   filterList: string[];
   onClickFilter: (filter: string) => void;
