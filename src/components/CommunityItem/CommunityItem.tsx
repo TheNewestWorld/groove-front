@@ -43,7 +43,7 @@ const CommunityItem = ({
         { liked ? <HeartActiveIcon className="community-item__bottom__icon" />
           : <HeartInactiveIcon className="community-item__bottom__icon" /> }
         <div className="community-item__bottom__number">{likeCount}</div>
-        { <ChatIcon className="community-item__bottom__icon" /> }
+        <ChatIcon className="community-item__bottom__icon" />
         <div className="community-item__bottom__number">{commentCount}</div>
       </div>
     </div>
