@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import { ImgHTMLAttributes } from 'react';
 
 import './CircleImage.scss';
@@ -17,10 +16,7 @@ const CircleImage = ({
 }: props): React.ReactElement => {
   return (
     <div className="circle-image">
-      <img {...args} className={classnames([
-        "circle-image",
-        className
-      ])}
+      <img {...args} className={className}
         src={src} onClick={onClick}/>
     </div>
   );
