@@ -6,6 +6,10 @@
 
 .navigation{width:100%;z-index:10;position:fixed;left:0;bottom:0;border-top:solid 1px #EBEBEB;font-size:11px}.navigation>button{width:25%;height:70px;border:none;background-color:transparent;color:#8E929B}.navigation>button.blue{color:#437CED}
 
+.score_container{display:flex}
+
+.review-item{width:calc(100% - 36px);display:flex;align-items:center;background-color:white;border-radius:20px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);padding:18px}.review-item__image{width:32px;height:32px;margin-right:10px;background-color:grey}.review-item__image>img{width:32px;height:32px}.review-item__flex{flex-grow:1}.review-item__information{display:flex;align-items:center}.review-item__nickname{font-size:14px;font-weight:600;color:#191F28}.review-item__date{margin:0px 7px;font-size:10px;font-weight:400;color:#8B95A1}.review-item__content{margin-top:3px;font-size:13px;font-weight:400;color:#191F28}.review-item__star>svg{width:14px;height:14px}
+
 .search__input{display:flex;justify-content:space-between;padding:0px 20px}.search__input__container{flex-grow:1;display:flex;margin-right:20px;font-size:15px;border-radius:20px;border:1px solid #EBEBEB;padding:10px}.search__input__container>input{border:none;flex-grow:1}.search__input__container>input:focus{outline:none}.search__input__container>input::-webkit-input-placeholder{color:#8E929B}.search__input__container>input::placeholder{color:#8E929B}.search__input__icon{width:20px;margin-right:12px}.search__input>button{font-size:16px;border:0;outline:0;background-color:transparent;padding:0px;width:32px}.search__list{padding:0px 20px}.search__list__title{margin-top:24px;padding:16px 0px;font-size:14px;color:#8e929b}.search__list__item{color:#262626;font-size:16px;font-weight:bold}.search__list__item.tag{display:flex;flex-wrap:nowrap;white-space:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.search__list__item.tag::-webkit-scrollbar{display:none}.search__list__item.tag>div{border-radius:10px;background-color:#F2F4F5;padding:10px 10px;margin-right:10px}.search__list__item.line>div{display:flex;justify-content:space-between;padding:10px 0px}
 
 .tab-list{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.tab-list::-webkit-scrollbar{display:none}.tab-list.underline{border-bottom:1px solid #EBEBEB}.tab-list__item{padding:3px 12px;margin:0px 4px;font-size:16px;line-height:44px}.tab-list__item.round{color:#8B95A1;font-weight:bold}.tab-list__item.round.active{background-color:#437ced;border-radius:28px;color:white}.tab-list__item.underline{color:#191F28}.tab-list__item.underline.active{font-weight:bold;color:#437CED;border-bottom:2px solid #437CED}
@@ -20,9 +24,11 @@
 
 .floating-layout{position:fixed;display:flex;flex-direction:column;justify-content:space-between;bottom:20px;right:20px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;z-index:5}.floating-layout>*{margin:5px 0px}
 
+.review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
+
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.2a4fcc4c.css.map*/
+/*# sourceMappingURL=main.41ff0b27.css.map*/
