@@ -1,8 +1,8 @@
-import { ImgHTMLAttributes } from 'react';
+import { ImgHTMLAttributes } from "react";
 
-import './CircleImage.scss';
+import "./CircleImage.scss";
 
-interface props extends ImgHTMLAttributes<HTMLImageElement> {
+export interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   className?: string;
   onClick?: () => void;
@@ -13,7 +13,7 @@ const CircleImage = ({
   className,
   onClick,
   ...args
-}: props): React.ReactElement => {
+}: Props): React.ReactElement => {
   return (
     <div className="circle-image">
       <img {...args} className={className}
