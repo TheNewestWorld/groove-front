@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
-import HistoryItem, { Props } from "./HistoryItem";
+import TrainingItem, { Props } from "./TrainingItem";
 
 export default {
-  title: "components/HistoryItem",
-  component: HistoryItem,
+  title: "components/TrainingItem",
+  component: TrainingItem,
   args: {
     imageUrl: "",
     nickname: "음치몸치박치",
@@ -13,6 +13,6 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <HistoryItem {...args} />;
+const Template = (args: Props) => <TrainingItem {...args} />;
 
 export const 기본 = Template.bind({});

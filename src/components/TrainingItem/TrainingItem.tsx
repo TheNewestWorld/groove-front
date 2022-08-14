@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { formatFullDate } from "../../helpers/dateHelper";
 import Badge from "./components/Badge";
 import "./HistoryItem.scss";
@@ -8,11 +9,19 @@ export interface Props {
   date: Date;
   content: string;
   status: "ready" | "done";
+  className?: string;
 }
 
-const HistoryItem = ({ imageUrl, nickname, date, content, status }: Props) => {
+const HistoryItem = ({
+  imageUrl,
+  nickname,
+  date,
+  content,
+  status,
+  className,
+}: Props) => {
   return (
-    <div className="history-item">
+    <div className={classNames(["history-item", className])}>
       {/* TODO: circleImage로 변경 */}
       <img className="history-itme__image" src={imageUrl} alt="" />
       <div className="history-item__flex">
