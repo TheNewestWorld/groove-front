@@ -1,10 +1,12 @@
-import CircleImage from "../CircleImage"
+import CircleImage from "../CircleImage";
 
 import "./CommunityItem.scss"
 
-import LikeIcon from "../../assets/icon/like_small.svg"
-import LikeActiveIcon from "../../assets/icon/like_small_active.svg"
-import CommentIcon from "../../assets/icon/comment_small.svg"
+import {
+  ChatIcon,
+  HeartActiveIcon,
+  HeartInactiveIcon
+} from "../../assets/icon";
 
 export interface Props {
   user: string;
@@ -38,9 +40,10 @@ const CommunityItem = ({
         <p className="community-item__body__description">{description}</p>
       </div>
       <div className="community-item__bottom">
-        <img src={ liked ? LikeActiveIcon : LikeIcon}/>
+        { liked ? <HeartActiveIcon className="community-item__bottom__icon" />
+          : <HeartInactiveIcon className="community-item__bottom__icon" /> }
         <div className="community-item__bottom__number">{likeCount}</div>
-        <img src={CommentIcon} />
+        { <ChatIcon className="community-item__bottom__icon" /> }
         <div className="community-item__bottom__number">{commentCount}</div>
       </div>
     </div>
