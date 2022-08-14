@@ -12,7 +12,7 @@ export interface Props {
   className?: string;
 }
 
-const HistoryItem = ({
+const TrainingItem = ({
   imageUrl,
   nickname,
   date,
@@ -36,4 +36,4 @@ const HistoryItem = ({
   );
 };
 
-export default HistoryItem;
+export default TrainingItem;
