@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { formatFullDate } from "../../helpers/dateHelper";
+import CircleImage from "../CircleImage";
 import Score from "../Score";
 import "./ReviewItem.scss";
 
@@ -22,8 +23,7 @@ const ReviewItem = ({
 }: Props) => {
   return (
     <div className={classNames(["review-item", className])}>
-      {/* TODO: circleImage로 변경 */}
-      <img className="review-itme__image" src={imageUrl} alt="" />
+      <CircleImage className="review-item__image" src={imageUrl} />
       <div className="review-item__flex">
         <div className="review-item__information">
           <div className="review-item__nickname">{nickname}</div>
