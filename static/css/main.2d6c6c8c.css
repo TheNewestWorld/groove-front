@@ -1,3 +1,5 @@
+.circle-image{border-radius:50%}.circle-image>img{border-radius:50%;height:28px;width:28px;object-fit:cover}
+
 .icon-button{background-color:transparent;border-style:none}
 
 .header{width:100%;height:50px;display:flex;flex-direction:row;justify-content:space-between;align-items:center}.header__title{font-size:1rem;font-weight:600;color:black}
@@ -17,4 +19,4 @@
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 
-/*# sourceMappingURL=main.58b35fa5.css.map*/
+/*# sourceMappingURL=main.2d6c6c8c.css.map*/
