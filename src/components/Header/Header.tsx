@@ -1,6 +1,6 @@
 import './Header.scss';
 
-interface props { 
+export interface Props {
   title: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
@@ -8,20 +8,14 @@ interface props {
   onRightClick?: () => void;
 }
 
-const Header = ({
-  title,
-  left,
-  right,
-  onLeftClick,
-  onRightClick
-}: props): React.ReactElement => {
+const Header = ({ title, left, right, onLeftClick, onRightClick }: Props) => {
   return (
-    <header className='header'>
+    <header className="header">
       <div onClick={onLeftClick}>{left}</div>
-      <div className='header__title'>{title}</div>
+      <div className="header__title">{title}</div>
       <div onClick={onRightClick}>{right}</div>
-    </header>    
+    </header>
   );
-}
+};
 
 export default Header;

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { CloseIcon, SelectIcon } from "../../assets/icon";
 import useOpen from "../../hooks/useOpen";
 import "./TopDownFilter.scss";
 
@@ -23,16 +24,17 @@ const TopDownFilter = ({
         className={classNames(["top-down-filter__active", className])}
         onClick={onOpen}
       >
-        {activeFilter}🔽
+        {activeFilter}
+        <SelectIcon className="top-down-filter__active__icon" />
       </div>
       {isOpen && (
         <div className={classNames(["top-down-filter__list"])}>
           <div className="top-down-filter__list__header">
             <span>게시물 정렬</span>
-            <span className="top-down-filter__list__icon" onClick={onClose}>
-              ❌
-            </span>
-            {/* TODO: icon으로 변경 */}
+            <CloseIcon
+              className="top-down-filter__list__icon"
+              onClick={onClose}
+            />
           </div>
           {filterList.map((filter) => (
             <div

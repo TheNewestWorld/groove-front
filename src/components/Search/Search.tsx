@@ -1,4 +1,6 @@
 import classnames from "classnames";
+import { useState } from "react";
+import { CloseIcon, GreyDeleteCircle, SearchIcon } from "../../assets/icon";
 
 import "./Search.scss";
 
@@ -10,13 +12,20 @@ export interface Props {
 }
 
 const Search = ({ list, onClickCancle, onSubmitSearch, deleteItem }: Props) => {
+  const [keyword, setKeyword] = useState<string>("");
+
   return (
     <>
       <div className="search__input">
         <div className="search__input__container">
-          {/* TODO: 아이콘 */}
-          <span>🔍</span>
-          <input placeholder="검색" />
+          <SearchIcon className="search__input__icon" />
+          <input
+            value={keyword}
+            placeholder="검색"
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+          {/* TODO: 삭제 아이콘 클릭 시 뒤로가기 */}
+          {keyword.length > 0 && <GreyDeleteCircle />}
         </div>
         <button onClick={onClickCancle}>취소</button>
       </div>
@@ -27,9 +36,8 @@ const Search = ({ list, onClickCancle, onSubmitSearch, deleteItem }: Props) => {
             {itemList.map((item) => (
               <div key={item}>
                 <span onClick={() => onSubmitSearch(item)}>{item}</span>
-                {/* TODO: Icon 으로 변경 */}
                 {type === "line" && (
-                  <span onClick={() => deleteItem(item)}>X</span>
+                  <CloseIcon onClick={() => deleteItem(item)} />
                 )}
               </div>
             ))}
