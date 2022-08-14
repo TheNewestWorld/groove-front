@@ -1,4 +1,5 @@
 import { Meta } from "@storybook/react";
+import React from "react";
 import TrainingHistoryView, { Props } from "./TrainingHistory.view";
 
 export default {
@@ -28,14 +29,14 @@ export default {
         nickname: "음치몸치박치",
         date: new Date(),
         content: "코칭 부탁드립니다.",
-        status: "ready",
+        status: "in-progress",
       },
       {
         imageUrl: "",
         nickname: "음치몸치박치",
         date: new Date(),
         content: "코칭 부탁드립니다.",
-        status: "done",
+        status: "ready",
       },
       {
         imageUrl: "",
