@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { formatFullDate } from "../../helpers/dateHelper";
 import Badge from "./components/Badge";
-import "./HistoryItem.scss";
+import "./TrainingItem.scss";
 
 export interface Props {
   imageUrl: string;
