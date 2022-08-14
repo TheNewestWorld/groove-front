@@ -50,4 +50,4 @@ export default {
 
 const Template = (args: Props) => <TrainingHistoryView {...args} />;
 
-export const 홈 = Template.bind({});
+export const 기본 = Template.bind({});

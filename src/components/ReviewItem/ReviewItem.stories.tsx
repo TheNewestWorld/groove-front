@@ -8,7 +8,7 @@ export default {
     imageUrl: "",
     nickname: "음치몸치박치",
     date: new Date(),
-    content: "코칭 부탁드립니다.",
+    content: "코칭 잘해주시네요",
     score: 3,
   },
 } as Meta;
