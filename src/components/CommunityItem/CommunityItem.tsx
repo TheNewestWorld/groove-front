@@ -1,5 +1,3 @@
-import classnames from "classnames";
-
 import CircleImage from '../CircleImage'
 
 import './CommunityItem.scss'
@@ -33,7 +31,7 @@ const CommunityItem = ({
   return (
     <div className="community-item border" onClick={onClick}>
       <div className="community-item__header">
-        <CircleImage src={userImageSrc} classname={classnames(['item__header__img'])}/>
+        <CircleImage src={userImageSrc} className="item__header__img"/>
         <div className="community-item__header__user">{user}</div>
       </div>
       <div className="community-item__body">
@@ -41,8 +39,7 @@ const CommunityItem = ({
         <p className="community-item__body__description">{description}</p>
       </div>
       <div className="community-item__bottom">
-        { liked ? <img src={LikeActiveIcon}/> : <img src={LikeIcon}/> }
-
+        <img src={ liked ? LikeActiveIcon : LikeIcon}/>
         <div className="community-item__bottom__number">{likeCount}</div>
         <img src={CommentIcon} />
         <div className="community-item__bottom__number">{commentCount}</div>
