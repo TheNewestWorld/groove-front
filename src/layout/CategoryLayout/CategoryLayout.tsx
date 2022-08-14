@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { ArrowIcon } from "../../assets/icon";
 import "./CategoryLayout.scss";
 
 export interface Props {
@@ -22,7 +23,8 @@ const CategoryLayout = ({
     <div className="category-layout">
       <div className="category-layout__header">
         <div className="category-layout__title">
-          {title} {listLength}건{/* TODO: icon 추가 */}
+          {title} {listLength}건{/* TODO: 클릭 이벤트 붙이기 */}
+          <ArrowIcon className="category-layout__icon" />
         </div>
         {filterList.map((filter) => (
           <div

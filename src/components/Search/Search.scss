@@ -15,7 +15,7 @@
 
       & > input{
         border: none;
-        width: calc(100% - 50px);
+        flex-grow: 1;
         
         &:focus{
           outline: none;
@@ -24,6 +24,11 @@
           color: #8E929B;
         }
       }
+    }
+
+    &__icon{
+      width: 20px;
+      margin-right: 12px;
     }
 
     & > button {

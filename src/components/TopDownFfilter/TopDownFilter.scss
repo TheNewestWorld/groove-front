@@ -1,8 +1,13 @@
 .top-down-filter {
   &__active {
-    display: inline-block;
+    display: flex;
     font-weight: bold;
     width: inherit;
+
+    &__icon{
+      width: 10px;
+      margin-left: 5px;
+    }
   }
 
   &__list {
