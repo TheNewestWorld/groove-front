@@ -1,13 +1,12 @@
-import CircleImage from '../CircleImage'
+import CircleImage from "../CircleImage"
 
-import './CommunityItem.scss'
+import "./CommunityItem.scss"
 
-import LikeIcon from '../../assets/icon/like_small.svg'
-import LikeActiveIcon from '../../assets/icon/like_small_active.svg'
-import CommentIcon from '../../assets/icon/comment_small.svg'
-// TODO(in.heo): Icon Import를 한 파일로 모읍니다.
+import LikeIcon from "../../assets/icon/like_small.svg"
+import LikeActiveIcon from "../../assets/icon/like_small_active.svg"
+import CommentIcon from "../../assets/icon/comment_small.svg"
 
-interface props {
+export interface Props {
   user: string;
   userImageSrc: string;
   title: string;
@@ -27,7 +26,7 @@ const CommunityItem = ({
   commentCount,
   liked,
   onClick
-}: props) => {
+}: Props) => {
   return (
     <div className="community-item border" onClick={onClick}>
       <div className="community-item__header">

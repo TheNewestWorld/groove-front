@@ -1,8 +1,8 @@
-import { ComponentStory } from '@storybook/react';
-import CommunityItem from './CommunityItem';
+import { Meta } from "@storybook/react";
+import CommunityItem, { Props } from "./CommunityItem";
 
 export default {
-  title: 'Components/CommunityItem',
+  title: "components/CommunityItem",
   component: CommunityItem,
   args: {
     user: "Greenholt",
@@ -13,8 +13,8 @@ export default {
     commentCount: 234,
     liked: false
   },
-};
+} as Meta;
 
-const Template: ComponentStory<typeof CommunityItem> = (args) => <CommunityItem {...args} />;
+const Template = (args: Props) => <CommunityItem {...args} />;
 
 export const 기본 = Template.bind({});
