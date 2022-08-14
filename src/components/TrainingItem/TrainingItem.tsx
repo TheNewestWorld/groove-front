@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { formatFullDate } from "../../helpers/dateHelper";
+import CircleImage from "../CircleImage";
 import Badge from "./components/Badge";
 import "./TrainingItem.scss";
 
@@ -22,8 +23,7 @@ const TrainingItem = ({
 }: Props) => {
   return (
     <div className={classNames(["history-item", className])}>
-      {/* TODO: circleImage로 변경 */}
-      <img className="history-itme__image" src={imageUrl} alt="" />
+      <CircleImage className="history-item__image" src={imageUrl} />
       <div className="history-item__flex">
         <div className="history-item__information">
           <div className="history-item__nickname">{nickname}</div>
