@@ -30,7 +30,7 @@ const TopDownFilter = ({
       </div>
       {isOpen && (
         <BottomSheetList
-          header="정렬 순서를 선택해주세요."
+          title="정렬 순서를 선택해주세요."
           list={filterList}
           activeItem={activeFilter}
           onClick={onClickFilter}
