@@ -1,0 +1,31 @@
+.training-detail {
+  &__header {
+    padding: 16px 20px;
+  }
+
+  & > hr {
+    border: 1px solid #EBEBEB;
+    margin: 0px 20px;
+  }
+
+  & > .content {
+    margin: 16px 20px;
+  }
+
+  & > .divider {
+    width: 100%;
+    height: 13px;
+    background-color: #F2F4F5;
+  }
+
+  &__feedback {
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #F6F7FA;
+    border-radius: 20px;
+
+    &.center {
+      text-align: center;
+    }
+  }
+}
