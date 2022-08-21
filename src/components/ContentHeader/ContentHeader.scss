@@ -1,0 +1,40 @@
+.content-header {
+  width: calc(100% - 40px);
+  align-items: center;
+  padding: 20px;
+
+  &__flex {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.0025em;
+    color: #191F28;
+    margin-bottom: 20px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__nickname {
+    align-items: center;
+    margin: 0px 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 44px;
+  }
+
+  &__date {
+    margin: 0px 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #8B95A1;    
+  }
+}
