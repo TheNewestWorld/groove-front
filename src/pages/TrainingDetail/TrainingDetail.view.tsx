@@ -32,8 +32,9 @@ const TrainingDetailView = ({
         imageUrl={profileImage}
         nickname={nickname}
         date={date}
+        className="training-detail__header"
       />
-
+      <hr />
       <div className="content">{content}</div>
 
       <div className="divider" />

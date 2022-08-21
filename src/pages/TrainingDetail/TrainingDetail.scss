@@ -1,4 +1,13 @@
 .training-detail {
+  &__header {
+    padding: 16px 20px;
+  }
+
+  & > hr {
+    border: 1px solid #EBEBEB;
+    margin: 0px 20px;
+  }
+
   & > .content {
     margin: 16px 20px;
   }
