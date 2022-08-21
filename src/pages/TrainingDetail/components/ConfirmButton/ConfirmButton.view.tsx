@@ -1,5 +1,6 @@
 import React from "react";
 import useOpen from "../../../../hooks/useOpen";
+import FeedbackDialog from "../FeedbackDialog";
 import "./ConfirmButton.scss";
 
 interface Props {
@@ -7,12 +8,23 @@ interface Props {
 }
 
 const ConfirmButtonView = ({ trainerName }: Props) => {
-  const { isOpen, onOpen, onClose } = useOpen();
+  const {
+    isOpen: isShowModal,
+    onOpen: onOpenModal,
+    onClose: onCloseModal,
+  } = useOpen();
+
+  const {
+    isOpen: isShowDialog,
+    onOpen: onOpenDialog,
+    onClose: onCloseDialog,
+  } = useOpen();
+
   return (
     <>
       {/* roundbutton으로 변경 */}
-      <button onClick={onOpen}>코칭 내용을 확인했어요.</button>
-      {isOpen && (
+      <button onClick={onOpenModal}>코칭 내용을 확인했어요.</button>
+      {isShowModal && (
         <div className="confirm-button__bottom-sheet">
           <div className="confirm-button__title">
             {trainerName} 트레이너의
@@ -22,8 +34,8 @@ const ConfirmButtonView = ({ trainerName }: Props) => {
           <div>
             <button
               onClick={() => {
-                alert("TODO: 모달 띄우기");
-                onClose();
+                onOpenDialog();
+                onCloseModal();
               }}
             >
               조금 아쉬워요
@@ -31,7 +43,7 @@ const ConfirmButtonView = ({ trainerName }: Props) => {
             <button
               onClick={() => {
                 alert("TODO: 리뷰 작성화면 이동");
-                onClose();
+                onCloseModal();
               }}
             >
               네, 만족해요
@@ -39,6 +51,16 @@ const ConfirmButtonView = ({ trainerName }: Props) => {
           </div>
         </div>
       )}
+
+      <FeedbackDialog
+        isShow={isShowDialog}
+        nickname={trainerName}
+        onClickCancle={onCloseDialog}
+        onClickOk={() => {
+          alert("TODO: 코칭 신청화면 이동");
+          onCloseDialog();
+        }}
+      />
     </>
   );
 };
