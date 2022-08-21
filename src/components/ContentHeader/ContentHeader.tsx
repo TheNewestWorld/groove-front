@@ -25,7 +25,7 @@ const ContentHeader = ({
     <div className={classNames(["content-header", className])}>
       <div className="content-header__title">{title}</div>
       <div className="content-header__flex">
-        <CircleImage className="content-header__image" src={imageUrl} onClick={onProfileClick}/>
+        <CircleImage src={imageUrl} onClick={onProfileClick}/>
         <div className="content-header__nickname" onClick={onProfileClick}>{nickname}</div>
         <div className="content-header__date">{formatFullDate(date)}</div>
       </div>

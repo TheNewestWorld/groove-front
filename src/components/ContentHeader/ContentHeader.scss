@@ -1,7 +1,5 @@
 .content-header {
-  width: calc(100% - 40px);
-  align-items: center;
-  padding: 20px;
+  width: 100%;
 
   &__flex {
     display: flex;
@@ -9,26 +7,17 @@
   }
 
   &__title {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0.0025em;
     color: #191F28;
     margin-bottom: 20px;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__nickname {
-    align-items: center;
     margin: 0px 10px;
     font-weight: 600;
     font-size: 14px;
-    line-height: 44px;
   }
 
   &__date {
