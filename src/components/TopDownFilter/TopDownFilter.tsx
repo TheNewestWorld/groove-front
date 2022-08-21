@@ -28,9 +28,9 @@ const TopDownFilter = ({
         <SelectIcon className="top-down-filter__active__icon" />
       </div>
       {isOpen && (
-        <div className={classNames(["top-down-filter__list"])}>
+        <div className="top-down-filter__list">
           <div className="top-down-filter__list__header">
-            <span>게시물 정렬</span>
+            <span>정렬 순서를 선택해주세요.</span>
             <CloseIcon
               className="top-down-filter__list__icon"
               onClick={onClose}
