@@ -15,9 +15,6 @@ export default {
 const Template: Story<Props> = (args: Props) => <RoundButton {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  colorTheme: "primary",
-};
 
 export const Secondary = Template.bind({});
 Secondary.args = {

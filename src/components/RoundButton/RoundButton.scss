@@ -6,6 +6,7 @@
   display: inline-block;
   border: none;
   border-radius: 20px;
+  font-size: 17px;
   text-align: center;
   text-decoration: none;
   height: 55px;
@@ -13,7 +14,6 @@
 
   &.primary {
     background: #437ced;
-    font-size: 17px;
     color: #ffffff;
   }
 

@@ -5,7 +5,7 @@ import "./RoundButton.scss";
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  colorTheme: "primary" | "secondary";
+  colorTheme?: "primary" | "secondary";
   onClick?: () => void;
   className?: string;
 }
