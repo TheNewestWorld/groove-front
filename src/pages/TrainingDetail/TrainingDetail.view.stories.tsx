@@ -26,26 +26,19 @@ const Template: Story<Props> = (args: Props) => (
   <TrainingDetailView {...args} />
 );
 
-export const 작성자_피드백_있음 = Template.bind({});
-작성자_피드백_있음.args = {
-  status: "in-progress",
-};
-
-export const 트레이너_피드백_있음 = Template.bind({});
-트레이너_피드백_있음.args = {
-  role: "trainer",
-  status: "in-progress",
-};
-
-export const 기타_피드백_있음 = Template.bind({});
-기타_피드백_있음.args = {
-  role: "unknown",
-};
 
 export const 작성자_피드백_없음 = Template.bind({});
 작성자_피드백_없음.args = {
   status: "ready",
   feedback: undefined,
+};
+export const 작성자_피드백_있음 = Template.bind({});
+작성자_피드백_있음.args = {
+  status: "in-progress",
+};
+export const 작성자_코칭_완료 = Template.bind({});
+작성자_코칭_완료.args = {
+  status: "done",
 };
 
 export const 트레이너_피드백_없음 = Template.bind({});
@@ -54,20 +47,23 @@ export const 트레이너_피드백_없음 = Template.bind({});
   role: "trainer",
   status: "ready",
 };
-
-export const 기타_피드백_없음 = Template.bind({});
-기타_피드백_없음.args = {
-  feedback: undefined,
-  role: "unknown",
+export const 트레이너_피드백_있음 = Template.bind({});
+트레이너_피드백_있음.args = {
+  role: "trainer",
+  status: "in-progress",
 };
-
 export const 트레이너_코칭_완료 = Template.bind({});
 트레이너_코칭_완료.args = {
   role: "trainer",
   status: "done",
 };
 
-export const 작성자_코칭_완료 = Template.bind({});
-작성자_코칭_완료.args = {
-  status: "done",
+export const 기타_피드백_없음 = Template.bind({});
+기타_피드백_없음.args = {
+  feedback: undefined,
+  role: "unknown",
+};
+export const 기타_피드백_있음 = Template.bind({});
+기타_피드백_있음.args = {
+  role: "unknown",
 };
