@@ -3,6 +3,7 @@ import { CloseIcon } from "../../assets/icon";
 import styles from "./BottomSheet.module.scss";
 
 export interface Props {
+  isShow?: boolean;
   title?: string;
   hasCloseButton?: boolean;
   children?: React.ReactNode;
@@ -10,12 +11,17 @@ export interface Props {
 }
 
 const BottomSheetView = ({
+  isShow = true,
   title,
-  hasCloseButton = false,
+  hasCloseButton = true,
   children,
   onClose,
 }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  if (!isShow) {
+    return null;
+  }
 
   return (
     <div

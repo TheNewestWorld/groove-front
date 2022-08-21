@@ -5,6 +5,7 @@ export default {
   title: "components/BottomSheetList",
   component: BottomSheetList,
   args: {
+    hasCloseButton: false,
     title: "정렬 순서를 선택해주세요.",
     activeItem: "최신순",
     list: ["최신순", "인기순", "댓글순"],
