@@ -1,0 +1,29 @@
+.content-header {
+  width: 100%;
+
+  &__flex {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    color: #191F28;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__nickname {
+    margin: 0px 10px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &__date {
+    margin: 0px 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #8B95A1;    
+  }
+}
