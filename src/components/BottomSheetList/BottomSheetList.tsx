@@ -1,10 +1,9 @@
 import classNames from "classnames";
-import { useRef } from "react";
-import { CloseIcon } from "../../assets/icon";
-import "./BottomSheetList.scss";
+import BottomSheet from "../BottomSheet";
+import styles from "./BottomSheetList.module.scss";
 
 export interface Props {
-  header?: string;
+  title?: string;
   list: string[];
   activeItem?: string;
   onClick?: (value: string) => void;
@@ -13,49 +12,35 @@ export interface Props {
 }
 
 const BottomSheetList = ({
-  header,
+  title,
   list,
   activeItem = "",
   onClick,
-  hasCloseButton = true,
+  hasCloseButton,
   onClose,
 }: Props) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div
-      ref={containerRef}
-      className="bottom-sheet-list__container"
-      onClick={(e) => {
-        if (e.target === containerRef.current) {
-          onClose();
-        }
-      }}
+    <BottomSheet
+      onClose={onClose}
+      hasCloseButton={hasCloseButton}
+      title={title}
     >
-      <div className="bottom-sheet-list">
-        <div className="bottom-sheet-list__header">
-          {header && <span>{header}</span>}
-          {hasCloseButton && (
-            <CloseIcon className="bottom-sheet-list__icon" onClick={onClose} />
-          )}
+      {list.map((item) => (
+        <div
+          key={item}
+          className={classNames([
+            styles.item,
+            activeItem === item && styles.active,
+          ])}
+          onClick={() => {
+            onClick?.(item);
+            onClose?.();
+          }}
+        >
+          {item}
         </div>
-        {list.map((item) => (
-          <div
-            key={item}
-            className={classNames([
-              "bottom-sheet-list__item",
-              activeItem === item && "active",
-            ])}
-            onClick={() => {
-              onClick?.(item);
-              onClose?.();
-            }}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
+      ))}
+    </BottomSheet>
   );
 };
 
