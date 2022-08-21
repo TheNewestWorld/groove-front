@@ -2,16 +2,23 @@ import classNames from "classnames";
 import "./RoundBox.scss";
 
 export interface Props {
-  hasShadow: boolean;
+  hasShadow?: boolean;
   children?: React.ReactNode;
+  className?: string;
 }
 
 const RoundBox = ({
   children,
-  hasShadow
+  hasShadow = false,
+  className,
 }: Props): React.ReactElement => {
   return (
-    <div className={classNames(["round-box", hasShadow && "round-box__shadow"])}>
+    <div
+      className={classNames([
+        "round-box",
+        hasShadow && "round-box__shadow",
+        className,
+      ])}>
       {children}
     </div>
   );
