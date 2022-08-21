@@ -1,0 +1,29 @@
+.round-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  font-size: 17px;
+  text-align: center;
+  text-decoration: none;
+  height: 55px;
+  width: 100%;
+
+  &.primary {
+    background: #437ced;
+    color: #ffffff;
+  }
+
+  &.secondary {
+    background: #f2f4f5;
+    color: #4e5968;
+  }
+
+  &:disabled {
+    background: #f2f4f5;
+    color: #ffffff;
+  }
+}
