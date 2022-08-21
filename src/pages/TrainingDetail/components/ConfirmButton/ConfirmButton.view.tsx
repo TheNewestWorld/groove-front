@@ -28,6 +28,7 @@ const ConfirmButtonView = ({ trainerName }: Props) => {
 
       <BottomSheet
         isShow={isShowBottomSheet}
+        // 줄바꿈 되게 수정
         title={`${trainerName} 트레이너의\n피드백은 만족스러우셨나요?`}
         onClose={onCloseBottomSheet}
       >
