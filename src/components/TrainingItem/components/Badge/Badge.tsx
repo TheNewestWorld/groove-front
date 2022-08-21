@@ -12,7 +12,7 @@ const Badge = ({ status, className }: Props) => {
   return (
     <div className={classnames(["badge", status, className])}>
       {status === "ready" && "수락대기"}
-      {status === "in-progress" && "확인대기"}
+      {status === "in-progress" && "답변완료"}
       {status === "done" && "코칭완료"}
     </div>
   );
