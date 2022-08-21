@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import BottomSheetList, { Props } from "./BottomSheetList";
 
 export default {
@@ -12,6 +12,16 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <BottomSheetList {...args} />;
+const Template: Story<Props> = (args: Props) => <BottomSheetList {...args} />;
 
 export const 기본 = Template.bind({});
+
+export const 닫기_없음 = Template.bind({});
+닫기_없음.args = {
+  hasCloseButton: false,
+};
+
+export const 헤더_없음 = Template.bind({});
+헤더_없음.args = {
+  header: undefined,
+};
