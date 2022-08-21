@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import { CloseIcon, SelectIcon } from "../../assets/icon";
+import { SelectIcon } from "../../assets/icon";
 import useOpen from "../../hooks/useOpen";
+import BottomSheetList from "../BottomSheetList";
 import "./TopDownFilter.scss";
 
 export interface Props {
@@ -28,30 +29,13 @@ const TopDownFilter = ({
         <SelectIcon className="top-down-filter__active__icon" />
       </div>
       {isOpen && (
-        <div className={classNames(["top-down-filter__list"])}>
-          <div className="top-down-filter__list__header">
-            <span>게시물 정렬</span>
-            <CloseIcon
-              className="top-down-filter__list__icon"
-              onClick={onClose}
-            />
-          </div>
-          {filterList.map((filter) => (
-            <div
-              key={filter}
-              className={classNames([
-                "top-down-filter__item",
-                activeFilter === filter && "active",
-              ])}
-              onClick={() => {
-                onClickFilter(filter);
-                onClose();
-              }}
-            >
-              {filter}
-            </div>
-          ))}
-        </div>
+        <BottomSheetList
+          header="정렬 순서를 선택해주세요."
+          list={filterList}
+          activeItem={activeFilter}
+          onClick={onClickFilter}
+          onClose={onClose}
+        />
       )}
     </>
   );
