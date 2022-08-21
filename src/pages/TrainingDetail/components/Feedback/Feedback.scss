@@ -1,0 +1,9 @@
+.feedback-container {
+  & > hr {
+    border: 1px solid #EBEBEB;
+  }
+}
+
+.feedback-content {
+  margin: 16px 0px;
+}
