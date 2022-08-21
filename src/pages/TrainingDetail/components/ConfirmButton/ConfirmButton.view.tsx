@@ -1,4 +1,5 @@
 import React from "react";
+import BottomSheet from "../../../../components/BottomSheet";
 import useOpen from "../../../../hooks/useOpen";
 import FeedbackDialog from "../FeedbackDialog";
 import "./ConfirmButton.scss";
@@ -9,9 +10,9 @@ interface Props {
 
 const ConfirmButtonView = ({ trainerName }: Props) => {
   const {
-    isOpen: isShowModal,
-    onOpen: onOpenModal,
-    onClose: onCloseModal,
+    isOpen: isShowBottomSheet,
+    onOpen: onOpenBottomSheet,
+    onClose: onCloseBottomSheet,
   } = useOpen();
 
   const {
@@ -23,34 +24,32 @@ const ConfirmButtonView = ({ trainerName }: Props) => {
   return (
     <>
       {/* roundbutton으로 변경 */}
-      <button onClick={onOpenModal}>코칭 내용을 확인했어요.</button>
-      {isShowModal && (
-        <div className="confirm-button__bottom-sheet">
-          <div className="confirm-button__title">
-            {trainerName} 트레이너의
-            <br />
-            피드백은 만족스러우셨나요?
-          </div>
-          <div>
-            <button
-              onClick={() => {
-                onOpenDialog();
-                onCloseModal();
-              }}
-            >
-              조금 아쉬워요
-            </button>
-            <button
-              onClick={() => {
-                alert("TODO: 리뷰 작성화면 이동");
-                onCloseModal();
-              }}
-            >
-              네, 만족해요
-            </button>
-          </div>
+      <button onClick={onOpenBottomSheet}>코칭 내용을 확인했어요.</button>
+
+      <BottomSheet
+        isShow={isShowBottomSheet}
+        title={`${trainerName} 트레이너의\n피드백은 만족스러우셨나요?`}
+        onClose={onCloseBottomSheet}
+      >
+        <div>
+          <button
+            onClick={() => {
+              onOpenDialog();
+              onCloseBottomSheet();
+            }}
+          >
+            조금 아쉬워요
+          </button>
+          <button
+            onClick={() => {
+              alert("TODO: 리뷰 작성화면 이동");
+              onCloseBottomSheet();
+            }}
+          >
+            네, 만족해요
+          </button>
         </div>
-      )}
+      </BottomSheet>
 
       <FeedbackDialog
         isShow={isShowDialog}
