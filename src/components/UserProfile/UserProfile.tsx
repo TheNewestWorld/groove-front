@@ -14,11 +14,11 @@ const UserProfile = ({
   src,
   className,
   onClick,
-}: Props): React.ReactElement => {
+}: Props) => {
   return (
-    <div className={classNames([className, styles.container])}>
-      <CircleImage src={src} className={styles.userProfile} />
-      <BlueAddIcon className={styles.plusIcon} onClick={onClick}/>
+    <div className={classNames([className, styles.container])} onClick={onClick}>
+      <CircleImage src={src} className={styles.userProfile}/>
+      <BlueAddIcon className={styles.plusIcon}/>
     </div>
   );
 };
