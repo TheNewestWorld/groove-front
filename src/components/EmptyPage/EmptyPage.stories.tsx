@@ -13,7 +13,7 @@ export default {
 
 const Template: Story<Props> = (args : Props) => <EmptyPage {...args} />;
 
-export const Default = Template.bind({});
+export const 제목내용 = Template.bind({});
 
 export const 제목만 = Template.bind({});
 제목만.args = {

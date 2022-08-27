@@ -12,7 +12,7 @@ const EmptyPage = ({
   title,
   description,
   className,
-}: Props): React.ReactElement => {
+}: Props) => {
   return (
     <div className={classNames([className, styles.container])}>
       <div className={styles.message}>
