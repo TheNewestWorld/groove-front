@@ -1,3 +1,4 @@
+@import "../../constants/color";
 .round-button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -13,17 +14,17 @@
   width: 100%;
 
   &.primary {
-    background: #437ced;
-    color: #ffffff;
+    background: $secondary-normal;
+    color: $black-FF;
   }
 
   &.secondary {
-    background: #f2f4f5;
-    color: #4e5968;
+    background: $black-F2;
+    color: $black-4E;
   }
 
   &:disabled {
-    background: #f2f4f5;
-    color: #ffffff;
+    background: $black-F2;
+    color: $black-FF;
   }
 }

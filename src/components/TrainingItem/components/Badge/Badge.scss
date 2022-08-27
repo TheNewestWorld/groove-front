@@ -1,3 +1,4 @@
+@import "../../../../constants/color";
 .badge {
   height: fit-content;
   padding: 5px 9px;
@@ -5,17 +6,17 @@
   font-weight: 700;
 
   &.done {
-    background-color: #DFEAFD;
-    color: #1C62D9;
+    background-color: $blue-DF;
+    color: $blud-1C;
   }
 
   &.ready{
-   background-color: #F2F4F5;
-    color: #6B7684;
+  background-color: $black-F2;
+    color: $black-6B;
   }
 
   &.in-progress{
-    background-color: #F9EBEC;
-    color: #DD5458;
+    background-color: $red-F9;
+    color: $red-DD;
   }
 }

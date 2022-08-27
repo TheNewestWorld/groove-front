@@ -1,3 +1,4 @@
+@import "../../constants/color";
 .search {
   &__input {
     display: flex;
@@ -10,7 +11,7 @@
       margin-right: 20px;
       font-size: 15px;
       border-radius: 20px;
-      border: 1px solid #EBEBEB;
+      border: 1px solid $black-EB;
       padding: 10px;
 
       & > input{
@@ -21,7 +22,7 @@
           outline: none;
         }
         &::placeholder{
-          color: #8E929B;
+          color: $black-8B;
         }
       }
     }
@@ -48,11 +49,11 @@
       margin-top: 24px;
       padding: 16px 0px;
       font-size: 14px;
-      color: #8e929b;
+      color: $black-8B;
     }
 
     &__item {
-      color: #262626;
+      color: $black-19;
       font-size: 16px;
       font-weight: bold;
       &.tag{
@@ -75,7 +76,7 @@
 
         & > div{
           border-radius: 10px;
-          background-color: #F2F4F5;
+          background-color: $black-F2;
           padding: 10px 10px;
           margin-right: 10px;
         }

@@ -1,6 +1,7 @@
+@import "../../../../constants/color";
 .feedback-container {
   & > hr {
-    border: 1px solid #EBEBEB;
+    border: 1px solid $black-EB;
   }
 }
 
