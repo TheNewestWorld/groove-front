@@ -4,7 +4,7 @@
   text-align: center;
   display:table;
 }
-
+@import "../../constants/color";
 .message {
   text-align: center;
   display:table-cell;
@@ -14,11 +14,11 @@
 .title {
   font-weight: 500;
   font-size: 18px;
-  color: #191F28;  
+  color: $black-19;  
 }
 
 .description {
   font-weight: 400;
   font-size: 16px;
-  color: #8B95A1;
+  color: $black-8B;
 }
