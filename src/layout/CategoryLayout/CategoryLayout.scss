@@ -1,3 +1,4 @@
+@import "../../constants/color";
 .category-layout {
   &__header {
     display: flex;
@@ -36,12 +37,12 @@
     margin-right: 7px;
     padding: 8px 10px;
     border-radius: 18px;
-    background-color: #f2f4f5;
-    color: #6B7684;
+    background-color: $black-F2;
+    color: $black-6B;
 
     &.active {
-      background-color: #191F28;
-      color: #F2F4F5;
+      background-color: $black-19;
+      color: $black-F2;
     }
   }
 }

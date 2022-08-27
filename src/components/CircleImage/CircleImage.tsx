@@ -17,7 +17,7 @@ const CircleImage = ({
 }: Props): React.ReactElement => {
   return (
     <div className={classnames(["circle-image", className])}>
-      <img src={src} onClick={onClick} {...args} />
+      <img src={src} onClick={onClick} alt="" {...args} />
     </div>
   );
 };

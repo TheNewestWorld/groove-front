@@ -16,7 +16,7 @@ export { ReactComponent as ArrowTailIcon } from "./arrow_tail.svg";
 // 여러 화면에서 사용하는 아이콘
 export { ReactComponent as BlueAddIcon } from "./add_blue_circle.svg";
 export { ReactComponent as ArrowIcon } from "./arrow.svg";
-export { ReactComponent as BludCameraIcon } from "./camera_blue.svg";
+export { ReactComponent as BlueCameraIcon } from "./camera_blue.svg";
 export { ReactComponent as ChatIcon } from "./chat.svg";
 export { ReactComponent as CloseIcon } from "./close.svg";
 export { ReactComponent as DeleteIcon } from "./delete.svg";

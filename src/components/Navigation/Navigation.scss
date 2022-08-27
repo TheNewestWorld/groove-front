@@ -1,10 +1,11 @@
+@import "../../constants/color";
 .navigation {
   width: 100%;
   z-index: 10;
   position: fixed;
   left: 0;
   bottom: 0;
-  border-top: solid 1px #EBEBEB;
+  border-top: solid 1px $black-EB;
   font-size: 11px;
 
   &>button {
@@ -12,10 +13,10 @@
     height: 70px;
     border: none;
     background-color: transparent;
-    color: #8E929B;
+    color: $black-E2;
 
     &.blue {
-      color: #437CED;
+      color: $black-nav;
     }
   }
 }
