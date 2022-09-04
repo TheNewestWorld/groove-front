@@ -1,0 +1,25 @@
+@import "../../constants/color";
+
+.trainingHistoryItem {
+  margin-bottom: 10px;
+}
+
+.reviewHistoryItem {
+  margin-bottom: 10px;
+}
+
+.reviewRatingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.reviewRatingIcon {
+  margin-right: 2px;
+  width: 13px;
+  height: 13px;
+}
+
+.reviewRatingText {
+  font-size: 12px;
+  color: $black-8B;
+}
