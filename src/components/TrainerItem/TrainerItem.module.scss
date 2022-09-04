@@ -1,0 +1,113 @@
+@import "../../constants/color";
+
+.small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 28px;
+  border-radius: 20px;
+  box-shadow: 0px 1px 2px 1px rgba(119, 119, 119, 0.08), 0px 2px 4px 2px rgba(34, 34, 34, 0.05);
+  
+  .image {
+    width: 107px;
+    height: 107px;
+  }
+  
+  .nicknameContainer {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  .nickname {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 8px;
+    color: $black-19;
+  }
+
+  .category {
+    padding: 4px 10px;
+    color: $black-6B;
+    font-weight: 600;
+    background-color: $black-F2;
+    border-radius: 13px;
+  }
+
+  .introduce {
+    font-size: 17px;
+    color: $black-19;
+    padding-bottom: 28px;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+    .number {
+      margin-left: 5px;
+      margin-right: 11px;
+      font-size: 14px;
+      color: $black-6B;
+    }
+  }
+}
+
+.large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 0px;
+  
+  .image {
+    width: 129px;
+    height: 129px;
+  }
+  
+  .nicknameContainer {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
+  .nickname {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 8px;
+    color: $black-19;
+  }
+
+  .category {
+    padding: 4px 10px;
+    color: $black-6B;
+    font-weight: 600;
+    background-color: $black-F2;
+    border-radius: 13px;
+  }
+
+  .introduce {
+    font-size: 17px;
+    color: $black-19;
+    padding-bottom: 30px;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+    .number {
+      margin-left: 5px;
+      margin-right: 11px;
+      font-size: 14px;
+      color: $black-6B;
+    }
+  }
+}
+  
