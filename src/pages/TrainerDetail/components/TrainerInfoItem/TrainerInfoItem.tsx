@@ -1,17 +1,41 @@
-import './TrainerInfoItem.scss';
+import TrainerInfoLayout from "../TrainerInfoLayout";
+import styles from "./TrainerInfoItem.module.scss";
 
-interface props {
+export interface Props {
   title: string;
-  content: string;
+  infoTextOrItems: string[];
+  infoType?: "TEXT" | "LIST";
+  mediaList?: string[];
+  mediaType?: "IMAGE" | "VIDEO";
 }
 
-const TrainerInfoItem = ({title, content}: props): React.ReactElement => {
+const TrainerInfoItem = ({
+  title,
+  infoTextOrItems,
+  infoType = "TEXT",
+  mediaList,
+  mediaType,
+}: Props) => {
   return (
-    <div className="trainer-info-item">
-      <p className='trainer-info-item__title'>{title}</p>
-      <p className='trainer-info-item__content'>{content}</p>
-    </div>
+    <TrainerInfoLayout title={title}>
+      <div>
+        {infoType &&
+          infoType == "LIST" &&
+          infoTextOrItems.map(item => (
+            <div className={styles.infoList}>{item}</div>
+          ))}
+        {infoType && infoType == "TEXT" && (
+          <div className={styles.infoText}>{infoTextOrItems[0]}</div>
+        )}
+      </div>
+      {mediaType && mediaList && (
+        <div className={styles.mediaContainer}>
+          {mediaType == "IMAGE" && <img src={mediaList[0]} />}
+          {mediaType == "VIDEO" && <img src={mediaList[0]} />}
+        </div>
+      )}
+    </TrainerInfoLayout>
   );
-}
+};
 
 export default TrainerInfoItem;
