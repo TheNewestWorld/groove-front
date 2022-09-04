@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import TrainingItem, { Props } from "./TrainingItem";
 
 export default {
-  title: "components/TrainingItem",
+  title: "components/training/TrainingItem",
   component: TrainingItem,
   args: {
     imageUrl: "",

@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import CommunityItem, { Props } from "./CommunityItem";
 
 export default {
-  title: "components/CommunityItem",
+  title: "components/community/CommunityItem",
   component: CommunityItem,
   args: {
     user: "Greenholt",
