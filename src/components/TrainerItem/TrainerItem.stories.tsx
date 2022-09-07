@@ -26,3 +26,10 @@ export const 큰 = Template.bind({});
 큰.args = {
   size: "LARGE",
 };
+
+export const 작은_좋아요 = Template.bind({});
+작은_좋아요.args = {
+  onClick: () => alert("아이템 선택"),
+  liked: true
+};
+

@@ -26,8 +26,8 @@ const TrainerItem = ({
   categoryName,
   introduce,
   liked = false,
-  likeCount = 0,
-  commentCount = 0,
+  likeCount,
+  commentCount,
   onClick,
   size = "SMALL",
 }: Props) => {

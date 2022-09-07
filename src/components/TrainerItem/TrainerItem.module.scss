@@ -20,40 +20,10 @@
     padding-bottom: 20px;
   }
 
-  .nickname {
-    font-size: 20px;
-    font-weight: 600;
-    margin-right: 8px;
-    color: $black-19;
-  }
-
-  .category {
-    padding: 4px 10px;
-    color: $black-6B;
-    font-weight: 600;
-    background-color: $black-F2;
-    border-radius: 13px;
-  }
-
   .introduce {
     font-size: 17px;
     color: $black-19;
     padding-bottom: 28px;
-  }
-
-  .bottom {
-    display: flex;
-    align-items: center;
-    .icon {
-      width: 12px;
-      height: 12px;
-    }
-    .number {
-      margin-left: 5px;
-      margin-right: 11px;
-      font-size: 14px;
-      color: $black-6B;
-    }
   }
 }
 
@@ -74,40 +44,40 @@
     padding-bottom: 20px;
   }
 
-  .nickname {
-    font-size: 20px;
-    font-weight: 600;
-    margin-right: 8px;
-    color: $black-19;
-  }
-
-  .category {
-    padding: 4px 10px;
-    color: $black-6B;
-    font-weight: 600;
-    background-color: $black-F2;
-    border-radius: 13px;
-  }
-
   .introduce {
     font-size: 17px;
     color: $black-19;
     padding-bottom: 30px;
   }
+}
 
-  .bottom {
-    display: flex;
-    align-items: center;
-    .icon {
-      width: 12px;
-      height: 12px;
-    }
-    .number {
-      margin-left: 5px;
-      margin-right: 11px;
-      font-size: 14px;
-      color: $black-6B;
-    }
+.nickname {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 8px;
+  color: $black-19;
+}
+
+.category {
+  padding: 4px 10px;
+  color: $black-6B;
+  font-weight: 600;
+  background-color: $black-F2;
+  border-radius: 13px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  .icon {
+    // TODO(in.heo): 피그마에 명시된 사이즈에 비해 작아보여 조금 크게 잡았습니다. (12px -> 15px) 추후에 디자인적으로 변경이 필요할 지 확인해보겠습니다.
+    width: 15px;
+    height: 15px;
+  }
+  .number {
+    margin-left: 5px;
+    margin-right: 11px;
+    font-size: 14px;
+    color: $black-6B;
   }
 }
-  
