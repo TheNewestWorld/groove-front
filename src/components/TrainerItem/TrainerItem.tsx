@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import CircleImage from "../CircleImage";
 
 import styles from "./TrainerItem.module.scss";
@@ -18,6 +19,7 @@ export interface Props {
   commentCount: number;
   size?: "SMALL" | "LARGE";
   onClick?: () => void;
+  className?: string;
 }
 
 const TrainerItem = ({
@@ -30,10 +32,14 @@ const TrainerItem = ({
   commentCount,
   onClick,
   size = "SMALL",
+  className,
 }: Props) => {
   return (
     <div
-      className={size == "LARGE" ? styles.large : styles.small}
+      className={classNames([
+        size == "LARGE" ? styles.large : styles.small,
+        className,
+      ])}
       onClick={onClick}>
       <CircleImage src={imageUrl} className={styles.image} />
       <div className={styles.nicknameContainer}>
