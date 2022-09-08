@@ -1,0 +1,24 @@
+@import "../../constants/color";
+
+.container {
+  margin: 20px;
+  height: calc(100% - 70px)
+}
+
+.mainHeader {
+  margin-bottom: 20px;
+}
+
+.tabList {
+  margin-bottom: 20px;
+  margin-left: 4px;
+}
+
+.topDownFilter {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.trainerItem {
+  margin-bottom: 16px;
+}
