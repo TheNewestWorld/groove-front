@@ -4,6 +4,8 @@
 
 .circle-image{border-radius:50%;height:28px;width:28px}.circle-image>img{border-radius:50%;width:100%;height:100%;object-fit:cover}
 
+.CommunityFooter_container__xydyL{border-top:1px solid #EBEBEB;padding:22px 20px;display:flex;font-size:16px;font-weight:400;color:#4E5968;justify-content:flex-end}.CommunityFooter_icon__VWvo7{width:24px;height:24px;margin:0px 8px 0px 14px}
+
 .community-item{display:flex;flex-direction:column;border:1px solid #F2F4F5;border-radius:4px;padding:0px 20px}.community-item__header{display:flex;flex-direction:row;align-items:center;margin:18px 0px}.community-item__header__img{height:28px;width:28px;object-fit:fill}.community-item__header__user{font-size:18px;line-height:44px;font-weight:600;margin-left:12px}.community-item__body{width:100%;direction:column;align-items:center}.community-item__body__title{width:100%;font-size:16px;line-height:22px;font-weight:600;letter-spacing:0.0025em;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}.community-item__body__description{width:100%;font-size:15px;line-height:20px;letter-spacing:0.0025em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}.community-item__bottom{display:flex;flex-direction:row;align-items:center;margin-top:16px;padding-bottom:20px}.community-item__bottom__number{margin-left:5px;margin-right:10px;font-size:14px;line-height:20px;letter-spacing:-0.04em;color:#8B95A1}.community-item__bottom__icon{width:12px;height:12px}.elevated-round-border{background:#fff;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);border-radius:20px}
 
 .content-header{width:100%}.content-header__flex{display:flex;align-items:center}.content-header__title{color:#191F28;margin-bottom:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.content-header__nickname{margin:0px 10px;font-weight:600;font-size:14px}.content-header__date{margin:0px 8px;font-size:12px;font-weight:400;color:#8B95A1}
@@ -56,4 +58,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.2658c19a.css.map*/
+/*# sourceMappingURL=main.3cfa7ed7.css.map*/
