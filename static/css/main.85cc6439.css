@@ -32,6 +32,8 @@
 
 .top-down-filter__active{display:flex;font-weight:bold;width:inherit}.top-down-filter__active__icon{width:10px;margin-left:5px}
 
+.TrainerItem_small__Fxmjg{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:32px;padding-bottom:28px;border-radius:20px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.08),0px 2px 4px 2px rgba(34,34,34,0.05)}.TrainerItem_small__Fxmjg .TrainerItem_image__9V0L7{width:107px;height:107px}.TrainerItem_small__Fxmjg .TrainerItem_nicknameContainer__2JYKY{padding-top:24px;padding-bottom:20px}.TrainerItem_small__Fxmjg .TrainerItem_introduce__4kMM\+{font-size:17px;color:#191F28;padding-bottom:28px}.TrainerItem_large__RVhG3{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 0px}.TrainerItem_large__RVhG3 .TrainerItem_image__9V0L7{width:129px;height:129px}.TrainerItem_large__RVhG3 .TrainerItem_nicknameContainer__2JYKY{padding-top:50px;padding-bottom:20px}.TrainerItem_large__RVhG3 .TrainerItem_introduce__4kMM\+{font-size:17px;color:#191F28;padding-bottom:30px}.TrainerItem_nickname__ePt06{font-size:20px;font-weight:600;margin-right:8px;color:#191F28}.TrainerItem_category__l89oo{padding:4px 10px;color:#6B7684;font-weight:600;background-color:#F2F4F5;border-radius:13px}.TrainerItem_bottom__BqgD-{display:flex;align-items:center}.TrainerItem_bottom__BqgD- .TrainerItem_icon__fdaxk{width:14px;height:14px}.TrainerItem_bottom__BqgD- .TrainerItem_number__MhWks{margin-left:5px;margin-right:11px;font-size:14px;color:#6B7684}
+
 .badge{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;padding:5px 9px;border-radius:9px;font-weight:700}.badge.done{background-color:#DFEAFD;color:#1C62D9}.badge.ready{background-color:#F2F4F5;color:#6B7684}.badge.in-progress{background-color:#F9EBEC;color:#DD5458}
 
 .history-item{width:calc(100% - 36px);display:flex;align-items:center;background-color:#fff;border-radius:20px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);padding:18px}.history-item__image{width:32px;height:32px;margin-right:10px;background-color:#F2F4F5}.history-item__image>img{width:32px;height:32px}.history-item__flex{flex-grow:1}.history-item__information{display:flex;align-items:center}.history-item__nickname{margin-right:7px;font-size:14px;font-weight:600;color:#191F28}.history-item__date{font-size:10px;font-weight:400;color:#8B95A1}.history-item__content{margin-top:3px;font-size:13px;font-weight:400;color:#191F28}
@@ -54,4 +56,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.5c54cabc.css.map*/
+/*# sourceMappingURL=main.85cc6439.css.map*/
