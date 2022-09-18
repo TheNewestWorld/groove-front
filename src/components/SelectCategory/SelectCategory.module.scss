@@ -1,0 +1,25 @@
+@import "../../constants/color";
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  background-color: $black-F2;
+  color: $black-8B;
+  border-radius: 10px;
+  padding: 16px 24px 16px 14px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  &__active {
+    display: flex;
+    font-weight: bold;
+    width: inherit;
+    
+    &__icon{
+      width: 10px;
+      margin-left: 5px;
+    }
+  }
+}
