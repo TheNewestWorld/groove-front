@@ -70,9 +70,8 @@
   display: flex;
   align-items: center;
   .icon {
-    // TODO(in.heo): 피그마에 명시된 사이즈에 비해 작아보여 조금 크게 잡았습니다. (12px -> 15px) 추후에 디자인적으로 변경이 필요할 지 확인해보겠습니다.
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
   }
   .number {
     margin-left: 5px;
