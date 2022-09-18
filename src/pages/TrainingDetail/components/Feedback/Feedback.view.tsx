@@ -1,5 +1,6 @@
+import classNames from "classnames";
 import ContentHeader from "../../../../components/ContentHeader";
-import "./Feedback.scss";
+import styles from "./Feedback.module.scss";
 
 export interface Props {
   title: string;
@@ -7,7 +8,7 @@ export interface Props {
   profileImage: string;
   date: Date;
   content: string;
-  classNames?: string;
+  className?: string;
 }
 
 const FeedbackView = ({
@@ -16,9 +17,10 @@ const FeedbackView = ({
   profileImage,
   date,
   content,
+  className,
 }: Props) => {
   return (
-    <div className="feedback-container">
+    <div className={classNames([styles.container, className])}>
       <ContentHeader
         title={title}
         imageUrl={profileImage}
@@ -26,7 +28,7 @@ const FeedbackView = ({
         date={date}
       />
       <hr />
-      <div className="feedback-content">{content}</div>
+      <div className={styles.content}>{content}</div>
     </div>
   );
 };
