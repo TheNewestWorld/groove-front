@@ -21,6 +21,8 @@
   }
 
   &__item {
+    display: flex;
+    flex-shrink: 0;
     padding: 3px 12px;
     margin: 0px 4px;
     font-size: 16px;
