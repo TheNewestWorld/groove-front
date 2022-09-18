@@ -4,14 +4,14 @@ import { ButtonHTMLAttributes } from "react";
 import "./RoundButton.scss";
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
   colorTheme?: "primary" | "secondary";
   onClick?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const RoundButton = ({
-  text,
+  children,
   colorTheme = "primary",
   onClick,
   className,
@@ -21,8 +21,9 @@ const RoundButton = ({
     <button
       className={classnames(["round-button", colorTheme, className])}
       onClick={onClick}
-      {...args}>
-      {text}
+      {...args}
+    >
+      {children}
     </button>
   );
 };
