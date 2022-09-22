@@ -3,23 +3,25 @@ import BottomSheetList from "../BottomSheetList";
 import { SelectIcon } from "../../assets/icon";
 import useOpen from "../../hooks/useOpen";
 import styles from "./SelectCategory.module.scss";
-import useCategory from "../../hooks/selectCategory";
 
 export interface Props {
   title?: string;
   className?: string;
+  activeCategory: string
   categoryList: string[];
   hasCloseButton?: boolean;
+  onClickCategory: (category: string) => string;
 }
 
 const SelectCategory = ({
+  title,
   className,
+  activeCategory,
+  onClickCategory,
   categoryList,
   hasCloseButton,
-  title,
 }: Props) => {
   const { isOpen, onOpen, onClose } = useOpen();
-  const { activeCategory, clickCategory } = useCategory();
   return (
     <div>
       <div className={classNames([className, styles.container, styles.category, styles.category__active])} onClick={onOpen}>
@@ -32,7 +34,7 @@ const SelectCategory = ({
           hasCloseButton={hasCloseButton}
           list={categoryList}
           activeItem={activeCategory}
-          onClick={clickCategory}
+          onClick={onClickCategory}
           onClose={onClose}
         />
       )}
