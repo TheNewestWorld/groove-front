@@ -1,0 +1,19 @@
+@import "../../constants/color";
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: $black-19;
+  color: $black-FF;
+  border-radius: 18px;
+  height: 48px;
+}
+.snackbarIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.snackbarContent {
+  margin: auto 0;
+}
+
