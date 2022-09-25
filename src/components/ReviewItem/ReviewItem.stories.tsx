@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import ReviewItem, { Props } from "./ReviewItem";
 
 export default {
-  title: "components/ReviewItem",
+  title: "components/review/ReviewItem",
   component: ReviewItem,
   args: {
     imageUrl: "",

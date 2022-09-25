@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import RoundButton, { Props } from "./RoundButton";
 
 export default {
-  title: "components/RoundButton",
+  title: "components/button/RoundButton",
   component: RoundButton,
   args: {
     text: "회원가입 완료",
