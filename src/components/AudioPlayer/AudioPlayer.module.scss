@@ -1,0 +1,13 @@
+@import "../../constants/color.scss";
+
+.title {
+  margin: 0px 0px 4px 10px;
+  color: $black-8B;
+  font-size: 11px;
+}
+
+.player {
+  padding: 20px;
+  border: 1px solid $black-F2;
+  border-radius: 20px;
+}
