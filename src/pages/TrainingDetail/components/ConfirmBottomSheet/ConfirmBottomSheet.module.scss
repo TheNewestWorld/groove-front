@@ -1,0 +1,16 @@
+@import "../../../../constants/color";
+
+.description {
+  font-weight: 600;
+  font-size: 15px;
+  color: $black-8B;
+  margin-bottom: 20px;
+}
+
+.button {
+  width: calc(50% - 4.5px);
+
+  &:first-child {
+    margin-right: 9px;
+  }
+}

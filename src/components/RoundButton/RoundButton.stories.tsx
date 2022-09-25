@@ -6,7 +6,7 @@ export default {
   title: "components/button/RoundButton",
   component: RoundButton,
   args: {
-    text: "회원가입 완료",
+    children: "회원가입 완료",
     colorTheme: "primary",
     onClick: () => alert("버튼 클릭"),
   },

@@ -1,8 +1,10 @@
-import classNames from "classnames";
 import ContentHeader from "../../components/ContentHeader";
-import ConfirmButton from "./components/ConfirmButton";
-import Feedback, { Props as FeedbackViewType } from "./components/Feedback";
-import "./TrainingDetail.scss";
+import RoundButton from "../../components/RoundButton";
+import useOpen from "../../hooks/useOpen";
+import ConfirmBottomSheet from "./components/ConfirmBottomSheet";
+import FeedbackSection from "./components/FeedbackSection";
+import { Props as FeedbackViewType } from "./components/Feedback";
+import styles from "./TrainingDetail.module.scss";
 
 export interface Props {
   title: string;
@@ -25,69 +27,75 @@ const TrainingDetailView = ({
   role,
   feedback,
 }: Props) => {
+  const {
+    isOpen: isShowBottomSheet,
+    onOpen: onOpenBottomSheet,
+    onClose: onCloseBottomSheet,
+  } = useOpen();
+
+  const buttons = ({
+    status,
+    role,
+  }: {
+    status: "ready" | "in-progress" | "done";
+    role: "writer" | "trainer" | "unknown";
+  }) => {
+    if (status === "done" || (role === "unknown" && status === "in-progress")) {
+      return <RoundButton disabled>코칭이 완료됐어요</RoundButton>;
+    } else if (role === "writer" && status === "in-progress") {
+      return (
+        <RoundButton onClick={onOpenBottomSheet}>
+          코칭 내용을 확인했어요.
+        </RoundButton>
+      );
+    } else if (role === "trainer" && status === "ready") {
+      return (
+        <>
+          <RoundButton colorTheme="secondary" className={styles.button}>
+            거절할게요
+          </RoundButton>
+          <RoundButton
+            onClick={() => alert("TODO: 피드백 작성 페이지 이동")}
+            className={styles.button}
+          >
+            피드백 할게요
+          </RoundButton>
+        </>
+      );
+    } else if (role === "trainer" && status === "in-progress") {
+      return <RoundButton disabled>아직 확인하지 않았어요</RoundButton>;
+    } else {
+      return;
+    }
+  };
+
   return (
-    <div className="training-detail">
-      <ContentHeader
-        title={title}
-        imageUrl={profileImage}
-        nickname={nickname}
-        date={date}
-        className="training-detail__header"
+    <>
+      <div className={styles.container}>
+        <ContentHeader
+          title={title}
+          imageUrl={profileImage}
+          nickname={nickname}
+          date={date}
+          className={styles.header}
+        />
+        <hr />
+        <div className={styles.content}>{content}</div>
+
+        <FeedbackSection
+          feedback={feedback}
+          showDefaultMessage={role !== "trainer"}
+        >
+          {buttons({ role, status })}
+        </FeedbackSection>
+      </div>
+
+      <ConfirmBottomSheet
+        trainerId={0}
+        isShow={isShowBottomSheet}
+        onClose={onCloseBottomSheet}
       />
-      <hr />
-      <div className="content">{content}</div>
-
-      <div className="divider" />
-      {role === "unknown" && (
-        <>
-          {feedback ? (
-            <div className="training-detail__feedback">
-              <Feedback {...feedback} />
-            </div>
-          ) : (
-            <div
-              className={classNames(["training-detail__feedback", "center"])}
-            >
-              아직 피드백이 도착하지 않았어요. 😢
-            </div>
-          )}
-        </>
-      )}
-
-      {role === "writer" && (
-        <>
-          {feedback ? (
-            <>
-              <div className="training-detail__feedback">
-                <Feedback {...feedback} />
-              </div>
-              {status === "in-progress" && (
-                <ConfirmButton trainerName={feedback.nickname} />
-              )}
-              {status === "done" && <button>코칭이 완료됐어요.</button>}
-            </>
-          ) : (
-            <div
-              className={classNames(["training-detail__feedback", "center"])}
-            >
-              아직 피드백이 도착하지 않았어요. 😢
-            </div>
-          )}
-        </>
-      )}
-
-      {role === "trainer" && (
-        <>
-          {feedback ? (
-            <div className="training-detail__feedback">
-              <Feedback {...feedback} />
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </>
-      )}
-    </div>
+    </>
   );
 };
 

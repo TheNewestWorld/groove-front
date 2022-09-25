@@ -1,10 +1,11 @@
 @import "../../../../constants/color";
-.feedback-container {
+
+.container {
   & > hr {
     border: 1px solid $black-EB;
   }
 }
 
-.feedback-content {
+.content {
   margin: 16px 0px;
 }

@@ -1,4 +1,5 @@
 @import "../../constants/color";
+
 .round-button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -24,7 +25,7 @@
   }
 
   &:disabled {
-    background: $black-F2;
+    background: $button-disabled;
     color: $black-FF;
   }
 }
