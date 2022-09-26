@@ -13,21 +13,20 @@ export default {
 
 const Template: Story<Props> = (args: Props) => <MainHeader {...args} />;
 
-export const Main = Template.bind({});
-Main.args = {};
+export const 홈 = Template.bind({});
 
-export const NotMain = Template.bind({});
-NotMain.args = {
+export const 커뮤니티 = Template.bind({});
+커뮤니티.args = {
   title: "커뮤니티",
 };
 
-export const Main_Notification = Template.bind({});
-Main_Notification.args = {
-  notificationCount: 5,
+export const 홈_알림있음 = Template.bind({});
+홈_알림있음.args = {
+  hasNotification: true,
 };
 
-export const NotMain_Notification = Template.bind({});
-NotMain_Notification.args = {
+export const 트레이닝_알림있음 = Template.bind({});
+트레이닝_알림있음.args = {
   title: "트레이닝",
-  notificationCount: 50,
+  hasNotification: true,
 };
