@@ -1,0 +1,15 @@
+@import "../../constants/color";
+
+.container {
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  top: 0px;
+  left: 14px;
+  border-radius: 13px;
+  background-color: $heart;
+  width: 8px;
+  height: 8px;
+}
