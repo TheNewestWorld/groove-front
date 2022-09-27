@@ -1,4 +1,5 @@
 const RoutePath = {
+  entry: "/entry",
   home: "",
   community: "",
   training: "",
