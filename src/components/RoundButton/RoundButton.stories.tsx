@@ -22,7 +22,7 @@ Secondary.args = {
 };
 
 export const Dark = Template.bind({});
-Secondary.args = {
+Dark.args = {
   colorTheme: "dark",
 };
 
