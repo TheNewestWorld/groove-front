@@ -13,8 +13,8 @@ export interface Props {
 const SnackBar = ({
   className,
   content,
-  hasShadow,
   icon,
+  hasShadow = false,
   size = "small",
   position = "bottom",
 }: Props) => {
@@ -24,10 +24,8 @@ const SnackBar = ({
         className,
         styles.container,
         hasShadow && styles.shadow,
-        size === "small" && styles.small,
-        size === "large" && styles.large,
-        position === "bottom" && styles.bottom,
-        position === "middle" && styles.middle,
+        size === "small" ? styles.small : styles.large,
+        position === "bottom" ? styles.bottom : styles.middle,
       ])}
     >
       {icon && <div className={styles.snackbarIcon}>{icon}</div>}
