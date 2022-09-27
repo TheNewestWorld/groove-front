@@ -15,6 +15,7 @@ const SignInView = ({ isDisabledButton, onClickConfirm }: Props) => {
         title="이메일로 시작하기"
         buttonText="시작하기"
         isDisabledButton={isDisabledButton}
+        buttonColorTheme="dark"
         onClick={onClickConfirm}
       >
         <div className={styles.inputGroup}>
