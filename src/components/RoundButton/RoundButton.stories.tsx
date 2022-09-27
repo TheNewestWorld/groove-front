@@ -21,6 +21,11 @@ Secondary.args = {
   colorTheme: "secondary",
 };
 
+export const Dark = Template.bind({});
+Secondary.args = {
+  colorTheme: "dark",
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
