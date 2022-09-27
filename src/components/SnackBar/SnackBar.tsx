@@ -6,7 +6,8 @@ export interface Props {
   content?: string;
   hasShadow?: boolean;
   icon?: React.ReactNode;
-  size?: string;
+  size?: "small" | "large";
+  position?: "bottom" | "middle";
 }
 
 const SnackBar = ({
@@ -14,15 +15,22 @@ const SnackBar = ({
   content,
   hasShadow,
   icon,
-  size,
+  size = "small",
+  position = "bottom",
 }: Props) => {
   return (
-    <div className={classNames([className, styles.container, hasShadow && styles.container__addShadow, size === "long" && styles.container__longSize, size === "short" && styles.container__shortSize])}>
-      {icon &&
-        <div className={styles.snackbarIcon}>
-          {icon}
-        </div>
-      }
+    <div
+      className={classNames([
+        className,
+        styles.container,
+        hasShadow && styles.shadow,
+        size === "small" && styles.small,
+        size === "large" && styles.large,
+        position === "bottom" && styles.bottom,
+        position === "middle" && styles.middle,
+      ])}
+    >
+      {icon && <div className={styles.snackbarIcon}>{icon}</div>}
       <div className={styles.snackbarContent}>
         <span>{content}</span>
       </div>
