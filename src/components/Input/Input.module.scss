@@ -1,0 +1,53 @@
+@import "../../constants/color.scss";
+
+.container {
+  margin-top: 12px;
+  height: 96px;
+}
+
+.label {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $black-6B;
+}
+
+.input {
+  background-color: $black-F2;
+  border-radius: 10px;
+  padding: 16px 14px;
+  margin: 5px 0px;
+  position: relative;
+
+  & > input {
+    font-size: 16px;
+    font-weight: 600;
+    color: $black-19;
+    outline: none;
+    border: none;
+    background: none;
+
+    &::placeholder {
+      color: $black-8B;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 14px;
+}
+
+.confirm {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $secondary-normal;
+}
+
+.error {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $error;
+}
