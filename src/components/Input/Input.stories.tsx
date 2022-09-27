@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import Input, { Props } from "./Input.view";
 
 export default {
-  title: "components/Input",
+  title: "components/form/Input",
   component: Input,
   args: {
     label: "항목 이름",

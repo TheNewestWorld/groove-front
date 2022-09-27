@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import Form, { Props } from "./Form.view";
 
 export default {
-  title: "components/Form",
+  title: "components/form/Form",
   component: Form,
   args: {
     title: `첫번째줄\n두번째줄`,
