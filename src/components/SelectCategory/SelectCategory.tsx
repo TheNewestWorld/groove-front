@@ -7,7 +7,8 @@ import styles from "./SelectCategory.module.scss";
 export interface Props {
   title?: string;
   className?: string;
-  placeholder: string
+  activeCategory: string;
+  placeholder?: string;
   categoryList: string[];
   hasCloseButton?: boolean;
   onClickCategory: (category: string) => string;
@@ -16,8 +17,9 @@ export interface Props {
 const SelectCategory = ({
   title,
   className,
-  placeholder,
+  activeCategory,
   onClickCategory,
+  placeholder,
   categoryList,
   hasCloseButton,
 }: Props) => {
@@ -25,7 +27,7 @@ const SelectCategory = ({
   return (
     <div>
       <div className={classNames([className, styles.container, styles.category, styles.category__active])} onClick={onOpen}>
-        {placeholder}
+        {activeCategory === "" ? placeholder : activeCategory}
         <SelectIcon className={styles.category__active__icon} />
       </div>
       {isOpen && (
@@ -33,7 +35,7 @@ const SelectCategory = ({
           title={title}
           hasCloseButton={hasCloseButton}
           list={categoryList}
-          activeItem={placeholder}
+          activeItem={activeCategory}
           onClick={onClickCategory}
           onClose={onClose}
         />

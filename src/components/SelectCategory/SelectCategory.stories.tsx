@@ -8,6 +8,7 @@ export default {
   args: {
     hasCloseButton: false,
     title: "카테고리를 선택해주세요.",
+    activeCategory: "",
     placeholder: "카테고리를 선택해주세요.",
     categoryList: ["보컬 이야기", "일상 이야기", "기타"],
     onClickCategory: (category: string) => alert(`${category}`),
