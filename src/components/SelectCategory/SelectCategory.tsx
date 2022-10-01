@@ -19,7 +19,7 @@ const SelectCategory = ({
   className,
   activeCategory,
   onClickCategory,
-  placeholder,
+  placeholder = "",
   categoryList,
   hasCloseButton,
 }: Props) => {
