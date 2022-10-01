@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from "react";
 import "./RoundButton.scss";
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  colorTheme?: "primary" | "secondary";
+  colorTheme?: "primary" | "secondary" | "dark";
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;

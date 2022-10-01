@@ -24,6 +24,11 @@
     color: $black-4E;
   }
 
+  &.dark {
+    background: $black-19;
+    color: $black-FF;
+  }
+
   &:disabled {
     background: $button-disabled;
     color: $black-FF;
