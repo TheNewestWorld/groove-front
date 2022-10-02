@@ -2,7 +2,16 @@
 
 .container {
   margin: 20px;
-  height: calc(100% - 70px)
+}
+
+.trainerItemContainer {
+  /*
+    + Navigation Height: 70px
+    + TrainerItem margin_bottom: 16px
+    - .container marigin: 20px
+    - .trainerItemContainer margin: (70 + 16) - 20 = 66px
+  */
+  margin-bottom: 66px;
 }
 
 .mainHeader {

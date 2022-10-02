@@ -28,9 +28,11 @@ const TrainerListView = ({
       <MainHeader className={styles.mainHeader} userImageSrc={userImageSrc} />
       <TabList className={styles.tabList} {...tabList} />
       <TopDownFilter className={styles.topDownFilter} {...topDownFilter} />
-      {trainerItems.map((item, index) => (
-        <TrainerItem className={styles.trainerItem} key={index} {...item} />
-      ))}
+      <div className={styles.trainerItemContainer}>
+        {trainerItems.map((item, index) => (
+          <TrainerItem className={styles.trainerItem} key={index} {...item} />
+        ))}
+      </div>
       <Navigation current="TRAINING" />
     </div>
   );
