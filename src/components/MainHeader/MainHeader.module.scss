@@ -1,0 +1,39 @@
+@import "../../constants/color";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notHome {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: $black-19
+}
+
+.home {
+  margin-left: 0px;
+  font-size: 24px;
+  font-weight: 700;
+  color: $secondary-normal;
+}
+
+.alarmContainer {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.notification {
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  padding: 3px;
+  border-radius: 13px;
+  background-color: $heart;
+  font-size: 8px;
+  font-weight: 600;
+  color: white;
+}
