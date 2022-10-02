@@ -11,15 +11,21 @@ import Navigation from "../../components/Navigation";
 import MainHeader from "../../components/MainHeader";
 
 export interface Props {
+  userImageSrc: string;
   tabList: TabListView;
   topDownFilter: TopDownFilterView;
   trainerItems: TrainerItemView[];
 }
 
-const TrainerListView = ({ tabList, topDownFilter, trainerItems }: Props) => {
+const TrainerListView = ({
+  userImageSrc,
+  tabList,
+  topDownFilter,
+  trainerItems,
+}: Props) => {
   return (
     <div className={styles.container}>
-      <MainHeader className={styles.mainHeader} title="트레이닝"/>
+      <MainHeader className={styles.mainHeader} userImageSrc={userImageSrc} />
       <TabList className={styles.tabList} {...tabList} />
       <TopDownFilter className={styles.topDownFilter} {...topDownFilter} />
       {trainerItems.map((item, index) => (
