@@ -24,6 +24,10 @@
 
 .header{width:100%;height:50px;display:flex;flex-direction:row;justify-content:space-between;align-items:center}.header__title{font-size:1rem;font-weight:600;color:black}
 
+.MainHeader_container__alHF1{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.MainHeader_notHome__rwTec{margin-left:10px;font-size:24px;font-weight:600;color:#191F28}.MainHeader_home__odPuP{margin-left:0px;font-size:24px;font-weight:700;color:#4880EE}.MainHeader_alarmContainer__fi7im{margin-left:20px;display:inline-block}.MainHeader_notification__GpfvO{position:absolute;top:-4px;left:12px;padding:3px;border-radius:13px;background-color:#ED6B66;font-size:8px;font-weight:600;color:white}
+
+.Notification_container__WK6te{position:relative}.Notification_notification__rQccJ{position:absolute;top:0px;left:14px;border-radius:13px;background-color:#ED6B66;width:8px;height:8px}
+
 .navigation{width:100%;z-index:10;position:fixed;left:0;bottom:0;border-top:solid 1px #EBEBEB;background-color:#fff;font-size:11px}.navigation>button{width:25%;height:70px;border:none;background-color:transparent;color:#E2E2E2}.navigation>button.blue{color:#494E56}
 
 .score_container{display:flex}
@@ -73,4 +77,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.9cdb4e8e.css.map*/
+/*# sourceMappingURL=main.4f5cbce3.css.map*/
