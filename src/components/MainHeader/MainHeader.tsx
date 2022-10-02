@@ -3,11 +3,13 @@ import classnames from "classnames";
 import styles from "./MainHeader.module.scss";
 
 import { AlarmIcon, SearchIcon } from "../../assets/icon";
+import { AppLogoText } from "../../assets/image";
 import Notification from "../Notification";
+import CircleImage from "../CircleImage";
 
 export interface Props {
   className?: string;
-  title?: string;
+  userImageSrc: string;
   hasNotification?: boolean;
   onTitleClick?: () => void;
   onSearchClick?: () => void;
@@ -16,7 +18,7 @@ export interface Props {
 
 const MainHeader = ({
   className,
-  title,
+  userImageSrc,
   hasNotification = false,
   onTitleClick,
   onSearchClick,
@@ -24,12 +26,7 @@ const MainHeader = ({
 }: Props) => {
   return (
     <div className={classnames([styles.container, className])}>
-      <span
-        className={classnames([title ? styles.notHome : styles.home])}
-        onClick={onTitleClick}>
-        {/* TODO: GROOVE 이미지 추가되면 변경이 필요해요*/}
-        {title ? title : "GROOVE"}
-      </span>
+      <AppLogoText onClick={onTitleClick} />
       <div>
         <SearchIcon onClick={onSearchClick} />
         <Notification
@@ -38,6 +35,7 @@ const MainHeader = ({
           onClick={onAlarmClick}>
           <AlarmIcon />
         </Notification>
+        <CircleImage className={styles.userImageContainer} src={userImageSrc} />
       </div>
     </div>
   );

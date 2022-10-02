@@ -1,0 +1,1 @@
+export { ReactComponent as AppLogoText } from "./app_logo_text.svg";

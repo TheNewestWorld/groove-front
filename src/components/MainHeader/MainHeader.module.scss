@@ -7,23 +7,16 @@
   align-items: center;
 }
 
-.notHome {
-  margin-left: 10px;
-  font-size: 24px;
-  font-weight: 600;
-  color: $black-19
-}
-
-.home {
-  margin-left: 0px;
-  font-size: 24px;
-  font-weight: 700;
-  color: $secondary-normal;
-}
-
 .alarmContainer {
   margin-left: 20px;
   display: inline-block;
+}
+
+.userImageContainer {
+  margin-left: 20px;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
 }
 
 .notification {
