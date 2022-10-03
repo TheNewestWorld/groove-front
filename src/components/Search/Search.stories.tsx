@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import Search, { Props } from "./Search";
 
 export default {
-  title: "components/Search",
+  title: "components/page/Search",
   component: Search,
   args: {
     list: [

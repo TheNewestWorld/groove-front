@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import Dialog, { Props } from "./Dialog.view";
 
 export default {
-  title: "components/Dialog",
+  title: "components/common/Dialog",
   component: Dialog,
   args: {
     title: "입력하신 정보가 맞습니까?",

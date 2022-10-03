@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import TopDownFilter, { Props } from "./TopDownFilter";
 
 export default {
-  title: "components/TopDownFilter",
+  title: "components/common/TopDownFilter",
   component: TopDownFilter,
   args: {
     activeFilter: "최신순",

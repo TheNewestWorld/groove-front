@@ -5,7 +5,7 @@ import Header, { Props } from "./Header";
 import { ArrowTailIcon, DotsIcon } from "../../assets/icon";
 
 export default {
-  title: "components/Header",
+  title: "components/common/Header",
   component: Header,
   args: {
     title: "게시물",
