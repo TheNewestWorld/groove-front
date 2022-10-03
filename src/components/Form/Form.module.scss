@@ -1,0 +1,36 @@
+@import "../../constants/color.scss";
+
+.container {
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+
+.title {
+  color: $black-19;
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  word-break: break-word;
+  white-space: pre;
+}
+
+.subTitle {
+  color: $black-8B;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  word-break: break-word;
+  white-space: pre;
+}
+
+.button {
+  position: fixed;
+  left: 20px;
+  bottom: 18px;
+  width: calc(100% - 40px);
+}
