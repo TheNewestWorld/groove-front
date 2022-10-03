@@ -1,7 +1,7 @@
 import FindPasswordView from "./FindPassword.view";
 
 const FindPassword = () => {
-  return <FindPasswordView isSended />;
+  return <FindPasswordView isSubmitted />;
 };
 
 export default FindPassword;
