@@ -24,7 +24,7 @@
 
 .header{width:100%;height:50px;display:flex;flex-direction:row;justify-content:space-between;align-items:center}.header__title{font-size:1rem;font-weight:600;color:black}
 
-.MainHeader_container__alHF1{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.MainHeader_notHome__rwTec{margin-left:10px;font-size:24px;font-weight:600;color:#191F28}.MainHeader_home__odPuP{margin-left:0px;font-size:24px;font-weight:700;color:#4880EE}.MainHeader_alarmContainer__fi7im{margin-left:20px;display:inline-block}.MainHeader_notification__GpfvO{position:absolute;top:-4px;left:12px;padding:3px;border-radius:13px;background-color:#ED6B66;font-size:8px;font-weight:600;color:white}
+.MainHeader_container__alHF1{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.MainHeader_alarmContainer__fi7im{margin-left:20px;display:inline-block}.MainHeader_userImageContainer__Kvt6W{margin-left:20px;display:inline-block;height:24px;width:24px}.MainHeader_notification__GpfvO{position:absolute;top:-4px;left:12px;padding:3px;border-radius:13px;background-color:#ED6B66;font-size:8px;font-weight:600;color:white}
 
 .Notification_container__WK6te{position:relative}.Notification_notification__rQccJ{position:absolute;top:0px;left:14px;border-radius:13px;background-color:#ED6B66;width:8px;height:8px}
 
@@ -44,7 +44,7 @@
 
 .SnackBar_container__A\+xV0{display:flex;justify-content:center;background-color:#191F28;border-radius:18px;align-items:center;width:calc(100% - 36px)}.SnackBar_snackbarIcon__bJicJ{display:flex;margin-right:10px}.SnackBar_snackbarContent__\+tA9e{color:#fff}.SnackBar_shadow__H1t5f{box-shadow:0px 1px 2px rgba(0,0,0,0.3),0px 2px 6px 2px rgba(0,0,0,0.15)}.SnackBar_small__bD0dp{padding:16px 0px}.SnackBar_large__wXTc4{padding:65px 0px}.SnackBar_bottom__-viDR{position:fixed;bottom:18px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.SnackBar_middle__cOrW-{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
 
-.tab-list{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.tab-list::-webkit-scrollbar{display:none}.tab-list.underline{border-bottom:1px solid #EBEBEB}.tab-list__item{display:flex;flex-shrink:0;padding:3px 12px;margin:0px 4px;font-size:16px;line-height:44px}.tab-list__item:first-of-type{margin-left:0px;margin-right:4px}.tab-list__item:last-of-type{margin-left:4px;margin-right:0px}.tab-list__item.round{color:#8B95A1;font-weight:bold}.tab-list__item.round.active{background-color:#4880EE;border-radius:28px;color:white}.tab-list__item.underline{color:#191F28}.tab-list__item.underline.active{font-weight:bold;color:#4880EE;border-bottom:2px solid #4880EE}
+.tab-list{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.tab-list::-webkit-scrollbar{display:none}.tab-list.underline{border-bottom:1px solid #EBEBEB}.tab-list__item{display:flex;flex-shrink:0;padding:3px 12px;margin-right:8px;font-size:16px;line-height:44px}.tab-list__item:first-of-type{margin-left:0px;margin-right:4px}.tab-list__item:last-of-type{margin-left:4px;margin-right:0px}.tab-list__item.round{color:#8B95A1;font-weight:bold}.tab-list__item.round.active{background-color:#4880EE;border-radius:28px;color:white}.tab-list__item.underline{color:#191F28}.tab-list__item.underline.active{font-weight:bold;color:#4880EE;border-bottom:2px solid #4880EE}
 
 .top-down-filter__active{display:flex;font-weight:bold;width:inherit}.top-down-filter__active__icon{width:10px;margin-left:5px}
 
@@ -66,6 +66,8 @@
 
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
+.TrainerList_container__wj9\+W{margin:20px}.TrainerList_trainerItemContainer__mgAz2{margin-bottom:66px}.TrainerList_mainHeader__X00rJ{margin-bottom:20px}.TrainerList_tabList__aNUbk{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__onWQ\+{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__I-IJo{margin-bottom:16px}
+
 .ConfirmBottomSheet_description__9JheN{font-weight:600;font-size:15px;color:#8B95A1;margin-bottom:20px}.ConfirmBottomSheet_button__zo4Yv{width:calc(50% - 4.5px)}.ConfirmBottomSheet_button__zo4Yv:first-child{margin-right:9px}
 
 .Feedback_container__LY8Xo>hr{border:1px solid #EBEBEB}.Feedback_content__s7\+N5{margin:16px 0px}
@@ -77,4 +79,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.4f5cbce3.css.map*/
+/*# sourceMappingURL=main.633ab12e.css.map*/
