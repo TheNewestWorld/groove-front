@@ -30,12 +30,12 @@ const MainHeader = ({
       <div>
         <SearchIcon onClick={onSearchClick} />
         <Notification
-          className={styles.alarmContainer}
+          className={styles.alarm}
           hasNotification={hasNotification}
           onClick={onAlarmClick}>
           <AlarmIcon />
         </Notification>
-        <CircleImage className={styles.userImageContainer} src={userImageSrc} />
+        <CircleImage className={styles.userImage} src={userImageSrc} />
       </div>
     </div>
   );
