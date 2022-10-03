@@ -20,9 +20,15 @@
 
 .EmptyPage_container__L16Hv{height:100%;width:100%;text-align:center;display:table}.EmptyPage_message__tnL9W{text-align:center;display:table-cell;vertical-align:middle}.EmptyPage_title__dU07W{font-weight:500;font-size:18px;color:#191F28}.EmptyPage_description__XV6\+r{font-weight:400;font-size:16px;color:#8B95A1}
 
+.round-button{-webkit-appearance:none;appearance:none;display:inline-block;border:none;border-radius:20px;font-size:17px;text-align:center;text-decoration:none;height:55px;width:100%}.round-button.primary{background:#4880EE;color:#fff}.round-button.secondary{background:#F2F4F5;color:#4E5968}.round-button.dark{background:#191F28;color:#fff}.round-button:disabled{background:#BABCBF;color:#fff}
+
+.Form_container__K-uLg.Form_center__84Chv{text-align:center}.Form_container__K-uLg.Form_right__C8WqP{text-align:right}.Form_title__1\+IQa{color:#191F28;margin-bottom:16px;font-size:22px;font-weight:700;word-break:break-word;white-space:pre}.Form_subTitle__MJuwi{color:#8B95A1;margin-bottom:16px;font-size:16px;font-weight:600;word-break:break-word;white-space:pre}.Form_button__FAdM1{position:fixed;left:20px;bottom:18px;width:calc(100% - 40px)}
+
 .icon-button{background-color:transparent;border-style:none}
 
 .header{width:100%;height:50px;display:flex;flex-direction:row;justify-content:space-between;align-items:center}.header__title{font-size:1rem;font-weight:600;color:black}
+
+.Input_container__LwTub{margin-top:12px;height:96px}.Input_label__U9NhE{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.Input_input__k5Ctk{background-color:#F2F4F5;border-radius:10px;padding:16px 14px;margin:5px 0px;position:relative}.Input_input__k5Ctk>input{width:100%;font-size:16px;font-weight:600;color:#191F28;outline:none;border:none;background:none}.Input_input__k5Ctk>input::-webkit-input-placeholder{color:#8B95A1}.Input_input__k5Ctk>input::placeholder{color:#8B95A1}.Input_icon__U7UwM{position:absolute;right:14px}.Input_confirm__rbGqe{margin-left:8px;font-size:12px;font-weight:500;color:#4880EE}.Input_error__1wKFK{margin-left:8px;font-size:12px;font-weight:500;color:#D54D50}
 
 .MainHeader_container__alHF1{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.MainHeader_alarmContainer__fi7im{margin-left:20px;display:inline-block}.MainHeader_userImageContainer__Kvt6W{margin-left:20px;display:inline-block;height:24px;width:24px}.MainHeader_notification__GpfvO{position:absolute;top:-4px;left:12px;padding:3px;border-radius:13px;background-color:#ED6B66;font-size:8px;font-weight:600;color:white}
 
@@ -35,8 +41,6 @@
 .review-item{width:calc(100% - 36px);display:flex;align-items:center;background-color:#fff;border-radius:20px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);padding:18px}.review-item__image{width:32px;height:32px;margin-right:10px;background-color:#8B95A1}.review-item__image>img{width:32px;height:32px}.review-item__flex{flex-grow:1}.review-item__information{display:flex;align-items:center}.review-item__nickname{font-size:14px;font-weight:600;color:#191F28}.review-item__date{margin:0px 7px;font-size:10px;font-weight:400;color:#8B95A1}.review-item__content{margin-top:3px;font-size:13px;font-weight:400;color:#191F28}.review-item__star>svg{width:14px;height:14px}
 
 .round-box{width:100%;height:100%;border-radius:20px}.round-box__shadow{box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05)}
-
-.round-button{-webkit-appearance:none;appearance:none;display:inline-block;border:none;border-radius:20px;font-size:17px;text-align:center;text-decoration:none;height:55px;width:100%}.round-button.primary{background:#4880EE;color:#fff}.round-button.secondary{background:#F2F4F5;color:#4E5968}.round-button.dark{background:#191F28;color:#fff}.round-button:disabled{background:#BABCBF;color:#fff}
 
 .search__input{display:flex;justify-content:space-between;padding:0px 20px}.search__input__container{flex-grow:1;display:flex;margin-right:20px;font-size:15px;border-radius:20px;border:1px solid #EBEBEB;padding:10px}.search__input__container>input{border:none;flex-grow:1}.search__input__container>input:focus{outline:none}.search__input__container>input::-webkit-input-placeholder{color:#8B95A1}.search__input__container>input::placeholder{color:#8B95A1}.search__input__icon{width:20px;margin-right:12px}.search__input>button{font-size:16px;border:0;outline:0;background-color:transparent;padding:0px;width:32px}.search__list{padding:0px 20px}.search__list__title{margin-top:24px;padding:16px 0px;font-size:14px;color:#8B95A1}.search__list__item{color:#191F28;font-size:16px;font-weight:bold}.search__list__item.tag{display:flex;flex-wrap:nowrap;white-space:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.search__list__item.tag::-webkit-scrollbar{display:none}.search__list__item.tag>div{border-radius:10px;background-color:#F2F4F5;padding:10px 10px;margin-right:10px}.search__list__item.line>div{display:flex;justify-content:space-between;padding:10px 0px}
 
@@ -64,6 +68,8 @@
 
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
 
+.SignIn_container__ohDgQ{width:100%}.SignIn_inputGroup__3AMwk{margin:30px 0px 40px}.SignIn_button__QYrAD{text-align:center}.SignIn_button__QYrAD>button{padding:6px 8px;font-size:12px;font-weight:700;color:#6B7684;background-color:#F2F4F5;border:none;outline:none;border-radius:9px}
+
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 .TrainerList_container__wj9\+W{margin:20px}.TrainerList_trainerItemContainer__mgAz2{margin-bottom:66px}.TrainerList_mainHeader__X00rJ{margin-bottom:20px}.TrainerList_tabList__aNUbk{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__onWQ\+{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__I-IJo{margin-bottom:16px}
@@ -79,4 +85,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.633ab12e.css.map*/
+/*# sourceMappingURL=main.b34ff0a2.css.map*/
