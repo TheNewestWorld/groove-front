@@ -1,3 +1,4 @@
+import { AppLogoText } from "../../assets/image";
 import RoundButton from "../../components/RoundButton";
 import styles from "./Entry.module.scss";
 
@@ -10,8 +11,7 @@ const InitialPageView = ({ goToSignIn, goToSignUp }: Props) => {
   return (
     <div className={styles.container}>
       <span className={styles.logo}>
-        {/* TODO: LOGO */}
-        로고
+        <AppLogoText />
       </span>
       <RoundButton
         className={styles.sighInButton}

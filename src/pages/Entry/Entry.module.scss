@@ -11,6 +11,12 @@
 
 .logo {
   flex-grow: 1;
+  padding-top: 50%;
+  
+  & > * {
+    width: 164px;
+    height: 28px;
+  }
 }
 
 .sighInButton {
