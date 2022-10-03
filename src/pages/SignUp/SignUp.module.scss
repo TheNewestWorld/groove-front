@@ -2,6 +2,17 @@
 
 .container {
   width: 100%;
+
+  &.center {
+    padding-top: 80px;
+  }
+}
+
+.image {
+  margin: 64px auto 0px;
+  text-align: center;
+  width: 260px;
+  height: 260px;
 }
 
 .inputGroup {
