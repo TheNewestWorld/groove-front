@@ -18,12 +18,9 @@ const CircleButton = ({
     <div
       className={classnames([
         className,
-        styles.button,
+        styles.container,
         shadow && styles.shadow,
-        colorTheme === "primary" && styles.primary,
-        colorTheme === "secondary" && styles.secondary,
-        colorTheme === "dark" && styles.dark,
-        colorTheme === "light" && styles.light,
+        styles[colorTheme],
       ])}
     >
       {icon}
