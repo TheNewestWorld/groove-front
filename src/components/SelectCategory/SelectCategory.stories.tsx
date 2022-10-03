@@ -3,7 +3,7 @@ import SelectCategory, { Props } from "./SelectCategory";
 
 
 export default {
-  title: 'components/SelectCategory',
+  title: "components/common/SelectCategory",
   component: SelectCategory,
   args: {
     hasCloseButton: false,

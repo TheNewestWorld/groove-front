@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import TabList, { Props } from "./TabList";
 
 export default {
-  title: "components/TabList",
+  title: "components/common/TabList",
   component: TabList,
   args: {
     type: "underline",

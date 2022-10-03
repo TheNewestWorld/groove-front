@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import BottomSheet, { Props } from "./BottomSheet.view";
 
 export default {
-  title: "components/BottomSheet",
+  title: "components/bottomsheet/BottomSheet",
   component: BottomSheet,
   args: {
     title: "헤더 타이틀",

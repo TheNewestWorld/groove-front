@@ -3,11 +3,11 @@ import { Meta, Story } from "@storybook/react";
 import EmptyPage, { Props } from "./EmptyPage";
 
 export default {
-  title: 'components/EmptyPage',
+  title: "components/page/EmptyPage",
   component: EmptyPage,
   args: {
     title: "작성된 댓글이 없어요.",
-    description: "처음으로 댓글을 달아주시겠어요?"
+    description: "처음으로 댓글을 달아주시겠어요?",
   },
 } as Meta;
 

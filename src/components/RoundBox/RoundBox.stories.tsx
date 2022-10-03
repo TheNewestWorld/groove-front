@@ -3,12 +3,14 @@ import { Meta, Story } from "@storybook/react";
 import RoundBox, { Props } from "./RoundBox";
 
 export default {
-  title: 'components/RoundBox',
+  title: "components/common/RoundBox",
   component: RoundBox,
   args: {
     children: (
-      <><div>등록된 트레이너가 없습니다.</div></>
-    )
+      <>
+        <div>등록된 트레이너가 없습니다.</div>
+      </>
+    ),
   },
 } as Meta;
 

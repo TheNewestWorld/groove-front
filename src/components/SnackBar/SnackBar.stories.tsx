@@ -3,7 +3,7 @@ import SnackBar, { Props } from "./SnackBar";
 import { YellowStartFillIcon } from "../../assets/icon";
 
 export default {
-  title: 'components/SnackBar',
+  title: "components/common/SnackBar",
   component: SnackBar,
   args: {
     content: "입력되지 않은 정보가 있어요.",

@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import BottomSheetList, { Props } from "./BottomSheetList";
 
 export default {
-  title: "components/BottomSheetList",
+  title: "components/bottomsheet/BottomSheetList",
   component: BottomSheetList,
   args: {
     hasCloseButton: false,

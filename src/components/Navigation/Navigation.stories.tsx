@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import Navigation, { Props } from "./Navigation";
 
 export default {
-  title: "components/Navigation",
+  title: "components/common/Navigation",
   component: Navigation,
   args: {
     current: "HOME",

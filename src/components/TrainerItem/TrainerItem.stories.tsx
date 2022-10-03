@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import TrainerItem, { Props } from "./TrainerItem";
 
 export default {
-  title: "components/TrainerItem",
+  title: "components/training/TrainerItem",
   component: TrainerItem,
   args: {
     imageUrl:
