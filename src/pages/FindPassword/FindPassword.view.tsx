@@ -1,5 +1,6 @@
 import Form from "../../components/Form";
 import Input from "../../components/Input";
+import styles from "./FindPassword.module.scss";
 
 export interface Props {
   isSended: boolean;
@@ -22,7 +23,9 @@ const FindPasswordView = ({ isSended }: Props) => {
           buttonText="인증코드 요청하기"
           buttonColorTheme="dark"
         >
-          <Input label="아이디(이메일)" placeholder="groove@groove.com" />
+          <div className={styles.inputGroup}>
+            <Input label="아이디(이메일)" placeholder="groove@groove.com" />
+          </div>
         </Form>
       )}
     </>
