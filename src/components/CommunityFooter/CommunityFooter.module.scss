@@ -1,6 +1,11 @@
 @import "../../constants/color";
 
 .container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: $black-FF;
+  width: calc(100% - 40px);
   border-top: 1px solid $black-EB;
   padding: 22px 20px;
   display: flex;
