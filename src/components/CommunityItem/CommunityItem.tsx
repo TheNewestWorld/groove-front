@@ -1,12 +1,10 @@
+import classNames from "classnames";
+
+import styles from "./CommunityItem.module.scss";
+
 import CircleImage from "../CircleImage";
 
-import "./CommunityItem.scss"
-
-import {
-  ChatIcon,
-  HeartActiveIcon,
-  HeartInactiveIcon
-} from "../../assets/icon";
+import { ChatIcon, HeartIcon } from "../../assets/icon";
 
 export interface Props {
   user: string;
@@ -27,27 +25,26 @@ const CommunityItem = ({
   likeCount,
   commentCount,
   liked,
-  onClick
+  onClick,
 }: Props) => {
   return (
-    <div className="community-item border" onClick={onClick}>
-      <div className="community-item__header">
-        <CircleImage src={userImageSrc} className="item__header__img"/>
-        <div className="community-item__header__user">{user}</div>
+    <div className={styles.container} onClick={onClick}>
+      <div className={styles.header}>
+        <CircleImage src={userImageSrc} className={styles.profile} />
+        <div className={styles.nickname}>{user}</div>
       </div>
-      <div className="community-item__body">
-        <p className="community-item__body__title">{title}</p>
-        <p className="community-item__body__description">{description}</p>
+      <div className={styles.body}>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.description}>{description}</p>
       </div>
-      <div className="community-item__bottom">
-        { liked ? <HeartActiveIcon className="community-item__bottom__icon" />
-          : <HeartInactiveIcon className="community-item__bottom__icon" /> }
-        <div className="community-item__bottom__number">{likeCount}</div>
-        <ChatIcon className="community-item__bottom__icon" />
-        <div className="community-item__bottom__number">{commentCount}</div>
+      <div className={styles.footer}>
+        <HeartIcon className={classNames([styles.icon, liked && styles.red])} />
+        <div className={styles.number}>{likeCount}</div>
+        <ChatIcon className={styles.icon} />
+        <div className={styles.number}>{commentCount}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CommunityItem
+export default CommunityItem;
