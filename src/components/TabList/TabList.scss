@@ -5,7 +5,6 @@
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
-
   /* IE and Edge */
   -ms-overflow-style: none;
   /* Firefox */
@@ -41,8 +40,8 @@
       color: $black-8B;
       font-weight: bold;
       &.active {
-        background-color: $secondary-normal;
-        border-radius: 28px;
+        background-color: $black-19;
+        border-radius: 18px;
         color: white;
       }
     }
@@ -52,8 +51,8 @@
 
       &.active {
         font-weight: bold;
-        color: $secondary-normal;
-          border-bottom: 2px solid $secondary-normal;
+        color: $black-19;
+          border-bottom: 2px solid $black-19;
       }
     }
   }
