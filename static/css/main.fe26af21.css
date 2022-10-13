@@ -68,6 +68,8 @@
 
 .Entry_container__W5qCP{width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between}.Entry_logo__decGW{flex-grow:1;padding-top:50%}.Entry_logo__decGW>*{width:164px;height:28px}.Entry_sighInButton__i3Mv0{width:calc(100% - 40px)}.Entry_textGroup__yzG4W{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:inline-block;margin:24px 0px 48px}.Entry_text__KwlVm{color:#8B95A1;font-size:12px;font-weight:400}.Entry_signUpButton__BHMpk{color:#8B95A1;font-size:12px;font-weight:600;margin-left:6px;border:none;outline:none;background:none}
 
+.FindPassword_inputGroup__RINmF{margin:30px 0px 40px}
+
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
 
 .SignIn_container__ohDgQ{width:100%}.SignIn_inputGroup__3AMwk{margin:30px 0px 40px}.SignIn_button__QYrAD{text-align:center}.SignIn_button__QYrAD>button{padding:6px 8px;font-size:12px;font-weight:700;color:#6B7684;background-color:#F2F4F5;border:none;outline:none;border-radius:9px}
@@ -89,4 +91,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.f86d8552.css.map*/
+/*# sourceMappingURL=main.fe26af21.css.map*/
