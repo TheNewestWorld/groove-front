@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { useState } from "react";
 import { CloseIcon, GreyDeleteCircle, SearchIcon } from "../../assets/icon";
 
-import "./Search.scss";
+import "./SearchInput.scss";
 
 export interface Props {
   list: { title: string; type: "tag" | "line"; itemList: string[] }[];
@@ -11,7 +11,12 @@ export interface Props {
   deleteItem: (value: string) => void;
 }
 
-const Search = ({ list, onClickCancle, onSubmitSearch, deleteItem }: Props) => {
+const SearchInput = ({
+  list,
+  onClickCancle,
+  onSubmitSearch,
+  deleteItem,
+}: Props) => {
   const [keyword, setKeyword] = useState<string>("");
 
   return (
@@ -48,4 +53,4 @@ const Search = ({ list, onClickCancle, onSubmitSearch, deleteItem }: Props) => {
   );
 };
 
-export default Search;
+export default SearchInput;
