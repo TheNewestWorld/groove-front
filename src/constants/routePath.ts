@@ -3,6 +3,7 @@ const RoutePath = {
   signIn: "/sign-in",
   signUp: "/sign-up",
   findPassword: "/find-password",
+  resetPassword: "/reset-password",
   home: "",
   community: "",
   training: "",

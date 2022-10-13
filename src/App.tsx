@@ -7,6 +7,7 @@ import Entry from "./pages/Entry";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import FindPassword from "./pages/FindPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path={RoutePath.signIn} element={<SignIn />} />
         <Route path={RoutePath.signUp} element={<SignUp />} />
         <Route path={RoutePath.findPassword} element={<FindPassword />} />
+        <Route path={RoutePath.resetPassword} element={<ResetPassword />} />
         <Route path={RoutePath.home} element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
