@@ -1,24 +1,18 @@
-import classnames from "classnames";
 import { useState } from "react";
-import { CloseIcon, GreyDeleteCircle, SearchIcon } from "../../assets/icon";
+import { GreyDeleteCircle, SearchIcon } from "../../assets/icon";
 
 import "./SearchInput.scss";
 
 export interface Props {
-  list: { title: string; type: "tag" | "line"; itemList: string[] }[];
   onClickCancle: () => void;
   onSubmitSearch: (value: string) => void;
-  deleteItem: (value: string) => void;
+  children?: React.ReactNode;
 }
 
-const SearchInput = ({
-  list,
-  onClickCancle,
-  onSubmitSearch,
-  deleteItem,
-}: Props) => {
+const SearchInput = ({ children, onSubmitSearch, onClickCancle }: Props) => {
   const [keyword, setKeyword] = useState<string>("");
 
+  // TODO: 엔터 누르면 onSubmitSearch 이벤트 동작
   return (
     <>
       <div className="search__input">
@@ -34,21 +28,7 @@ const SearchInput = ({
         </div>
         <button onClick={onClickCancle}>취소</button>
       </div>
-      {list.map(({ title, type, itemList }) => (
-        <div className="search__list" key={title}>
-          <div className="search__list__title">{title}</div>
-          <div className={classnames(["search__list__item", type])}>
-            {itemList.map((item) => (
-              <div key={item}>
-                <span onClick={() => onSubmitSearch(item)}>{item}</span>
-                {type === "line" && (
-                  <CloseIcon onClick={() => deleteItem(item)} />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+      {children}
     </>
   );
 };
