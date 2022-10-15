@@ -13,7 +13,7 @@ import {
   GlobalErrorBoundary,
 } from "./common/errors/boundaries";
 import { QueryClientProvider } from "react-query";
-import { getGlobalQueryClient } from "./common/configs";
+import { getGlobalQueryClient } from "./common/configs/query";
 
 function App() {
   return (
