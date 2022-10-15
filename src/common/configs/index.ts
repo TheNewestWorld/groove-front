@@ -1,0 +1,1 @@
+export { getGlobalQueryClient } from "./query";
