@@ -27,11 +27,11 @@ export const 유저태그 = Template.bind({});
 유저태그.args = {
   taggedUsers: [
     {
-      profileUrl: "?path=/story/components-image-userprofile--default",
+      userId: "0",
       nickname: "나는용국",
     },
     {
-      profileUrl: "?path=/story/components-image-userprofile--default",
+      userId: "1",
       nickname: "나는호인",
     },
   ],

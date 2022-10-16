@@ -11,11 +11,6 @@ import { CloseIcon } from "../../assets/icon";
 import CommunityCommentFooter from "./components/CommunityCommentFooter";
 import CommunityCommentReadMore from "./components/CommunityCommentReadMore";
 
-interface CommentReadMore {
-  isOpen: boolean;
-  limit: number;
-}
-
 export interface CommentPair {
   comment: CommunityCommentItemType;
   replies: CommunityCommentItemType[];
@@ -32,7 +27,9 @@ const CommunityComment = ({
   onCloseClick,
   onSubmitComment,
 }: Props) => {
-  const [commentsReadMore, setCommentsReadMore] = useState<CommentReadMore[]>(
+  const [commentsReadMore, setCommentsReadMore] = useState<
+    { isOpen: boolean; limit: number }[]
+  >(
     new Array(comments.length).fill({
       isOpen: true,
       limit: 10,

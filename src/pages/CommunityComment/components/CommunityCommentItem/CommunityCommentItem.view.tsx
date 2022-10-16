@@ -3,17 +3,12 @@ import CircleImage from "../../../../components/CircleImage";
 import styles from "./CommunityCommentItem.module.scss";
 import { SmallDotsIcon } from "../../../../assets/icon";
 
-interface TagInfo {
-  nickname: string;
-  profileUrl: string;
-}
-
 export interface Props {
   commenter: string;
   commenterImage: string;
   elpasedTime: string;
   comment: string;
-  taggedUsers?: TagInfo[];
+  taggedUsers?: { userId: string; nickname: string }[];
   className?: string;
   onCommenterClick: () => void;
   onReplyClick: () => void;
@@ -52,7 +47,8 @@ const CommunityCommentItem = ({
           <div className={styles.comment}>
             {taggedUsers &&
               taggedUsers.map(item => (
-                <a href={item.profileUrl} className={styles.tag}>
+                // TODO(in.heo): userId에 맞는 유저 페이지로 이동은 추후 유저 마이페이지의 routing이 추가되면 변경하겠습니다.
+                <a href={item.userId} className={styles.tag}>
                   @{item.nickname}
                 </a>
               ))}
