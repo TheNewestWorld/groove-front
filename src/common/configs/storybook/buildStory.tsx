@@ -21,9 +21,11 @@ const buildStory = (Template: Story, { mswHandlers, renderEnv }: Props) => {
   story.decorators = [
     withWrappers({
       locationPath: renderEnv?.locationPath ?? "",
-      routhPath: renderEnv?.locationPath ?? "",
+      routePath: renderEnv?.routePath ?? "",
     }),
   ];
+
+  return story;
 };
 
 export default buildStory;
