@@ -53,7 +53,7 @@ const CommunityCommentItem = ({
             {taggedUsers &&
               taggedUsers.map(item => (
                 <a href={item.profileUrl} className={styles.tag}>
-                  @{item.nickname}{" "}
+                  @{item.nickname}
                 </a>
               ))}
             <span className={styles.comment}>{comment}</span>

@@ -13,6 +13,7 @@ const CommunityCommentFooter = ({ onSubmitComment }: Props) => {
 
   return (
     <div className={styles.container}>
+      {/* TODO(ho2eny): 이 부분은 추후에 다시 한 번 확인해보겠습니다 */}
       <textarea
         value={comment}
         rows={1}
