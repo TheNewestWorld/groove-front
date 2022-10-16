@@ -7,5 +7,6 @@ export type SignUpRequestBody = {
 };
 
 export const signUp = (body: SignUpRequestBody) => {
+  // TODO: 요청 url 작성
   return resultData<null>(axios.post("", body));
 };
