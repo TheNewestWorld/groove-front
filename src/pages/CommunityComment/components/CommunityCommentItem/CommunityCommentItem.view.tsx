@@ -4,8 +4,8 @@ import styles from "./CommunityCommentItem.module.scss";
 import { SmallDotsIcon } from "../../../../assets/icon";
 
 export interface Props {
-  commenter: string;
-  commenterImage: string;
+  writer: string;
+  profileImage: string;
   elpasedTime: string;
   comment: string;
   taggedUsers?: { userId: string; nickname: string }[];
@@ -16,8 +16,8 @@ export interface Props {
 }
 
 const CommunityCommentItem = ({
-  commenter,
-  commenterImage,
+  writer,
+  profileImage,
   elpasedTime,
   comment,
   taggedUsers,
@@ -29,14 +29,14 @@ const CommunityCommentItem = ({
   return (
     <div className={classnames([styles.container, className])}>
       <CircleImage
-        className={styles.commenterImage}
-        src={commenterImage}
+        className={styles.profileImage}
+        src={profileImage}
         onClick={onCommenterClick}
       />
-      <div className={styles.containerBody}>
+      <div className={styles.content}>
         <div className={styles.header}>
-          <span className={styles.commenter} onClick={onCommenterClick}>
-            {commenter}
+          <span className={styles.writer} onClick={onCommenterClick}>
+            {writer}
           </span>
           <span className={styles.subText}>{elpasedTime}</span>
           <span className={styles.subText} onClick={onReplyClick}>
@@ -54,7 +54,7 @@ const CommunityCommentItem = ({
               ))}
             <span className={styles.comment}>{comment}</span>
           </div>
-          <div className={styles.dots}>
+          <div className={styles.option}>
             <SmallDotsIcon className={styles.icon} onClick={onOptionClick} />
           </div>
         </div>
