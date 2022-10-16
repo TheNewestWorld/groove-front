@@ -5,4 +5,7 @@ export const apiUrls = {
     signUp: () => `${BASE_URL}/users/register`,
     getSign: () => `${BASE_URL}/users/self`,
   },
+  community: {
+    getCommunityList: () => `${BASE_URL}/community/post`,
+  },
 };

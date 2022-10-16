@@ -1,0 +1,1 @@
+export { getCommunityList } from "./getCommunityList";
