@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserContext } from "./store";
 import { BrowserRouter } from "react-router-dom";
+import { initAxios } from "./common/configs/axios";
+
+initAxios();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
