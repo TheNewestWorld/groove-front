@@ -8,7 +8,7 @@ export default {
     activeFilter: "최신순",
     filterList: ["최신순", "인기순", "댓글순"],
     onChangeFilter: (filter: string) => alert(filter),
-    onClickTab: (filter: string) => alert(filter),
+    onClickTab: (tab: string) => alert(tab),
     communityList: [
       {
         user: "권진아",

@@ -9,7 +9,7 @@ export interface Props {
   activeFilter: string;
   filterList: string[];
   onChangeFilter: (filter: string) => void;
-  onClickTab: (filter: string) => void;
+  onClickTab: (tab: string) => void;
   communityList: CommunityItemView[];
 }
 
