@@ -51,14 +51,13 @@ const CommunityComment = ({
           <div>
             <CommunityCommentItem {...item.comment} />
 
-            {item.replies &&
-              item.replies.length > 0 &&
+            {item.replies?.length > 0 &&
               commentsReadMore[index].isOpen &&
               item.replies.map(reply => (
                 <CommunityCommentItem {...reply} className={styles.reply} />
               ))}
 
-            {item.replies && item.replies.length > 0 && (
+            {item.replies?.length > 0 && (
               <CommunityCommentReadMore
                 className={styles.readMore}
                 isOpen={commentsReadMore[index].isOpen}

@@ -16,12 +16,13 @@ const CommunityCommentReadMore = ({
 }: Props) => {
   return (
     <div className={classnames([styles.container, className])}>
-      {isOpen && (
+      {isOpen ? (
         <span className={styles.open} onClick={onClick}>
           -답글 접기
         </span>
+      ) : (
+        <span onClick={onClick}>-답글 {replyCount}개 더 보기</span>
       )}
-      {!isOpen && <span onClick={onClick}>-답글 {replyCount}개 더 보기</span>}
     </div>
   );
 };

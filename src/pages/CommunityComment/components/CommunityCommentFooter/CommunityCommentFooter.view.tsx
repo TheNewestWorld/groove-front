@@ -10,6 +10,7 @@ export interface Props {
 
 const CommunityCommentFooter = ({ onSubmitComment }: Props) => {
   const [comment, setComment] = useState<string>("");
+
   return (
     <div className={styles.container}>
       <textarea
