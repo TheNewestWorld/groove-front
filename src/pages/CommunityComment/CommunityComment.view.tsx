@@ -45,7 +45,7 @@ const CommunityComment = ({
         <Header
           title="댓글"
           right={<CloseIcon />}
-          onRightClick={onCloseClick}
+          onClickRight={onCloseClick}
         />
         {comments.map((item, index) => (
           <div>
