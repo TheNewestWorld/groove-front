@@ -1,3 +1,5 @@
+@import "../../constants/color";
+
 .header {
   width: 100%;
   height: 50px;
@@ -6,10 +8,15 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 1px $black-EB;
+}
 
-  &__title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-  }
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
 }

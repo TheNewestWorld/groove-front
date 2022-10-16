@@ -28,6 +28,7 @@ export { ReactComponent as BlueMicIcon } from "./mic_blue.svg";
 export { ReactComponent as MoneyIcon } from "./money.svg";
 export { ReactComponent as PencilIcon } from "./pencil.svg";
 export { ReactComponent as PlayIcon } from "./play.svg";
+export { ReactComponent as ReportIcon } from "./report.svg";
 export { ReactComponent as SelectIcon } from "./select.svg";
 export { ReactComponent as SettingIcon } from "./setting.svg";
 export { ReactComponent as YellowStartFillIcon } from "./star_yellow_fill.svg";

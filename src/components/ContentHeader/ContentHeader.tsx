@@ -6,27 +6,29 @@ import "./ContentHeader.scss";
 
 export interface Props {
   title: string;
-  imageUrl: string;
+  profileImage: string;
   nickname: string;
   date: Date;
-  onProfileClick?: () => void;
+  onClickProfile?: () => void;
   className?: string;
 }
 
 const ContentHeader = ({
   title,
-  imageUrl,
+  profileImage,
   nickname,
   date,
-  onProfileClick,
-  className
+  onClickProfile,
+  className,
 }: Props): React.ReactElement => {
   return (
     <div className={classNames(["content-header", className])}>
       <div className="content-header__title">{title}</div>
       <div className="content-header__flex">
-        <CircleImage src={imageUrl} onClick={onProfileClick}/>
-        <div className="content-header__nickname" onClick={onProfileClick}>{nickname}</div>
+        <CircleImage src={profileImage} onClick={onClickProfile} />
+        <div className="content-header__nickname" onClick={onClickProfile}>
+          {nickname}
+        </div>
         <div className="content-header__date">{formatFullDate(date)}</div>
       </div>
     </div>
