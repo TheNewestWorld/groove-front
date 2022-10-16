@@ -1,7 +1,7 @@
 import axios from "axios";
 import { resultData } from "../../configs/axios";
+import { apiUrls } from "../utils";
 
 export const getUser = () => {
-  // TODO: 요청 url 작성
-  return resultData<null>(axios.get(""));
+  return resultData<null>(axios.get(apiUrls.user.getSign()));
 };

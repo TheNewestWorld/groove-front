@@ -1,5 +1,6 @@
 import axios from "axios";
 import { resultData } from "../../configs/axios";
+import { apiUrls } from "../utils";
 
 export type SignUpRequestBody = {
   email: string;
@@ -7,6 +8,5 @@ export type SignUpRequestBody = {
 };
 
 export const signUp = (body: SignUpRequestBody) => {
-  // TODO: 요청 url 작성
-  return resultData<null>(axios.post("", body));
+  return resultData<null>(axios.post(apiUrls.user.signUp(), body));
 };
