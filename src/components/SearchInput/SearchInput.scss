@@ -1,0 +1,45 @@
+@import "../../constants/color";
+
+.search {
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+
+    &__container {
+      flex-grow: 1;
+      display: flex;
+      margin-right: 20px;
+      font-size: 15px;
+      border-radius: 20px;
+      border: 1px solid $black-EB;
+      padding: 10px;
+
+      & > input{
+        border: none;
+        flex-grow: 1;
+        
+        &:focus{
+          outline: none;
+        }
+        &::placeholder{
+          color: $black-8B;
+        }
+      }
+    }
+
+    &__icon{
+      width: 20px;
+      margin-right: 12px;
+    }
+
+    & > button {
+      font-size: 16px;
+      border: 0;
+      outline: 0;
+      background-color: transparent;
+      padding: 0px;
+      width: 32px;
+    }
+  }
+}

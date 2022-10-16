@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
-import Search, { Props } from "./Search";
+import SearchEntry, { Props } from "./SearchEntry.view";
 
 export default {
-  title: "components/page/Search",
-  component: Search,
+  title: "pages/Search/components/SearchInput",
+  component: SearchEntry,
   args: {
     list: [
       {
@@ -25,6 +25,6 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <Search {...args} />;
+const Template = (args: Props) => <SearchEntry {...args} />;
 
 export const 기본 = Template.bind({});
