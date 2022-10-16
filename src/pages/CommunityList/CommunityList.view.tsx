@@ -9,6 +9,7 @@ export interface Props {
   activeFilter: string;
   filterList: string[];
   onChangeFilter: (filter: string) => void;
+  onClickTab: (filter: string) => void;
   communityList: CommunityItemView[];
 }
 
@@ -16,6 +17,7 @@ const CommunityListView = ({
   activeFilter,
   filterList,
   onChangeFilter,
+  onClickTab,
   communityList,
 }: Props) => {
   return (
@@ -24,7 +26,7 @@ const CommunityListView = ({
         type="round"
         activeTab="전체 게시물"
         tabList={["전체 게시물", "보컬 이야기", "일상 이야기", "기타"]}
-        onClickTab={(tab: string) => alert(tab)}
+        onClickTab={onClickTab}
       />
       <TopDownFilter
         className={styles.filter}
@@ -33,8 +35,8 @@ const CommunityListView = ({
         onClickFilter={onChangeFilter}
       />
       {communityList.map((item, index) => (
-        <div className={styles.item}>
-          <CommunityItem key={index} {...item} />
+        <div className={styles.item} key={index}>
+          <CommunityItem {...item} />
         </div>
       ))}
     </div>

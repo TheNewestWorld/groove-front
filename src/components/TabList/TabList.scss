@@ -41,18 +41,18 @@
       font-weight: bold;
       &.active {
         background-color: $black-19;
-        border-radius: 18px;
+        border-radius: 28px;
         color: white;
       }
     }
 
     &.underline {
-      color: $black-19;
+      color: $black-8B;
 
       &.active {
         font-weight: bold;
         color: $black-19;
-          border-bottom: 2px solid $black-19;
+        border-bottom: 2px solid $black-19;
       }
     }
   }
