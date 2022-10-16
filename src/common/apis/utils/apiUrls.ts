@@ -1,4 +1,6 @@
+import { getCommunityListQuery } from "../community";
 import { BASE_URL } from "./constants";
+import queryString from "query-string";
 
 export const apiUrls = {
   user: {
@@ -6,6 +8,7 @@ export const apiUrls = {
     getSign: () => `${BASE_URL}/users/self`,
   },
   community: {
-    getCommunityList: () => `${BASE_URL}/community/post`,
+    getCommunityList: (query: getCommunityListQuery) =>
+      `${BASE_URL}/community/post${queryString.stringify(query)}`,
   },
 };
