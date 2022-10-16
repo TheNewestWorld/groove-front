@@ -21,8 +21,8 @@ export interface Props {
   likeCount: number;
   liked?: boolean;
   commentCount: number;
-  onBackClick?: () => void;
-  onOptionClick?: () => void;
+  onClickBack?: () => void;
+  onClickReport?: () => void;
 }
 
 const CommunityDetailView = ({
@@ -39,8 +39,8 @@ const CommunityDetailView = ({
   likeCount,
   liked,
   commentCount,
-  onBackClick,
-  onOptionClick,
+  onClickBack,
+  onClickReport,
 }: Props) => {
   return (
     <div className={styles.container}>
@@ -48,8 +48,8 @@ const CommunityDetailView = ({
         title="게시물"
         left={<ArrowTailIcon />}
         right={<ReportIcon />}
-        onLeftClick={onBackClick}
-        onRightClick={onOptionClick}
+        onClickLeft={onClickBack}
+        onClickRight={onClickReport}
       />
       <ContentHeader
         className={styles.header}

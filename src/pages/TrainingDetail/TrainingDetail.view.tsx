@@ -74,7 +74,7 @@ const TrainingDetailView = ({
       <div className={styles.container}>
         <ContentHeader
           title={title}
-          imageUrl={profileImage}
+          profileImage={profileImage}
           nickname={nickname}
           date={date}
           className={styles.header}

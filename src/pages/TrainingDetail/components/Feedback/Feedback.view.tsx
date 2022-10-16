@@ -23,7 +23,7 @@ const FeedbackView = ({
     <div className={classNames([styles.container, className])}>
       <ContentHeader
         title={title}
-        imageUrl={profileImage}
+        profileImage={profileImage}
         nickname={nickname}
         date={date}
       />
