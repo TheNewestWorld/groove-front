@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import { PencilIcon } from "../../../../assets/icon";
 
-import styles from "./CommunityCommentFooter.module.scss";
+import styles from "./CommunityCommentInput.module.scss";
 
 export interface Props {
   onSubmitComment: (comment: string) => void;
 }
 
-const CommunityCommentFooter = ({ onSubmitComment }: Props) => {
+const CommunityCommentInput = ({ onSubmitComment }: Props) => {
   const [comment, setComment] = useState<string>("");
 
   return (
@@ -31,4 +31,4 @@ const CommunityCommentFooter = ({ onSubmitComment }: Props) => {
   );
 };
 
-export default CommunityCommentFooter;
+export default CommunityCommentInput;

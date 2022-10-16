@@ -8,7 +8,7 @@ import CommunityCommentItem, {
 } from "./components/CommunityCommentItem";
 
 import { CloseIcon } from "../../assets/icon";
-import CommunityCommentFooter from "./components/CommunityCommentFooter";
+import CommunityCommentInput from "./components/CommunityCommentInput";
 import CommunityCommentReadMore from "./components/CommunityCommentReadMore";
 
 export interface CommentPair {
@@ -78,7 +78,7 @@ const CommunityComment = ({
           </div>
         ))}
       </div>
-      <CommunityCommentFooter onSubmitComment={onSubmitComment} />
+      <CommunityCommentInput onSubmitComment={onSubmitComment} />
     </div>
   );
 };
