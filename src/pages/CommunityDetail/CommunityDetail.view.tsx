@@ -1,7 +1,7 @@
 import styles from "./CommunityDetail.module.scss";
 import Header from "../../components/Header";
 
-import { ArrowTailIcon, DotsIcon } from "../../assets/icon";
+import { ArrowTailIcon, ReportIcon } from "../../assets/icon";
 
 import ContentHeader, {
   Props as ContentHeaderType,
@@ -32,9 +32,9 @@ const CommunityDetailView = ({
   return (
     <div className={styles.container}>
       <Header
-        title="댓글"
+        title="게시물"
         left={<ArrowTailIcon />}
-        right={<DotsIcon />}
+        right={<ReportIcon />}
         onLeftClick={onBackClick}
         onRightClick={onOptionClick}
       />
