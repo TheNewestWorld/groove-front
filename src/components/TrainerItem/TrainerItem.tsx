@@ -3,11 +3,7 @@ import CircleImage from "../CircleImage";
 
 import styles from "./TrainerItem.module.scss";
 
-import {
-  ChatIcon,
-  HeartActiveIcon,
-  HeartInactiveIcon,
-} from "../../assets/icon";
+import { ChatIcon, HeartIcon } from "../../assets/icon";
 
 export interface Props {
   imageUrl: string;
@@ -48,11 +44,9 @@ const TrainerItem = ({
       </div>
       <span className={styles.introduce}>{introduce}</span>
       <div className={styles.bottom}>
-        {liked ? (
-          <HeartActiveIcon className={styles.icon} />
-        ) : (
-          <HeartInactiveIcon className={styles.icon} />
-        )}
+        <HeartIcon
+          className={classNames([styles.icon, liked && styles.liked])}
+        />
         <div className={styles.number}>{likeCount}</div>
         <ChatIcon className={styles.icon} />
         <div className={styles.number}>{commentCount}</div>

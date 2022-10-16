@@ -1,9 +1,5 @@
 import classNames from "classnames";
-import {
-  ChatIcon,
-  HeartActiveIcon,
-  HeartInactiveIcon,
-} from "../../assets/icon";
+import { ChatIcon, HeartIcon } from "../../assets/icon";
 import styles from "./CommunityFooter.module.scss";
 
 export interface Props {
@@ -21,9 +17,7 @@ const CommunityFooter = ({
 }: Props) => {
   return (
     <div className={classNames([styles.container, className])}>
-      {liked
-        ? <HeartActiveIcon className={styles.icon} />
-        : <HeartInactiveIcon className={styles.icon} />}
+      <HeartIcon className={classNames([styles.icon, liked && styles.liked])} />
       {likeCount}
       <ChatIcon className={styles.icon} />
       {commentCount}

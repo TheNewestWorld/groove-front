@@ -72,6 +72,9 @@
   .icon {
     width: 14px;
     height: 14px;
+    .liked {
+      fill: $heart
+    }
   }
   .number {
     margin-left: 5px;
