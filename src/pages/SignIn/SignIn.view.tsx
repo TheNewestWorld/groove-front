@@ -3,11 +3,18 @@ import Input from "../../components/Input";
 import styles from "./SignIn.module.scss";
 
 export interface Props {
+  data: { email: string; password: string };
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isDisabledButton?: boolean;
   onClickConfirm?: () => void;
 }
 
-const SignInView = ({ isDisabledButton, onClickConfirm }: Props) => {
+const SignInView = ({
+  data,
+  onChange,
+  isDisabledButton,
+  onClickConfirm,
+}: Props) => {
   return (
     <div className={styles.container}>
       {/* TODO: 헤더 추가하기 */}
@@ -19,8 +26,17 @@ const SignInView = ({ isDisabledButton, onClickConfirm }: Props) => {
         onClick={onClickConfirm}
       >
         <div className={styles.inputGroup}>
-          <Input label="아이디(이메일)" placeholder="groove@groove.com" />
           <Input
+            name="email"
+            value={data.email}
+            onChange={onChange}
+            label="아이디(이메일)"
+            placeholder="groove@groove.com"
+          />
+          <Input
+            name="password"
+            value={data.password}
+            onChange={onChange}
             label="비밀번호"
             placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
           />
