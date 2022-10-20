@@ -1,5 +1,3 @@
-export { getCommunityList } from "./getCommunityList";
-export type {
-  getCommunityListQuery,
-  getCommunityListResponse,
-} from "./getCommunityList";
+export * from "./getCommunityList";
+export * from "./getCommunity";
+export * from "./updateCommunity";
