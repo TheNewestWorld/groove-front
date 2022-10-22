@@ -1,23 +1,17 @@
-import { useState } from "react";
+import styles from "./CommunityCommentList.module.scss";
+
+import CommunityComment, {
+  Props as CommunityCommentType,
+} from "./components/CommunityComment";
+
+import CommunityCommentInput from "./components/CommunityCommentInput";
 
 import Header from "../../components/Header";
-import styles from "./CommunityComment.module.scss";
-
-import CommunityCommentItem, {
-  Props as CommunityCommentItemType,
-} from "./components/CommunityCommentItem";
 
 import { CloseIcon } from "../../assets/icon";
-import CommunityCommentInput from "./components/CommunityCommentInput";
-import CommunityCommentReadMore from "./components/CommunityCommentReadMore";
-
-export interface CommentPair {
-  comment: CommunityCommentItemType;
-  replies: CommunityCommentItemType[];
-}
 
 export interface Props {
-  comments?: CommentPair[];
+  comments?: CommunityCommentType[];
   onCloseClick: () => void;
   onSubmitComment: (comment: string) => void;
 }
@@ -27,15 +21,6 @@ const CommunityCommentList = ({
   onCloseClick,
   onSubmitComment,
 }: Props) => {
-  const [commentsReadMore, setCommentsReadMore] = useState<
-    { isOpen: boolean; limit: number }[]
-  >(
-    new Array(comments.length).fill({
-      isOpen: true,
-      limit: 10,
-    }),
-  );
-
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
@@ -44,38 +29,8 @@ const CommunityCommentList = ({
           right={<CloseIcon />}
           onClickRight={onCloseClick}
         />
-        {comments.map((item, index) => (
-          <div>
-            <CommunityCommentItem {...item.comment} />
-
-            {item.replies?.length > 0 &&
-              commentsReadMore[index].isOpen &&
-              item.replies.map(reply => (
-                <CommunityCommentItem {...reply} className={styles.reply} />
-              ))}
-
-            {item.replies?.length > 0 && (
-              <CommunityCommentReadMore
-                className={styles.readMore}
-                isOpen={commentsReadMore[index].isOpen}
-                replyCount={item.replies.length}
-                onClick={() => {
-                  setCommentsReadMore(
-                    commentsReadMore.map((item, i) => {
-                      if (index == i) {
-                        return {
-                          ...item,
-                          ["isOpen"]: !commentsReadMore[index].isOpen,
-                        };
-                      } else {
-                        return item;
-                      }
-                    }),
-                  );
-                }}
-              />
-            )}
-          </div>
+        {comments.map(item => (
+          <CommunityComment {...item} />
         ))}
       </div>
       <CommunityCommentInput onSubmitComment={onSubmitComment} />
