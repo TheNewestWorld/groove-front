@@ -1,9 +1,9 @@
 import { Meta, Story } from "@storybook/react";
-import CommunityComment, { Props } from "./CommunityComment.view";
+import CommunityCommentList, { Props } from "./CommunityCommentList.view";
 
 export default {
-  title: "Pages/CommunityComment",
-  component: CommunityComment,
+  title: "Pages/CommunityCommentList",
+  component: CommunityCommentList,
   args: {
     comments: [
       {
@@ -117,6 +117,6 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <CommunityComment {...args} />;
+const Template: Story<Props> = (args: Props) => <CommunityCommentList {...args} />;
 
 export const 기본 = Template.bind({});

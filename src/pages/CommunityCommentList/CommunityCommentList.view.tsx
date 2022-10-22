@@ -22,7 +22,7 @@ export interface Props {
   onSubmitComment: (comment: string) => void;
 }
 
-const CommunityComment = ({
+const CommunityCommentList = ({
   comments = [],
   onCloseClick,
   onSubmitComment,
@@ -83,4 +83,4 @@ const CommunityComment = ({
   );
 };
 
-export default CommunityComment;
+export default CommunityCommentList;
