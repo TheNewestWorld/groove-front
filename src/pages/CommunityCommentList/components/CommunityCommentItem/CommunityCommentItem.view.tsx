@@ -8,7 +8,7 @@ export interface Props {
   profileImage: string;
   elpasedTime: string;
   comment: string;
-  taggedUsers?: { userId: string; nickname: string }[];
+  taggedUsers?: { userId: number; nickname: string }[];
   className?: string;
   onCommenterClick: () => void;
   onReplyClick: () => void;
@@ -48,7 +48,7 @@ const CommunityCommentItem = ({
             {taggedUsers &&
               taggedUsers.map(item => (
                 // TODO(in.heo): userId에 맞는 유저 페이지로 이동은 추후 유저 마이페이지의 routing이 추가되면 변경하겠습니다.
-                <a href={item.userId} className={styles.tag}>
+                <a href={item.userId.toString()} className={styles.tag}>
                   @{item.nickname}
                 </a>
               ))}

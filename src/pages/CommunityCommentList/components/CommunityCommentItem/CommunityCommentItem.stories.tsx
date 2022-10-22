@@ -27,11 +27,11 @@ export const 유저태그 = Template.bind({});
 유저태그.args = {
   taggedUsers: [
     {
-      userId: "0",
+      userId: 0,
       nickname: "나는용국",
     },
     {
-      userId: "1",
+      userId: 1,
       nickname: "나는호인",
     },
   ],
