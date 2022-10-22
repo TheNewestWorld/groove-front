@@ -23,7 +23,8 @@ const CommunityComment = ({ comment, replies }: Props) => {
     <div>
       <CommunityCommentItem {...comment} />
 
-      {replies && replies.length > 0 &&
+      {replies &&
+        replies.length > 0 &&
         readMore.isOpen &&
         replies!.map(reply => (
           <CommunityCommentItem {...reply} className={styles.reply} />
@@ -34,9 +35,15 @@ const CommunityComment = ({ comment, replies }: Props) => {
           className={styles.readMore}
           isOpen={readMore.isOpen}
           replyCount={replies!.length}
-          onClick={() => {
+          onClickOpen={() => {
             setReadMore({
-              isOpen: !readMore.isOpen,
+              isOpen: true,
+              limit: readMore.limit,
+            });
+          }}
+          onClickClose={() => {
+            setReadMore({
+              isOpen: false,
               limit: readMore.limit,
             });
           }}
