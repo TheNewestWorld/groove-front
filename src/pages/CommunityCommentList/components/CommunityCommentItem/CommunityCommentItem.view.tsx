@@ -4,44 +4,46 @@ import styles from "./CommunityCommentItem.module.scss";
 import { SmallDotsIcon } from "../../../../assets/icon";
 
 export interface Props {
+  className?: string;
+  commentId: number;
   writer: string;
   profileImage: string;
   createdTime: Date;
   comment: string;
   taggedUsers?: { userId: number; nickname: string }[];
-  className?: string;
-  onCommenterClick: () => void;
-  onReplyClick: () => void;
-  onOptionClick: () => void;
+  onClickCommenter?: () => void;
+  onClickReply?: () => void;
+  onClickOption: (commentId: number) => void;
 }
 
 const CommunityCommentItem = ({
+  commentId,
   writer,
   profileImage,
   createdTime,
   comment,
   taggedUsers,
   className,
-  onCommenterClick,
-  onReplyClick,
-  onOptionClick,
+  onClickCommenter,
+  onClickReply,
+  onClickOption,
 }: Props) => {
   return (
     <div className={classnames([styles.container, className])}>
       <CircleImage
         className={styles.profileImage}
         src={profileImage}
-        onClick={onCommenterClick}
+        onClick={onClickCommenter}
       />
       <div className={styles.content}>
         <div className={styles.header}>
-          <span className={styles.writer} onClick={onCommenterClick}>
+          <span className={styles.writer} onClick={onClickCommenter}>
             {writer}
           </span>
           <span className={styles.subText}>
             {ConvertToElapsedTime(createdTime)}
           </span>
-          <span className={styles.subText} onClick={onReplyClick}>
+          <span className={styles.subText} onClick={onClickReply}>
             답글 달기
           </span>
         </div>
@@ -57,7 +59,12 @@ const CommunityCommentItem = ({
             <span className={styles.comment}>{comment}</span>
           </div>
           <div className={styles.option}>
-            <SmallDotsIcon className={styles.icon} onClick={onOptionClick} />
+            <SmallDotsIcon
+              className={styles.icon}
+              onClick={() => {
+                onClickOption(commentId);
+              }}
+            />
           </div>
         </div>
       </div>
