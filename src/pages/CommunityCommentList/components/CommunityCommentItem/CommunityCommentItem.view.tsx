@@ -2,6 +2,7 @@ import classnames from "classnames";
 import CircleImage from "../../../../components/CircleImage";
 import styles from "./CommunityCommentItem.module.scss";
 import { SmallDotsIcon } from "../../../../assets/icon";
+import { convertToElapsedTime } from "./helpers";
 
 export interface Props {
   className?: string;
@@ -41,7 +42,7 @@ const CommunityCommentItem = ({
             {writer}
           </span>
           <span className={styles.subText}>
-            {ConvertToElapsedTime(createdTime)}
+            {convertToElapsedTime(createdTime)}
           </span>
           <span className={styles.subText} onClick={onClickReply}>
             답글 달기
@@ -70,28 +71,6 @@ const CommunityCommentItem = ({
       </div>
     </div>
   );
-};
-
-const times: { time: string; milliSeconds: number }[] = [
-  { time: "분", milliSeconds: 1000 * 60 },
-  { time: "시간", milliSeconds: 1000 * 60 * 60 },
-  { time: "일", milliSeconds: 1000 * 60 * 60 * 24 },
-  { time: "개월", milliSeconds: 1000 * 60 * 60 * 24 * 30 },
-  { time: "년", milliSeconds: 1000 * 60 * 60 * 24 * 365 },
-].reverse();
-
-const ConvertToElapsedTime = (createdTime: Date) => {
-  const now = new Date().getTime();
-  const diff = now - createdTime.getTime();
-
-  for (const value of times) {
-    const elapsedTime = Math.floor(diff / value.milliSeconds);
-    if (elapsedTime > 0) {
-      return `${elapsedTime}${value.time}전`;
-    }
-  }
-
-  return "방금 전";
 };
 
 export default CommunityCommentItem;

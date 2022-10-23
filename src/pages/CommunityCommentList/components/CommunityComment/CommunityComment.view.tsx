@@ -1,12 +1,9 @@
-import { useState } from "react";
-
-import styles from "./CommunityComment.module.scss";
-
+import useOpen from "../../../../hooks/useOpen";
+import CommunityCommentReadMore from "../CommunityCommentReadMore";
 import CommunityCommentItem, {
   Props as CommunityCommentItemType,
 } from "../CommunityCommentItem";
-
-import CommunityCommentReadMore from "../CommunityCommentReadMore";
+import styles from "./CommunityComment.module.scss";
 
 export interface Props {
   comment: CommunityCommentItemType;
@@ -14,39 +11,24 @@ export interface Props {
 }
 
 const CommunityComment = ({ comment, replies }: Props) => {
-  const [readMore, setReadMore] = useState<{ isOpen: boolean; limit: number }>({
-    isOpen: false,
-    limit: 10,
-  });
+  const { isOpen, onOpen, onClose } = useOpen();
 
   return (
     <div>
       <CommunityCommentItem {...comment} />
-
       {replies &&
         replies.length > 0 &&
-        readMore.isOpen &&
+        isOpen &&
         replies!.map(reply => (
           <CommunityCommentItem {...reply} className={styles.reply} />
         ))}
-
       {replies && replies.length > 0 && (
         <CommunityCommentReadMore
           className={styles.readMore}
-          isOpen={readMore.isOpen}
+          isOpen={isOpen}
           replyCount={replies!.length}
-          onClickOpen={() => {
-            setReadMore({
-              isOpen: true,
-              limit: readMore.limit,
-            });
-          }}
-          onClickClose={() => {
-            setReadMore({
-              isOpen: false,
-              limit: readMore.limit,
-            });
-          }}
+          onClickOpen={onOpen}
+          onClickClose={onClose}
         />
       )}
     </div>

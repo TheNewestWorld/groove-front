@@ -1,60 +1,51 @@
-import styles from "./CommunityCommentList.module.scss";
-
-import CommunityComment from "./components/CommunityComment";
-
-import CommunityCommentInput from "./components/CommunityCommentInput";
-
-import CommunityCommentItem, {
-  Props as CommunityCommentItemType,
-} from "./components/CommunityCommentItem";
-
-import Header from "../../components/Header";
-
-import { CloseIcon } from "../../assets/icon";
+import { useState } from "react";
 import useOpen from "../../hooks/useOpen";
 import BottomSheetList from "../../components/BottomSheetList";
-import { useState } from "react";
+import CommunityComment from "./components/CommunityComment";
+import CommunityCommentInput from "./components/CommunityCommentInput";
+import { Props as CommunityCommentItemType } from "./components/CommunityCommentItem";
+import Header from "../../components/Header";
+import { CloseIcon } from "../../assets/icon";
+import styles from "./CommunityCommentList.module.scss";
+
+interface CommentInfo {
+  commentId: number;
+  writer: string;
+  profileImage: string;
+  createdTime: Date;
+  comment: string;
+  taggedUsers?: { userId: number; nickname: string }[];
+}
+
+const NOT_SETTING = -1;
 
 export interface Props {
   comments: {
-    comment: {
-      commentId: number;
-      writer: string;
-      profileImage: string;
-      createdTime: Date;
-      comment: string;
-      taggedUsers?: { userId: number; nickname: string }[];
-    };
-    replies?: {
-      commentId: number;
-      writer: string;
-      profileImage: string;
-      createdTime: Date;
-      comment: string;
-      taggedUsers?: { userId: number; nickname: string }[];
-    }[];
+    comment: CommentInfo;
+    replies?: CommentInfo[];
   }[];
-  onClickClose: () => void;
-  onClickCreateComment: (comment: string) => void;
+  onClose: () => void;
+  onSubmitComment: (comment: string) => void;
   onClickReport: (commentId: number) => void;
 }
 
 const CommunityCommentList = ({
   comments = [],
-  onClickClose,
-  onClickCreateComment,
+  onClose,
+  onSubmitComment,
   onClickReport,
 }: Props) => {
-  const { isOpen, onOpen, onClose } = useOpen();
-  const [reportId, setReportId] = useState<number>(-1);
+  const {
+    isOpen: isOpenOption,
+    onOpen: onOpenOption,
+    onClose: onCloseOption,
+  } = useOpen();
+  const [reportId, setReportId] = useState<number>(NOT_SETTING);
+
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
-        <Header
-          title="댓글"
-          right={<CloseIcon />}
-          onClickRight={onClickClose}
-        />
+        <Header title="댓글" right={<CloseIcon />} onClickRight={onClose} />
         {/* TODO(ho2eny): 빈 페이지 작업 필요 */}
         {comments.map(item => (
           <CommunityComment
@@ -62,7 +53,7 @@ const CommunityCommentList = ({
               ...item.comment,
               onClickOption: (commentId: number) => {
                 setReportId(commentId);
-                onOpen();
+                onOpenOption();
               },
               // TODO(ho2eny): onClickReply 이벤트 처리 필요
             }}
@@ -74,7 +65,7 @@ const CommunityCommentList = ({
                       ...reply,
                       onClickOption: (commentId: number) => {
                         setReportId(commentId);
-                        onOpen();
+                        onOpenOption();
                       },
                     };
                   })
@@ -82,15 +73,15 @@ const CommunityCommentList = ({
           />
         ))}
       </div>
-      <CommunityCommentInput onSubmitComment={onClickCreateComment} />
-      {isOpen && (
+      <CommunityCommentInput onSubmitComment={onSubmitComment} />
+      {isOpenOption && (
         <BottomSheetList
           hasCloseButton={true}
           list={["신고하기"]}
           onClick={(value: string) => {
             onClickReport(reportId);
           }}
-          onClose={onClose}
+          onClose={onCloseOption}
         />
       )}
     </div>
