@@ -1,7 +1,7 @@
-export type ApiResponseData = {
-  data: any;
+export type ApiResponseData<T> = {
+  data?: T;
   result: "SUCCESS" | "ERROR";
-  error: { code: string; message: string; data: any };
+  error?: { code: string; message: string; data: any };
 };
 
 export enum HTTP_STATUS {

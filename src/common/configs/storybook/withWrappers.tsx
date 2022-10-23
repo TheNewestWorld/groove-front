@@ -1,6 +1,6 @@
 import React from "react";
 import { QueryClientProvider } from "react-query";
-import { MemoryRouter as Router, Route } from "react-router-dom";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { getGlobalQueryClient } from "../query";
 
 type Props = {
@@ -13,9 +13,12 @@ const withWrappers =
   (Story: () => React.ReactElement) => {
     return (
       <QueryClientProvider client={getGlobalQueryClient()}>
-        <Router initialEntries={[locationPath]}>
-          <Route path={routePath} element={<Story />} />
-        </Router>
+        <MemoryRouter initialEntries={[locationPath]}>
+          <Routes>
+            <Route path={routePath} element={<Story />} />
+            <Route path="*" element={<Story />} />
+          </Routes>
+        </MemoryRouter>
       </QueryClientProvider>
     );
   };
