@@ -66,6 +66,16 @@
 
 .floating-layout{position:fixed;display:flex;flex-direction:column;justify-content:space-between;bottom:20px;right:20px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;z-index:5}.floating-layout>*{margin:5px 0px}
 
+.CommunityCommentReadMore_container__Qk\+6p{font-size:10px;font-weight:200;color:#8B95A1}.CommunityCommentReadMore_open__lpR5i{margin-left:42px}
+
+.CommunityCommentItem_container__HC24F{display:flex;margin-top:24px}.CommunityCommentItem_profileImage__ZTJZJ{flex-shrink:0;margin-top:2px;height:28px;width:28px}.CommunityCommentItem_reply__zP8Bm{height:24px;width:24px}.CommunityCommentItem_content__MP5Tf{display:flex;flex-grow:1;flex-flow:column;margin-left:13px}.CommunityCommentItem_header__-0Kd1{display:flex;align-items:center;margin-bottom:5px}.CommunityCommentItem_writer__TdZTI{font-size:14px;font-weight:700;margin-right:11px;color:#191F28}.CommunityCommentItem_subText__Y0-\+8{margin-right:11px;font-size:10px;color:#8B95A1}.CommunityCommentItem_body__5Uqho{display:flex;flex-grow:1}.CommunityCommentItem_comment__JNiF7{flex-grow:1;font-size:14px;line-height:150%;color:#191F28}.CommunityCommentItem_tag__miU1v{font-size:14px;font-weight:700;color:#191F28;text-decoration:none;margin-right:4px}.CommunityCommentItem_option__Oab92{display:flex;flex-shrink:0;margin-left:6px}.CommunityCommentItem_icon__9ImYJ{width:24px;height:24px}
+
+.CommunityComment_readMore__xcxhw{margin-top:24px;margin-left:36px}.CommunityComment_reply__4boK\+{margin-left:40px}
+
+.CommunityCommentInput_container__C10oX{display:flex;height:36px;width:calc(100% - 40px);position:fixed;left:0;bottom:0;align-items:center;padding:9px 20px;border-top:solid 1px #EBEBEB;background-color:#fff}.CommunityCommentInput_container__C10oX>textarea{flex-grow:1;background-color:#F2F4F5;border:none;border-radius:10px;padding:10px 14px;color:#191F28;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>textarea:focus{outline:none}.CommunityCommentInput_container__C10oX>textarea::-webkit-input-placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>textarea::placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>svg{fill:#191F28}.CommunityCommentInput_submit__jzNR\+{flex-shrink:0;padding:7px;margin-left:8px;border-radius:10px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);background-color:white}
+
+.CommunityCommentList_container__MMTGP{margin:0px 20px}.CommunityCommentList_containerBody__KjQnj{margin-bottom:54px}
+
 .CommunityDetail_header__Rwuz7{width:calc(100% - 40px);margin:0px 20px;padding:28px 0px;border-bottom:solid 1px #EBEBEB}.CommunityDetail_content__O3uxb{margin:16px 20px 40px;font-size:16px;color:#191F28;line-height:162.5%}
 
 .CommunityList_container__vdpyr{padding:20px}.CommunityList_filter__NM4es{margin:13px 0px 13px 10px}.CommunityList_item__qBPEc{margin-bottom:16px}
@@ -99,4 +109,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.8539ff29.css.map*/
+/*# sourceMappingURL=main.220a418f.css.map*/
