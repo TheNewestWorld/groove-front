@@ -23,11 +23,16 @@ const SearchListView = ({
           onSubmitSearch={onSubmitSearch}
         />
       </div>
-      {communityList.map((item, index) => (
-        <div className={styles.item} key={index}>
-          <CommunityItem {...item} />
-        </div>
-      ))}
+      {communityList.length === 0 && (
+        <div className={styles.text}>찾으시는 내용이 없어요.</div>
+      )}
+      {
+        communityList.map((item, index) => (
+          <div className={styles.item} key={index}>
+            <CommunityItem {...item} />
+          </div>
+        ))
+      }
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import SearchListView, { Props } from "./SearchList.view";
 
 export default {
@@ -48,6 +48,11 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <SearchListView {...args} />;
+const Template: Story<Props> = (args: Props) => <SearchListView {...args} />;
 
 export const 기본 = Template.bind({});
+
+export const 검색결과없음 = Template.bind({});
+검색결과없음.args = {
+  communityList: [],
+}
