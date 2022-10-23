@@ -55,6 +55,7 @@ const CommunityCommentList = ({
           right={<CloseIcon />}
           onClickRight={onClickClose}
         />
+        {/* TODO(ho2eny): 빈 페이지 작업 필요 */}
         {comments.map(item => (
           <CommunityComment
             comment={{
@@ -63,6 +64,7 @@ const CommunityCommentList = ({
                 setReportId(commentId);
                 onOpen();
               },
+              // TODO(ho2eny): onClickReply 이벤트 처리 필요
             }}
             replies={
               !item.replies
