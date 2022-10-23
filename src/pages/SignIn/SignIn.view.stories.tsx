@@ -2,9 +2,11 @@ import { Meta } from "@storybook/react";
 import SignIn, { Props } from "./SignIn.view";
 
 export default {
-  title: "Pages/SignIn",
+  title: "Pages/SignIn/views",
   component: SignIn,
-  args: {},
+  args: {
+    data: { email: "", password: "" },
+  },
 } as Meta;
 
 const Template = (args: Props) => <SignIn {...args} />;
