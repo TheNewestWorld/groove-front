@@ -1,0 +1,23 @@
+.container {
+  flex-direction: column;
+  display: flex;
+}
+
+.body {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin: 12px 20px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.category {
+  margin-bottom: 20px;
+}
+
+.button {
+  margin-top: 16px;
+}
