@@ -78,6 +78,8 @@
 
 .CommunityDetail_header__Rwuz7{width:calc(100% - 40px);margin:0px 20px;padding:28px 0px;border-bottom:solid 1px #EBEBEB}.CommunityDetail_content__O3uxb{margin:16px 20px 40px;font-size:16px;color:#191F28;line-height:162.5%}
 
+.CommunityForm_container__Jo69I{flex-direction:column;display:flex}.CommunityForm_body__8WYUk{display:flex;flex-grow:1;flex-direction:column;margin:12px 20px}.CommunityForm_content__ZOhbd{flex-grow:1}.CommunityForm_category__l3Z9y{margin-bottom:20px}.CommunityForm_button__4N1JN{margin-top:16px}
+
 .CommunityList_container__vdpyr{padding:20px}.CommunityList_filter__NM4es{margin:13px 0px 13px 10px}.CommunityList_item__qBPEc{margin-bottom:16px}
 
 .Entry_container__W5qCP{width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between}.Entry_logo__decGW{flex-grow:1;padding-top:35vh}.Entry_logo__decGW>*{width:164px;height:28px}.Entry_sighInButton__i3Mv0{width:calc(100% - 40px)}.Entry_textGroup__yzG4W{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:inline-block;margin:24px 0px 48px}.Entry_text__KwlVm{color:#8B95A1;font-size:12px;font-weight:400}.Entry_signUpButton__BHMpk{color:#8B95A1;font-size:12px;font-weight:600;margin-left:6px;border:none;outline:none;background:none}
@@ -109,4 +111,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.220a418f.css.map*/
+/*# sourceMappingURL=main.99fb6469.css.map*/
