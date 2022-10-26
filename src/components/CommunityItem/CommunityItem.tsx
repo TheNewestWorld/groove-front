@@ -15,6 +15,7 @@ export interface Props {
   commentCount: number;
   liked: boolean;
   onClick: () => void;
+  className?: string;
 }
 
 const CommunityItem = ({
@@ -26,9 +27,13 @@ const CommunityItem = ({
   commentCount,
   liked,
   onClick,
+  className,
 }: Props) => {
   return (
-    <div className={styles.container} onClick={onClick}>
+    <div
+      className={classNames([styles.container, className])}
+      onClick={onClick}
+    >
       <div className={styles.header}>
         <CircleImage src={userImageSrc} className={styles.profile} />
         <div className={styles.nickname}>{user}</div>
