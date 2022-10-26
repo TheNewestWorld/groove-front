@@ -1,0 +1,39 @@
+@import "../../constants/color.scss";
+
+.container {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.option {
+  width: calc(100% - 40px);
+  height: 24px;
+  position: absolute;
+  padding: 20px 24px;
+  border-radius: 20px;
+  text-align: right;
+}
+
+.delete {
+  background-color: $error;
+}
+
+.edit {
+  background-color: $black-19;
+}
+
+.drag {
+  transition: 0.5s ease-in-out;
+}
+
+.children {
+  text-align: center;
+  z-index: 1;
+  background-color: white;
+  border-radius: 18px;
+}
+
+.icon {
+  fill: white;
+}
