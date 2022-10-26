@@ -38,6 +38,7 @@ const CommunityFormView = ({
       />
 
       <div className={styles.body}>
+        <div className={styles.label}>카테고리</div>
         <SelectCategory
           className={styles.category}
           title="카테고리"
