@@ -16,6 +16,7 @@ const ContentInput = ({ value, imageList, audioList, onChange }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.label}>내용</div>
+      {/* TODO: 내용 박스 사이즈 유동적인지 테스트 후 수정 */}
       <div className={styles.input}>
         <textarea
           value={value}
@@ -29,6 +30,7 @@ const ContentInput = ({ value, imageList, audioList, onChange }: Props) => {
           canDelete
           maxCount={imageList.length}
         />
+        {/* TODO: 오디오 리스트 추가 */}
         <div className={styles.button} onClick={onClickCamera}>
           <CameraIcon />
         </div>
