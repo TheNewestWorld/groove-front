@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import TrainingDetailView, { Props } from "./TrainingDetail.view";
 
 export default {
-  title: "Pages/TrainingDetail/views",
+  title: "Pages/trainer/TrainingDetail/views",
   component: TrainingDetailView,
   args: {
     title: "정승환이 되고 싶습니다.",

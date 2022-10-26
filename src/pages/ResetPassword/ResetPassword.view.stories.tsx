@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import ResetPassword, { Props } from "./ResetPassword.view";
 
 export default {
-  title: "Pages/ResetPassword",
+  title: "Pages/user/ResetPassword",
   component: ResetPassword,
   args: {},
 } as Meta;

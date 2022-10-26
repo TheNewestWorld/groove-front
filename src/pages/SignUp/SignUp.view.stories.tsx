@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import SignUp, { Props } from "./SignUp.view";
 
 export default {
-  title: "Pages/SignUp",
+  title: "Pages/user/SignUp/views",
   component: SignUp,
   args: {
     isSubmitted: false,

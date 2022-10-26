@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import CommunityDetail, { Props } from "./CommunityDetail.view";
 
 export default {
-  title: "Pages/CommunityDetail",
+  title: "Pages/community/CommunityDetail/views",
   component: CommunityDetail,
   args: {
     title: "정승환처럼 노래부르려면 도대체 어떻게 해?",

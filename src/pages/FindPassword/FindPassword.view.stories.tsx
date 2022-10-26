@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import FindPassword, { Props } from "./FindPassword.view";
 
 export default {
-  title: "Pages/FindPassword",
+  title: "Pages/user/FindPassword",
   component: FindPassword,
   args: { isSubmitted: false },
 } as Meta;
