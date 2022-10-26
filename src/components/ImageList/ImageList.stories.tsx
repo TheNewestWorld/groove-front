@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import ImageList, { Props } from "./ImageList.view";
 
 export default {
@@ -34,6 +34,12 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <ImageList {...args} />;
+const Template: Story<Props> = (args: Props) => <ImageList {...args} />;
 
-export const 기본 = Template.bind({});
+export const 이미지_삭제_불가능 = Template.bind({});
+
+export const 이미지_삭제_가능 = Template.bind({});
+이미지_삭제_가능.args = {
+  canDelete: true,
+  onClickDelete: (id) => alert(id),
+};
