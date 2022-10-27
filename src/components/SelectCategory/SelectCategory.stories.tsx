@@ -1,7 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 import SelectCategory, { Props } from "./SelectCategory";
 
-
 export default {
   title: "components/common/SelectCategory",
   component: SelectCategory,
