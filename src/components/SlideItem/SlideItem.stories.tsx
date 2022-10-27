@@ -5,7 +5,7 @@ export default {
   title: "components/common/SlideItem",
   component: SlideItem,
   args: {
-    children: <>테스트입니다.</>,
+    children: <div>테스트입니다.</div>,
   },
 } as Meta;
 

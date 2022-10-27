@@ -7,7 +7,7 @@
 }
 
 .option {
-  width: calc(100% - 40px);
+  width: calc(100% - 48px);
   height: 24px;
   position: absolute;
   padding: 20px 24px;
@@ -28,10 +28,16 @@
 }
 
 .children {
+  min-height: 64px;
   text-align: center;
   z-index: 1;
   background-color: white;
   border-radius: 18px;
+
+  & > div {
+    width: inherit;
+    height: inherit;
+  }
 }
 
 .icon {

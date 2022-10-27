@@ -47,33 +47,35 @@ const SlideItem = ({
 
   return (
     <div
-      className={classNames([styles.container, className])}
+      className={className}
       onMouseDown={(e) => setStartX(e.pageX)}
       onMouseMove={dragMouse}
       onMouseUp={() => setStartX(null)}
     >
-      {hasDelete && (
+      <div className={styles.container}>
+        {hasDelete && (
+          <div
+            className={classNames([styles.option, styles.delete])}
+            onClick={onClickDelete}
+          >
+            <DeleteIcon className={styles.icon} />
+          </div>
+        )}
+        {hasEdit && (
+          <div
+            ref={editRef}
+            className={classNames([styles.option, styles.drag, styles.edit])}
+            onClick={onClickEdit}
+          >
+            <PencilIcon className={styles.icon} />
+          </div>
+        )}
         <div
-          className={classNames([styles.option, styles.delete])}
-          onClick={onClickDelete}
+          ref={childrenRef}
+          className={classNames([styles.drag, styles.children])}
         >
-          <DeleteIcon className={styles.icon} />
+          {children}
         </div>
-      )}
-      {hasEdit && (
-        <div
-          ref={editRef}
-          className={classNames([styles.option, styles.drag, styles.edit])}
-          onClick={onClickEdit}
-        >
-          <PencilIcon className={styles.icon} />
-        </div>
-      )}
-      <div
-        ref={childrenRef}
-        className={classNames([styles.option, styles.drag, styles.children])}
-      >
-        {children}
       </div>
     </div>
   );
