@@ -34,3 +34,10 @@
 .section {
   padding: 16px 20px;
 }
+.empty {
+  background-color: $black-F6;
+  border-radius: 20px;
+  margin: 16px 20px;
+  width: calc(100% - 40px);
+  min-height: 200px;
+}

@@ -51,14 +51,31 @@ export default {
 
 const Template: Story<Props> = (args: Props) => <MyPageView {...args} />;
 
-export const 녹음내역 = Template.bind({});
+export const 녹음내역_있음 = Template.bind({});
 
-export const 좋아한_게시물 = Template.bind({});
-좋아한_게시물.args = {
+export const 녹음내역_없음 = Template.bind({});
+녹음내역_없음.args = {
+  recordList: [],
+};
+
+export const 좋아한_게시물_있음 = Template.bind({});
+좋아한_게시물_있음.args = {
   tab: "LIKED",
 };
 
-export const 작성한_게시물 = Template.bind({});
-작성한_게시물.args = {
+export const 좋아한_게시물_없음 = Template.bind({});
+좋아한_게시물_없음.args = {
+  tab: "LIKED",
+  likedList: [],
+};
+
+export const 작성한_게시물_있음 = Template.bind({});
+작성한_게시물_있음.args = {
   tab: "WRITTEN",
+};
+
+export const 작성한_게시물_없음 = Template.bind({});
+작성한_게시물_없음.args = {
+  tab: "WRITTEN",
+  writtenList: [],
 };

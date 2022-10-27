@@ -1,5 +1,6 @@
 import { ArrowIcon, PencilIcon, SettingIcon } from "../../assets/icon";
 import CircleImage from "../../components/CircleImage";
+import EmptyPage from "../../components/EmptyPage";
 import Header from "../../components/Header";
 import TabList from "../../components/TabList";
 import CommunitySection from "./components/CommunitySection";
@@ -76,29 +77,38 @@ const MyPageView = ({
         onClickTab={onChangeTab}
       />
 
-      {tab === "RECORD" && (
-        <RecordSection
-          className={styles.section}
-          recordList={recordList}
-          onDelete={onDeleteRecord}
-        />
-      )}
+      {tab === "RECORD" &&
+        (recordList.length === 0 ? (
+          <EmptyPage title="녹음 내용이 없어요." className={styles.empty} />
+        ) : (
+          <RecordSection
+            className={styles.section}
+            recordList={recordList}
+            onDelete={onDeleteRecord}
+          />
+        ))}
 
-      {tab === "LIKED" && (
-        <CommunitySection
-          className={styles.section}
-          communityList={likedList}
-          onClick={onClickCommunityItem}
-        />
-      )}
+      {tab === "LIKED" &&
+        (likedList.length === 0 ? (
+          <EmptyPage title="좋아한 게시물이 없어요." className={styles.empty} />
+        ) : (
+          <CommunitySection
+            className={styles.section}
+            communityList={likedList}
+            onClick={onClickCommunityItem}
+          />
+        ))}
 
-      {tab === "WRITTEN" && (
-        <CommunitySection
-          className={styles.section}
-          communityList={writtenList}
-          onClick={onClickCommunityItem}
-        />
-      )}
+      {tab === "WRITTEN" &&
+        (writtenList.length === 0 ? (
+          <EmptyPage title="작성한 게시물이 없어요." className={styles.empty} />
+        ) : (
+          <CommunitySection
+            className={styles.section}
+            communityList={writtenList}
+            onClick={onClickCommunityItem}
+          />
+        ))}
     </div>
   );
 };
