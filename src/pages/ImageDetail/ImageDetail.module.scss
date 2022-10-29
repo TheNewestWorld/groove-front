@@ -1,0 +1,52 @@
+@import "../../constants/color";
+// .container {
+//   height: 1000px;
+// }
+
+.header {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom {
+  height: 110px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.icon {
+  float: right;
+  height: 24px;
+  width: 24px;
+}
+
+.image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 236px);
+}
+
+.prev {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  float: left;
+}
+
+.next {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  float: right;
+}
