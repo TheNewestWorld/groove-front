@@ -1,44 +1,42 @@
 import styles from "./ImageDetail.module.scss";
 import { CloseIcon, ArrowLeftIcon, ArrowRightIcon } from "../../assets/icon";
 import CircleButton from "../../components/CircleButton";
+import { useState } from "react";
 
 export interface Props {
   content: string;
-  src?: string;
-  imageList?: { src: string; id: number; }[];
+  imageList: { src: string; id: number; }[];
   onClickClose?: () => void;
-  leftArrowClick?: () => void;
-  rightArrowClick?: () => void;
-  total?: number;
-  imageIndex?: number;
+  imageIndex: number;
 }
 
 const ImageDetailView = ({
   imageList,
-  imageIndex,
+  imageIndex = 0,
   onClickClose,
-  leftArrowClick,
-  rightArrowClick,
-  src,
 }: Props) => {
+  const [index, setIndex] = useState<number>(imageIndex);
+  const prevIndex = () => setIndex(index - 1);
+  const nextIndex = () => setIndex(index + 1);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div />
-        <div className={styles.title}>{imageIndex + "/" + imageList?.length}</div>
+        <div className={styles.title}>{(index + 1) + "/" + imageList.length}</div>
         <CloseIcon className={styles.icon} onClick={onClickClose} />
       </div>
-      <img src={src} className={styles.image} alt="" />
-      {((imageIndex === imageList?.length) || (imageIndex !== 1)) &&
+      <img src={imageList[index].src} className={styles.image} />
+      {((index === (imageList.length - 1)) || (index !== 0)) &&
         (<CircleButton
           className={styles.prev}
-          icon={<ArrowLeftIcon onClick={leftArrowClick} />}
+          icon={<ArrowLeftIcon onClick={prevIndex} />}
         />)
       }
-      {((imageIndex === 1) || (imageIndex !== imageList?.length)) &&
+      {((index === 0) || (index !== (imageList.length - 1))) &&
         (<CircleButton
           className={styles.next}
-          icon={<ArrowRightIcon onClick={rightArrowClick} />}
+          icon={<ArrowRightIcon onClick={nextIndex} />}
         />)
       }
       <div className={styles.bottom}>
