@@ -1,12 +1,16 @@
-import { Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import SearchListView, { Props } from "./SearchList.view";
 
 export default {
   title: "Pages/SearchList/views",
   component: SearchListView,
   args: {
+    list: [
+      { title: "최근 검색 기록", type: "line", itemList: ["유재석", "강호동"] },
+    ],
     onSubmitSearch: (value: string) => alert(value),
     onClickCancle: () => alert("취소 클릭"),
+    deleteItem: (value: string) => alert(value),
     communityList: [
       {
         user: "권진아",
@@ -48,6 +52,22 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <SearchListView {...args} />;
+const Template: Story<Props> = (args: Props) => <SearchListView {...args} />;
 
 export const 기본 = Template.bind({});
+기본.args = {
+  communityList: [],
+}
+
+export const 검색결과있음 = Template.bind({});
+검색결과있음.args = {
+  searchWord: "강호동",
+  list: [],
+}
+
+export const 검색결과없음 = Template.bind({});
+검색결과없음.args = {
+  searchWord: "강호동",
+  list: [],
+  communityList: [],
+}
