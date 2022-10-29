@@ -1,0 +1,77 @@
+@import "../../../../constants/color";
+
+.container {
+  display: flex;
+  margin-top: 24px;
+}
+
+.profileImage {
+  flex-shrink: 0;
+  margin-top: 2px;
+  height: 28px;
+  width: 28px;
+}
+
+.reply {
+  height: 24px;
+  width: 24px;  
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column;
+  margin-left: 13px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+
+}
+
+.writer {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 11px;
+  color: $black-19;
+}
+
+.subText {
+  margin-right: 11px;
+  font-size: 10px;
+  color: $black-8B;
+}
+
+.body {
+  display: flex;
+  flex-grow: 1;
+
+}
+
+.comment {
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 150%;
+  color: $black-19;
+}
+
+.tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: $black-19;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.option {
+  display: flex;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
