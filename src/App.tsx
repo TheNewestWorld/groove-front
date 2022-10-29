@@ -14,6 +14,7 @@ import {
 } from "./common/errors/boundaries";
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "./common/configs/query";
+import NativeTest from "./pages/NativeTest";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
             <Route path={RoutePath.signUp} element={<SignUp />} />
             <Route path={RoutePath.findPassword} element={<FindPassword />} />
             <Route path={RoutePath.resetPassword} element={<ResetPassword />} />
-            <Route path={RoutePath.home} element={<Home />} />
+            <Route path={RoutePath.home} element={<NativeTest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </GlobalApiErrorBoundary>
