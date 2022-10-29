@@ -1,6 +1,11 @@
 # groove-front
 Groove front-end
 
+### React gh-pages 배포
+```
+npm run deploy
+```
+
 ### PJT 실행 방법
 ```
 npm i
