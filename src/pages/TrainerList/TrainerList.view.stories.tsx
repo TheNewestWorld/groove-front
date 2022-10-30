@@ -1,8 +1,8 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import TrainerListView, { Props } from "./TrainerList.view";
 
 export default {
-  title: "Pages/TrainerList/views",
+  title: "Pages/trainer/TrainerList/views",
   component: TrainerListView,
   args: {
     userImageSrc:

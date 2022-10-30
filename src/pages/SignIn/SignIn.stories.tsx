@@ -4,7 +4,7 @@ import * as mswHandlers from "./mocks/mswHandler";
 import SignIn from "./SignIn";
 
 export default {
-  title: "Pages/SignIn/mocks",
+  title: "Pages/user/SignIn/mocks",
   component: SignIn,
 } as Meta;
 

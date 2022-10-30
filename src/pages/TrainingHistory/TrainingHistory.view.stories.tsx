@@ -3,7 +3,7 @@ import React from "react";
 import TrainingHistoryView, { Props } from "./TrainingHistory.view";
 
 export default {
-  title: "Pages/TrainingHistory/views",
+  title: "Pages/trainer/TrainingHistory/views",
   component: TrainingHistoryView,
   args: {
     activeFilter: "최신순",

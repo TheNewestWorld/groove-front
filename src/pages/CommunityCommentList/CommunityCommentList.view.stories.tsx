@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import CommunityCommentList, { Props } from "./CommunityCommentList.view";
 
 export default {
-  title: "Pages/CommunityCommentList",
+  title: "Pages/community/CommunityCommentList/views",
   component: CommunityCommentList,
   args: {
     comments: [

@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import TrainerInfoItem from './TrainerInfoItem';
 
 export default {
-  title: "pages/TrainerDetail/components/TrainerInfoItem",
+  title: "pages/trainer/TrainerDetail/components/TrainerInfoItem",
   component: TrainerInfoItem,
   args: {
     title: "소개",
