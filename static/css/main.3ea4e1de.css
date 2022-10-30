@@ -1,4 +1,4 @@
-.BottomSheet_container__a02vf{width:100vw;height:100vh;position:fixed;top:0;left:0}.BottomSheet_white__6zwm\+{display:flex;flex-direction:column;width:calc(100% - 48px);position:fixed;left:0;bottom:0;background-color:white;border-radius:18px 18px 0px 0px;box-shadow:0px -8px 16px rgba(0,0,0,0.1);padding:24px}.BottomSheet_header__xFxts{width:100%;font-size:15px;line-height:28px;padding-bottom:8px;font-weight:bold}.BottomSheet_icon__XPJq1{position:fixed;right:25px}
+.BottomSheet_container__a02vf{width:100vw;height:100vh;position:fixed;top:0;left:0;z-index:100}.BottomSheet_white__6zwm\+{display:flex;flex-direction:column;width:calc(100% - 48px);position:fixed;left:0;bottom:0;background-color:white;border-radius:18px 18px 0px 0px;box-shadow:0px -8px 16px rgba(0,0,0,0.1);padding:24px}.BottomSheet_header__xFxts{width:100%;font-size:15px;line-height:28px;padding-bottom:8px;font-weight:bold}.BottomSheet_icon__XPJq1{position:fixed;right:25px}
 
 .BottomSheetList_item__Y2gYD{width:100%;font-size:15px;line-height:28px;padding:10px 0px}.BottomSheetList_active__7ppuB{color:#4880EE}
 
@@ -12,7 +12,7 @@
 
 .AudioPlayer_title__fUJV6{margin:0px 0px 4px 10px;color:#8B95A1;font-size:11px}.AudioPlayer_player__f9E\+3{padding:20px;border:1px solid #F2F4F5;border-radius:20px}
 
-.ImageList_container__PXLNy{display:flex;flex-direction:row}img{width:80px;height:80px;margin-right:5px}.ImageList_more__sodr9{position:relative}.ImageList_number__VX5Fv{position:absolute;top:0px;left:0px;width:80px;height:80px;line-height:80px;background-color:#000;opacity:0.5;color:#fff;font-size:16px;text-align:center}
+.ImageList_container__PXLNy{display:flex;flex-direction:row}img{width:80px;height:80px;margin-right:10px;border-radius:10px}.ImageList_image__rOubj{position:relative}.ImageList_image__rOubj .ImageList_delete__J5g-N{position:absolute;top:-10px;right:0px}.ImageList_more__sodr9{position:relative}.ImageList_number__VX5Fv{position:absolute;top:0px;left:0px;width:80px;height:80px;line-height:80px;background-color:#000;opacity:0.5;color:#fff;font-size:16px;text-align:center;border-radius:10px}
 
 .ContentBody_content__2SREr{margin-bottom:24px}
 
@@ -80,7 +80,9 @@
 
 .CommunityDetail_header__Rwuz7{width:calc(100% - 40px);margin:0px 20px;padding:28px 0px;border-bottom:solid 1px #EBEBEB}.CommunityDetail_content__O3uxb{margin:16px 20px 40px;font-size:16px;color:#191F28;line-height:162.5%}
 
-.CommunityForm_container__Jo69I{flex-direction:column;display:flex}.CommunityForm_body__8WYUk{display:flex;flex-grow:1;flex-direction:column;margin:12px 20px}.CommunityForm_content__ZOhbd{flex-grow:1}.CommunityForm_category__l3Z9y{margin-bottom:20px}.CommunityForm_button__4N1JN{margin-top:16px}
+.CommunityForm_container__Jo69I{flex-direction:column;display:flex}.CommunityForm_body__8WYUk{display:flex;padding:12px 20px;flex-grow:1;flex-direction:column}.CommunityForm_label__CVwQP{margin:0px 8px 5px;font-size:12px;font-weight:700;color:#6B7684}.CommunityForm_category__l3Z9y{margin-bottom:8px}.CommunityForm_button__4N1JN{margin:16px auto 0px;width:calc(100% - 60px);position:fixed;left:30px;bottom:18px}
+
+.ContentInput_container__NSMWD{flex-grow:1}.ContentInput_label__3pi\+L{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.ContentInput_input__v7dTH{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;background-color:#F2F4F5;border-radius:10px;padding:16px 14px;margin:5px 0px;position:relative}.ContentInput_input__v7dTH>textarea{width:100%;height:300px;font-size:16px;font-weight:600;color:#191F28;outline:none;border:none;background:none;resize:none}.ContentInput_input__v7dTH>textarea::-webkit-input-placeholder{color:#8B95A1}.ContentInput_input__v7dTH>textarea::placeholder{color:#8B95A1}.ContentInput_imageList__QGmLv{margin:20px 0px 20px;padding-top:10px;width:100%;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.ContentInput_imageList__QGmLv::-webkit-scrollbar{display:none}.ContentInput_button__JW5jY{display:inline-block;padding:7px 15px;margin:0px 12px 4px 6px;border-radius:12px;background-color:white;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.08),0px 2px 4px 2px rgba(34,34,34,0.05)}
 
 .CommunityList_container__vdpyr{padding:20px}.CommunityList_filter__NM4es{margin:13px 0px 13px 10px}.CommunityList_item__qBPEc{margin-bottom:16px}
 
@@ -121,4 +123,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.0e0dd2f1.css.map*/
+/*# sourceMappingURL=main.3ea4e1de.css.map*/
