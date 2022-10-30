@@ -4,8 +4,8 @@ import styles from "./ContentInput.module.scss";
 
 interface Props {
   value: string;
-  imageList: [];
-  audioList: [];
+  imageList: []; // TODO: 타입 정의
+  audioList: []; // TODO: 타입 정의
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
