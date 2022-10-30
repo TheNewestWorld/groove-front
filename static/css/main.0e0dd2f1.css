@@ -48,6 +48,8 @@
 
 .SelectCategory_container__QrpqF{display:flex;justify-content:space-between}.SelectCategory_category__z2lBR{background-color:#F2F4F5;color:#8B95A1;border-radius:10px;padding:16px 24px 16px 14px}.SelectCategory_category__active__gZdVt{display:flex;font-weight:bold;width:inherit}.SelectCategory_category__active__icon__zPMdT{width:10px;margin-left:5px}
 
+.SlideItem_container__S3b3t{width:100%;position:relative;cursor:pointer}.SlideItem_option__dpKYK{width:calc(100% - 48px);height:24px;position:absolute;padding:20px 24px;border-radius:20px;text-align:right}.SlideItem_delete__iM1bB{background-color:#D54D50}.SlideItem_edit__B-SFi{background-color:#191F28}.SlideItem_drag__e7DPS{transition:0.5s ease-in-out}.SlideItem_children__7TYVA{min-height:64px;text-align:center;z-index:1;background-color:white;border-radius:18px}.SlideItem_children__7TYVA>div{width:inherit;height:inherit}.SlideItem_icon__ezx\+I{fill:white}
+
 .SnackBar_container__A\+xV0{display:flex;justify-content:center;background-color:#191F28;border-radius:18px;align-items:center;width:calc(100% - 36px)}.SnackBar_snackbarIcon__bJicJ{display:flex;margin-right:10px}.SnackBar_snackbarContent__\+tA9e{color:#fff}.SnackBar_shadow__H1t5f{box-shadow:0px 1px 2px rgba(0,0,0,0.3),0px 2px 6px 2px rgba(0,0,0,0.15)}.SnackBar_small__bD0dp{padding:16px 0px}.SnackBar_large__wXTc4{padding:65px 0px}.SnackBar_bottom__-viDR{position:fixed;bottom:18px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.SnackBar_middle__cOrW-{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
 
 .tab-list{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.tab-list::-webkit-scrollbar{display:none}.tab-list.underline{border-bottom:1px solid #EBEBEB}.tab-list__item{display:flex;flex-shrink:0;padding:3px 12px;margin-right:8px;font-size:16px;line-height:44px}.tab-list__item:first-of-type{margin-left:0px;margin-right:4px}.tab-list__item:last-of-type{margin-left:4px;margin-right:0px}.tab-list__item.round{color:#8B95A1;font-weight:bold}.tab-list__item.round.active{background-color:#191F28;border-radius:28px;color:white}.tab-list__item.underline{color:#8B95A1}.tab-list__item.underline.active{font-weight:bold;color:#191F28;border-bottom:2px solid #191F28}
@@ -86,6 +88,12 @@
 
 .FindPassword_inputGroup__RINmF{margin:30px 0px 40px}
 
+.CommunitySection_item__WQU84{margin-bottom:10px}
+
+.RecordItem_container__0R3z6{width:calc(100% - 48px);display:flex;justify-content:space-between;margin-bottom:10px;align-items:center;padding:14px 20px;background:#F6F7FA;border-radius:18px;position:relative}.RecordItem_title__M6i4n{font-weight:600;font-size:16px;margin-bottom:3px}.RecordItem_date__f0Ei9{font-weight:400;font-size:10px;color:#8B95A1}.RecordItem_length__0Jz-j{font-weight:400;font-size:10px;line-height:10px;color:#8B95A1}
+
+.MyPage_profile__eK2ZV{display:flex;margin:20px;padding:20px;background-color:#F6F7FA;border-radius:18px;align-items:center;justify-content:space-between}.MyPage_image__4jJmP{width:55px;height:55px}.MyPage_nickname__tdLum{font-weight:700;font-size:18px;color:#191F28;flex-grow:1;padding-left:16px}.MyPage_icon__Kbby2{fill:#000}.MyPage_tab__FH1PN{padding:0px 20px}.MyPage_section__gGLUU{padding:16px 20px}
+
 .ResetPassword_inputGroup__5ay31{margin:30px 0px 40px}
 
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
@@ -113,4 +121,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.cb590849.css.map*/
+/*# sourceMappingURL=main.0e0dd2f1.css.map*/
