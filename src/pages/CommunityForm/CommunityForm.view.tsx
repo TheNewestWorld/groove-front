@@ -1,26 +1,34 @@
-import { useState } from "react";
-import styles from "./CommunityForm.module.scss";
-
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import RoundButton from "../../components/RoundButton";
-
-import { ArrowIcon } from "../../assets/icon";
 import SelectCategory from "../../components/SelectCategory";
+import { ArrowIcon } from "../../assets/icon";
+import styles from "./CommunityForm.module.scss";
+import ContentInput from "./components/ContentInput";
 
 export interface Props {
   categoryList: string[];
+  isDisabledButton: boolean;
+  data: { title: string; content: string; imageList: []; audioList: [] };
+  selectedCategory: string;
   onClickCreate: () => void;
   onClickClose: () => void;
+  onChangeCategory: (category: string) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
 }
 
 const CommunityFormView = ({
   categoryList,
+  isDisabledButton,
+  data,
+  selectedCategory,
   onClickClose,
   onClickCreate,
+  onChangeCategory,
+  onChange,
 }: Props) => {
-  const [isEnable, setEnable] = useState<boolean>(false);
-
   return (
     <div className={styles.container}>
       <Header
@@ -30,28 +38,35 @@ const CommunityFormView = ({
       />
 
       <div className={styles.body}>
+        <div className={styles.label}>카테고리</div>
         <SelectCategory
           className={styles.category}
           title="카테고리"
           placeholder="카테고리를 선택해주세요."
           categoryList={categoryList}
-          onClickCategory={(category: string) => {
-            return category;
-          }}
-          activeCategory=""
+          onClickCategory={onChangeCategory}
+          activeCategory={selectedCategory}
         />
-        <div className={styles.title}>
-          <Input label="제목" placeholder="제목을 입력해주세요." />
-        </div>
-        <div className={styles.content}>
-          <Input label="내용" placeholder="내용을 입력해주세요." />
-        </div>
+        <Input
+          label="제목"
+          name="title"
+          value={data.title}
+          placeholder="제목을 입력해주세요."
+          onChange={onChange}
+        />
+        <ContentInput
+          value={data.content}
+          imageList={data.imageList}
+          audioList={data.audioList}
+          onChange={onChange}
+        />
 
         <RoundButton
           className={styles.button}
           onClick={onClickCreate}
-          disabled={isEnable}
-          colorTheme="dark">
+          disabled={isDisabledButton}
+          colorTheme="dark"
+        >
           등록하기
         </RoundButton>
       </div>

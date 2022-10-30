@@ -11,7 +11,7 @@ export interface Props {
   placeholder?: string;
   categoryList: string[];
   hasCloseButton?: boolean;
-  onClickCategory: (category: string) => string;
+  onClickCategory: (category: string) => void;
 }
 
 const SelectCategory = ({
