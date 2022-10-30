@@ -10,7 +10,7 @@ export interface Props {
   onSubmitSearch: (value: string) => void;
   deleteItem: (value: string) => void;
   list: { title: string; type: "tag" | "line"; itemList: string[] }[];
-  searchWord?: string;
+  searchWord: string;
 }
 
 const SearchListView = ({
@@ -19,12 +19,12 @@ const SearchListView = ({
   deleteItem,
   onClickCancle,
   onSubmitSearch,
-  searchWord = undefined,
+  searchWord = "",
 }: Props) => {
   return (
     <div>
       <SearchEntry list={list} deleteItem={deleteItem} onClickCancle={onClickCancle} onSubmitSearch={onSubmitSearch} />
-      {((communityList.length === 0) && (searchWord !== undefined)) && (
+      {((communityList.length === 0) && (searchWord !== "")) && (
         <div className={styles.text}>찾으시는 내용이 없어요.</div>
       )}
       {communityList.map((item, index) => (
