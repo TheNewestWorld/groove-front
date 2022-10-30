@@ -11,6 +11,7 @@ interface Props {
 }
 
 const RecordItem = ({ id, title, date, length, url, onDelete }: Props) => {
+  // TODO: 클릭 시 플레이바 나오도록
   return (
     <div className={styles.container}>
       <div>
