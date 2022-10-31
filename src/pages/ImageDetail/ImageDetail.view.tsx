@@ -24,7 +24,6 @@ const ImageDetailView = ({
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div />
         <div className={styles.title}>{index + 1} / {imageList.length}</div>
         <CloseIcon className={styles.icon} onClick={onClickClose} />
       </div>
