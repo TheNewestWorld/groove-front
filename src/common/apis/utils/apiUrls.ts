@@ -12,4 +12,9 @@ export const apiUrls = {
   users: {
     signUp: () => `${BASE_URL}/users/register`,
   },
+  records: {
+    getRecordList: () => `${BASE_URL}/records`,
+    postRecord: () => `${BASE_URL}/records`,
+    deleteRecord: (recordId: number) => `${BASE_URL}/records/${recordId}`,
+  },
 };
