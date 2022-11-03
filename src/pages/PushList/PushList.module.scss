@@ -1,6 +1,53 @@
 @import "../../constants/color";
+.title {
+  padding: 16px 20px 0px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $black-19;
+}
+
+.items {
+  width: calc(100% - 36px);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  margin-right: 18px;
+  background-color: $black-8B;
+}
+
+.content {
+  font-size: 15px;
+  font-weight: 600;
+  color: $black-19;
+}
+
+.ago {
+  font-size: 12px;
+  font-weight: 400;
+  color: $black-8B;
+}
 
 .division {
   height: 16px;
   background-color: $black-F2;
+}
+
+.empty{
+  position: absolute;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.emptyImage {
+  width: 140px;
+  height: 210px;
+  position: absolute;
+  top: calc(50% - 210px);
+  left: calc(50% - 70px);
 }
