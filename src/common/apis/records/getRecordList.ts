@@ -14,8 +14,8 @@ export type GetRecordListResponse = {
   contents: { fileUrl: string; recordName: string; createdAt: string }[];
 };
 
-export const getRecordList = () => {
+export const getRecordList = (params: GetRecordListQueryParams) => {
   return resultData<GetRecordListResponse>(
-    axios.get(apiUrls.records.getRecordList())
+    axios.get(apiUrls.records.getRecordList(), { params: params })
   );
 };
