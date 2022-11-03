@@ -1,0 +1,32 @@
+@import "../../constants/color.scss";
+
+.container {
+  flex-direction: column;
+  display: flex;
+}
+
+.body {
+  display: flex;
+  padding: 12px 20px;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.label {
+  margin: 0px 8px 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $black-6B;
+}
+
+.category {
+  margin-bottom: 8px;
+}
+
+.button {
+  margin: 16px auto 0px;
+  width: calc(100% - 60px);
+  position: fixed;
+  left: 30px;
+  bottom: 18px;
+}
