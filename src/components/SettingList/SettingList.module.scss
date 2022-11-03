@@ -1,0 +1,21 @@
+@import "../../constants/color.scss";
+
+.item {
+  margin-bottom: 10px;
+  background: $black-F6;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  color: $black-19;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
