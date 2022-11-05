@@ -39,3 +39,5 @@ export { ReactComponent as YellowStartBorderIcon } from "./star_yellow_border.sv
 export { ReactComponent as GreyDeleteCircle } from "./delete_grey_circle.svg";
 export { ReactComponent as ArrowLeftIcon } from "./arrow_left.svg";
 export { ReactComponent as ArrowRightIcon } from "./arrow_right.svg";
+export { ReactComponent as MicButtonIcon} from "./mic_btn.svg";
+export { ReactComponent as StopRecordingButton} from "./stop_recording_btn.svg";
