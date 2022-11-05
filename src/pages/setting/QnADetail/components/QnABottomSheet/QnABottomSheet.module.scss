@@ -1,0 +1,52 @@
+@import "../../../../../constants/color";
+
+.white {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 48px);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 18px 18px 0px 0px;
+  box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.modify_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 175%;
+  color: $black-19;
+}
+
+.modify_section {
+  display: flex;
+  align-items: center;
+
+  & > svg {
+    fill: $black-19;
+  }
+}
+
+.delete_section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 175%;
+  color: $error;
+
+  & > svg {
+    fill: $error
+  }
+}
+
+.icon {
+  margin-right: 10px;
+}

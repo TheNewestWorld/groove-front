@@ -18,9 +18,11 @@ export { ReactComponent as BlueAddIcon } from "./add_blue_circle.svg";
 export { ReactComponent as ArrowIcon } from "./arrow.svg";
 export { ReactComponent as CameraIcon } from "./camera.svg";
 export { ReactComponent as ChatIcon } from "./chat.svg";
+export { ReactComponent as CloseCircleIcon } from "./close_circle.svg";
 export { ReactComponent as CloseIcon } from "./close.svg";
 export { ReactComponent as DeleteIcon } from "./delete.svg";
 export { ReactComponent as SmallDotsIcon } from "./dots_small.svg";
+export { ReactComponent as DotsHorizonIcon } from "./dots_horizon.svg"
 export { ReactComponent as DotsIcon } from "./dots.svg";
 export { ReactComponent as HeartIcon} from "./heart.svg";
 export { ReactComponent as LikeIcon } from "./like.svg";
