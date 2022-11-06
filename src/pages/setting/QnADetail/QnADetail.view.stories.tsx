@@ -22,4 +22,12 @@ export default {
 
 const Template: Story<Props> = (args: Props) => <QnADetail {...args} />;
 
-export const 기본 = Template.bind({});
+export const 답변_없는 = Template.bind({});
+
+export const 답변_있는 = Template.bind({});
+답변_있는.args = {
+  isAnswered: true,
+  answerTitle: "문의주신내용 답변입니다.",
+  answerContent:
+    "안녕하세요, 고객님 그루브팀입니다.\n시작하기 > 로그인화면에서 비밀번호 찾기 메뉴를 이용해주세요.\n또 다른 불편한 사항이 있으시다면 언제든 문의 부탁드립니다.\n감사합니다."
+};

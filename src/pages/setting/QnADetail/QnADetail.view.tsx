@@ -4,6 +4,8 @@ import Header from "../../../components/Header";
 import QnABottomSheet from "./components/QnABottomSheet";
 import styles from "./QnADetail.module.scss";
 import { ArrowIcon, DotsHorizonIcon } from "../../../assets/icon";
+import AnswerComponent from "./components/AnswerComponent";
+import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
   qna_id: number;
@@ -13,10 +15,14 @@ export interface Props {
   nickname: string;
   date: Date;
   content: string;
+  isAnswered?: boolean;
+  answerTitle?: string;
+  answerContent?: string;
   onClickProfile: (id: number) => void;
   onClose: () => void;
   onDelete: (id: number) => void;
   onModify: (id: number) => void;
+  onClickReQnA?: () => void;
 }
 
 const QnADetailView = ({
@@ -27,10 +33,14 @@ const QnADetailView = ({
   nickname,
   date,
   content,
+  isAnswered = false,
+  answerTitle = "",
+  answerContent = "",
   onClickProfile,
   onClose,
   onDelete,
   onModify,
+  onClickReQnA,
 }: Props) => {
   const {
     isOpen: isOpenOption,
@@ -47,6 +57,7 @@ const QnADetailView = ({
         onClickLeft={onClose}
         onClickRight={onOpenOption}
       />
+      {/* TODO: badge(답변완료) */}
       <ContentHeader
         title={title}
         profileImage={profileImage}
@@ -62,6 +73,21 @@ const QnADetailView = ({
           onClickDelete={() => onDelete(qna_id)}
           onClickModify={() => onModify(qna_id)}
         />
+      )}
+      {isAnswered && (
+        <>
+          <AnswerComponent
+            title={answerTitle}
+            content={answerContent}
+            className={styles.answer}
+          />
+          <RoundButton
+            colorTheme="dark"
+            onClick={onClickReQnA}
+            className={styles.button}>
+            다시 문의하기
+          </RoundButton>
+        </>
       )}
     </div>
   );
