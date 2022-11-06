@@ -1,0 +1,44 @@
+@import "../../../constants/color.scss";
+
+.profile {
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+  background-color: $black-F6;
+  border-radius: 18px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image {
+  width: 55px;
+  height: 55px;
+}
+
+.nickname {
+  font-weight: 700;
+  font-size: 18px;
+  color: $black-19;
+  flex-grow: 1;
+  padding-left: 16px;
+}
+
+.icon {
+  fill: $black-00
+}
+
+.tab {
+  padding: 0px 20px;
+}
+
+.section {
+  padding: 16px 20px;
+}
+// TODO: 스타일 디자인 확인하기
+.empty {
+  background-color: $black-F6;
+  border-radius: 20px;
+  margin: 16px 20px;
+  width: calc(100% - 40px);
+  min-height: 200px;
+}

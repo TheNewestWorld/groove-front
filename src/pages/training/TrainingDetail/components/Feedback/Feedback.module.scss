@@ -1,0 +1,11 @@
+@import "../../../../../constants/color";
+
+.container {
+  & > hr {
+    border: 1px solid $black-EB;
+  }
+}
+
+.content {
+  margin: 16px 0px;
+}

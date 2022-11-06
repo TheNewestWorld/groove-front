@@ -1,8 +1,8 @@
 import CommunityItem, {
   Props as CommunityItemView,
 } from "../../components/CommunityItem";
+import SearchEntry from "./components/SearchEntry";
 import styles from "./SearchList.module.scss";
-import SearchEntry from "../Search/components/SearchEntry";
 
 export interface Props {
   communityList: CommunityItemView[];

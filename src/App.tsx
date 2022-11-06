@@ -4,10 +4,10 @@ import RoutePath from "./constants/routePath";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Entry from "./pages/Entry";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import FindPassword from "./pages/FindPassword";
-import ResetPassword from "./pages/ResetPassword";
+import SignIn from "./pages/user/SignIn";
+import SignUp from "./pages/user/SignUp";
+import FindPassword from "./pages/user/FindPassword";
+import ResetPassword from "./pages/user/ResetPassword";
 import {
   GlobalApiErrorBoundary,
   GlobalErrorBoundary,
