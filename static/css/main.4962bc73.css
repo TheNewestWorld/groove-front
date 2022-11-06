@@ -112,6 +112,12 @@
 
 .Badge_container__prZjK{padding:0px 7px 2px;text-align:center;background:#191F28;border-radius:10px;color:white;font-weight:600;font-size:10px}
 
+.QnABottomSheet_white__XcSYv{display:flex;flex-direction:column;width:calc(100% - 48px);position:fixed;left:0;bottom:0;background-color:white;border-radius:18px 18px 0px 0px;box-shadow:0px -8px 16px rgba(0,0,0,0.1);padding:24px}.QnABottomSheet_section__OFBrP{display:flex;align-items:center;margin-bottom:20px;font-weight:500;font-size:16px;line-height:175%}.QnABottomSheet_section__OFBrP.QnABottomSheet_delete__nzLQQ{color:#D54D50}.QnABottomSheet_section__OFBrP.QnABottomSheet_delete__nzLQQ>svg{fill:#D54D50}.QnABottomSheet_section__OFBrP.QnABottomSheet_modify__paOVN{color:#191F28}.QnABottomSheet_section__OFBrP.QnABottomSheet_modify__paOVN>svg{fill:#191F28}.QnABottomSheet_icon__7s5sU{margin-right:10px}
+
+.QnADetail_header__HHeiv{margin-top:24px}.QnADetail_content__y6TPn{margin-top:24px;font-size:16px;font-weight:500;line-height:162.5%;word-break:break-word;white-space:pre}.QnADetail_answer__aEj7i{margin:32px 24px}.QnADetail_button__CLoV8{width:calc(100% - 40px);position:fixed;bottom:18px}
+
+.AnswerComponent_container__5gLYR{background-color:#F6F7FA;padding:20px;border-radius:20px}.AnswerComponent_title__BppZL{padding-bottom:16px;font-size:16px;font-weight:600;line-height:137.5%;color:#191F28}.AnswerComponent_content__vupL7{font-size:16px;line-height:162.5%;color:#191F28;word-break:break-word;white-space:pre-wrap}
+
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 .TrainerList_container__tfgva{margin:20px}.TrainerList_trainerItemContainer__ywwMB{margin-bottom:66px}.TrainerList_mainHeader__H3pF2{margin-bottom:20px}.TrainerList_tabList__6zzZ3{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__9-APD{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__rGycx{margin-bottom:16px}
@@ -141,4 +147,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.6d7ecdd2.css.map*/
+/*# sourceMappingURL=main.4962bc73.css.map*/
