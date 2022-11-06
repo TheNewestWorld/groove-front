@@ -48,7 +48,7 @@
 
 .SelectCategory_container__QrpqF{display:flex;justify-content:space-between}.SelectCategory_category__z2lBR{background-color:#F2F4F5;color:#8B95A1;border-radius:10px;padding:16px 24px 16px 14px}.SelectCategory_category__active__gZdVt{display:flex;font-weight:bold;width:inherit}.SelectCategory_category__active__icon__zPMdT{width:10px;margin-left:5px}
 
-.SettingList_item__CzO4u{margin-bottom:10px;background:#F6F7FA;border-radius:18px;display:flex;justify-content:space-between;padding:20px}.SettingList_title__a7iEn{margin-right:8px;font-weight:600;font-size:16px;color:#191F28}.SettingList_content__qvPOF{margin-top:5px;font-weight:400;font-size:14px;color:#191F28}.SettingList_description__DmJLF{font-weight:400;font-size:12px;color:#8B95A1}.SettingList_arrow__\+TmsB{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.SettingList_item__CzO4u{margin-bottom:10px;background:#F6F7FA;border-radius:18px;display:flex;justify-content:space-between;padding:20px}.SettingList_titleSection__SLs\+R{display:flex;align-items:center}.SettingList_title__a7iEn{margin-right:8px;font-weight:600;font-size:16px;color:#191F28}.SettingList_content__qvPOF{margin-top:5px;font-weight:400;font-size:14px;color:#191F28}.SettingList_description__DmJLF{font-weight:400;font-size:12px;color:#8B95A1}.SettingList_arrow__\+TmsB{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 
 .SlideItem_container__S3b3t{width:100%;position:relative;cursor:pointer}.SlideItem_option__dpKYK{width:calc(100% - 48px);height:24px;position:absolute;padding:20px 24px;border-radius:20px;text-align:right}.SlideItem_delete__iM1bB{background-color:#D54D50}.SlideItem_edit__B-SFi{background-color:#191F28}.SlideItem_drag__e7DPS{transition:0.5s ease-in-out}.SlideItem_children__7TYVA{min-height:64px;text-align:center;z-index:1;background-color:white;border-radius:18px}.SlideItem_children__7TYVA>div{width:inherit;height:inherit}.SlideItem_icon__ezx\+I{fill:white}
 
@@ -100,6 +100,12 @@
 
 .CommunityList_container__4GrJZ{padding:20px}.CommunityList_filter__e1bru{margin:13px 0px 13px 10px}.CommunityList_item__wUhHp{margin-bottom:16px}
 
+.Badge_container__VaLCj{padding:0px 7px 2px;text-align:center;background:#191F28;border-radius:10px;color:white;font-weight:600;font-size:10px}
+
+.SettingListForm_list__O3qoe{padding:20px}
+
+.Badge_container__prZjK{padding:0px 7px 2px;text-align:center;background:#191F28;border-radius:10px;color:white;font-weight:600;font-size:10px}
+
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 .TrainerList_container__tfgva{margin:20px}.TrainerList_trainerItemContainer__ywwMB{margin-bottom:66px}.TrainerList_mainHeader__H3pF2{margin-bottom:20px}.TrainerList_tabList__6zzZ3{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__9-APD{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__rGycx{margin-bottom:16px}
@@ -129,4 +135,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.115c7f7c.css.map*/
+/*# sourceMappingURL=main.0956f525.css.map*/
