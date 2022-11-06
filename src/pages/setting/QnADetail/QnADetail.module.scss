@@ -1,0 +1,22 @@
+.header {
+  margin-top: 24px;
+}
+
+.content {
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 162.5%;
+  word-break: break-word;
+  white-space: pre;
+}
+
+.answer {
+  margin: 32px 24px;
+}
+
+.button {
+  width: calc(100% - 40px);
+  position: fixed;
+  bottom: 18px;
+}

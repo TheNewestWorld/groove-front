@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CloseIcon } from "../../assets/icon";
+import { CloseCircleIcon } from "../../assets/icon";
 import styles from "./BottomSheet.module.scss";
 
 export interface Props {
@@ -27,17 +27,16 @@ const BottomSheetView = ({
     <div
       ref={containerRef}
       className={styles.container}
-      onClick={(e) => {
+      onClick={e => {
         if (e.target === containerRef.current) {
           onClose();
         }
-      }}
-    >
+      }}>
       <div className={styles.white}>
         <div className={styles.header}>
           {title && <span>{title}</span>}
           {hasCloseButton && (
-            <CloseIcon className={styles.icon} onClick={onClose} />
+            <CloseCircleIcon className={styles.icon} onClick={onClose} />
           )}
         </div>
         {children}
