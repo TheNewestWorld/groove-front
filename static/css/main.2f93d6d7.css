@@ -48,6 +48,8 @@
 
 .SelectCategory_container__QrpqF{display:flex;justify-content:space-between}.SelectCategory_category__z2lBR{background-color:#F2F4F5;color:#8B95A1;border-radius:10px;padding:16px 24px 16px 14px}.SelectCategory_category__active__gZdVt{display:flex;font-weight:bold;width:inherit}.SelectCategory_category__active__icon__zPMdT{width:10px;margin-left:5px}
 
+.SettingList_item__CzO4u{margin-bottom:10px;background:#F6F7FA;border-radius:18px;display:flex;justify-content:space-between;padding:20px}.SettingList_title__a7iEn{margin-right:8px;font-weight:600;font-size:16px;color:#191F28}.SettingList_content__qvPOF{margin-top:5px;font-weight:400;font-size:14px;color:#191F28}.SettingList_description__DmJLF{font-weight:400;font-size:12px;color:#8B95A1}.SettingList_arrow__\+TmsB{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+
 .SlideItem_container__S3b3t{width:100%;position:relative;cursor:pointer}.SlideItem_option__dpKYK{width:calc(100% - 48px);height:24px;position:absolute;padding:20px 24px;border-radius:20px;text-align:right}.SlideItem_delete__iM1bB{background-color:#D54D50}.SlideItem_edit__B-SFi{background-color:#191F28}.SlideItem_drag__e7DPS{transition:0.5s ease-in-out}.SlideItem_children__7TYVA{min-height:64px;text-align:center;z-index:1;background-color:white;border-radius:18px}.SlideItem_children__7TYVA>div{width:inherit;height:inherit}.SlideItem_icon__ezx\+I{fill:white}
 
 .SnackBar_container__A\+xV0{display:flex;justify-content:center;background-color:#191F28;border-radius:18px;align-items:center;width:calc(100% - 36px)}.SnackBar_snackbarIcon__bJicJ{display:flex;margin-right:10px}.SnackBar_snackbarContent__\+tA9e{color:#fff}.SnackBar_shadow__H1t5f{box-shadow:0px 1px 2px rgba(0,0,0,0.3),0px 2px 6px 2px rgba(0,0,0,0.15)}.SnackBar_small__bD0dp{padding:16px 0px}.SnackBar_large__wXTc4{padding:65px 0px}.SnackBar_bottom__-viDR{position:fixed;bottom:18px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.SnackBar_middle__cOrW-{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
@@ -127,4 +129,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.8c43afa7.css.map*/
+/*# sourceMappingURL=main.2f93d6d7.css.map*/
