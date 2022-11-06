@@ -1,25 +1,55 @@
+import { useRef, useState } from "react";
 import classNames from "classnames";
-import { BlueAddIcon } from "../../assets/icon";
 import CircleImage from "../CircleImage";
-
 import styles from "./UserProfile.module.scss";
+import { BlackAddIcon } from "../../assets/icon";
 
 export interface Props {
-  src: string;
+  src?: string;
+  defaultImage: string;
   className?: string;
-  onClick?: () => void;
+  onChangeProfile?: (image: File) => void;
 }
 
 const UserProfile = ({
   src,
+  defaultImage,
   className,
-  onClick,
+  onChangeProfile,
 }: Props) => {
+  const imageInput = useRef<HTMLInputElement>(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+
   return (
-    <div className={classNames([className, styles.container])} onClick={onClick}>
-      <CircleImage src={src} className={styles.userProfile}/>
-      <BlueAddIcon className={styles.plusIcon}/>
-    </div>
+    <>
+      <input
+        className={styles.hidden}
+        type="file"
+        accept="image/jpg,image/png,image/jpeg,image/gif"
+        onChange={e => {
+          if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            const file = e.target.files[0];
+            reader.onloadend = () => {
+              const imagePreviewUrl = reader.result?.toString();
+              imagePreviewUrl && setImagePreviewUrl(imagePreviewUrl);
+            };
+            reader.readAsDataURL(file);
+            onChangeProfile && onChangeProfile(file);
+          }
+        }}
+        ref={imageInput}
+      />
+      <div
+        className={classNames([className, styles.container])}
+        onClick={() => imageInput.current?.click()}>
+        <CircleImage
+          src={imagePreviewUrl ? imagePreviewUrl : src ? src : defaultImage}
+          className={styles.userProfile}
+        />
+        <BlackAddIcon className={styles.plusIcon} />
+      </div>
+    </>
   );
 };
 

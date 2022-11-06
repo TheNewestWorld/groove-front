@@ -13,6 +13,10 @@ export interface Props {
   children?: React.ReactNode;
 }
 
+/**
+ * NOTE: 이 컴포넌트는 로그인/회원가입 등에서만 사용하기 위한 것 입니다.
+ * 전체적인 레이아웃을 적용했기에 다른 부분에서 사용을 지양합니다.
+ */
 const Form = ({
   title,
   subTitle,

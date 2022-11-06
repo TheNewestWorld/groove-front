@@ -14,6 +14,7 @@ export { ReactComponent as SearchIcon } from "./search.svg";
 export { ReactComponent as ArrowTailIcon } from "./arrow_tail.svg";
 
 // 여러 화면에서 사용하는 아이콘
+export { ReactComponent as BlackAddIcon } from "./add_black_circle.svg";
 export { ReactComponent as BlueAddIcon } from "./add_blue_circle.svg";
 export { ReactComponent as ArrowIcon } from "./arrow.svg";
 export { ReactComponent as CameraIcon } from "./camera.svg";
