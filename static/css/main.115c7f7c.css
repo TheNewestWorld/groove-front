@@ -70,63 +70,63 @@
 
 .floating-layout{position:fixed;display:flex;flex-direction:column;justify-content:space-between;bottom:20px;right:20px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;z-index:5}.floating-layout>*{margin:5px 0px}
 
-.CommunityCommentReadMore_container__Qk\+6p{font-size:10px;font-weight:200;color:#8B95A1}.CommunityCommentReadMore_open__lpR5i{margin-left:42px}
-
-.CommunityCommentItem_container__HC24F{display:flex;margin-top:24px}.CommunityCommentItem_profileImage__ZTJZJ{flex-shrink:0;margin-top:2px;height:28px;width:28px}.CommunityCommentItem_reply__zP8Bm{height:24px;width:24px}.CommunityCommentItem_content__MP5Tf{display:flex;flex-grow:1;flex-flow:column;margin-left:13px}.CommunityCommentItem_header__-0Kd1{display:flex;align-items:center;margin-bottom:5px}.CommunityCommentItem_writer__TdZTI{font-size:14px;font-weight:700;margin-right:11px;color:#191F28}.CommunityCommentItem_subText__Y0-\+8{margin-right:11px;font-size:10px;color:#8B95A1}.CommunityCommentItem_body__5Uqho{display:flex;flex-grow:1}.CommunityCommentItem_comment__JNiF7{flex-grow:1;font-size:14px;line-height:150%;color:#191F28}.CommunityCommentItem_tag__miU1v{font-size:14px;font-weight:700;color:#191F28;text-decoration:none;margin-right:4px}.CommunityCommentItem_option__Oab92{display:flex;flex-shrink:0;margin-left:6px}.CommunityCommentItem_icon__9ImYJ{width:24px;height:24px}
-
-.CommunityComment_readMore__xcxhw{margin-top:24px;margin-left:36px}.CommunityComment_reply__4boK\+{margin-left:40px}
-
-.CommunityCommentInput_container__C10oX{display:flex;height:36px;width:calc(100% - 40px);position:fixed;left:0;bottom:0;align-items:center;padding:9px 20px;border-top:solid 1px #EBEBEB;background-color:#fff}.CommunityCommentInput_container__C10oX>textarea{flex-grow:1;background-color:#F2F4F5;border:none;border-radius:10px;padding:10px 14px;color:#191F28;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>textarea:focus{outline:none}.CommunityCommentInput_container__C10oX>textarea::-webkit-input-placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>textarea::placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__C10oX>svg{fill:#191F28}.CommunityCommentInput_submit__jzNR\+{flex-shrink:0;padding:7px;margin-left:8px;border-radius:10px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);background-color:white}
-
-.CommunityCommentList_container__MMTGP{margin:0px 20px}.CommunityCommentList_containerBody__KjQnj{margin-bottom:54px}
-
-.CommunityDetail_header__Rwuz7{width:calc(100% - 40px);margin:0px 20px;padding:28px 0px;border-bottom:solid 1px #EBEBEB}.CommunityDetail_content__O3uxb{margin:16px 20px 40px;font-size:16px;color:#191F28;line-height:162.5%}
-
-.CommunityForm_container__Jo69I{flex-direction:column;display:flex}.CommunityForm_body__8WYUk{display:flex;padding:12px 20px;flex-grow:1;flex-direction:column}.CommunityForm_label__CVwQP{margin:0px 8px 5px;font-size:12px;font-weight:700;color:#6B7684}.CommunityForm_category__l3Z9y{margin-bottom:8px}.CommunityForm_button__4N1JN{margin:16px auto 0px;width:calc(100% - 60px);position:fixed;left:30px;bottom:18px}
-
-.ContentInput_container__NSMWD{flex-grow:1}.ContentInput_label__3pi\+L{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.ContentInput_input__v7dTH{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;background-color:#F2F4F5;border-radius:10px;padding:16px 14px;margin:5px 0px;position:relative}.ContentInput_input__v7dTH>textarea{width:100%;height:300px;font-size:16px;font-weight:600;color:#191F28;outline:none;border:none;background:none;resize:none}.ContentInput_input__v7dTH>textarea::-webkit-input-placeholder{color:#8B95A1}.ContentInput_input__v7dTH>textarea::placeholder{color:#8B95A1}.ContentInput_imageList__QGmLv{margin:20px 0px 20px;padding-top:10px;width:100%;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.ContentInput_imageList__QGmLv::-webkit-scrollbar{display:none}.ContentInput_button__JW5jY{display:inline-block;padding:7px 15px;margin:0px 12px 4px 6px;border-radius:12px;background-color:white;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.08),0px 2px 4px 2px rgba(34,34,34,0.05)}
-
-.CommunityList_container__vdpyr{padding:20px}.CommunityList_filter__NM4es{margin:13px 0px 13px 10px}.CommunityList_item__qBPEc{margin-bottom:16px}
-
 .Entry_container__W5qCP{width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between}.Entry_logo__decGW{flex-grow:1;padding-top:35vh}.Entry_logo__decGW>*{width:164px;height:28px}.Entry_sighInButton__i3Mv0{width:calc(100% - 40px)}.Entry_textGroup__yzG4W{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:inline-block;margin:24px 0px 48px}.Entry_text__KwlVm{color:#8B95A1;font-size:12px;font-weight:400}.Entry_signUpButton__BHMpk{color:#8B95A1;font-size:12px;font-weight:600;margin-left:6px;border:none;outline:none;background:none}
-
-.FindPassword_inputGroup__RINmF{margin:30px 0px 40px}
 
 .ImageDetail_container__-szGE{padding-bottom:110px}.ImageDetail_header__mPOnT{width:100%;height:110px;display:flex;align-items:center}.ImageDetail_title__DdPmH{margin-left:auto;font-size:1rem;font-weight:600;color:black}.ImageDetail_icon__D85hJ{margin-left:auto;height:24px;width:24px}.ImageDetail_image__-BhKb{position:absolute;left:0;width:100%;height:calc(100% - 236px)}.ImageDetail_prev__KMvdI{position:absolute;top:calc(50% - 8px);left:20px;background:rgba(0,0,0,0.5);float:left}.ImageDetail_next__JpLJ8{position:absolute;top:calc(50% - 8px);right:20px;background:rgba(0,0,0,0.5);float:right}
 
-.CommunitySection_item__WQU84{margin-bottom:10px}
-
-.RecordItem_container__0R3z6{width:calc(100% - 48px);display:flex;justify-content:space-between;margin-bottom:10px;align-items:center;padding:14px 20px;background:#F6F7FA;border-radius:18px;position:relative}.RecordItem_title__M6i4n{font-weight:600;font-size:16px;margin-bottom:3px}.RecordItem_date__f0Ei9{font-weight:400;font-size:10px;color:#8B95A1}.RecordItem_length__0Jz-j{font-weight:400;font-size:10px;line-height:10px;color:#8B95A1}
-
-.MyPage_profile__eK2ZV{display:flex;margin:20px;padding:20px;background-color:#F6F7FA;border-radius:18px;align-items:center;justify-content:space-between}.MyPage_image__4jJmP{width:55px;height:55px}.MyPage_nickname__tdLum{font-weight:700;font-size:18px;color:#191F28;flex-grow:1;padding-left:16px}.MyPage_icon__Kbby2{fill:#000}.MyPage_tab__FH1PN{padding:0px 20px}.MyPage_section__gGLUU{padding:16px 20px}.MyPage_empty__9-2kP{background-color:#F6F7FA;border-radius:20px;margin:16px 20px;width:calc(100% - 40px);min-height:200px}
-
 .PushList_title__2Nqbg{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.PushList_items__pRe9B{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.PushList_image__qZC7z{width:40px;height:40px;margin-right:18px;background-color:#8B95A1}.PushList_content__YvLKU{font-size:15px;font-weight:600;color:#191F28}.PushList_ago__iP2HY{font-size:12px;font-weight:400;color:#8B95A1}.PushList_division__NO\+ZL{height:16px;background-color:#F2F4F5}.PushList_empty__vPMUc{position:absolute;height:100%;left:0;bottom:0}.PushList_emptyImage__G8ShP{width:140px;height:210px;position:absolute;top:calc(50% - 210px);left:calc(50% - 70px)}
-
-.ResetPassword_inputGroup__5ay31{margin:30px 0px 40px}
 
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
 
-.SearchEntry_list__lhLpw{padding:0px 20px}.SearchEntry_title__TMZ4d{margin-top:24px;padding:16px 0px;font-size:14px;color:#8B95A1}.SearchEntry_item__BwlZx{color:#191F28;font-size:16px;font-weight:bold}.SearchEntry_item__BwlZx.SearchEntry_tag__F7Alq{display:flex;flex-wrap:nowrap;white-space:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.SearchEntry_item__BwlZx.SearchEntry_tag__F7Alq::-webkit-scrollbar{display:none}.SearchEntry_item__BwlZx.SearchEntry_tag__F7Alq>div{border-radius:10px;background-color:#F2F4F5;padding:10px 10px;margin-right:10px}.SearchEntry_item__BwlZx.SearchEntry_line__vBNrc>div{display:flex;justify-content:space-between;padding:10px 0px}
+.SearchEntry_list__6jRKN{padding:0px 20px}.SearchEntry_title__cNwZC{margin-top:24px;padding:16px 0px;font-size:14px;color:#8B95A1}.SearchEntry_item__98N4b{color:#191F28;font-size:16px;font-weight:bold}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd{display:flex;flex-wrap:nowrap;white-space:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd::-webkit-scrollbar{display:none}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd>div{border-radius:10px;background-color:#F2F4F5;padding:10px 10px;margin-right:10px}.SearchEntry_item__98N4b.SearchEntry_line__S-bKU>div{display:flex;justify-content:space-between;padding:10px 0px}
 
 .SearchList_item__UCpaI{padding:0 20px;margin-top:16px}.SearchList_text__zhL91{text-align:center;margin-top:176px;color:#8B95A1}
 
-.SignIn_container__ohDgQ{width:100%}.SignIn_inputGroup__3AMwk{margin:30px 0px 40px}.SignIn_button__QYrAD{text-align:center}.SignIn_button__QYrAD>button{padding:6px 8px;font-size:12px;font-weight:700;color:#6B7684;background-color:#F2F4F5;border:none;outline:none;border-radius:9px}
+.CommunityCommentReadMore_container__ikdCu{font-size:10px;font-weight:200;color:#8B95A1}.CommunityCommentReadMore_open__zndTw{margin-left:42px}
 
-.SignUp_container__uXgMl{width:100%}.SignUp_container__uXgMl.SignUp_center__9l2rn{padding-top:80px}.SignUp_image__ArqCE{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__OOboW{margin:30px 0px 40px}
+.CommunityCommentItem_container__dA8vO{display:flex;margin-top:24px}.CommunityCommentItem_profileImage__6w6kx{flex-shrink:0;margin-top:2px;height:28px;width:28px}.CommunityCommentItem_reply__QZk2J{height:24px;width:24px}.CommunityCommentItem_content__CDFm8{display:flex;flex-grow:1;flex-flow:column;margin-left:13px}.CommunityCommentItem_header__wqL\+x{display:flex;align-items:center;margin-bottom:5px}.CommunityCommentItem_writer__TJN0K{font-size:14px;font-weight:700;margin-right:11px;color:#191F28}.CommunityCommentItem_subText__M\+t6J{margin-right:11px;font-size:10px;color:#8B95A1}.CommunityCommentItem_body__7SHY4{display:flex;flex-grow:1}.CommunityCommentItem_comment__\+njVf{flex-grow:1;font-size:14px;line-height:150%;color:#191F28}.CommunityCommentItem_tag__rsc2F{font-size:14px;font-weight:700;color:#191F28;text-decoration:none;margin-right:4px}.CommunityCommentItem_option__lOuEM{display:flex;flex-shrink:0;margin-left:6px}.CommunityCommentItem_icon__v7YT1{width:24px;height:24px}
+
+.CommunityComment_readMore__i9jgk{margin-top:24px;margin-left:36px}.CommunityComment_reply__WdAlB{margin-left:40px}
+
+.CommunityCommentInput_container__vtSlq{display:flex;height:36px;width:calc(100% - 40px);position:fixed;left:0;bottom:0;align-items:center;padding:9px 20px;border-top:solid 1px #EBEBEB;background-color:#fff}.CommunityCommentInput_container__vtSlq>textarea{flex-grow:1;background-color:#F2F4F5;border:none;border-radius:10px;padding:10px 14px;color:#191F28;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__vtSlq>textarea:focus{outline:none}.CommunityCommentInput_container__vtSlq>textarea::-webkit-input-placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__vtSlq>textarea::placeholder{color:#8B95A1;font-weight:600;font-size:16px;line-height:150%}.CommunityCommentInput_container__vtSlq>svg{fill:#191F28}.CommunityCommentInput_submit__Q9vkc{flex-shrink:0;padding:7px;margin-left:8px;border-radius:10px;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.05),0px 2px 4px 2px rgba(34,34,34,0.05);background-color:white}
+
+.CommunityCommentList_container__me\+OT{margin:0px 20px}.CommunityCommentList_containerBody__Pm5vg{margin-bottom:54px}
+
+.CommunityDetail_header__qSHJE{width:calc(100% - 40px);margin:0px 20px;padding:28px 0px;border-bottom:solid 1px #EBEBEB}.CommunityDetail_content__293Yj{margin:16px 20px 40px;font-size:16px;color:#191F28;line-height:162.5%}
+
+.CommunityForm_container__FbLHb{flex-direction:column;display:flex}.CommunityForm_body__GYQBF{display:flex;padding:12px 20px;flex-grow:1;flex-direction:column}.CommunityForm_label__93QBe{margin:0px 8px 5px;font-size:12px;font-weight:700;color:#6B7684}.CommunityForm_category__tZXIg{margin-bottom:8px}.CommunityForm_button__fmHkH{margin:16px auto 0px;width:calc(100% - 60px);position:fixed;left:30px;bottom:18px}
+
+.ContentInput_container__4bJjn{flex-grow:1}.ContentInput_label__H4pAq{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.ContentInput_input__SHV5p{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;background-color:#F2F4F5;border-radius:10px;padding:16px 14px;margin:5px 0px;position:relative}.ContentInput_input__SHV5p>textarea{width:100%;height:300px;font-size:16px;font-weight:600;color:#191F28;outline:none;border:none;background:none;resize:none}.ContentInput_input__SHV5p>textarea::-webkit-input-placeholder{color:#8B95A1}.ContentInput_input__SHV5p>textarea::placeholder{color:#8B95A1}.ContentInput_imageList__viM55{margin:20px 0px 20px;padding-top:10px;width:100%;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.ContentInput_imageList__viM55::-webkit-scrollbar{display:none}.ContentInput_button__\+4EAw{display:inline-block;padding:7px 15px;margin:0px 12px 4px 6px;border-radius:12px;background-color:white;box-shadow:0px 1px 2px 1px rgba(119,119,119,0.08),0px 2px 4px 2px rgba(34,34,34,0.05)}
+
+.CommunityList_container__4GrJZ{padding:20px}.CommunityList_filter__e1bru{margin:13px 0px 13px 10px}.CommunityList_item__wUhHp{margin-bottom:16px}
 
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
-.TrainerList_container__wj9\+W{margin:20px}.TrainerList_trainerItemContainer__mgAz2{margin-bottom:66px}.TrainerList_mainHeader__X00rJ{margin-bottom:20px}.TrainerList_tabList__aNUbk{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__onWQ\+{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__I-IJo{margin-bottom:16px}
+.TrainerList_container__tfgva{margin:20px}.TrainerList_trainerItemContainer__ywwMB{margin-bottom:66px}.TrainerList_mainHeader__H3pF2{margin-bottom:20px}.TrainerList_tabList__6zzZ3{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__9-APD{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__rGycx{margin-bottom:16px}
 
-.ConfirmBottomSheet_description__9JheN{font-weight:600;font-size:15px;color:#8B95A1;margin-bottom:20px}.ConfirmBottomSheet_button__zo4Yv{width:calc(50% - 4.5px)}.ConfirmBottomSheet_button__zo4Yv:first-child{margin-right:9px}
+.ConfirmBottomSheet_description__VYtX\+{font-weight:600;font-size:15px;color:#8B95A1;margin-bottom:20px}.ConfirmBottomSheet_button__KNr\+k{width:calc(50% - 4.5px)}.ConfirmBottomSheet_button__KNr\+k:first-child{margin-right:9px}
 
-.Feedback_container__LY8Xo>hr{border:1px solid #EBEBEB}.Feedback_content__s7\+N5{margin:16px 0px}
+.Feedback_container__G9nDR>hr{border:1px solid #EBEBEB}.Feedback_content__4Fzmi{margin:16px 0px}
 
-.FeedbackSection_container__sr0px{margin:40px 20px;padding:20px;background-color:#F6F7FA;border-radius:20px}.FeedbackSection_center__T5ZbY{text-align:center}.FeedbackSection_divider__VpNDr{width:100%;height:13px;background-color:#F2F4F5}
+.FeedbackSection_container__VZr5N{margin:40px 20px;padding:20px;background-color:#F6F7FA;border-radius:20px}.FeedbackSection_center__g9Yke{text-align:center}.FeedbackSection_divider__bmpqZ{width:100%;height:13px;background-color:#F2F4F5}
 
-.TrainingDetail_header__Ignd0{padding:16px 20px}.TrainingDetail_container__4vRvR>hr{border:1px solid #EBEBEB;margin:0px 20px}.TrainingDetail_content__d9tvd{margin:16px 20px 40px}.TrainingDetail_feedback__dElNP{margin:40px 20px;padding:20px;background-color:#F6F7FA;border-radius:20px}.TrainingDetail_feedback__dElNP.TrainingDetail_center__MLRx6{text-align:center}.TrainingDetail_button__oQvha{width:calc(50% - 4.5px)}.TrainingDetail_button__oQvha:first-of-type{margin-right:9px}
+.TrainingDetail_header__tZpb1{padding:16px 20px}.TrainingDetail_container__ekAnI>hr{border:1px solid #EBEBEB;margin:0px 20px}.TrainingDetail_content__RD276{margin:16px 20px 40px}.TrainingDetail_feedback__HGWMc{margin:40px 20px;padding:20px;background-color:#F6F7FA;border-radius:20px}.TrainingDetail_feedback__HGWMc.TrainingDetail_center__4xCRn{text-align:center}.TrainingDetail_button__2GOap{width:calc(50% - 4.5px)}.TrainingDetail_button__2GOap:first-of-type{margin-right:9px}
 
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
+.FindPassword_inputGroup__29tj9{margin:30px 0px 40px}
 
-/*# sourceMappingURL=main.2f93d6d7.css.map*/
+.CommunitySection_item__\+8nU0{margin-bottom:10px}
+
+.RecordItem_container__vwfmS{width:calc(100% - 48px);display:flex;justify-content:space-between;margin-bottom:10px;align-items:center;padding:14px 20px;background:#F6F7FA;border-radius:18px;position:relative}.RecordItem_title__\+verP{font-weight:600;font-size:16px;margin-bottom:3px}.RecordItem_date__WlCPe{font-weight:400;font-size:10px;color:#8B95A1}.RecordItem_length__K-H8h{font-weight:400;font-size:10px;line-height:10px;color:#8B95A1}
+
+.MyPage_profile__WTTU9{display:flex;margin:20px;padding:20px;background-color:#F6F7FA;border-radius:18px;align-items:center;justify-content:space-between}.MyPage_image__LPK7Q{width:55px;height:55px}.MyPage_nickname__hez5j{font-weight:700;font-size:18px;color:#191F28;flex-grow:1;padding-left:16px}.MyPage_icon__WzGEN{fill:#000}.MyPage_tab__lW22n{padding:0px 20px}.MyPage_section__YqAEn{padding:16px 20px}.MyPage_empty__mhea-{background-color:#F6F7FA;border-radius:20px;margin:16px 20px;width:calc(100% - 40px);min-height:200px}
+
+.ResetPassword_inputGroup__lwKNv{margin:30px 0px 40px}
+
+.SignIn_container__810ld{width:100%}.SignIn_inputGroup__HMxf9{margin:30px 0px 40px}.SignIn_button__P0Dft{text-align:center}.SignIn_button__P0Dft>button{padding:6px 8px;font-size:12px;font-weight:700;color:#6B7684;background-color:#F2F4F5;border:none;outline:none;border-radius:9px}
+
+.SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
+
+
+/*# sourceMappingURL=main.115c7f7c.css.map*/
