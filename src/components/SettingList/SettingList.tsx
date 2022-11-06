@@ -19,7 +19,7 @@ const SettingList = ({ list, classNames }: Props) => {
       {list.map(({ title, content, description, badge, onClick }) => (
         <section key={title} onClick={onClick} className={styles.item}>
           <div>
-            <div>
+            <div className={styles.titleSection}>
               <span className={styles.title}>{title}</span>
               {badge}
             </div>
