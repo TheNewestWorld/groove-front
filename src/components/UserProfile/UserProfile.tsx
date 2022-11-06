@@ -3,22 +3,25 @@ import classNames from "classnames";
 import CircleImage from "../CircleImage";
 import styles from "./UserProfile.module.scss";
 import { BlackAddIcon } from "../../assets/icon";
-import EmptyProfile from "../../assets/icon/empty_profile.svg";
 
 export interface Props {
   src?: string;
+  defaultImage: string;
   className?: string;
   onChangeProfile?: (image: File) => void;
 }
 
-const UserProfile = ({ src, className, onChangeProfile }: Props) => {
+const UserProfile = ({
+  src,
+  defaultImage,
+  className,
+  onChangeProfile,
+}: Props) => {
   const imageInput = useRef<HTMLInputElement>(null);
-  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>(
-    src ? src : "",
-  );
-  console.log(EmptyProfile);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+
   return (
-    <div>
+    <>
       <input
         className={styles.hidden}
         type="file"
@@ -41,12 +44,12 @@ const UserProfile = ({ src, className, onChangeProfile }: Props) => {
         className={classNames([className, styles.container])}
         onClick={() => imageInput.current?.click()}>
         <CircleImage
-          src={imagePreviewUrl.length == 0 ? EmptyProfile : imagePreviewUrl}
+          src={imagePreviewUrl ? imagePreviewUrl : src ? src : defaultImage}
           className={styles.userProfile}
         />
         <BlackAddIcon className={styles.plusIcon} />
       </div>
-    </div>
+    </>
   );
 };
 
