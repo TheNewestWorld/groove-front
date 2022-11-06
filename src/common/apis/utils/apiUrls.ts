@@ -9,4 +9,7 @@ export const apiUrls = {
     refreshToken: () => `${BASE_URL}/auth/refresh`,
     signOut: () => `${BASE_URL}/auth/logout`,
   },
+  users: {
+    signUp: () => `${BASE_URL}/users/register`,
+  },
 };
