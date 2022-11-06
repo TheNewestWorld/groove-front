@@ -98,6 +98,8 @@
 
 .MyPage_profile__eK2ZV{display:flex;margin:20px;padding:20px;background-color:#F6F7FA;border-radius:18px;align-items:center;justify-content:space-between}.MyPage_image__4jJmP{width:55px;height:55px}.MyPage_nickname__tdLum{font-weight:700;font-size:18px;color:#191F28;flex-grow:1;padding-left:16px}.MyPage_icon__Kbby2{fill:#000}.MyPage_tab__FH1PN{padding:0px 20px}.MyPage_section__gGLUU{padding:16px 20px}.MyPage_empty__9-2kP{background-color:#F6F7FA;border-radius:20px;margin:16px 20px;width:calc(100% - 40px);min-height:200px}
 
+.PushList_title__2Nqbg{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.PushList_items__pRe9B{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.PushList_image__qZC7z{width:40px;height:40px;margin-right:18px;background-color:#8B95A1}.PushList_content__YvLKU{font-size:15px;font-weight:600;color:#191F28}.PushList_ago__iP2HY{font-size:12px;font-weight:400;color:#8B95A1}.PushList_division__NO\+ZL{height:16px;background-color:#F2F4F5}.PushList_empty__vPMUc{position:absolute;height:100%;left:0;bottom:0}.PushList_emptyImage__G8ShP{width:140px;height:210px;position:absolute;top:calc(50% - 210px);left:calc(50% - 70px)}
+
 .ResetPassword_inputGroup__5ay31{margin:30px 0px 40px}
 
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
@@ -125,4 +127,4 @@
 .training-history{padding:20px}.training-history__filter{margin:0px 0px 20px 10px}.training-history__item{margin-bottom:10px}
 
 
-/*# sourceMappingURL=main.93e1c9b8.css.map*/
+/*# sourceMappingURL=main.8c43afa7.css.map*/
