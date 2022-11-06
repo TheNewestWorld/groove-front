@@ -67,13 +67,12 @@ const QnADetailView = ({
         className={styles.header}
       />
       <div className={styles.content}>{content}</div>
-      {isOpenOption && (
-        <QnABottomSheet
-          onClose={onCloseOption}
-          onClickDelete={() => onDelete(qnaId)}
-          onClickModify={() => onModify(qnaId)}
-        />
-      )}
+      <QnABottomSheet
+        isShow={isOpenOption}
+        onClose={onCloseOption}
+        onClickDelete={() => onDelete(qnaId)}
+        onClickModify={() => onModify(qnaId)}
+      />
       {isAnswered && (
         <>
           <AnswerComponent

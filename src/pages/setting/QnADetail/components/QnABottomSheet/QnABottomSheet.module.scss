@@ -13,37 +13,28 @@
   padding: 24px;
 }
 
-.modify_container {
+.section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   font-weight: 500;
   font-size: 16px;
   line-height: 175%;
-  color: $black-19;
-}
 
-.modify_section {
-  display: flex;
-  align-items: center;
+  &.delete {
+    color: $error;
 
-  & > svg {
-    fill: $black-19;
+    & > svg {
+      fill: $error
+    }  
   }
-}
 
-.delete_section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 175%;
-  color: $error;
+  &.modify {
+    color: $black-19;
 
-  & > svg {
-    fill: $error
+    & > svg {
+      fill: $black-19;
+    }  
   }
 }
 
