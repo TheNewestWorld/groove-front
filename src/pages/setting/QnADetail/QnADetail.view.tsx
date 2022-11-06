@@ -8,16 +8,19 @@ import AnswerComponent from "./components/AnswerComponent";
 import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
-  qnaId: number;
-  userId: number;
-  title: string;
-  profileImage: string;
-  nickname: string;
-  date: Date;
-  content: string;
-  isAnswered?: boolean;
-  answerTitle?: string;
-  answerContent?: string;
+  qnaInfo: {
+    qnaId: number;
+    userId: number;
+    title: string;
+    profileImage: string;
+    nickname: string;
+    date: Date;
+    content: string;
+  };
+  answerInfo?: {
+    answerTitle: string;
+    answerContent: string;
+  };
   onClickProfile: (id: number) => void;
   onClose: () => void;
   onDelete: (id: number) => void;
@@ -26,16 +29,8 @@ export interface Props {
 }
 
 const QnADetailView = ({
-  qnaId,
-  userId,
-  title,
-  profileImage,
-  nickname,
-  date,
-  content,
-  isAnswered = false,
-  answerTitle = "",
-  answerContent = "",
+  qnaInfo,
+  answerInfo,
   onClickProfile,
   onClose,
   onDelete,
@@ -59,25 +54,25 @@ const QnADetailView = ({
       />
       {/* TODO: badge(답변완료) */}
       <ContentHeader
-        title={title}
-        profileImage={profileImage}
-        nickname={nickname}
-        date={date}
-        onClickProfile={() => onClickProfile(userId)}
+        title={qnaInfo.title}
+        profileImage={qnaInfo.profileImage}
+        nickname={qnaInfo.nickname}
+        date={qnaInfo.date}
+        onClickProfile={() => onClickProfile(qnaInfo.userId)}
         className={styles.header}
       />
-      <div className={styles.content}>{content}</div>
+      <div className={styles.content}>{qnaInfo.content}</div>
       <QnABottomSheet
         isShow={isOpenOption}
         onClose={onCloseOption}
-        onClickDelete={() => onDelete(qnaId)}
-        onClickModify={() => onModify(qnaId)}
+        onClickDelete={() => onDelete(qnaInfo.qnaId)}
+        onClickModify={() => onModify(qnaInfo.qnaId)}
       />
-      {isAnswered && (
+      {answerInfo && (
         <>
           <AnswerComponent
-            title={answerTitle}
-            content={answerContent}
+            title={answerInfo.answerTitle}
+            content={answerInfo.answerContent}
             className={styles.answer}
           />
           <RoundButton
