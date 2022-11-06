@@ -8,8 +8,8 @@ import AnswerComponent from "./components/AnswerComponent";
 import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
-  qna_id: number;
-  user_id: number;
+  qnaId: number;
+  userId: number;
   title: string;
   profileImage: string;
   nickname: string;
@@ -26,8 +26,8 @@ export interface Props {
 }
 
 const QnADetailView = ({
-  qna_id,
-  user_id,
+  qnaId,
+  userId,
   title,
   profileImage,
   nickname,
@@ -63,15 +63,15 @@ const QnADetailView = ({
         profileImage={profileImage}
         nickname={nickname}
         date={date}
-        onClickProfile={() => onClickProfile(user_id)}
+        onClickProfile={() => onClickProfile(userId)}
         className={styles.header}
       />
       <div className={styles.content}>{content}</div>
       {isOpenOption && (
         <QnABottomSheet
           onClose={onCloseOption}
-          onClickDelete={() => onDelete(qna_id)}
-          onClickModify={() => onModify(qna_id)}
+          onClickDelete={() => onDelete(qnaId)}
+          onClickModify={() => onModify(qnaId)}
         />
       )}
       {isAnswered && (
