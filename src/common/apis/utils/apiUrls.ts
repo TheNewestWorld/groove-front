@@ -12,6 +12,7 @@ export const apiUrls = {
   users: {
     signUp: () => `${BASE_URL}/users/register`,
     getUserInfo: () => `${BASE_URL}/users/self`,
+    setUserInfo: () => `${BASE_URL}/users/self`,
   },
   records: {
     getRecordList: () => `${BASE_URL}/records`,
