@@ -1,2 +1,1 @@
-export { default } from "./CommunityCommentList.view";
-export type { Props } from "./CommunityCommentList.view";
+export { default } from "./CommunityCommentList";
