@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signIn } from "../../../common/apis/auth";
+import BuildPaths from "../../../common/paths";
 import SignInView from "./SignIn.view";
 
 const SignIn = () => {
+  const navigation = useNavigate();
   const [data, setData] = useState<{ email: string; password: string }>({
     email: "",
     password: "",
@@ -29,6 +32,7 @@ const SignIn = () => {
       onClickConfirm={onClickConfirm}
       // TODO: 비활성화 조건 추가
       isDisabledButton={!data.email || !data.password}
+      goToFindPassword={() => navigation(BuildPaths.findPassword())}
     />
   );
 };

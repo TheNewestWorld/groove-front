@@ -1,7 +1,10 @@
+import { useState } from "react";
 import SignUpView from "./SignUp.view";
 
 const SignUp = () => {
-  return <SignUpView isSubmitted={false} />;
+  const [isSubmitted, setSubmit] = useState<boolean>(false);
+
+  return <SignUpView isSubmitted={isSubmitted} />;
 };
 
 export default SignUp;
