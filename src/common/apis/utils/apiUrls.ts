@@ -16,6 +16,7 @@ export const apiUrls = {
     getRecordList: () => `${BASE_URL}/records`,
     postRecord: () => `${BASE_URL}/records`,
     deleteRecord: (recordId: number) => `${BASE_URL}/records/${recordId}`,
+    setRecordTitle: (recordId: number) => `${BASE_URL}/records/${recordId}`,
   },
   like: {
     setCommunityLike: (postId: number) =>
