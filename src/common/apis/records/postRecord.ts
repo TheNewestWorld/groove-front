@@ -7,5 +7,11 @@ export type PostRecordBody = {
 };
 
 export const postRecord = (body: PostRecordBody) => {
-  return resultData<null>(axios.post(apiUrls.records.postRecord(), body));
+  return resultData<null>(
+    axios.post(apiUrls.records.postRecord(), body, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+  );
 };
