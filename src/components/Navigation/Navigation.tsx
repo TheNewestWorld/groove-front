@@ -31,7 +31,7 @@ const Navigation = ({ current }: Props) => {
       </button>
       <button
         className={current === "COMMUNITY" ? "blue" : ""}
-        onClick={() => navigation(RoutePath.community)}
+        onClick={() => navigation(RoutePath.communityHome)}
       >
         {current === "COMMUNITY" ? (
           <CommunityActiveIcon />
@@ -41,7 +41,8 @@ const Navigation = ({ current }: Props) => {
         <br />
         커뮤니티
       </button>
-      <button
+      {/* TODO: 추후 추가 */}
+      {/* <button
         className={current === "TRAINING" ? "blue" : ""}
         onClick={() => navigation(RoutePath.training)}
       >
@@ -52,7 +53,7 @@ const Navigation = ({ current }: Props) => {
         )}
         <br />
         트레이닝
-      </button>
+      </button> */}
       <button
         className={current === "MYPAGE" ? "blue" : ""}
         onClick={() => navigation(RoutePath.mypage)}
