@@ -1,0 +1,12 @@
+@import "../../../../../constants/color.scss";
+
+.recording_on {
+  bottom: 20px;
+  width: calc(100% - 40px);
+}
+
+.recording_off {
+  bottom: 20px;
+  right: 20px;
+  width: fit-content;
+}
