@@ -6,6 +6,7 @@ export default {
   component: SignIn,
   args: {
     data: { email: "", password: "" },
+    goToFindPassword: () => alert("클릭"),
   },
 } as Meta;
 

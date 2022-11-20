@@ -1,1 +1,1 @@
-export { default } from "./SearchList.view";
+export { default } from "./SearchList";

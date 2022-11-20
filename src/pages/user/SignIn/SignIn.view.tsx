@@ -7,6 +7,7 @@ export interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isDisabledButton?: boolean;
   onClickConfirm?: () => void;
+  goToFindPassword: () => void;
 }
 
 const SignInView = ({
@@ -14,6 +15,7 @@ const SignInView = ({
   onChange,
   isDisabledButton,
   onClickConfirm,
+  goToFindPassword,
 }: Props) => {
   return (
     <div className={styles.container}>
@@ -42,7 +44,7 @@ const SignInView = ({
           />
         </div>
         <div className={styles.button}>
-          <button>비밀번호가 기억나지 않아요</button>
+          <button onClick={goToFindPassword}>비밀번호가 기억나지 않아요</button>
         </div>
       </Form>
     </div>
