@@ -46,6 +46,7 @@ const SignUpView = ({
             <Input
               label="비밀번호"
               placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
+              type="password"
             />
             <Input
               label="비밀번호 확인"

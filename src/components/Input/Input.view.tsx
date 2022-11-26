@@ -7,6 +7,7 @@ export interface Props {
   placeholder?: string;
   name?: string;
   value?: string;
+  type?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   confirmMessage?: string;
   errorMessage?: string;
@@ -18,6 +19,7 @@ const Input = ({
   placeholder,
   name,
   value,
+  type,
   onChange,
   confirmMessage,
   errorMessage,
@@ -32,6 +34,7 @@ const Input = ({
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          type={type}
         />
         {onReset && value && <GreyDeleteCircle className={styles.icon} />}
       </div>
