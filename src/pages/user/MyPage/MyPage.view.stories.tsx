@@ -8,7 +8,7 @@ export default {
     profileImage:
       "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
     nickname: "닉네임",
-    tab: "RECORD",
+    currentTab: "RECORD",
     recordList: [...Array(5)].map((_, index) => {
       return {
         id: index,
@@ -60,22 +60,22 @@ export const 녹음내역_없음 = Template.bind({});
 
 export const 좋아한_게시물_있음 = Template.bind({});
 좋아한_게시물_있음.args = {
-  tab: "LIKED",
+  currentTab: "LIKED",
 };
 
 export const 좋아한_게시물_없음 = Template.bind({});
 좋아한_게시물_없음.args = {
-  tab: "LIKED",
+  currentTab: "LIKED",
   likedList: [],
 };
 
 export const 작성한_게시물_있음 = Template.bind({});
 작성한_게시물_있음.args = {
-  tab: "WRITTEN",
+  currentTab: "WRITTEN",
 };
 
 export const 작성한_게시물_없음 = Template.bind({});
 작성한_게시물_없음.args = {
-  tab: "WRITTEN",
+  currentTab: "WRITTEN",
   writtenList: [],
 };
