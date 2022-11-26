@@ -27,4 +27,8 @@ export const apiUrls = {
     setCommunityDislike: (postId: number) =>
       `${BASE_URL}/community/post/${postId}/like`,
   },
+  myPost: {
+    getWrittenPostList: () => `${BASE_URL}/users/self/posts`,
+    getLikedPostList: () => `${BASE_URL}/users/self/liked-posts`,
+  },
 };
