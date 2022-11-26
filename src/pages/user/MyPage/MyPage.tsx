@@ -33,56 +33,8 @@ const MyPage = () => {
       nickname={nickname}
       tab={tab}
       recordList={recordList}
-      likedList={
-        // TODO: 로직 훅 안으로 넣기
-        likedList?.map(
-          ({
-            postId,
-            userNickname,
-            userProfileUri,
-            title,
-            content,
-            likeCount,
-            commentCount,
-          }) => {
-            return {
-              id: postId,
-              user: userNickname,
-              userImageSrc: userProfileUri,
-              title,
-              description: content,
-              likeCount,
-              commentCount,
-              liked: true, // TODO
-            };
-          }
-        ) ?? []
-      }
-      writtenList={
-        // TODO: 로직 훅 안으로 넣기
-        writtenList?.map(
-          ({
-            postId,
-            userNickname,
-            userProfileUri,
-            title,
-            content,
-            likeCount,
-            commentCount,
-          }) => {
-            return {
-              id: postId,
-              user: userNickname,
-              userImageSrc: userProfileUri,
-              title,
-              description: content,
-              likeCount,
-              commentCount,
-              liked: true, // TODO
-            };
-          }
-        ) ?? []
-      }
+      likedList={likedList}
+      writtenList={writtenList}
       onChangeTab={(tab: Tab) => setTab(tab)}
       onClickCommunityItem={(id) => {
         // TODO

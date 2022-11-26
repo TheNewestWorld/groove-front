@@ -27,8 +27,52 @@ const useMyPage = () => {
     profileImage: userInfo?.profileUrl ?? "",
     nickname: "", // TODO
     recordList: [], // TODO
-    likedList,
-    writtenList,
+    likedList:
+      likedList?.map(
+        ({
+          postId,
+          userNickname,
+          userProfileUri,
+          title,
+          content,
+          likeCount,
+          commentCount,
+        }) => {
+          return {
+            id: postId,
+            user: userNickname,
+            userImageSrc: userProfileUri,
+            title,
+            description: content,
+            likeCount,
+            commentCount,
+            liked: true, // TODO
+          };
+        }
+      ) ?? [],
+    writtenList:
+      writtenList?.map(
+        ({
+          postId,
+          userNickname,
+          userProfileUri,
+          title,
+          content,
+          likeCount,
+          commentCount,
+        }) => {
+          return {
+            id: postId,
+            user: userNickname,
+            userImageSrc: userProfileUri,
+            title,
+            description: content,
+            likeCount,
+            commentCount,
+            liked: true, // TODO
+          };
+        }
+      ) ?? [],
   };
 };
 
