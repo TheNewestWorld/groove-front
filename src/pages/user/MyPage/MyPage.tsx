@@ -34,6 +34,7 @@ const MyPage = () => {
       tab={tab}
       recordList={recordList}
       likedList={
+        // TODO: 로직 훅 안으로 넣기
         likedList?.map(
           ({
             postId,
@@ -58,6 +59,7 @@ const MyPage = () => {
         ) ?? []
       }
       writtenList={
+        // TODO: 로직 훅 안으로 넣기
         writtenList?.map(
           ({
             postId,
