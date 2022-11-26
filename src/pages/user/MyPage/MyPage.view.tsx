@@ -18,16 +18,18 @@ type CommunityItem = {
   liked: boolean;
 };
 
-const TabTitle = {
-  RECORD: "녹음내역",
-  LIKED: "좋아한 게시물",
-  WRITTEN: "작성한 게시물",
+export type Tab = "RECORD" | "LIKED" | "WRITTEN";
+
+const TabTitle: Record<string, Tab> = {
+  녹음내역: "RECORD",
+  "좋아한 게시물": "LIKED",
+  "작성한 게시물": "WRITTEN",
 };
 
 export interface Props {
   profileImage: string;
   nickname: string;
-  tab: "RECORD" | "LIKED" | "WRITTEN";
+  tab: Tab;
   recordList: {
     id: number;
     title: string;
@@ -37,7 +39,7 @@ export interface Props {
   }[];
   likedList: CommunityItem[];
   writtenList: CommunityItem[];
-  onChangeTab: (tab: string) => void;
+  onChangeTab: (tab: Tab) => void;
   onClickCommunityItem: (id: number) => void;
   onDeleteRecord: (id: number) => void;
 }
@@ -74,7 +76,7 @@ const MyPageView = ({
         type="round"
         activeTab={TabTitle[tab]}
         tabList={["녹음내역", "좋아한 게시물", "작성한 게시물"]}
-        onClickTab={onChangeTab}
+        onClickTab={(tab) => onChangeTab(TabTitle[tab])}
       />
 
       {tab === "RECORD" &&
@@ -109,6 +111,7 @@ const MyPageView = ({
             onClick={onClickCommunityItem}
           />
         ))}
+      {/* TODO: 리스트 마지막에 도착 시 추가 데이터 요청 */}
     </div>
   );
 };
