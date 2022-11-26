@@ -4,12 +4,13 @@ import {
   GetWrittenPostListResponse,
 } from "../../apis/myPost";
 
-type QueryProps = { size: number; page: number };
+type QueryProps = { size?: number; page?: number };
 
 const useWrittenPostListQuery = (
-  { size, page }: QueryProps,
+  { size = 10, page = 0 }: QueryProps,
   options?: UseInfiniteQueryOptions<GetWrittenPostListResponse>
 ) => {
+  // TODO: 페이지 끝에 도달 시 추가 요청 로직 작성
   const { data, ...result } = useInfiniteQuery<GetWrittenPostListResponse>(
     ["getWrittenPostList"],
     ({ pageParam = page }) => getWrittenPostList({ size, page: pageParam }),
@@ -21,7 +22,7 @@ const useWrittenPostListQuery = (
 
   return {
     ...result,
-    recordList: data?.pages.reduce(
+    writtenList: data?.pages.reduce(
       (acc: GetWrittenPostListResponse["contents"], list) => [
         ...acc,
         ...list.contents,
