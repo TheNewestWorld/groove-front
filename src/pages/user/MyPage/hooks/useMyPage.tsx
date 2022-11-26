@@ -1,5 +1,6 @@
 import useLikedPostListQuery from "../../../../common/queries/myPost/useLikedPostListQuery";
 import useWrittenPostListQuery from "../../../../common/queries/myPost/useWrittenPostListQuery";
+import useUserInfoQuery from "../../../../common/queries/users/useUserInfoQuery";
 
 const useMyPage = () => {
   const {
@@ -14,10 +15,16 @@ const useMyPage = () => {
     likedList,
   } = useLikedPostListQuery({});
 
+  const {
+    isLoading: isLoadingUserInfo,
+    isError: isErrorUserInfo,
+    data: userInfo,
+  } = useUserInfoQuery();
+
   return {
-    isLoading: isLoadingWrittenPost || isLoadingLikedPost,
-    isError: isErrorWrittenPost || isErrorLikedPost,
-    profileImage: "", // TODO
+    isLoading: isLoadingWrittenPost || isLoadingLikedPost || isLoadingUserInfo,
+    isError: isErrorWrittenPost || isErrorLikedPost || isErrorUserInfo,
+    profileImage: userInfo?.profileUrl ?? "",
     nickname: "", // TODO
     recordList: [], // TODO
     likedList,
