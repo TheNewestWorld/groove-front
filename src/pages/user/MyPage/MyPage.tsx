@@ -31,7 +31,7 @@ const MyPage = () => {
     <MyPageView
       profileImage={profileImage}
       nickname={nickname}
-      tab={tab}
+      currentTab={tab}
       recordList={recordList}
       likedList={likedList}
       writtenList={writtenList}

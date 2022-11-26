@@ -20,16 +20,18 @@ type CommunityItem = {
 
 export type Tab = "RECORD" | "LIKED" | "WRITTEN";
 
-const TabTitle: Record<string, Tab> = {
-  녹음내역: "RECORD",
-  "좋아한 게시물": "LIKED",
-  "작성한 게시물": "WRITTEN",
-};
+export type TabLabel = "녹음내역" | "좋아한 게시물" | "작성한 게시물";
+
+const TabTitle: { id: Tab; label: TabLabel }[] = [
+  { id: "RECORD", label: "녹음내역" },
+  { id: "LIKED", label: "좋아한 게시물" },
+  { id: "WRITTEN", label: "작성한 게시물" },
+];
 
 export interface Props {
   profileImage: string;
   nickname: string;
-  tab: Tab;
+  currentTab: Tab;
   recordList: {
     id: number;
     title: string;
@@ -47,7 +49,7 @@ export interface Props {
 const MyPageView = ({
   profileImage,
   nickname,
-  tab,
+  currentTab,
   recordList,
   likedList,
   writtenList,
@@ -55,6 +57,8 @@ const MyPageView = ({
   onClickCommunityItem,
   onDeleteRecord,
 }: Props) => {
+  const activeTab = TabTitle.filter((tab) => tab.id === currentTab)[0].label;
+
   return (
     <div className={styles.container}>
       <Header
@@ -74,12 +78,14 @@ const MyPageView = ({
       <TabList
         className={styles.tab}
         type="round"
-        activeTab={TabTitle[tab]}
+        activeTab={activeTab}
         tabList={["녹음내역", "좋아한 게시물", "작성한 게시물"]}
-        onClickTab={(tab) => onChangeTab(TabTitle[tab])}
+        onClickTab={(newTab) =>
+          onChangeTab(TabTitle.filter((tab) => tab.label === newTab)[0].id)
+        }
       />
 
-      {tab === "RECORD" &&
+      {currentTab === "RECORD" &&
         (recordList.length === 0 ? (
           <EmptyPage title="녹음 내용이 없어요." className={styles.empty} />
         ) : (
@@ -90,7 +96,7 @@ const MyPageView = ({
           />
         ))}
 
-      {tab === "LIKED" &&
+      {currentTab === "LIKED" &&
         (likedList.length === 0 ? (
           <EmptyPage title="좋아한 게시물이 없어요." className={styles.empty} />
         ) : (
@@ -101,7 +107,7 @@ const MyPageView = ({
           />
         ))}
 
-      {tab === "WRITTEN" &&
+      {currentTab === "WRITTEN" &&
         (writtenList.length === 0 ? (
           <EmptyPage title="작성한 게시물이 없어요." className={styles.empty} />
         ) : (
