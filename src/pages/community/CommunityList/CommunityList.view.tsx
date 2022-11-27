@@ -4,6 +4,7 @@ import CommunityItem, {
 import TopDownFilter from "../../../components/TopDownFilter";
 import styles from "./CommunityList.module.scss";
 import TabList from "../../../components/TabList";
+import MainHeader from "../../../components/MainHeader";
 
 export interface Props {
   activeFilter: string;
@@ -11,6 +12,7 @@ export interface Props {
   onChangeFilter: (filter: string) => void;
   onClickTab: (tab: string) => void;
   communityList: CommunityItemView[];
+  // TODO: onClickItem: (id: number) => void;
 }
 
 const CommunityListView = ({
