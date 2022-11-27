@@ -7,26 +7,30 @@ import {
 } from "./common/errors/boundaries";
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "./common/configs/query";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Entry from "./pages/Entry";
-import SignIn from "./pages/user/SignIn";
-import SignUp from "./pages/user/SignUp";
-import FindPassword from "./pages/user/FindPassword";
-import ResetPassword from "./pages/user/ResetPassword";
-import CommunityList from "./pages/community/CommunityList";
-import CommunityForm from "./pages/community/CommunityForm";
-import CommunityCommentList from "./pages/community/CommunityCommentList";
-import CommunityDetail from "./pages/community/CommunityDetail";
-import MyPage from "./pages/user/MyPage";
-import EditUserProfile from "./pages/EditUserProfile";
-import SearchList from "./pages/SearchList";
-import Setting from "./pages/setting/Setting";
-import Notice from "./pages/setting/Notice";
-import NoticeDetail from "./pages/setting/NoticeDetail";
-import QnA from "./pages/setting/QnA";
-import QnADetail from "./pages/setting/QnADetail";
-import VocForm from "./pages/setting/VocForm";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Entry = lazy(() => import("./pages/Entry"));
+const SignIn = lazy(() => import("./pages/user/SignIn"));
+const SignUp = lazy(() => import("./pages/user/SignUp"));
+const FindPassword = lazy(() => import("./pages/user/FindPassword"));
+const ResetPassword = lazy(() => import("./pages/user/ResetPassword"));
+const CommunityList = lazy(() => import("./pages/community/CommunityList"));
+const CommunityForm = lazy(() => import("./pages/community/CommunityForm"));
+const CommunityCommentList = lazy(
+  () => import("./pages/community/CommunityCommentList")
+);
+const CommunityDetail = lazy(() => import("./pages/community/CommunityDetail"));
+const MyPage = lazy(() => import("./pages/user/MyPage"));
+const EditUserProfile = lazy(() => import("./pages/EditUserProfile"));
+const SearchList = lazy(() => import("./pages/SearchList"));
+const Setting = lazy(() => import("./pages/setting/Setting"));
+const Notice = lazy(() => import("./pages/setting/Notice"));
+const NoticeDetail = lazy(() => import("./pages/setting/NoticeDetail"));
+const QnA = lazy(() => import("./pages/setting/QnA"));
+const QnADetail = lazy(() => import("./pages/setting/QnADetail"));
+const VocForm = lazy(() => import("./pages/setting/VocForm"));
 
 function App() {
   return (
