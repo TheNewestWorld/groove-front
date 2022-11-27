@@ -33,17 +33,26 @@ export const apiUrls = {
     getWrittenPostList: () => `${BASE_URL}/users/self/posts`,
     getLikedPostList: () => `${BASE_URL}/users/self/liked-posts`,
   },
-  comment: {
-    createComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-    getComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-    modifyComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
-    deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
-  },
+  // comment: {
+  //   getCommentList: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
+  //   postComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
+  //   modifyComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
+  //   deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
+  // },
   post: {
-    createPost: () => `${BASE_URL}/community/post`,
     getPost: (postId: number) => `${BASE_URL}/community/post/${postId}`,
-    getPostByCategory: () => `${BASE_URL}/community/post/category`,
-    modifyPost: (postId: number) => `${BASE_URL}/community/post/${postId}`,
+    getPostListByCategory: () => `${BASE_URL}/community/post/category`,
+    postPost: () => `${BASE_URL}/community/post`,
+    updatePost: (postId: number) => `${BASE_URL}/community/post/${postId}`,
     deletePost: (postId: number) => `${BASE_URL}/community/post/${postId}`,
+  },
+  category: {
+    getCategoryList: (categoryGroup: string) =>
+      `${BASE_URL}/category/${categoryGroup}`,
+    postCategory: () => `${BASE_URL}/category`,
+    deleteCategory: (categoryId: number) =>
+      `${BASE_URL}/category/${categoryId}`,
+    updateCategory: (categoryId: number) =>
+      `${BASE_URL}/category/${categoryId}`,
   },
 };
