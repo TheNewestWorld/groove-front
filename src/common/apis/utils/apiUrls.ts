@@ -1,4 +1,4 @@
-import { BASE_URL } from "./constants";
+const BASE_URL = `/api`;
 
 export const apiUrls = {
   test: {

@@ -1,1 +1,1 @@
-export const BASE_URL = "/api";
+export const BASE_URL = "https://groove-api.onrender.com/api";
