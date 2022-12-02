@@ -1,35 +1,17 @@
-import { openStdin } from "process";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCategoryList } from "../../../common/apis/category";
-import {
-  getPostListByCategory,
-  GetPostResponse,
-} from "../../../common/apis/post";
 import BuildPaths from "../../../common/paths";
+import useCategoryListQuery from "../../../common/queries/category/useCategoryListQuery";
+import usePostListByCategoryQuery from "../../../common/queries/posts/usePostListQuery";
 import CommunityListView from "./CommunityList.view";
 
-interface FilterInfo {
+interface SortOrderType {
   type: "CREATED_AT" | "LIKE_COUNT" | "COMMENT_COUNT";
   label: string;
 }
 
-interface CategoryInfo {
-  id: number;
-  name: string;
-}
-
 const CommunityList = () => {
-  const navigation = useNavigate();
-
-  const [page, setPage] = useState<number>(0);
-  const [size, setSize] = useState<number>(10);
-
-  const [categoryList, setCategoryList] = useState<CategoryInfo[]>([]);
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryInfo | null>(null);
-
-  const filterList: FilterInfo[] = [
+  const filterList: SortOrderType[] = [
     {
       type: "CREATED_AT",
       label: "최신순",
@@ -43,64 +25,49 @@ const CommunityList = () => {
       label: "댓글순",
     },
   ];
-  const [activeFilter, setActiveFilter] = useState<FilterInfo>(filterList[0]);
 
-  const [postList, setPostList] = useState<GetPostResponse[]>([]);
+  const [sortOrderType, setSortOrderType] = useState<SortOrderType>(
+    filterList[0],
+  );
 
-  useEffect(() => {
-    getCategoryList({ categoryGroup: "COMMUNITY" })
-      .then(response => {
-        setCategoryList(response);
-      })
-      .catch(() => {
-        alert("실패");
-      });
+  const [activeCategory, setActiveCategory] =
+    useState<{
+      id: number;
+      name: string;
+    } | null>(null);
+
+  const { isLoading, postList } = usePostListByCategoryQuery({
+    size: 10,
+    page: 0,
+    sortOrderType: sortOrderType.type,
+    categoryId: activeCategory == null ? undefined : activeCategory.id,
   });
+
+  const { categoryList } = useCategoryListQuery({
+    categoryGroup: "COMMUNITY",
+  });
+
+  const navigation = useNavigate();
 
   return (
     <CommunityListView
-      activeFilter={activeFilter.label}
+      activeFilter={sortOrderType.label}
       filterList={filterList.map(filter => filter.label)}
       onChangeFilter={(newFilterLabel: string) => {
-        let newFilter: FilterInfo = filterList.filter(
+        let newFilter: SortOrderType = filterList.filter(
           filter => filter.label === newFilterLabel,
         )[0];
-        setActiveFilter(newFilter);
-        // TODO: useQuery
-        getPostListByCategory({
-          page: page,
-          size: size,
-          sortOrderType: newFilter.type,
-          categoryId: activeCategory?.id,
-        })
-          .then(response => {
-            setPostList(response.contents);
-          })
-          .catch(() => {
-            alert("TODO: 예외처리");
-          });
+        setSortOrderType(newFilter);
       }}
       onClickTab={(tab: string) => {
-        let newCategory = categoryList.filter(
+        let newCategory = categoryList!.filter(
           category => category.name === tab,
         )[0];
         setActiveCategory(newCategory);
-        // TODO: useQuery
-        getPostListByCategory({
-          page: page,
-          size: size,
-          sortOrderType: activeFilter.type,
-          categoryId: newCategory.id,
-        })
-          .then(response => {
-            setPostList(response.contents);
-          })
-          .catch(() => {
-            alert("TODO: 예외처리");
-          });
       }}
-      communityList={postList.map(post => {
+      communityList={postList!.map(post => {
         return {
+          id: post.id,
           user: post.nickname,
           userImageSrc: post.profileUri,
           title: post.title,
@@ -108,12 +75,11 @@ const CommunityList = () => {
           likeCount: post.likeCount,
           commentCount: post.commentCount,
           liked: post.likeFlag,
-          onClick: () => {}
-          // onClick: (postId: number) => {
-          //   navigation(BuildPaths.communityDetail(postId));
-          // },
         };
       })}
+      onClickItem={(postId: number) => {
+        navigation(BuildPaths.communityDetail(postId.toString()));
+      }}
     />
   );
 };
