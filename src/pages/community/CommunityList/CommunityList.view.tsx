@@ -2,30 +2,40 @@ import CommunityItem, {
   Props as CommunityItemView,
 } from "../../../components/CommunityItem";
 import TopDownFilter from "../../../components/TopDownFilter";
-import styles from "./CommunityList.module.scss";
 import TabList from "../../../components/TabList";
+import styles from "./CommunityList.module.scss";
 
 export interface Props {
+  isLoading: boolean;
   activeFilter: string;
   filterList: string[];
+  activeTab: string;
+  tabList: string[];
+  communityList: CommunityItemView[];
+  isEmpty: boolean;
   onChangeFilter: (filter: string) => void;
   onClickTab: (tab: string) => void;
-  communityList: CommunityItemView[];
+  onClickItem: (id: number) => void;
 }
 
 const CommunityListView = ({
+  isLoading,
   activeFilter,
   filterList,
+  activeTab,
+  tabList,
+  communityList,
+  isEmpty,
   onChangeFilter,
   onClickTab,
-  communityList,
+  onClickItem,
 }: Props) => {
   return (
     <div className={styles.container}>
       <TabList
         type="round"
-        activeTab="전체 게시물"
-        tabList={["전체 게시물", "보컬 이야기", "일상 이야기", "기타"]}
+        activeTab={activeTab}
+        tabList={tabList}
         onClickTab={onClickTab}
       />
       <TopDownFilter
@@ -34,11 +44,24 @@ const CommunityListView = ({
         filterList={filterList}
         onClickFilter={onChangeFilter}
       />
-      {communityList.map((item, index) => (
-        <div className={styles.item} key={index}>
-          <CommunityItem {...item} />
-        </div>
-      ))}
+      {isLoading ? (
+        // TODO(in.heo): 로딩 화면 추가
+        <div> 로딩 화면 추가 </div>
+      ) : isEmpty ? (
+        // TODO(in.heo): 빈 페이지 추가
+        <div>작성된 글이 없어요. </div>
+      ) : (
+        communityList.map((item, index) => (
+          <div className={styles.item} key={index}>
+            <CommunityItem
+              {...item}
+              onClick={() => {
+                return onClickItem(item.id);
+              }}
+            />
+          </div>
+        ))
+      )}
     </div>
   );
 };
