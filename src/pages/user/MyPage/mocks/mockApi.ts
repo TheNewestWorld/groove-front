@@ -101,7 +101,8 @@ export const 녹음내역_목록 = {
           hasNext: false,
           contents: [...Array(10)].map((_, index) => {
             return {
-              fileUrl: "", // TODO
+              recordId: index,
+              fileUri: "", // TODO
               recordName: `녹음 내역 ${index}`,
               createdAt: format(new Date(), "yyyy-MM-dd"),
             };
