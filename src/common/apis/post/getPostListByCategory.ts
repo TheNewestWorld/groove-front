@@ -1,7 +1,6 @@
 import axios from "axios";
 import { resultData } from "../../configs/axios";
 import { apiUrls } from "../utils";
-import { GetPostResponse } from "./type";
 
 export type GetPostListByCategoryQueryParams = {
   page: number;
@@ -14,7 +13,25 @@ export type GetPostListByCategoryQueryParams = {
 export type GetPostListByCategoryResponse = {
   page: number;
   hasNext: boolean;
-  contents: GetPostResponse[];
+  contents: {
+    id: number;
+    title: string;
+    content: string;
+    userId: number;
+    nickname: string;
+    profileUri: string;
+    likeFlag: boolean;
+    likeCount: number;
+    commentCount: number;
+    categoryId: number;
+    authority: boolean;
+    attachmentUris: {
+      id: number;
+      type: "IMAGE" | "RECORD";
+      src: string;
+      title: string;
+    }[];
+  }[];
 };
 
 export const getPostListByCategory = (
