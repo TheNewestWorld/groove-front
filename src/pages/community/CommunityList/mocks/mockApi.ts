@@ -28,12 +28,7 @@ export const 글_목록 = {
               categoryId: 0,
               authority: true,
               attachmentUris: [
-                {
-                  id: 0,
-                  type: "IMAGE",
-                  src: "https://s3-alpha-sig.figma.com/img/0d98/eac2/2cb8f1d0a6711440185938820a08bfec?Expires=1670803200&Signature=EHiBrCD4lw6-C2MgiDE40liOaiXjFDhHPouYJsfFdhQIAbjlAge9iXzdCAbCAMonQe1Z-JIxaPewixdRBDvldhJv19ai0qbqxbHBUpDaxe6QBWXphT3bcaJDo~luPOGBojTXnmXsVvopwmkgYAYvOWDZl~auLAbDmVuc40cMvlfcPrEi3NsWGHYrF3Ky9SCLzz7jG9nuKvj9fbkYhqHqED7YrV-tdmMZ8msVRSdb9PvIwD80z2ifhqIliyrigO~hjFbDn9YXF3v0Wb2eAGJc9H5z26BjV~QjWy33x8xOBDkX3I-Zado6WgcMg3tiVNA8W5LdFGjcaBaF3M~1hc~scA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-                  title: "title1",
-                },
+                "https://s3-alpha-sig.figma.com/img/0d98/eac2/2cb8f1d0a6711440185938820a08bfec?Expires=1670803200&Signature=EHiBrCD4lw6-C2MgiDE40liOaiXjFDhHPouYJsfFdhQIAbjlAge9iXzdCAbCAMonQe1Z-JIxaPewixdRBDvldhJv19ai0qbqxbHBUpDaxe6QBWXphT3bcaJDo~luPOGBojTXnmXsVvopwmkgYAYvOWDZl~auLAbDmVuc40cMvlfcPrEi3NsWGHYrF3Ky9SCLzz7jG9nuKvj9fbkYhqHqED7YrV-tdmMZ8msVRSdb9PvIwD80z2ifhqIliyrigO~hjFbDn9YXF3v0Wb2eAGJc9H5z26BjV~QjWy33x8xOBDkX3I-Zado6WgcMg3tiVNA8W5LdFGjcaBaF3M~1hc~scA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
               ],
             },
             {
@@ -51,12 +46,7 @@ export const 글_목록 = {
               categoryId: 0,
               authority: true,
               attachmentUris: [
-                {
-                  id: 0,
-                  type: "IMAGE",
-                  src: "https://s3-alpha-sig.figma.com/img/0d98/eac2/2cb8f1d0a6711440185938820a08bfec?Expires=1670803200&Signature=EHiBrCD4lw6-C2MgiDE40liOaiXjFDhHPouYJsfFdhQIAbjlAge9iXzdCAbCAMonQe1Z-JIxaPewixdRBDvldhJv19ai0qbqxbHBUpDaxe6QBWXphT3bcaJDo~luPOGBojTXnmXsVvopwmkgYAYvOWDZl~auLAbDmVuc40cMvlfcPrEi3NsWGHYrF3Ky9SCLzz7jG9nuKvj9fbkYhqHqED7YrV-tdmMZ8msVRSdb9PvIwD80z2ifhqIliyrigO~hjFbDn9YXF3v0Wb2eAGJc9H5z26BjV~QjWy33x8xOBDkX3I-Zado6WgcMg3tiVNA8W5LdFGjcaBaF3M~1hc~scA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-                  title: "title1",
-                },
+                "https://s3-alpha-sig.figma.com/img/0d98/eac2/2cb8f1d0a6711440185938820a08bfec?Expires=1670803200&Signature=EHiBrCD4lw6-C2MgiDE40liOaiXjFDhHPouYJsfFdhQIAbjlAge9iXzdCAbCAMonQe1Z-JIxaPewixdRBDvldhJv19ai0qbqxbHBUpDaxe6QBWXphT3bcaJDo~luPOGBojTXnmXsVvopwmkgYAYvOWDZl~auLAbDmVuc40cMvlfcPrEi3NsWGHYrF3Ky9SCLzz7jG9nuKvj9fbkYhqHqED7YrV-tdmMZ8msVRSdb9PvIwD80z2ifhqIliyrigO~hjFbDn9YXF3v0Wb2eAGJc9H5z26BjV~QjWy33x8xOBDkX3I-Zado6WgcMg3tiVNA8W5LdFGjcaBaF3M~1hc~scA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
               ],
             },
           ],
