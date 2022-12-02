@@ -1,5 +1,6 @@
 import useLikedPostListQuery from "../../../../common/queries/myPost/useLikedPostListQuery";
 import useWrittenPostListQuery from "../../../../common/queries/myPost/useWrittenPostListQuery";
+import useRecordListQuery from "../../../../common/queries/records/useRecordListQuery";
 import useUserInfoQuery from "../../../../common/queries/users/useUserInfoQuery";
 
 const useMyPage = () => {
@@ -16,17 +17,40 @@ const useMyPage = () => {
   } = useLikedPostListQuery({});
 
   const {
+    isLoading: isLoadingRecordList,
+    isError: isErrorRecordList,
+    recordList,
+  } = useRecordListQuery({});
+
+  const {
     isLoading: isLoadingUserInfo,
     isError: isErrorUserInfo,
     data: userInfo,
   } = useUserInfoQuery();
 
   return {
-    isLoading: isLoadingWrittenPost || isLoadingLikedPost || isLoadingUserInfo,
-    isError: isErrorWrittenPost || isErrorLikedPost || isErrorUserInfo,
+    isLoading:
+      isLoadingWrittenPost ||
+      isLoadingLikedPost ||
+      isLoadingRecordList ||
+      isLoadingUserInfo,
+    isError:
+      isErrorWrittenPost ||
+      isErrorLikedPost ||
+      isErrorRecordList ||
+      isErrorUserInfo,
     profileImage: userInfo?.profileUrl ?? "",
     nickname: userInfo?.nickname ?? "",
-    recordList: [], // TODO
+    recordList:
+      recordList?.map(({ fileUrl, recordName, createdAt }, index) => {
+        return {
+          id: index, // TODO
+          title: recordName,
+          date: new Date(createdAt),
+          length: "", // TODO
+          url: fileUrl,
+        };
+      }) ?? [], // TODO
     likedList:
       likedList?.map(
         ({
@@ -60,7 +84,7 @@ const useMyPage = () => {
           content,
           likeCount,
           commentCount,
-          likeFlag
+          likeFlag,
         }) => {
           return {
             id: postId,

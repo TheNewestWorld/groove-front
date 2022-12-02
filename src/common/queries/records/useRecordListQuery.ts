@@ -1,10 +1,10 @@
 import { useInfiniteQuery, UseInfiniteQueryOptions } from "react-query";
 import { getRecordList, GetRecordListResponse } from "../../apis/records";
 
-type QueryProps = { size: number; page: number };
+type QueryProps = { size?: number; page?: number };
 
 const useRecordListQuery = (
-  { size, page }: QueryProps,
+  { size = 10, page = 0 }: QueryProps,
   options?: UseInfiniteQueryOptions<GetRecordListResponse>
 ) => {
   const { data, ...result } = useInfiniteQuery<GetRecordListResponse>(
