@@ -46,7 +46,7 @@ const useMyPage = () => {
             description: content,
             likeCount,
             commentCount,
-            liked: true, // TODO
+            liked: true,
           };
         }
       ) ?? [],
@@ -60,6 +60,7 @@ const useMyPage = () => {
           content,
           likeCount,
           commentCount,
+          likeFlag
         }) => {
           return {
             id: postId,
@@ -69,7 +70,7 @@ const useMyPage = () => {
             description: content,
             likeCount,
             commentCount,
-            liked: true, // TODO
+            liked: likeFlag as boolean,
           };
         }
       ) ?? [],

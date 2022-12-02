@@ -7,4 +7,5 @@ export type Post = {
   content: string;
   likeCount: number;
   commentCount: number;
+  likeFlag?: boolean;
 };
