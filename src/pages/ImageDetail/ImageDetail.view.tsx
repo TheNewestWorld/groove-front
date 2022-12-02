@@ -1,27 +1,26 @@
 import styles from "./ImageDetail.module.scss";
+import classNames from "classnames";
 import { CloseIcon, ArrowLeftIcon, ArrowRightIcon } from "../../assets/icon";
 import CircleButton from "../../components/CircleButton";
 import { useState } from "react";
 
 export interface Props {
-  content: string;
-  imageList: { src: string; id: number; }[];
-  onClickClose?: () => void;
+  imageList: { src: string; id: number }[];
   imageIndex: number;
+  onClickClose?: () => void;
+  className?: string;
 }
 
 const ImageDetailView = ({
   imageList,
   imageIndex,
   onClickClose,
+  className,
 }: Props) => {
   const [index, setIndex] = useState<number>(imageIndex);
-  
-  const showPrevButton = index === imageList.length - 1 || index !== 0;
-  const showNextButton = index === 0 || index !== imageList.length - 1;
 
   return (
-    <div className={styles.container}>
+    <div className={classNames([styles.container, className])}>
       <div className={styles.header}>
         <div className={styles.title}>
           {index + 1} / {imageList.length}
@@ -31,19 +30,27 @@ const ImageDetailView = ({
 
       <img src={imageList[index].src} className={styles.image} alt="" />
 
-      {showPrevButton && (
-        <CircleButton
-          className={styles.prev}
-          icon={<ArrowLeftIcon onClick={() => setIndex(index - 1)} />}
-        />
-      )}
+      <CircleButton
+        className={styles.prev}
+        icon={
+          <ArrowLeftIcon
+            onClick={() =>
+              setIndex(index - 1 < 0 ? imageList.length - 1 : index - 1)
+            }
+          />
+        }
+      />
 
-      {showNextButton && (
-        <CircleButton
-          className={styles.next}
-          icon={<ArrowRightIcon onClick={() => setIndex(index + 1)} />}
-        />
-      )}
+      <CircleButton
+        className={styles.next}
+        icon={
+          <ArrowRightIcon
+            onClick={() =>
+              setIndex(index + 1 >= imageList.length ? 0 : index + 1)
+            }
+          />
+        }
+      />
     </div>
   );
 };

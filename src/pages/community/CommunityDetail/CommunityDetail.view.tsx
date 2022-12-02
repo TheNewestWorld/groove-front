@@ -1,11 +1,14 @@
 import styles from "./CommunityDetail.module.scss";
 import Header from "../../../components/Header";
 
-import { ArrowTailIcon, ReportIcon } from "../../../assets/icon";
+import { ArrowTailIcon, SmallDotsIcon } from "../../../assets/icon";
 
 import ContentHeader from "../../../components/ContentHeader";
 import ContentBody from "../../../components/ContentBody";
 import CommunityFooter from "../../../components/CommunityFooter";
+import BottomSheetList from "../../../components/BottomSheetList";
+import ImageDetailView from "../../ImageDetail";
+import { listenerCount } from "process";
 
 export interface Props {
   title: string;
@@ -14,7 +17,7 @@ export interface Props {
   date: Date;
   onClickProfile?: () => void;
   content: string;
-  imageList?: { src: string; id: number }[];
+  imageList?: { src: string; id: number; type: string }[];
   audio: { title: string; src: string; id: number };
   onClickImage?: (id: number) => void;
   onClickMore?: () => void;
@@ -22,7 +25,16 @@ export interface Props {
   liked?: boolean;
   commentCount: number;
   onClickBack?: () => void;
-  onClickReport?: () => void;
+  onClickOption?: () => void;
+  isOpenOption?: boolean;
+  hasAuthority?: boolean;
+  onCloseOption: () => void;
+  isOpenImage?: boolean;
+  onCloseImage: () => void;
+  imageId: number;
+  onClickModify: () => void;
+  onClickDelete: () => void;
+  onClickReport: () => void;
 }
 
 const CommunityDetailView = ({
@@ -40,6 +52,15 @@ const CommunityDetailView = ({
   liked,
   commentCount,
   onClickBack,
+  onClickOption,
+  isOpenOption = false,
+  hasAuthority = false,
+  onCloseOption,
+  isOpenImage = false,
+  onCloseImage,
+  imageId,
+  onClickModify,
+  onClickDelete,
   onClickReport,
 }: Props) => {
   return (
@@ -47,9 +68,9 @@ const CommunityDetailView = ({
       <Header
         title="게시물"
         left={<ArrowTailIcon />}
-        right={<ReportIcon />}
+        right={<SmallDotsIcon />}
         onClickLeft={onClickBack}
-        onClickRight={onClickReport}
+        onClickRight={onClickOption}
       />
       <ContentHeader
         className={styles.header}
@@ -72,6 +93,35 @@ const CommunityDetailView = ({
         liked={liked}
         commentCount={commentCount}
       />
+
+      {isOpenOption &&
+        (hasAuthority ? (
+          <BottomSheetList
+            list={["수정하기", "삭제하기"]}
+            onClose={onCloseOption}
+            onClick={(value: string) => {
+              value === "수정하기" ? onClickModify() : onClickDelete();
+            }}
+          />
+        ) : (
+          <BottomSheetList
+            list={["신고하기"]}
+            activeItem="신고하기"
+            onClose={onCloseOption}
+            onClick={(value: string) => {
+              onClickReport();
+            }}
+          />
+        ))}
+
+      {isOpenImage && imageList && (
+        <ImageDetailView
+          className={styles.imageDetail}
+          imageList={imageList}
+          imageIndex={imageId}
+          onClickClose={onCloseImage}
+        />
+      )}
     </div>
   );
 };
