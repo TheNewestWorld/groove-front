@@ -6,8 +6,9 @@ export type GetUserInfoResponse = {
   id: number;
   email: string;
   type: "GROOVE" | "KAKAO" | "NAVER" | "GOOGLE";
+  nickname: string;
   profileUrl: string;
-  authorities: ("USER" | "TRAINER" | "ADMIN")[];
+  authorities: "INACTIVE" | "USER" | "TRAINER" | "ADMIN";
 };
 
 export const getUserInfo = () => {
