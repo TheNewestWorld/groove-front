@@ -12,10 +12,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GROOVE",
+          providerType: "GROOVE",
+          nickname:"닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["USER"],
+          role: "USER",
         },
       })
     );
@@ -28,10 +29,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GROOVE",
+          providerType: "GROOVE",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["ADMIN"],
+          role: "ADMIN",
         },
       })
     );
@@ -44,10 +46,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GROOVE",
+          providerType: "GROOVE",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["TRAINER"],
+          role: "TRAINER",
         },
       })
     );
@@ -60,10 +63,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "KAKAO",
+          providerType: "KAKAO",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["USER"],
+          role: "USER",
         },
       })
     );
@@ -76,10 +80,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "KAKAO",
+          providerType: "KAKAO",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["ADMIN"],
+          role: "ADMIN",
         },
       })
     );
@@ -92,10 +97,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "KAKAO",
+          providerType: "KAKAO",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["TRAINER"],
+          role: "TRAINER",
         },
       })
     );
@@ -108,10 +114,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "NAVER",
+          providerType: "NAVER",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["USER"],
+          role: "USER",
         },
       })
     );
@@ -124,10 +131,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "NAVER",
+          providerType: "NAVER",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["ADMIN"],
+          role: "ADMIN",
         },
       })
     );
@@ -140,10 +148,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "NAVER",
+          providerType: "NAVER",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["TRAINER"],
+          role: "TRAINER",
         },
       })
     );
@@ -156,10 +165,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GOOGLE",
+          providerType: "GOOGLE",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["USER"],
+          role: "USER",
         },
       })
     );
@@ -172,10 +182,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GOOGLE",
+          providerType: "GOOGLE",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["ADMIN"],
+          role: "ADMIN",
         },
       })
     );
@@ -188,10 +199,11 @@ export const 유저_정보 = {
         data: {
           id: 1,
           email: "groove@groove.com",
-          type: "GOOGLE",
+          providerType: "GOOGLE",
+          nickname: "닉네임",
           profileUrl:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
-          authorities: ["TRAINER"],
+          role: "TRAINER",
         },
       })
     );

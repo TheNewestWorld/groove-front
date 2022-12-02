@@ -1,5 +1,7 @@
+import { format } from "date-fns";
 import { rest } from "msw";
 import { GetWrittenPostListResponse } from "../../../../common/apis/myPost";
+import { GetRecordListResponse } from "../../../../common/apis/records";
 import { apiUrls } from "../../../../common/apis/utils";
 import { ApiResponseData } from "../../../../common/configs/axios";
 
@@ -80,6 +82,38 @@ export const 좋아요_글_목록 = {
     return res(
       ctx.status(200),
       ctx.json<ApiResponseData<GetWrittenPostListResponse>>({
+        result: "SUCCESS",
+        data: { page: 0, size: 10, hasNext: false, contents: [] },
+      })
+    );
+  }),
+};
+
+export const 녹음내역_목록 = {
+  데이터_있음: rest.get(apiUrls.records.getRecordList(), (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json<ApiResponseData<GetRecordListResponse>>({
+        result: "SUCCESS",
+        data: {
+          page: 0,
+          size: 10,
+          hasNext: false,
+          contents: [...Array(10)].map((_, index) => {
+            return {
+              fileUrl: "", // TODO
+              recordName: `녹음 내역 ${index}`,
+              createdAt: format(new Date(), "yyyy-MM-dd"),
+            };
+          }),
+        },
+      })
+    );
+  }),
+  데이터_없음: rest.get(apiUrls.records.getRecordList(), (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json<ApiResponseData<GetRecordListResponse>>({
         result: "SUCCESS",
         data: { page: 0, size: 10, hasNext: false, contents: [] },
       })

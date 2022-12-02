@@ -5,10 +5,10 @@ import { apiUrls } from "../utils";
 export type GetUserInfoResponse = {
   id: number;
   email: string;
-  type: "GROOVE" | "KAKAO" | "NAVER" | "GOOGLE";
+  providerType: "GROOVE" | "KAKAO" | "NAVER" | "GOOGLE";
   nickname: string;
   profileUrl: string;
-  authorities: "INACTIVE" | "USER" | "TRAINER" | "ADMIN";
+  role: "INACTIVE" | "USER" | "TRAINER" | "ADMIN";
 };
 
 export const getUserInfo = () => {
