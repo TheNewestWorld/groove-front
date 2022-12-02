@@ -1,12 +1,16 @@
+import { useState } from "react";
 import Form from "../../../components/Form";
 import Input from "../../../components/Input";
 import styles from "./FindPassword.module.scss";
 
 export interface Props {
   isSubmitted: boolean;
+  onSubmit: (email: string) => void;
 }
 
-const FindPasswordView = ({ isSubmitted }: Props) => {
+const FindPasswordView = ({ isSubmitted, onSubmit }: Props) => {
+  const [email, setEmail] = useState<string>("");
+
   return (
     <>
       {isSubmitted ? (
@@ -22,9 +26,16 @@ const FindPasswordView = ({ isSubmitted }: Props) => {
           subTitle={`인증코드 발송을 위해 회원가입시\n사용한 이메일 주소를 입력해주세요.`}
           buttonText="인증코드 요청하기"
           buttonColorTheme="dark"
+          onClick={() => onSubmit(email)}
+          isDisabledButton={email.length === 0} // TODO: 이메일 양식 확인 로직 추가
         >
           <div className={styles.inputGroup}>
-            <Input label="아이디(이메일)" placeholder="groove@groove.com" />
+            <Input
+              label="아이디(이메일)"
+              placeholder="groove@groove.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
         </Form>
       )}
