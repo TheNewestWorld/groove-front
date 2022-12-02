@@ -15,6 +15,7 @@ export const apiUrls = {
     setUserInfo: () => `${BASE_URL}/users/self`,
     setUserProfileImage: () => `${BASE_URL}/users/self/profile`,
     sendEmail: () => `${BASE_URL}/mail/change-password`,
+    setPassword: () => `${BASE_URL}/users/password`,
   },
   records: {
     getRecordList: () => `${BASE_URL}/records`,
