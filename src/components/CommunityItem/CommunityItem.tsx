@@ -7,6 +7,7 @@ import CircleImage from "../CircleImage";
 import { ChatIcon, HeartIcon } from "../../assets/icon";
 
 export interface Props {
+  id: number;
   user: string;
   userImageSrc: string;
   title: string;
@@ -14,11 +15,12 @@ export interface Props {
   likeCount: number;
   commentCount: number;
   liked: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 }
 
 const CommunityItem = ({
+  id,
   user,
   userImageSrc,
   title,

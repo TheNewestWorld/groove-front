@@ -2,9 +2,8 @@ import CommunityItem, {
   Props as CommunityItemView,
 } from "../../../components/CommunityItem";
 import TopDownFilter from "../../../components/TopDownFilter";
-import styles from "./CommunityList.module.scss";
 import TabList from "../../../components/TabList";
-import MainHeader from "../../../components/MainHeader";
+import styles from "./CommunityList.module.scss";
 
 export interface Props {
   activeFilter: string;
@@ -12,7 +11,7 @@ export interface Props {
   onChangeFilter: (filter: string) => void;
   onClickTab: (tab: string) => void;
   communityList: CommunityItemView[];
-  // TODO: onClickItem: (id: number) => void;
+  onClickItem: (id: number) => void;
 }
 
 const CommunityListView = ({
@@ -21,6 +20,7 @@ const CommunityListView = ({
   onChangeFilter,
   onClickTab,
   communityList,
+  onClickItem,
 }: Props) => {
   return (
     <div className={styles.container}>
@@ -38,7 +38,12 @@ const CommunityListView = ({
       />
       {communityList.map((item, index) => (
         <div className={styles.item} key={index}>
-          <CommunityItem {...item} />
+          <CommunityItem
+            {...item}
+            onClick={() => {
+              return onClickItem(item.id);
+            }}
+          />
         </div>
       ))}
     </div>
