@@ -1,0 +1,30 @@
+@import "../../../constants/color.scss";
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 105px);
+}
+
+.textarea {
+  resize: none;
+  border: none;
+  width: calc(100% - 40px);
+  margin-bottom: 16px;
+  padding: 16px 14px;
+  border-radius: 10px;
+  background-color: $black-F2;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  flex-grow: 1;
+
+  ::placeholder {
+    color: $black-8B;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
