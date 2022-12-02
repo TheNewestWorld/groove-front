@@ -12,17 +12,12 @@ export type SignUpForm = {
 };
 
 export interface Props {
-  isDisabledButton?: boolean;
-  onClickConfirm?: () => void;
   isSubmitted: boolean;
   onSubmit: (form: SignUpForm) => void;
+  goToEtry: () => void;
 }
 
-const SignUpView = ({
-  isDisabledButton,
-  onClickConfirm,
-  isSubmitted,
-}: Props) => {
+const SignUpView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
   const [form, setForm] = useState<SignUpForm>({
     email: "",
     password: "",
@@ -36,19 +31,23 @@ const SignUpView = ({
     setForm({ ...form, [name]: value });
   };
 
+  const isDisabledButton =
+    form.email.length === 0 ||
+    form.nickname.length === 0 ||
+    form.password.length === 0 ||
+    form.password !== confirmPassword;
+
   return (
     <div
       className={classNames([styles.container, isSubmitted && styles.center])}
     >
       {isSubmitted ? (
         <Form
-          title="앞으로 잘 부탁해요!"
-          subTitle="조금씩 성장하는 당신의 목소리를 응원할게요."
-          buttonText="GROOVE 시작하기"
-          isDisabledButton={isDisabledButton}
+          title="인증코드 발송을 완료했어요."
+          subTitle={`입력하신 이메일로 인증코드가 발송됐어요.\n확인 후 아래 인증완료 버튼을 눌러주세요.`}
+          buttonText="처음 화면으로"
           buttonColorTheme="dark"
-          onClick={onClickConfirm}
-          align="center"
+          onClick={goToEtry}
         >
           {/* TODO: 이미지 무엇인지 확인 */}
           <CircleImage className={styles.image} src="" />
@@ -59,7 +58,7 @@ const SignUpView = ({
           buttonText="완료하기"
           isDisabledButton={isDisabledButton}
           buttonColorTheme="dark"
-          onClick={onClickConfirm}
+          onClick={() => onSubmit(form)}
         >
           <div className={styles.inputGroup}>
             <Input
