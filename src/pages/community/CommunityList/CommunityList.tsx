@@ -30,11 +30,18 @@ const CommunityList = () => {
     filterList[0],
   );
 
-  const [activeCategory, setActiveCategory] =
-    useState<{
-      id: number;
-      name: string;
-    } | null>(null);
+  const { categoryList } = useCategoryListQuery({
+    categoryGroup: "COMMUNITY",
+  });
+
+  const [activeCategory, setActiveCategory] = useState<{
+    id: number;
+    name: string;
+  }>(
+    categoryList && categoryList.length > 0
+      ? categoryList[0]
+      : { id: 0, name: "전체 게시물" },
+  );
 
   const { isLoading, postList } = usePostListByCategoryQuery({
     size: 10,
@@ -43,16 +50,36 @@ const CommunityList = () => {
     categoryId: activeCategory == null ? undefined : activeCategory.id,
   });
 
-  const { categoryList } = useCategoryListQuery({
-    categoryGroup: "COMMUNITY",
-  });
-
   const navigation = useNavigate();
 
   return (
     <CommunityListView
+      isLoading={isLoading}
       activeFilter={sortOrderType.label}
       filterList={filterList.map(filter => filter.label)}
+      activeTab={activeCategory?.name}
+      tabList={
+        categoryList && categoryList.length > 0
+          ? categoryList.map(category => category.name)
+          : ["전체 게시물"]
+      }
+      communityList={
+        postList
+          ? postList!.map(post => {
+              return {
+                id: post.id,
+                user: post.nickname,
+                userImageSrc: post.profileUri,
+                title: post.title,
+                description: post.content,
+                likeCount: post.likeCount,
+                commentCount: post.commentCount,
+                liked: post.likeFlag,
+              };
+            })
+          : []
+      }
+      isEmpty={!(postList && postList.length > 0)}
       onChangeFilter={(newFilterLabel: string) => {
         let newFilter: SortOrderType = filterList.filter(
           filter => filter.label === newFilterLabel,
@@ -65,18 +92,6 @@ const CommunityList = () => {
         )[0];
         setActiveCategory(newCategory);
       }}
-      communityList={postList!.map(post => {
-        return {
-          id: post.id,
-          user: post.nickname,
-          userImageSrc: post.profileUri,
-          title: post.title,
-          description: post.content,
-          likeCount: post.likeCount,
-          commentCount: post.commentCount,
-          liked: post.likeFlag,
-        };
-      })}
       onClickItem={(postId: number) => {
         navigation(BuildPaths.communityDetail(postId.toString()));
       }}

@@ -5,8 +5,11 @@ export default {
   title: "Pages/community/CommunityList/views",
   component: CommunityListView,
   args: {
+    isLoading: false,
     activeFilter: "최신순",
     filterList: ["최신순", "인기순", "댓글순"],
+    activeTab: "전체 게시물",
+    tabList: ["전체 게시물", "보컬 이야기", "일상 이야기", "기타"],
     onChangeFilter: (filter: string) => alert(filter),
     onClickTab: (tab: string) => alert(tab),
     communityList: [
