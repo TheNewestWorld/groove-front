@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { apiUrls } from "../../../../common/apis/utils";
 import { ApiResponseData } from "../../../../common/configs/axios";
 
-export const 비밀번호설정 = {
+export const 비밀번호찾기 = {
   성공: rest.post(apiUrls.users.sendEmail(), (_, res, ctx) => {
     return res(
       ctx.status(200),

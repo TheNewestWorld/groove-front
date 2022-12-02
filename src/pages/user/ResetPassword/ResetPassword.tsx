@@ -6,7 +6,7 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const sessionKey = searchParams.get("sessionKey");
 
-  // 디코딩하기
+  // TODO: 디코딩하기
   console.log(sessionKey);
 
   if (!sessionKey) {
