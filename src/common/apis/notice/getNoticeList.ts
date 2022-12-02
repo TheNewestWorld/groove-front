@@ -11,11 +11,11 @@ export type NoticeListResponse = {
   page: number;
   size: number;
   hasNext: boolean;
-  contents: { title: string; content: string; createdAt: string }[];
+  contents: { id: number; title: string; content: string; createdAt: string }[];
 };
 
 export const getNoticeList = (params: NoticeListQueryParams) => {
   return resultData<NoticeListResponse>(
-    axios.get(apiUrls.notices.getNoticeList(), { params: params })
+    axios.get(apiUrls.notices.getNoticeList(), { params })
   );
 };

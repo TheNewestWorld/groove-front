@@ -1,10 +1,10 @@
 import { useInfiniteQuery, UseInfiniteQueryOptions } from "react-query";
 import { getNoticeList, NoticeListResponse } from "../../apis/notice";
 
-type QueryProps = { size: number; page: number };
+type QueryProps = { size?: number; page?: number };
 
 const useNoticeListQuery = (
-  { size, page }: QueryProps,
+  { size = 10, page = 0 }: QueryProps,
   options?: UseInfiniteQueryOptions<NoticeListResponse>
 ) => {
   const { data, ...result } = useInfiniteQuery<NoticeListResponse>(
