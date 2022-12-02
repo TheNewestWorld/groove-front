@@ -8,7 +8,7 @@ const useRecordListQuery = (
   options?: UseInfiniteQueryOptions<GetRecordListResponse>
 ) => {
   const { data, ...result } = useInfiniteQuery<GetRecordListResponse>(
-    ["getSample"],
+    ["getRecordList"],
     ({ pageParam = page }) => getRecordList({ size, page: pageParam }),
     {
       ...options,
