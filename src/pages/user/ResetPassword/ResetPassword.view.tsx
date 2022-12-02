@@ -11,17 +11,13 @@ const ResetPasswordView = ({ onSubmit }: Props) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  const checkPassword = () => {
-    onSubmit(password);
-  };
-
   return (
     <Form
       title="비밀번호 재설정하기"
       subTitle="새로운 비밀번호를 입력해주세요."
       buttonText="완료하기"
       buttonColorTheme="dark"
-      onClick={checkPassword}
+      onClick={() => onSubmit(password)}
       isDisabledButton={password.length === 0 || password !== confirmPassword}
     >
       <div className={styles.inputGroup}>
