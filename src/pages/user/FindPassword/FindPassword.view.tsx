@@ -6,9 +6,10 @@ import styles from "./FindPassword.module.scss";
 export interface Props {
   isSubmitted: boolean;
   onSubmit: (email: string) => void;
+  goToEtry: () => void;
 }
 
-const FindPasswordView = ({ isSubmitted, onSubmit }: Props) => {
+const FindPasswordView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
   const [email, setEmail] = useState<string>("");
 
   return (
@@ -17,8 +18,9 @@ const FindPasswordView = ({ isSubmitted, onSubmit }: Props) => {
         <Form
           title="인증코드 발송을 완료했어요."
           subTitle={`입력하신 이메일로 인증코드가 발송됐어요.\n확인 후 아래 인증완료 버튼을 눌러주세요.`}
-          buttonText="이메일 인증완료"
+          buttonText="처음 화면으로"
           buttonColorTheme="dark"
+          onClick={goToEtry}
         />
       ) : (
         <Form

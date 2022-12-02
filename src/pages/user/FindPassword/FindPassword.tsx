@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../../../common/apis/users/sendEmail";
+import BuildPaths from "../../../common/paths";
 import FindPasswordView from "./FindPassword.view";
 
 const FindPassword = () => {
+  const navigation = useNavigate();
   const [isSubmitted, setSubmit] = useState<boolean>(false);
 
   const onSubmit = (email: string) => {
@@ -13,7 +16,13 @@ const FindPassword = () => {
       .catch(() => {});
   };
 
-  return <FindPasswordView isSubmitted={isSubmitted} onSubmit={onSubmit} />;
+  return (
+    <FindPasswordView
+      isSubmitted={isSubmitted}
+      onSubmit={onSubmit}
+      goToEtry={() => navigation(BuildPaths.entry())}
+    />
+  );
 };
 
 export default FindPassword;
