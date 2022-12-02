@@ -31,56 +31,10 @@ const MyPage = () => {
     <MyPageView
       profileImage={profileImage}
       nickname={nickname}
-      tab={tab}
+      currentTab={tab}
       recordList={recordList}
-      likedList={
-        likedList?.map(
-          ({
-            postId,
-            userNickname,
-            userProfileUri,
-            title,
-            content,
-            likeCount,
-            commentCount,
-          }) => {
-            return {
-              id: postId,
-              user: userNickname,
-              userImageSrc: userProfileUri,
-              title,
-              description: content,
-              likeCount,
-              commentCount,
-              liked: true, // TODO
-            };
-          }
-        ) ?? []
-      }
-      writtenList={
-        writtenList?.map(
-          ({
-            postId,
-            userNickname,
-            userProfileUri,
-            title,
-            content,
-            likeCount,
-            commentCount,
-          }) => {
-            return {
-              id: postId,
-              user: userNickname,
-              userImageSrc: userProfileUri,
-              title,
-              description: content,
-              likeCount,
-              commentCount,
-              liked: true, // TODO
-            };
-          }
-        ) ?? []
-      }
+      likedList={likedList}
+      writtenList={writtenList}
       onChangeTab={(tab: Tab) => setTab(tab)}
       onClickCommunityItem={(id) => {
         // TODO
