@@ -118,6 +118,8 @@
 
 .AnswerComponent_container__5gLYR{background-color:#F6F7FA;padding:20px;border-radius:20px}.AnswerComponent_title__BppZL{padding-bottom:16px;font-size:16px;font-weight:600;line-height:137.5%;color:#191F28}.AnswerComponent_content__vupL7{font-size:16px;line-height:162.5%;color:#191F28;word-break:break-word;white-space:pre-wrap}
 
+.VocForm_container__AzqXo{padding:20px;display:flex;flex-direction:column;height:calc(100vh - 105px)}.VocForm_textarea__4Zlyu{resize:none;border:none;width:calc(100% - 40px);margin-bottom:16px;padding:16px 14px;border-radius:10px;background-color:#F2F4F5;font-weight:600;font-size:16px;line-height:24px;flex-grow:1}.VocForm_textarea__4Zlyu ::-webkit-input-placeholder{color:#8B95A1}.VocForm_textarea__4Zlyu ::placeholder{color:#8B95A1}.VocForm_textarea__4Zlyu:focus{outline:none}
+
 .trainer-info-item__title{font-weight:600;font-size:16px;margin:0px 0px 16px}.trainer-info-item__content{font-weight:400;font-size:16px;line-height:24px;word-break:break-all;margin:0}
 
 .TrainerList_container__tfgva{margin:20px}.TrainerList_trainerItemContainer__ywwMB{margin-bottom:66px}.TrainerList_mainHeader__H3pF2{margin-bottom:20px}.TrainerList_tabList__6zzZ3{margin-bottom:20px;margin-left:4px}.TrainerList_topDownFilter__9-APD{margin-bottom:20px;margin-left:10px}.TrainerList_trainerItem__rGycx{margin-bottom:16px}
@@ -147,4 +149,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.4962bc73.css.map*/
+/*# sourceMappingURL=main.d2450c83.css.map*/
