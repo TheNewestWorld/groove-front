@@ -25,7 +25,7 @@ const useMyPage = () => {
     isLoading: isLoadingWrittenPost || isLoadingLikedPost || isLoadingUserInfo,
     isError: isErrorWrittenPost || isErrorLikedPost || isErrorUserInfo,
     profileImage: userInfo?.profileUrl ?? "",
-    nickname: "", // TODO
+    nickname: userInfo?.nickname ?? "",
     recordList: [], // TODO
     likedList:
       likedList?.map(
