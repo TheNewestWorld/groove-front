@@ -1,5 +1,6 @@
-export type GetPostResponse = {
+export type GetPostDetailResponse = {
   id: number;
+  createdAt: string;
   title: string;
   content: string;
   userId: number;
@@ -10,5 +11,10 @@ export type GetPostResponse = {
   commentCount: number;
   categoryId: number;
   authority: boolean;
-  attachmentUris: string[];
+  attachmentUris: {
+    id: number;
+    type: string;
+    src: string;
+    title: string;
+  }[];
 };

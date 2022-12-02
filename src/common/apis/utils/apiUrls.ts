@@ -40,7 +40,7 @@ export const apiUrls = {
   //   deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
   // },
   post: {
-    getPost: (postId: number) => `${BASE_URL}/community/post/${postId}`,
+    getPostDetail: (postId: number) => `${BASE_URL}/community/post/${postId}`,
     getPostListByCategory: () => `${BASE_URL}/community/post/category`,
     postPost: () => `${BASE_URL}/community/post`,
     updatePost: (postId: number) => `${BASE_URL}/community/post/${postId}`,

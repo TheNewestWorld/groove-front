@@ -17,7 +17,7 @@ const usePostListByCategoryQuery = (
   options?: UseInfiniteQueryOptions<GetPostListByCategoryResponse>,
 ) => {
   const { data, ...result } = useInfiniteQuery<GetPostListByCategoryResponse>(
-    ["getPost", sortOrderType, word, categoryId],
+    ["getPostList", sortOrderType, word, categoryId],
     ({ pageParam = page }) =>
       getPostListByCategory({
         size,
