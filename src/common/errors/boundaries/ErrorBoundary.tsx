@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import {
   ErrorBoundary as ReactErrorBoundary,
   FallbackProps,
@@ -31,13 +31,15 @@ const ErrorBoundary = ({ FallbackComponent, children }: Props) => {
   }, [isReset, reset]);
 
   return (
-    <ReactErrorBoundary
-      FallbackComponent={FallbackComponent}
-      onReset={handleReset}
-      resetKeys={[location.pathname]}
-    >
-      {children}
-    </ReactErrorBoundary>
+    <Suspense>
+      <ReactErrorBoundary
+        FallbackComponent={FallbackComponent}
+        onReset={handleReset}
+        resetKeys={[location.pathname]}
+      >
+        {children}
+      </ReactErrorBoundary>
+    </Suspense>
   );
 };
 

@@ -13,7 +13,9 @@ const SignUp = () => {
       .then(() => {
         setSubmit(true);
       })
-      .catch(() => {});
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (

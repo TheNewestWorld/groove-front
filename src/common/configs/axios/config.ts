@@ -25,7 +25,6 @@ const responseOnFullFilled = async (
   response: AxiosResponse
 ): Promise<AxiosResponse> => {
   // TODO: 토큰 새로 발급이 필요한 경우 처리 로직 케이스 추가
-  // 서버에서 내려오는 응답값 확인 후 수정 예정
   if (response.data.result === "SUCCESS") {
     console.log("API SUCCESS", response);
     return { ...response, data: response.data };
@@ -33,7 +32,7 @@ const responseOnFullFilled = async (
     console.log("API ERROR", response);
     throw new AxiosError(
       response.data.error.message,
-      "", // TODO: res.data.error.code를 가지고 AxiosErrorCode로 설정
+      response.data.error.code,
       response.config,
       response.request,
       response
@@ -49,14 +48,12 @@ const responseOnFullFilled = async (
  * GlobalErrorBoundary에서 처리할 에러 발생
  */
 const responseOnRejected = async (error: AxiosError): Promise<AxiosError> => {
-  // TODO: 에러 처리 로직 작성
   return error;
 };
 
 export function initAxios() {
-  // TODO: axios 요청에 있어서 공통적으로 처리해야하는 config 추가 설정
-  // TODO: 서버에서 의도적으로 에러로 발생시켜 내려주는 경우 성공으로 처리하기
-  // axios.defaults.validateStatus = (status: number) => status === 0;
+  // 서버에서 의도적으로 에러 발생시켜 내려주는 경우 성공으로 처리하기
+  axios.defaults.validateStatus = (status: number) => status > 0;
 
   axios.interceptors.request.use(requestOnFullFilled);
   axios.interceptors.response.use(responseOnFullFilled, responseOnRejected);

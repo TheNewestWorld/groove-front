@@ -64,6 +64,7 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-viewport": "^6.5.14",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/node-logger": "^6.5.9",
@@ -78,5 +79,6 @@
   },
   "msw": {
     "workerDirectory": ".storybook-public"
-  }
+  },
+  "proxy": "http://193.122.106.249:9090"
 }
