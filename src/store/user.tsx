@@ -1,13 +1,16 @@
-import React, { createContext, Dispatch } from "react";
+import React, { createContext, Dispatch, useReducer } from "react";
+
+const initialState = undefined;
 
 export type UserState =
   | {
-      id: string;
       name: string;
+      accessToken: string;
+      refreshToken: string;
     }
   | undefined;
 
-export const UserStateContext = createContext<UserState>(undefined);
+export const UserStateContext = createContext<UserState>(initialState);
 
 type UserAction =
   | {
@@ -36,9 +39,11 @@ export const userReducer = (
 };
 
 export const UserContext = ({ children }: { children: React.ReactNode }) => {
+  const [state, dispatch] = useReducer(userReducer, initialState);
+
   return (
-    <UserDispatchContext.Provider value={undefined}>
-      <UserStateContext.Provider value={undefined}>
+    <UserDispatchContext.Provider value={dispatch}>
+      <UserStateContext.Provider value={state}>
         {children}
       </UserStateContext.Provider>
     </UserDispatchContext.Provider>
