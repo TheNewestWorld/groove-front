@@ -26,9 +26,11 @@ const responseOnFullFilled = async (
 ): Promise<AxiosResponse> => {
   // TODO: 토큰 새로 발급이 필요한 경우 처리 로직 케이스 추가
   // 서버에서 내려오는 응답값 확인 후 수정 예정
-  if (response.data === "SUCCESS") {
-    return { ...response, data: response.data.data };
+  if (response.data.result === "SUCCESS") {
+    console.log("API SUCCESS", response);
+    return { ...response, data: response.data };
   } else {
+    console.log("API ERROR", response);
     throw new AxiosError(
       response.data.error.message,
       "", // TODO: res.data.error.code를 가지고 AxiosErrorCode로 설정
