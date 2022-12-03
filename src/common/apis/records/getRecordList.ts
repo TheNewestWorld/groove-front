@@ -11,11 +11,16 @@ export type GetRecordListResponse = {
   page: number;
   size: number;
   hasNext: boolean;
-  contents: { fileUrl: string; recordName: string; createdAt: string }[];
+  contents: {
+    recordId: number;
+    fileUri: string;
+    recordName: string;
+    createdAt: string;
+  }[];
 };
 
 export const getRecordList = (params: GetRecordListQueryParams) => {
   return resultData<GetRecordListResponse>(
-    axios.get(apiUrls.records.getRecordList(), { params: params })
+    axios.get(apiUrls.records.getRecordList(), { params })
   );
 };

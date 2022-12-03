@@ -55,4 +55,8 @@ export const apiUrls = {
     updateCategory: (categoryId: number) =>
       `${BASE_URL}/category/${categoryId}`,
   },
+  notices: {
+    getNoticeList: () => `${BASE_URL}/notice`,
+    getNoticeDetail: (noticeId: number) => `${BASE_URL}/notice/${noticeId}`,
+  },
 };

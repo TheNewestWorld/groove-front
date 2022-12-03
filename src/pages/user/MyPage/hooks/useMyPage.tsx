@@ -42,13 +42,13 @@ const useMyPage = () => {
     profileImage: userInfo?.profileUrl ?? "",
     nickname: userInfo?.nickname ?? "",
     recordList:
-      recordList?.map(({ fileUrl, recordName, createdAt }, index) => {
+      recordList?.map(({ recordId, fileUri, recordName, createdAt }) => {
         return {
-          id: index, // TODO
+          id: recordId,
           title: recordName,
           date: new Date(createdAt),
           length: "", // TODO
-          url: fileUrl,
+          url: fileUri,
         };
       }) ?? [], // TODO
     likedList:
