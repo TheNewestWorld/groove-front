@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/build/
 /node_modules
 /.pnp
 .pnp.js
@@ -21,7 +22,7 @@ yarn-error.log*
 
 # IDE
 *.code-workspace
+/.idea/
 
 # Storybook
 storybook-static/
-
