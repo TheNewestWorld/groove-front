@@ -11,6 +11,13 @@ const requestOnFullFilled = async (
 ): Promise<AxiosRequestConfig> => {
   // TODO: axios에 토큰이 필요한데 토큰이 없는 경우, 에러 발생 시키기
   // 토큰이 필요 없는 경우, 로그인, 회원가입, 비밀번호 찾기
+  if (config.headers) {
+    const token = config.headers["Authorization"];
+    if (!token) {
+      // TODO: 에러 제어 위치 수정
+      // throw new Error("인증 시간 만료로 인해 재 로그인을 진행해주세요.");
+    }
+  }
   return config;
 };
 
@@ -54,6 +61,7 @@ const responseOnRejected = async (error: AxiosError): Promise<AxiosError> => {
 export function initAxios() {
   // 서버에서 의도적으로 에러 발생시켜 내려주는 경우 성공으로 처리하기
   axios.defaults.validateStatus = (status: number) => status > 0;
+  axios.defaults.headers["Authorization"] = localStorage.getItem("accessToken");
 
   axios.interceptors.request.use(requestOnFullFilled);
   axios.interceptors.response.use(responseOnFullFilled, responseOnRejected);

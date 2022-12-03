@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signIn } from "../../../common/apis/auth";
 import BuildPaths from "../../../common/paths";
+import { useUserDispatch } from "../../../hooks";
 import SignInView from "./SignIn.view";
 
 const SignIn = () => {
   const navigation = useNavigate();
+  const dispatch = useUserDispatch();
   const [data, setData] = useState<{ email: string; password: string }>({
     email: "",
     password: "",
@@ -13,11 +15,21 @@ const SignIn = () => {
 
   const onClickConfirm = () => {
     signIn(data)
-      .then(() => {
-        alert("TODO: 로그인 성공");
+      .then(({ accessToken, refreshToken }) => {
+        dispatch({
+          type: "SIGN_IN",
+          payload: {
+            name: "",
+            accessToken,
+            refreshToken,
+          },
+        });
+        // TODO: 전체 게시물 탭으로 보내는지 확인
+        // navigation(BuildPaths.communityHome("0"));
+        navigation(BuildPaths.mypage("RECORD"));
       })
-      .catch(() => {
-        alert("TODO: 로그인 실패");
+      .catch((error) => {
+        alert(error.message);
       });
   };
 
