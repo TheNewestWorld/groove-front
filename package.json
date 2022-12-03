@@ -76,7 +76,6 @@
     "prop-types": "^15.8.1",
     "webpack": "^5.73.0"
   },
-  "homepage": "https://thenewestworld.github.io/groove-front/",
   "msw": {
     "workerDirectory": ".storybook-public"
   }
