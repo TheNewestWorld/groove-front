@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { UserContext } from "./store";
+import { Context } from "./store";
 import { BrowserRouter } from "react-router-dom";
 import { initAxios } from "./common/configs/axios";
 
@@ -14,11 +14,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <UserContext>
+    <Context>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App />
       </BrowserRouter>
-    </UserContext>
+    </Context>
   </React.StrictMode>
 );
 
