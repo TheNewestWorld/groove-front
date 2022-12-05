@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signIn } from "../../../common/apis/auth";
+import { getUserInfo } from "../../../common/apis/users";
 import BuildPaths from "../../../common/paths";
 import Loading from "../../../components/Loading";
-import { useUserDispatch } from "../../../hooks";
+import { useUserDispatch, useTokenDispatch } from "../../../hooks";
 import SignInView from "./SignIn.view";
 
 const SignIn = () => {
   const navigation = useNavigate();
-  const dispatch = useUserDispatch();
+  const userDispatch = useUserDispatch();
+  const tokenDispatch = useTokenDispatch();
   const [data, setData] = useState<{ email: string; password: string }>({
     email: "",
     password: "",
@@ -18,13 +20,22 @@ const SignIn = () => {
   const onClickConfirm = () => {
     setLoading(true);
     signIn(data)
-      .then(({ accessToken, refreshToken }) => {
-        dispatch({
+      .then(async ({ accessToken, refreshToken }) => {
+        tokenDispatch({
           type: "SIGN_IN",
           payload: {
-            name: "",
             accessToken,
             refreshToken,
+          },
+        });
+
+        const { nickname, profileUrl } = await getUserInfo();
+
+        userDispatch({
+          type: "SET",
+          payload: {
+            name: nickname,
+            profile: profileUrl,
           },
         });
         // TODO: 전체 게시물 탭으로 보내는지 확인
