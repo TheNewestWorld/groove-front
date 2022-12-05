@@ -1,91 +1,109 @@
-import { useState } from "react";
-import useOpen from "../../../hooks/useOpen";
 import BottomSheetList from "../../../components/BottomSheetList";
 import CommunityComment from "./components/CommunityComment";
 import CommunityCommentInput from "./components/CommunityCommentInput";
-import { Props as CommunityCommentItemType } from "./components/CommunityCommentItem";
 import Header from "../../../components/Header";
 import { CloseIcon } from "../../../assets/icon";
 import styles from "./CommunityCommentList.module.scss";
+import { useState } from "react";
 
-interface CommentInfo {
-  commentId: number;
-  writer: string;
-  profileImage: string;
-  createdTime: Date;
-  comment: string;
+export interface CommentProps {
+  id: number;
+  userId: number;
+  nickName: string;
+  profileUri: string;
+  content: string;
+  createdAt: string;
+  authority: boolean;
   taggedUsers?: { userId: number; nickname: string }[];
 }
 
-const NOT_SETTING = -1;
-
 export interface Props {
   comments: {
-    comment: CommentInfo;
-    replies?: CommentInfo[];
+    comment: CommentProps;
+    replies: CommentProps[];
   }[];
+  optionStatus: {
+    commentId: number;
+    authority: boolean;
+  } | null;
   onClose: () => void;
-  onSubmitComment: (comment: string) => void;
-  onClickReport: (commentId: number) => void;
+  onSubmitComment: (comment: string, parentId?: number) => void;
+  onClickUpdateOption: (commentId: number) => void;
+  onClickDeleteOption: (commentId: number) => void;
+  onClickReportOption: (commentId: number) => void;
+  onClickReply: (commentId: number) => void;
+  onClickOption: (commentId: number, hasAuthority: boolean) => void;
+  onCloseOption: () => void;
+  onClickUserProfile?: (userId: number) => void;
 }
 
-const CommunityCommentList = ({
+const CommunityCommentListView = ({
   comments = [],
+  optionStatus,
   onClose,
   onSubmitComment,
-  onClickReport,
+  onClickUpdateOption,
+  onClickDeleteOption,
+  onClickReportOption,
+  onClickReply,
+  onClickOption,
+  onCloseOption,
+  onClickUserProfile,
 }: Props) => {
-  const {
-    isOpen: isOpenOption,
-    onOpen: onOpenOption,
-    onClose: onCloseOption,
-  } = useOpen();
-  const [reportId, setReportId] = useState<number>(NOT_SETTING);
+  const [isOpenOption, setIsOpenOption] = useState<Boolean>(false);
 
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
         <Header title="댓글" right={<CloseIcon />} onClickRight={onClose} />
         {/* TODO(ho2eny): 빈 페이지 작업 필요 */}
-        {comments.map((item) => (
+        {comments.map(item => (
           <CommunityComment
-            comment={{
-              ...item.comment,
-              onClickOption: (commentId: number) => {
-                setReportId(commentId);
-                onOpenOption();
-              },
-              // TODO(ho2eny): onClickReply 이벤트 처리 필요
+            comment={item.comment}
+            replies={item.replies}
+            onClickUserProfile={onClickUserProfile}
+            onClickReply={onClickReply}
+            onClickOption={(comemntId: number, hasAuthority: boolean) => {
+              setIsOpenOption(true);
+              onClickOption(comemntId, hasAuthority);
             }}
-            replies={
-              !item.replies
-                ? undefined
-                : item.replies!.map((reply): CommunityCommentItemType => {
-                    return {
-                      ...reply,
-                      onClickOption: (commentId: number) => {
-                        setReportId(commentId);
-                        onOpenOption();
-                      },
-                    };
-                  })
-            }
           />
         ))}
       </div>
       <CommunityCommentInput onSubmitComment={onSubmitComment} />
-      {isOpenOption && (
-        <BottomSheetList
-          hasCloseButton={true}
-          list={["신고하기"]}
-          onClick={(value: string) => {
-            onClickReport(reportId);
-          }}
-          onClose={onCloseOption}
-        />
-      )}
+      {optionStatus &&
+        isOpenOption &&
+        (optionStatus.authority ? (
+          <BottomSheetList
+            hasCloseButton={true}
+            list={["수정하기", "삭제하기"]}
+            onClick={(value: string) => {
+              if (value === "수정하기") {
+                onClickUpdateOption(optionStatus!.commentId);
+              } else {
+                onClickDeleteOption(optionStatus!.commentId);
+              }
+            }}
+            onClose={() => {
+              setIsOpenOption(false);
+              onCloseOption();
+            }}
+          />
+        ) : (
+          <BottomSheetList
+            hasCloseButton={true}
+            list={["신고하기"]}
+            onClick={(value: string) => {
+              onClickReportOption(optionStatus!.commentId);
+            }}
+            onClose={() => {
+              setIsOpenOption(false);
+              onCloseOption();
+            }}
+          />
+        ))}
     </div>
   );
 };
 
-export default CommunityCommentList;
+export default CommunityCommentListView;

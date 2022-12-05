@@ -15,10 +15,6 @@ export const updateComment = (
   body: UpdateCommentBody,
 ) => {
   return resultData<null>(
-    axios.put(apiUrls.comment.updateComment(commentId), body, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
+    axios.put(apiUrls.comment.updateComment(commentId), body),
   );
 };

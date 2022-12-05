@@ -16,10 +16,6 @@ export const postComment = (
   body: PostCommentBody,
 ) => {
   return resultData<null>(
-    axios.post(apiUrls.comment.postComment(postId), body, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
+    axios.post(apiUrls.comment.postComment(postId), body),
   );
 };

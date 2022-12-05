@@ -7,8 +7,6 @@ import CommunityDetailView from "./CommunityDetail.view";
 const CommunityDetail = () => {
   const { communityId } = useParams<{ communityId: string }>();
   const [isOpenOption, openOption] = useState<boolean>(false);
-  const [isOpenImage, openImage] = useState<boolean>(false);
-  const [imageId, setImageId] = useState<number>(0);
 
   const { isLoading, isError, post } = usePostDetailQuery(
     {
@@ -45,15 +43,6 @@ const CommunityDetail = () => {
           audio={
             post.attachmentUris.filter((file) => file.type === "RECORD")[0]
           }
-          onClickImage={(id: number) => {
-            openImage(true);
-            setImageId(id);
-          }}
-          onClickMore={() => {
-            openImage(true);
-            // TODO(in.heo): Remove hard-code
-            setImageId(4);
-          }}
           likeCount={post.likeCount}
           liked={post.likeFlag}
           commentCount={post.commentCount}
@@ -67,11 +56,6 @@ const CommunityDetail = () => {
           isOpenOption={isOpenOption}
           onCloseOption={() => {
             openOption(false);
-          }}
-          imageId={imageId}
-          isOpenImage={isOpenImage}
-          onCloseImage={() => {
-            openImage(false);
           }}
           onClickModify={() => {}}
           onClickDelete={() => {
