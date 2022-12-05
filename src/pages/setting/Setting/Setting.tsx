@@ -24,9 +24,7 @@ const Setting = () => {
         { title: "로그아웃", onClick: () => alert("TODO") },
         { title: "회원탈퇴", onClick: () => alert("TODO") },
       ]}
-      onClickBack={function (): void {
-        throw new Error("Function not implemented.");
-      }}
+      onClickBack={() => navigation(BuildPaths.mypage("RECORD"))}
     />
   );
 };
