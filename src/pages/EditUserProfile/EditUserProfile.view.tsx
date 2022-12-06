@@ -11,7 +11,7 @@ export interface Props {
   src?: string;
   nickname: string;
   onClose: () => void;
-  onClickConfirm: (image: File | null, nickname: string) => void;
+  onClickConfirm: (nickname: string, image: File | null) => void;
 }
 
 const EditUserProfileView = ({
@@ -45,7 +45,7 @@ const EditUserProfileView = ({
         label="닉네임"
         value={newNickname}
         placeholder="8자 이내 한글 또는 영문"
-        onChange={e => {
+        onChange={(e) => {
           checkDisabled(image, e.target.value);
           setNewNickname(e.target.value);
         }}
@@ -54,7 +54,8 @@ const EditUserProfileView = ({
         className={styles.button}
         disabled={isDisabled}
         colorTheme="dark"
-        onClick={() => onClickConfirm(image, newNickname)}>
+        onClick={() => onClickConfirm(newNickname, image)}
+      >
         저장하기
       </RoundButton>
     </div>

@@ -44,6 +44,9 @@ export interface Props {
   onChangeTab: (tab: Tab) => void;
   onClickCommunityItem: (id: number) => void;
   onDeleteRecord: (id: number) => void;
+  goToBack: () => void;
+  onClickSetting: () => void;
+  onClickEdit: () => void;
 }
 
 const MyPageView = ({
@@ -56,6 +59,9 @@ const MyPageView = ({
   onChangeTab,
   onClickCommunityItem,
   onDeleteRecord,
+  goToBack,
+  onClickSetting,
+  onClickEdit,
 }: Props) => {
   const activeTab = TabTitle.filter((tab) => tab.id === currentTab)[0].label;
 
@@ -65,14 +71,14 @@ const MyPageView = ({
         title="마이페이지"
         left={<ArrowIcon />}
         right={<SettingIcon />}
-        onClickLeft={() => alert("TODO")}
-        onClickRight={() => alert("TODO")}
+        onClickLeft={goToBack}
+        onClickRight={onClickSetting}
       />
 
       <div className={styles.profile}>
         <CircleImage src={profileImage} className={styles.image} />
         <div className={styles.nickname}>{nickname}</div>
-        <PencilIcon className={styles.icon} />
+        <PencilIcon className={styles.icon} onClick={onClickEdit} />
       </div>
 
       <TabList

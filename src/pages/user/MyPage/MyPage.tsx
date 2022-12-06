@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BuildPaths from "../../../common/paths";
 import useMyPage from "./hooks/useMyPage";
 import MyPageView, { Tab } from "./MyPage.view";
 
 const MyPage = () => {
   // TODO: path에 따라서 tab 변환 및 tab 변환 시 path 변환
   const [tab, setTab] = useState<Tab>("RECORD");
+  const navigation = useNavigate();
 
   const {
     isLoading,
@@ -36,12 +39,15 @@ const MyPage = () => {
       likedList={likedList}
       writtenList={writtenList}
       onChangeTab={(tab: Tab) => setTab(tab)}
-      onClickCommunityItem={(id) => {
-        // TODO
-      }}
+      onClickCommunityItem={(id) =>
+        navigation(BuildPaths.communityDetail(String(id)))
+      }
       onDeleteRecord={(id) => {
         // TODO
       }}
+      goToBack={() => navigation(-1)}
+      onClickSetting={() => navigation(BuildPaths.setting())}
+      onClickEdit={() => navigation(BuildPaths.myProfile())}
     />
   );
 };

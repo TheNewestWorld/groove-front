@@ -5,8 +5,7 @@ const initialState = undefined;
 export type UserState =
   | {
       name: string;
-      accessToken: string;
-      refreshToken: string;
+      profile: string;
     }
   | undefined;
 
@@ -14,10 +13,10 @@ export const UserStateContext = createContext<UserState>(initialState);
 
 type UserAction =
   | {
-      type: "SIGN_IN";
+      type: "SET";
       payload: UserState;
     }
-  | { type: "SIGN_OUT" };
+  | { type: "DELETE" };
 
 type UserDispatch = Dispatch<UserAction>;
 
@@ -29,9 +28,9 @@ export const userReducer = (
   action: UserAction
 ): UserState => {
   switch (action.type) {
-    case "SIGN_IN":
+    case "SET":
       return action.payload;
-    case "SIGN_OUT":
+    case "DELETE":
       return undefined;
     default:
       return state;
