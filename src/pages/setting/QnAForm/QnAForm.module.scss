@@ -1,0 +1,39 @@
+@import "../../../constants/color.scss";
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 105px);
+}
+
+.textarea {
+  resize: none;
+  border: none;
+  width: auto;
+  position: relative;
+  margin: 5px 0px 16px 0px;
+  padding: 16px 14px;
+  border-radius: 10px;
+  background-color: $black-F2;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  flex-grow: 1;
+  color: $black-19;
+
+  &::placeholder {
+    color: $black-8B;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $black-6B;
+}
