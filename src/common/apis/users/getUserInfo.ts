@@ -7,7 +7,7 @@ export type GetUserInfoResponse = {
   email: string;
   providerType: "GROOVE" | "KAKAO" | "NAVER" | "GOOGLE";
   nickname: string;
-  profileUrl: string;
+  profileUri: string;
   role: "INACTIVE" | "USER" | "TRAINER" | "ADMIN";
 };
 

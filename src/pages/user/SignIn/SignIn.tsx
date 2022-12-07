@@ -29,13 +29,13 @@ const SignIn = () => {
           },
         });
 
-        const { nickname, profileUrl } = await getUserInfo();
+        const { nickname, profileUri } = await getUserInfo();
 
         userDispatch({
           type: "SET",
           payload: {
             name: nickname,
-            profile: profileUrl,
+            profile: profileUri,
           },
         });
         // TODO: 전체 게시물 탭으로 보내는지 확인
