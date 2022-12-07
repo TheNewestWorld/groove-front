@@ -24,7 +24,7 @@ const CommunityCommentList = lazy(
 );
 const CommunityDetail = lazy(() => import("./pages/community/CommunityDetail"));
 const MyPage = lazy(() => import("./pages/user/MyPage"));
-const EditUserProfile = lazy(() => import("./pages/EditUserProfile"));
+const EditUserProfile = lazy(() => import("./pages/user/EditUserProfile"));
 const SearchList = lazy(() => import("./pages/SearchList"));
 const Setting = lazy(() => import("./pages/setting/Setting"));
 const Notice = lazy(() => import("./pages/setting/Notice"));
