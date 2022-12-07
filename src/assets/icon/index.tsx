@@ -39,3 +39,4 @@ export { ReactComponent as YellowStartBorderIcon } from "./star_yellow_border.sv
 export { ReactComponent as GreyDeleteCircle } from "./delete_grey_circle.svg";
 export { ReactComponent as ArrowLeftIcon } from "./arrow_left.svg";
 export { ReactComponent as ArrowRightIcon } from "./arrow_right.svg";
+export { ReactComponent as BlackCheckIcon } from "./check_black.svg";
