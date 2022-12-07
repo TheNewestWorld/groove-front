@@ -8,6 +8,8 @@ export const apiUrls = {
     signIn: () => `${BASE_URL}/auth/login`,
     refreshToken: () => `${BASE_URL}/auth/refresh`,
     signOut: () => `${BASE_URL}/auth/logout`,
+    activeUser: (sessionKey: string) =>
+      `${BASE_URL}/auth/email-authentications/${sessionKey}`,
   },
   users: {
     signUp: () => `${BASE_URL}/users/register`,
