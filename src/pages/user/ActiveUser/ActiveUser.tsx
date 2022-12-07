@@ -11,13 +11,10 @@ const ActiveUser = () => {
   const sessionKey = searchParams.get("sessionKey");
   const navigation = useNavigate();
 
-  console.log(sessionKey);
-
   useEffect(() => {
     if (!sessionKey) {
       return;
     }
-
     activeUser({ sessionKey });
   }, []);
 
