@@ -1,25 +1,43 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlackCheckIcon } from "../../../assets/icon";
+import { logout } from "../../../common/apis/auth";
+import { signOut } from "../../../common/apis/users";
 import BuildPaths from "../../../common/paths";
 import Dialog from "../../../components/Dialog";
 import RoundButton from "../../../components/RoundButton";
 import SettingListForm from "../../../components/SettingListForm";
+import { useTokenDispatch, useUserDispatch } from "../../../hooks";
 import styles from "./Setting.module.scss";
 
 const Setting = () => {
   const navigation = useNavigate();
+  const userDispatch = useUserDispatch();
+  const tokenDispatch = useTokenDispatch();
 
   const [showLogoutDialog, setLogoutDialog] = useState<boolean>(false);
   const [showSignOutDialog, setSignOutDialog] = useState<boolean>(false);
   const [showGoodByeDialog, setGoodByeDialog] = useState<boolean>(false);
 
-  const signOut = () => {
-    // TODO
+  const resetStore = () => {
+    userDispatch({ type: "DELETE" });
+    tokenDispatch({ type: "SIGN_OUT" });
   };
 
-  const logout = () => {
-    // TODO
+  const onSignOut = () => {
+    signOut().then(() => {
+      setGoodByeDialog(false);
+      navigation(BuildPaths.entry());
+      resetStore();
+    });
+  };
+
+  const onLogout = () => {
+    logout().then(() => {
+      setLogoutDialog(false);
+      navigation(BuildPaths.entry());
+      resetStore();
+    });
   };
 
   return (
@@ -57,7 +75,7 @@ const Setting = () => {
           <RoundButton
             className={styles.dialogButton}
             colorTheme="dark"
-            onClick={() => setLogoutDialog(false)}
+            onClick={onLogout}
           >
             네, 할게요
           </RoundButton>
@@ -78,7 +96,7 @@ const Setting = () => {
             colorTheme="dark"
             onClick={() => {
               setSignOutDialog(false);
-              setGoodByeDialog(true);
+              onSignOut();
             }}
           >
             네, 할게요
