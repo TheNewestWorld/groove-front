@@ -5,6 +5,7 @@ const RoutePath = {
   signUp: "/sign-up",
   findPassword: "/find-password",
   resetPassword: "/reset-password",
+  activeUser: "/active",
   communityHome: "/community/list/:category",
   communityForm: "/community/form",
   communityComment: "/community/:communityId/comments",
