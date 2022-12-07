@@ -4,7 +4,9 @@ import QnAFormView, { Props } from "./QnAForm.view";
 export default {
   title: "Pages/setting/QnAForm/views",
   component: QnAFormView,
-  args: {},
+  args: {
+    goToBack: () => alert("뒤로 가기")
+  },
 } as Meta;
 
 const Template = (args: Props) => <QnAFormView {...args} />;
