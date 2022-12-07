@@ -6,6 +6,8 @@ import { ApiResponseData } from "../../../../common/configs/axios";
 
 const Content = { title: "공지사항", content: "내용입니다" };
 
+const Badge = [true, false];
+
 export const 공지사항_목록 = {
   성공: rest.get(apiUrls.notices.getNoticeList(), (_, res, ctx) => {
     return res(
@@ -22,6 +24,7 @@ export const 공지사항_목록 = {
               title: "작성한 " + Content.title + index,
               content: Content.content + index,
               createdAt: format(new Date(), "yyyy-MM-dd"),
+              isNew: Badge[index % 2],
             };
           }),
         },

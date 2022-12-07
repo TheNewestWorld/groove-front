@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
 import SettingListForm from "../../../components/SettingListForm";
+import Badge from "./components/Badge";
 import useNotice from "./hooks/useNotice";
 
 const Notice = () => {
@@ -21,10 +22,11 @@ const Notice = () => {
   return (
     <SettingListForm
       headerTitle="공지사항"
-      settingList={settingList.map((item) => {
+      settingList={settingList.map(({ id, isNew, ...item }) => {
         return {
           ...item,
-          onClick: () => navigation(BuildPaths.noticeDetail(String(item.id))),
+          onClick: () => navigation(BuildPaths.noticeDetail(String(id))),
+          badge: isNew ? <Badge type="NEW" /> : undefined,
         };
       })}
       onClickBack={() => navigation(-1)}

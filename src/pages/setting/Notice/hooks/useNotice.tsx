@@ -8,12 +8,13 @@ const useNotice = () => {
     isLoading,
     isError,
     settingList:
-      noticeList?.map(({ id, title, content, createdAt }) => {
+      noticeList?.map(({ id, title, content, createdAt, isNew }) => {
         return {
           id,
           title,
           content,
           description: format(new Date(createdAt), "yy. M. d"),
+          isNew,
         };
       }) ?? [],
   };
