@@ -1,22 +1,19 @@
 import { Meta } from "@storybook/react";
-import SettingListForm, { Props } from "../../../components/SettingListForm";
+import { buildStory } from "../../../common/configs/storybook";
+import RoutePath from "../../../constants/routePath";
+import Setting from "./Setting";
 
 export default {
-  title: "Pages/setting/Setting/views",
-  component: SettingListForm,
-  args: {
-    headerTitle: "설정",
-    settingList: [
-      { title: "공지사항", onClick: () => alert("TODO") },
-      { title: "문의하기", onClick: () => alert("TODO") },
-      { title: "VOC", onClick: () => alert("TODO") },
-      { title: "로그아웃", onClick: () => alert("TODO") },
-      { title: "회원탈퇴", onClick: () => alert("TODO") },
-    ],
-    onClickBack: () => alert("뒤로가기"),
-  },
+  title: "Pages/setting/Setting/mocks",
+  component: Setting,
 } as Meta;
 
-const Template = (args: Props) => <SettingListForm {...args} />;
+const Template = () => <Setting />;
 
-export const 설정 = Template.bind({});
+export const 기본 = buildStory(Template, {
+  mswHandlers: [],
+  renderEnv: {
+    locationPath: RoutePath.setting,
+    routePath: RoutePath.setting,
+  },
+});

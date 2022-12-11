@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Header from "../../components/Header";
-import UserProfile from "../../components/UserProfile";
-import Input from "../../components/Input";
+import Header from "../../../components/Header";
+import UserProfile from "../../../components/UserProfile";
+import Input from "../../../components/Input";
 import styles from "./EditUserProfile.module.scss";
-import { ArrowIcon } from "../../assets/icon";
-import EmptyProfile from "../../assets/icon/empty_profile.svg";
-import RoundButton from "../../components/RoundButton";
+import { ArrowIcon } from "../../../assets/icon";
+import EmptyProfile from "../../../assets/icon/empty_profile.svg";
+import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
   src?: string;

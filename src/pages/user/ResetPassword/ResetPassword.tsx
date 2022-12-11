@@ -6,12 +6,9 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const sessionKey = searchParams.get("sessionKey");
 
-  // TODO: 디코딩하기
-  console.log(sessionKey);
-
   if (!sessionKey) {
     // TODO: 에러 표시
-    return <></>;
+    return <>잘못 접근한 화면입니다.</>;
   }
 
   const updatePassword = (password: string) => {

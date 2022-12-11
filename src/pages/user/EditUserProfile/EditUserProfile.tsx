@@ -4,9 +4,9 @@ import {
   getUserInfo,
   setUserInfo,
   setUserProfileImage,
-} from "../../common/apis/users";
-import Loading from "../../components/Loading";
-import { useUserState, useUserDispatch } from "../../hooks";
+} from "../../../common/apis/users";
+import Loading from "../../../components/Loading";
+import { useUserState, useUserDispatch } from "../../../hooks";
 import EditUserProfileView from "./EditUserProfile.view";
 
 const EditUserProfile = () => {
@@ -27,13 +27,13 @@ const EditUserProfile = () => {
           await setUserInfo({ nickname: newNickname });
           await setUserProfileImage({ profile: image });
 
-          const { nickname, profileUrl } = await getUserInfo();
+          const { nickname, profileUri } = await getUserInfo();
 
           dispatch({
             type: "SET",
             payload: {
               name: nickname,
-              profile: profileUrl,
+              profile: profileUri,
             },
           });
 

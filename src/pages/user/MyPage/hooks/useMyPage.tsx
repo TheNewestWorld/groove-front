@@ -39,7 +39,7 @@ const useMyPage = () => {
       isErrorLikedPost ||
       isErrorRecordList ||
       isErrorUserInfo,
-    profileImage: userInfo?.profileUrl ?? "",
+    profileImage: userInfo?.profileUri ?? "",
     nickname: userInfo?.nickname ?? "",
     recordList:
       recordList?.map(({ recordId, fileUri, recordName, createdAt }) => {

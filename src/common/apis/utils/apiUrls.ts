@@ -7,7 +7,9 @@ export const apiUrls = {
   auth: {
     signIn: () => `${BASE_URL}/auth/login`,
     refreshToken: () => `${BASE_URL}/auth/refresh`,
-    signOut: () => `${BASE_URL}/auth/logout`,
+    logout: () => `${BASE_URL}/auth/logout`,
+    activeUser: (sessionKey: string) =>
+      `${BASE_URL}/auth/email-authentications/${sessionKey}`,
   },
   users: {
     signUp: () => `${BASE_URL}/users/register`,
@@ -16,6 +18,7 @@ export const apiUrls = {
     setUserProfileImage: () => `${BASE_URL}/users/self/profile`,
     sendEmail: () => `${BASE_URL}/mail/change-password`,
     setPassword: () => `${BASE_URL}/users/password`,
+    signOut: () => `${BASE_URL}/users/self`,
   },
   records: {
     getRecordList: () => `${BASE_URL}/records`,

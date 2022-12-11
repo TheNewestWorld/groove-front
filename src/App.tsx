@@ -16,6 +16,7 @@ const SignIn = lazy(() => import("./pages/user/SignIn"));
 const SignUp = lazy(() => import("./pages/user/SignUp"));
 const FindPassword = lazy(() => import("./pages/user/FindPassword"));
 const ResetPassword = lazy(() => import("./pages/user/ResetPassword"));
+const ActiveUser = lazy(() => import("./pages/user/ActiveUser"));
 const CommunityList = lazy(() => import("./pages/community/CommunityList"));
 const CommunityForm = lazy(() => import("./pages/community/CommunityForm"));
 const CommunityCommentList = lazy(
@@ -23,7 +24,7 @@ const CommunityCommentList = lazy(
 );
 const CommunityDetail = lazy(() => import("./pages/community/CommunityDetail"));
 const MyPage = lazy(() => import("./pages/user/MyPage"));
-const EditUserProfile = lazy(() => import("./pages/EditUserProfile"));
+const EditUserProfile = lazy(() => import("./pages/user/EditUserProfile"));
 const SearchList = lazy(() => import("./pages/SearchList"));
 const Setting = lazy(() => import("./pages/setting/Setting"));
 const Notice = lazy(() => import("./pages/setting/Notice"));
@@ -43,6 +44,7 @@ function App() {
             <Route path={RoutePath.signUp} element={<SignUp />} />
             <Route path={RoutePath.findPassword} element={<FindPassword />} />
             <Route path={RoutePath.resetPassword} element={<ResetPassword />} />
+            <Route path={RoutePath.activeUser} element={<ActiveUser />} />
             <Route path={RoutePath.communityHome} element={<CommunityList />} />
             <Route path={RoutePath.communityForm} element={<CommunityForm />} />
             <Route

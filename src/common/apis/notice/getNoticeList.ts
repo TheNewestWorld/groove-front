@@ -11,7 +11,13 @@ export type NoticeListResponse = {
   page: number;
   size: number;
   hasNext: boolean;
-  contents: { id: number; title: string; content: string; createdAt: string }[];
+  contents: {
+    id: number;
+    title: string;
+    content: string;
+    createdAt: string;
+    isNew: boolean;
+  }[];
 };
 
 export const getNoticeList = (params: NoticeListQueryParams) => {

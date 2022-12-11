@@ -14,7 +14,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GROOVE",
           nickname:"닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "USER",
         },
@@ -31,7 +31,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GROOVE",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "ADMIN",
         },
@@ -48,7 +48,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GROOVE",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "TRAINER",
         },
@@ -65,7 +65,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "KAKAO",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "USER",
         },
@@ -82,7 +82,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "KAKAO",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "ADMIN",
         },
@@ -99,7 +99,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "KAKAO",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "TRAINER",
         },
@@ -116,7 +116,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "NAVER",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "USER",
         },
@@ -133,7 +133,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "NAVER",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "ADMIN",
         },
@@ -150,7 +150,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "NAVER",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "TRAINER",
         },
@@ -167,7 +167,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GOOGLE",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "USER",
         },
@@ -184,7 +184,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GOOGLE",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "ADMIN",
         },
@@ -201,7 +201,7 @@ export const 유저_정보 = {
           email: "groove@groove.com",
           providerType: "GOOGLE",
           nickname: "닉네임",
-          profileUrl:
+          profileUri:
             "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202209/03/769ed8ec-20d2-45c9-a95f-b5672a0753c3.jpg",
           role: "TRAINER",
         },
