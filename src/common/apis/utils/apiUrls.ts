@@ -69,4 +69,7 @@ export const apiUrls = {
   reports: {
     postReport: () => `${BASE_URL}/reports`,
   },
+  qna: {
+    postQna: () => `${BASE_URL}/qna`,
+  },
 };

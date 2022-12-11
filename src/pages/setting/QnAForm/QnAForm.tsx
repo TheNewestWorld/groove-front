@@ -1,18 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import RoutePath from "../../../constants/routePath";
-import QnAFormView from "./QnAForm.view";
+import { postQna } from "../../../common/apis/qna/postQna";
+import BuildPaths from "../../../common/paths";
+import QnAFormView, { QnAContents } from "./QnAForm.view";
 
 const QnAForm = () => {
   const navigation = useNavigate();
 
-  const onSubmit = (title: string, content: string) => {
-    alert(title + "\n" + content);
+  const onSubmitQnA = (form: QnAContents) => {
+    postQna(form)
+      .then(() => {
+        navigation(BuildPaths.qnaList())
+      })
+      .catch((error) => {
+        alert(error.message);
+      })
   };
 
   return (
     <QnAFormView
-      onSubmit={onSubmit}
-      goToBack={() => navigation(RoutePath.setting)}
+      onSubmit={onSubmitQnA}
+      goToBack={() => navigation(-1)}
     />
   );
 };
