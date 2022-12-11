@@ -1,28 +1,42 @@
-import { useRef, useState } from "react";
-import { ArrowIcon, DeleteIcon, CameraIcon } from "../../../assets/icon";
+import React, { useRef, useState } from "react";
+import { ArrowIcon, CameraIcon } from "../../../assets/icon";
 import Header from "../../../components/Header";
 import RoundButton from "../../../components/RoundButton";
 import Input from "../../../components/Input";
 import styles from "./QnAForm.module.scss";
 import CircleButton from "../../../components/CircleButton";
-import CircleImage from "../../../components/CircleImage";
+import ImageList from "../../../components/ImageList";
+
+export type QnAContents = {
+  title: string;
+  content: string;
+  image: File | null;
+};
 
 export interface Props {
-  onSubmit: (title: string, content: string) => void;
+  onSubmit: (form: QnAContents) => void;
   goToBack: () => void;
-  insertPhoto?: (image: File) => void;
-  onChangePhoto?: (image: File) => void;
+  imageList?: { src: string; id: number }[];
 }
 
 const QnAFormView = ({
   onSubmit,
   goToBack,
-  onChangePhoto,
+  imageList = [],
 }: Props) => {
-  const [title, setTitle] = useState<string>("");
-  const [content, setContent] = useState<string>("");
-  const imageInput = useRef<HTMLInputElement>(null);
-  const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+  const attachImage = useRef<HTMLInputElement>(null);
+  const [attachImageUrl, setAttachImageUrl] = useState<string | null>(null);
+  const [form, setForm] = useState<QnAContents>({
+    title: "",
+    content: "",
+    image: null,
+  });
+
+  const onChange = (e: { target: { name: any; value: any; }; }) => {
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+  };
 
   return (
     <>
@@ -35,13 +49,16 @@ const QnAFormView = ({
         <Input
           label="제목"
           placeholder="제목을 입력해주세요."
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          name="title"
+          value={form.title}
+          onChange={onChange}
         />
         <div className={styles.label}>내용</div>
         <textarea
           className={styles.textarea}
-          onChange={(e) => setContent(e.target.value)}
+          name="content"
+          value={form.content}
+          onChange={onChange}
           placeholder="내용을 입력해주세요."
         />
         <input
@@ -53,39 +70,36 @@ const QnAFormView = ({
               const reader = new FileReader();
               const file = e.target.files[0];
               reader.onloadend = () => {
-                const imagePreviewUrl = reader.result?.toString();
-                imagePreviewUrl && setImagePreviewUrl(imagePreviewUrl);
+                const attachImageUrl = reader.result?.toString();
+                attachImageUrl && setAttachImageUrl(attachImageUrl);
+                attachImageUrl && (imageList[0] = { src: attachImageUrl, id: 0 });
               };
               reader.readAsDataURL(file);
-              onChangePhoto && onChangePhoto(file);
+              console.log(reader)
+              form.image = file;
             }
           }}
-          ref={imageInput}
+          ref={attachImage}
         />
         <CircleButton
           colorTheme="light"
-          icon={<CameraIcon onClick={() => imageInput.current?.click()} />}
+          icon={<CameraIcon onClick={() => attachImage.current?.click()} />}
           shadow
           className={styles.photoButton}
         />
-        {imagePreviewUrl &&
-          <>
-            <CircleImage
-              src={imagePreviewUrl}
-              className={styles.photo} />
-            <CircleButton
-              colorTheme="light"
-              icon={<DeleteIcon onClick={() => { setImagePreviewUrl("") }} />}
-              shadow
-              className={styles.deleteIcon}
-            />
-          </>
+        {attachImageUrl &&
+          <ImageList
+            className={styles.photo}
+            maxCount={1}
+            imageList={imageList}
+            canDelete
+            onClickDelete={() => setAttachImageUrl("")}
+          />
         }
         <RoundButton
           colorTheme="dark"
-          // TODO: userId 이용해서 title,ccontent 넘기기
-          onClick={() => alert("title: " + title + "\ncontent: " + content)}
-          disabled={title.length === 0 || content.length === 0}
+          onClick={() => onSubmit(form)}
+          disabled={form.title.length === 0 || form.content.length === 0}
         >
           등록하기
         </RoundButton>
