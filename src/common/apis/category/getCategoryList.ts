@@ -9,6 +9,7 @@ export type GetCategoryListParams = {
 export type GetCategoryListResponse = {
   id: number;
   name: string;
+  categoryGroup: "COMMUNITY" | "TRAINING";
 }[];
 
 export const getCategoryList = ({ categoryGroup }: GetCategoryListParams) => {

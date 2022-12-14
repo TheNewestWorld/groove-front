@@ -92,25 +92,30 @@ export const 카테고리_목록 = {
             {
               id: 0,
               name: "전체 게시물",
+              categoryGroup: "COMMUNITY",
             },
             {
               id: 1,
               name: "보컬 이야기",
+              categoryGroup: "COMMUNITY",
             },
             {
               id: 2,
               name: "일상 이야기",
+              categoryGroup: "COMMUNITY",
             },
             {
               id: 3,
               name: "기타",
+              categoryGroup: "COMMUNITY",
             },
             {
               id: 4,
               name: "무언가",
+              categoryGroup: "COMMUNITY",
             },
           ],
-        }),
+        })
       );
     },
   ),
