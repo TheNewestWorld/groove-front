@@ -1,17 +1,22 @@
-import { useState } from "react";
 import { GreyDeleteCircle, SearchIcon } from "../../assets/icon";
 
 import "./SearchInput.scss";
 
 export interface Props {
+  keyword: string;
+  setKeyword: (keyword: string) => void;
   onClickCancle: () => void;
   onSubmitSearch: (value: string) => void;
   children?: React.ReactNode;
 }
 
-const SearchInput = ({ children, onSubmitSearch, onClickCancle }: Props) => {
-  const [keyword, setKeyword] = useState<string>("");
-
+const SearchInput = ({
+  keyword,
+  setKeyword,
+  children,
+  onSubmitSearch,
+  onClickCancle,
+}: Props) => {
   return (
     <>
       <div className="search__input">

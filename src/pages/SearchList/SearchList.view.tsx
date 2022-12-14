@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CommunityItem, {
   Props as CommunityItemView,
 } from "../../components/CommunityItem";
@@ -5,6 +6,8 @@ import SearchEntry from "./components/SearchEntry";
 import styles from "./SearchList.module.scss";
 
 export interface Props {
+  keyword: string;
+  setKeyword: (keyword: string) => void;
   communityList: CommunityItemView[];
   onClickCancle: () => void;
   onSubmitSearch: (value: string) => void;
@@ -14,6 +17,8 @@ export interface Props {
 }
 
 const SearchListView = ({
+  keyword,
+  setKeyword,
   list,
   communityList,
   deleteItem,
@@ -21,10 +26,22 @@ const SearchListView = ({
   onSubmitSearch,
   searchWord = "",
 }: Props) => {
+  const [result, setResult] = useState<boolean>(false);
+
   return (
     <div>
-      <SearchEntry list={list} deleteItem={deleteItem} onClickCancle={onClickCancle} onSubmitSearch={onSubmitSearch} />
-      {((communityList.length === 0) && (searchWord !== "")) && (
+      <SearchEntry
+        keyword={keyword}
+        setKeyword={setKeyword}
+        list={list}
+        deleteItem={deleteItem}
+        onClickCancle={onClickCancle}
+        onSubmitSearch={(keyword) => {
+          setResult(true);
+          onSubmitSearch(keyword);
+        }}
+      />
+      {communityList.length === 0 && searchWord !== "" && result && (
         <div className={styles.text}>찾으시는 내용이 없어요.</div>
       )}
       {communityList.map((item, index) => (
