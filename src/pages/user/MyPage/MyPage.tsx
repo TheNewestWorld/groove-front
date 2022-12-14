@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowIcon, SettingIcon } from "../../../assets/icon";
 import BuildPaths from "../../../common/paths";
+import Header from "../../../components/Header";
 import useMyPage from "./hooks/useMyPage";
 import MyPageView, { Tab } from "./MyPage.view";
 
@@ -31,24 +33,32 @@ const MyPage = () => {
 
   // TODO: floating button 추가
   return (
-    <MyPageView
-      profileImage={profileImage}
-      nickname={nickname}
-      currentTab={tab}
-      recordList={recordList}
-      likedList={likedList}
-      writtenList={writtenList}
-      onChangeTab={(tab: Tab) => setTab(tab)}
-      onClickCommunityItem={(id) =>
-        navigation(BuildPaths.communityDetail(String(id)))
-      }
-      onDeleteRecord={(id) => {
-        // TODO
-      }}
-      goToBack={() => navigation(-1)}
-      onClickSetting={() => navigation(BuildPaths.setting())}
-      onClickEdit={() => navigation(BuildPaths.myProfile())}
-    />
+    <>
+      <Header
+        title="마이페이지"
+        left={<ArrowIcon />}
+        right={<SettingIcon />}
+        onClickLeft={() => navigation(-1)}
+        onClickRight={() => navigation(BuildPaths.setting())}
+      />
+
+      <MyPageView
+        profileImage={profileImage}
+        nickname={nickname}
+        currentTab={tab}
+        recordList={recordList}
+        likedList={likedList}
+        writtenList={writtenList}
+        onChangeTab={(tab: Tab) => setTab(tab)}
+        onClickCommunityItem={(id) =>
+          navigation(BuildPaths.communityDetail(String(id)))
+        }
+        onDeleteRecord={(id) => {
+          // TODO
+        }}
+        onClickEdit={() => navigation(BuildPaths.myProfile())}
+      />
+    </>
   );
 };
 

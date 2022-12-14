@@ -1,7 +1,6 @@
-import { ArrowIcon, PencilIcon, SettingIcon } from "../../../assets/icon";
+import { PencilIcon } from "../../../assets/icon";
 import CircleImage from "../../../components/CircleImage";
 import EmptyPage from "../../../components/EmptyPage";
-import Header from "../../../components/Header";
 import TabList from "../../../components/TabList";
 import CommunitySection from "./components/CommunitySection";
 import RecordSection from "./components/RecordSection";
@@ -44,8 +43,6 @@ export interface Props {
   onChangeTab: (tab: Tab) => void;
   onClickCommunityItem: (id: number) => void;
   onDeleteRecord: (id: number) => void;
-  goToBack: () => void;
-  onClickSetting: () => void;
   onClickEdit: () => void;
 }
 
@@ -59,22 +56,12 @@ const MyPageView = ({
   onChangeTab,
   onClickCommunityItem,
   onDeleteRecord,
-  goToBack,
-  onClickSetting,
   onClickEdit,
 }: Props) => {
   const activeTab = TabTitle.filter((tab) => tab.id === currentTab)[0].label;
 
   return (
     <div className={styles.container}>
-      <Header
-        title="마이페이지"
-        left={<ArrowIcon />}
-        right={<SettingIcon />}
-        onClickLeft={goToBack}
-        onClickRight={onClickSetting}
-      />
-
       <div className={styles.profile}>
         <CircleImage src={profileImage} className={styles.image} />
         <div className={styles.nickname}>{nickname}</div>
