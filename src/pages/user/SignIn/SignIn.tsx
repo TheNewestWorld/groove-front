@@ -38,6 +38,10 @@ const SignIn = () => {
             profile: profileUri,
           },
         });
+        
+        localStorage.setItem("name", nickname);
+        localStorage.setItem("profile", profileUri);
+
         navigation(BuildPaths.communityHome("전체 게시물"));
       })
       .catch((error) => {
