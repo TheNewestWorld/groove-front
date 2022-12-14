@@ -6,12 +6,12 @@ export default {
   component: CommunityListView,
   args: {
     isLoading: false,
-    activeFilter: "최신순",
-    filterList: ["최신순", "인기순", "댓글순"],
-    activeTab: "전체 게시물",
-    tabList: ["전체 게시물", "보컬 이야기", "일상 이야기", "기타"],
-    onChangeFilter: (filter: string) => alert(filter),
-    onClickTab: (tab: string) => alert(tab),
+    activeSort: "최신순",
+    sortList: ["최신순", "인기순", "댓글순"],
+    activeCategory: "전체 게시물",
+    categoryList: ["전체 게시물", "보컬 이야기", "일상 이야기", "기타"],
+    onChangeSortType: (filter: string) => alert(filter),
+    onChangeCategory: (tab: string) => alert(tab),
     communityList: [
       {
         user: "권진아",
