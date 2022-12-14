@@ -12,7 +12,6 @@ export interface Props {
 const SearchInput = ({ children, onSubmitSearch, onClickCancle }: Props) => {
   const [keyword, setKeyword] = useState<string>("");
 
-  // TODO: 엔터 누르면 onSubmitSearch 이벤트 동작
   return (
     <>
       <div className="search__input">
@@ -22,9 +21,15 @@ const SearchInput = ({ children, onSubmitSearch, onClickCancle }: Props) => {
             value={keyword}
             placeholder="검색"
             onChange={(e) => setKeyword(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.code === "Enter") {
+                onSubmitSearch(keyword);
+              }
+            }}
           />
-          {/* TODO: 삭제 아이콘 클릭 시 뒤로가기 */}
-          {keyword.length > 0 && <GreyDeleteCircle />}
+          {keyword.length > 0 && (
+            <GreyDeleteCircle onClick={() => setKeyword("")} />
+          )}
         </div>
         <button onClick={onClickCancle}>취소</button>
       </div>
