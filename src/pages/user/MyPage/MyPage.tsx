@@ -38,7 +38,7 @@ const MyPage = () => {
         title="마이페이지"
         left={<ArrowIcon />}
         right={<SettingIcon />}
-        onClickLeft={() => navigation(-1)}
+        onClickLeft={() => navigation(BuildPaths.communityHome("전체 게시물"))}
         onClickRight={() => navigation(BuildPaths.setting())}
       />
 
