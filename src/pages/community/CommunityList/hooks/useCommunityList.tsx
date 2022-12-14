@@ -2,7 +2,7 @@ import useCategoryListQuery from "../../../../common/queries/category/useCategor
 import usePostListByCategoryQuery from "../../../../common/queries/posts/usePostListQuery";
 
 type Props = {
-  category: string;
+  category?: string;
   sortType: "CREATED_AT" | "LIKE_COUNT" | "COMMENT_COUNT";
 };
 

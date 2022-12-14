@@ -29,10 +29,6 @@ const CommunityList = () => {
   const { category } = useParams<{ category: string }>();
   const [sortType, setSortType] = useState<SortOrderType>(sortList[0]);
 
-  if (!category) {
-    return <></>;
-  }
-
   const { isLoading, categoryList, activeCategoryName, communityList } =
     useCommunityList({
       category,
