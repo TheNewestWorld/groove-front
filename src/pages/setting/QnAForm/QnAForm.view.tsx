@@ -16,7 +16,7 @@ export type QnAContents = {
 export interface Props {
   onSubmit: (form: QnAContents) => void;
   goToBack: () => void;
-  imageList?: { src: string; id: number }[];
+  imageList?: { src: string, id: number }[];
 }
 
 const QnAFormView = ({
@@ -75,7 +75,6 @@ const QnAFormView = ({
                 attachImageUrl && (imageList[0] = { src: attachImageUrl, id: 0 });
               };
               reader.readAsDataURL(file);
-              console.log(reader)
               form.image = file;
             }
           }}
@@ -93,7 +92,7 @@ const QnAFormView = ({
             maxCount={1}
             imageList={imageList}
             canDelete
-            onClickDelete={() => setAttachImageUrl("")}
+            onClickDelete={() => { setAttachImageUrl(""); form.image = null }}
           />
         }
         <RoundButton
