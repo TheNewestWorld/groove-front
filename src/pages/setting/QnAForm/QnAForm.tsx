@@ -16,10 +16,13 @@ const QnAForm = () => {
       })
   };
 
+  const imageList: { src: string; id: number; }[] | undefined = [];
+
   return (
     <QnAFormView
       onSubmit={onSubmitQnA}
       goToBack={() => navigation(-1)}
+      imageList={imageList}
     />
   );
 };
