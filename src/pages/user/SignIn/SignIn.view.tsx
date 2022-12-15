@@ -40,6 +40,7 @@ const SignInView = ({
             value={data.password}
             onChange={onChange}
             label="비밀번호"
+            type="password"
             placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
           />
         </div>

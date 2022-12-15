@@ -11,6 +11,7 @@ export interface Props {
   confirmMessage?: string;
   errorMessage?: string;
   onReset?: () => void;
+  type?: string;
 }
 
 const Input = ({
@@ -22,6 +23,7 @@ const Input = ({
   confirmMessage,
   errorMessage,
   onReset,
+  type,
 }: Props) => {
   return (
     <div className={styles.container}>
@@ -32,6 +34,7 @@ const Input = ({
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          type={type}
         />
         {onReset && value && <GreyDeleteCircle className={styles.icon} />}
       </div>
