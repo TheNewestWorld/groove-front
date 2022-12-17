@@ -18,7 +18,7 @@ export const 글_상세 = {
             content:
               "기업은 기본적으로 영리(재산상의 이익)를 얻기 위하여 재화나 용역을 생산하고 판매하는 조직체이다. 이때 기업이 오랜 시간 존속하기 위해서는 유저 유입을 위한 전략을 모색하는 것도 중요하지만, 유입된 인원이 제품/서비스에 매력을 느끼고 지속해서 남아 있도록 하는 것 또한 매우 중요하다.\n후자가 중요한 이유는 간단하다. 첫 번째는 신규 유저를 확보하는 일은 꽤 큰 비용이 든다. 하버드 비즈니스 리뷰에 따르면, 신규 유저를 확보하는 일은 기존 고객을 유지하는 것보다 적게는 5배, 많게는 일은 기존 고객을 유지하는 것보다 적게는 5배, 많게는",
             userId: 0,
-            nickname: "권진아",
+            nickName: "권진아",
             profileUri:
               "https://s3-alpha-sig.figma.com/img/7468/bebd/b1d4a2788c3153bea3ecad258bc2fbd9?Expires=1670803200&Signature=Fie9KU0Z8Ju4MbuKUBX8gJKgeKRuAMveH~qDSawxk~-NpEUstQEV06JgwEbhY5sJtfG9SAmgl7oZz6dg647lPnhEdTkShzSkwA6VnellveTFh9fOPR9W6JmzLYjH~CFqIZKawdzWEaRcbObRyByG7mvZdIop-nzZ89gJnzjNFiUjhZbGkuG-0SI57Dkzi1pTtRPoK-HeS8nXA95LNGzNy8sjuRBSauHCXhDXNqgHy7P-5adZpl2pQlilNDw2N~QUzNy6eBp5dhQ6QkKOXZnrp-Z446PAlPEFhhHFVuzUcFErzHZmQAe1zMUti9--oj6c-N7Jy0oIvEIdZEx0e8~vjw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
             likeFlag: true,
@@ -71,7 +71,7 @@ export const 글_상세 = {
             content:
               "기업은 기본적으로 영리(재산상의 이익)를 얻기 위하여 재화나 용역을 생산하고 판매하는 조직체이다. 이때 기업이 오랜 시간 존속하기 위해서는 유저 유입을 위한 전략을 모색하는 것도 중요하지만, 유입된 인원이 제품/서비스에 매력을 느끼고 지속해서 남아 있도록 하는 것 또한 매우 중요하다.\n후자가 중요한 이유는 간단하다. 첫 번째는 신규 유저를 확보하는 일은 꽤 큰 비용이 든다. 하버드 비즈니스 리뷰에 따르면, 신규 유저를 확보하는 일은 기존 고객을 유지하는 것보다 적게는 5배, 많게는 일은 기존 고객을 유지하는 것보다 적게는 5배, 많게는",
             userId: 0,
-            nickname: "권진아",
+            nickName: "권진아",
             profileUri:
               "https://s3-alpha-sig.figma.com/img/7468/bebd/b1d4a2788c3153bea3ecad258bc2fbd9?Expires=1670803200&Signature=Fie9KU0Z8Ju4MbuKUBX8gJKgeKRuAMveH~qDSawxk~-NpEUstQEV06JgwEbhY5sJtfG9SAmgl7oZz6dg647lPnhEdTkShzSkwA6VnellveTFh9fOPR9W6JmzLYjH~CFqIZKawdzWEaRcbObRyByG7mvZdIop-nzZ89gJnzjNFiUjhZbGkuG-0SI57Dkzi1pTtRPoK-HeS8nXA95LNGzNy8sjuRBSauHCXhDXNqgHy7P-5adZpl2pQlilNDw2N~QUzNy6eBp5dhQ6QkKOXZnrp-Z446PAlPEFhhHFVuzUcFErzHZmQAe1zMUti9--oj6c-N7Jy0oIvEIdZEx0e8~vjw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
             likeFlag: true,

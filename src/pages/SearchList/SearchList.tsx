@@ -36,7 +36,7 @@ const SearchList = () => {
             id,
             title,
             content,
-            nickname,
+            nickName,
             profileUri,
             likeCount,
             likeFlag,
@@ -44,7 +44,7 @@ const SearchList = () => {
           }) => {
             return {
               id,
-              user: nickname,
+              user: nickName,
               userImageSrc: profileUri,
               title,
               description: content,

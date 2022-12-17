@@ -37,9 +37,10 @@ const useCommunityList = ({ category, sortType }: Props) => {
         : categoryList?.filter((item) => item.name === category)[0]?.name ?? "",
     communityList:
       postList?.map((post) => {
+
         return {
           id: post.id,
-          user: post.nickname,
+          user: post.nickName,
           userImageSrc: post.profileUri,
           title: post.title,
           description: post.content,
