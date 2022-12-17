@@ -11,6 +11,7 @@ import ImageDetailView from "../../ImageDetail";
 import { useState } from "react";
 
 export interface Props {
+  id: number;
   title: string;
   profileImage: string;
   nickname: string;
@@ -27,9 +28,12 @@ export interface Props {
   onClickModify: () => void;
   onClickDelete: () => void;
   onClickReport: () => void;
+  onClickLike: (id: number) => void;
+  goToCommentList: (id: number) => void;
 }
 
 const CommunityDetailView = ({
+  id,
   title,
   profileImage,
   nickname,
@@ -46,6 +50,8 @@ const CommunityDetailView = ({
   onClickModify,
   onClickDelete,
   onClickReport,
+  onClickLike,
+  goToCommentList,
 }: Props) => {
   const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
@@ -87,6 +93,8 @@ const CommunityDetailView = ({
         likeCount={likeCount}
         liked={liked}
         commentCount={commentCount}
+        onClickLike={() => onClickLike(id)}
+        goToCommentList={() => goToCommentList(id)}
       />
 
       {isOpenOption &&

@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePost } from "../../../common/apis/post";
+import BuildPaths from "../../../common/paths";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
 import CommunityDetailView from "./CommunityDetail.view";
 
@@ -12,7 +13,7 @@ const CommunityDetail = () => {
     },
     {
       enabled: !!communityId,
-    },
+    }
   );
 
   const navigation = useNavigate();
@@ -29,6 +30,7 @@ const CommunityDetail = () => {
     <>
       {
         <CommunityDetailView
+          id={Number(communityId)}
           title={post.title!}
           profileImage={post.profileUri!}
           nickname={post.nickName!}
@@ -50,6 +52,10 @@ const CommunityDetail = () => {
             navigation(-1);
           }}
           onClickReport={() => {}}
+          onClickLike={(id) => {}}
+          goToCommentList={(id) =>
+            navigation(BuildPaths.communityComment(id.toString()))
+          }
         />
       }
     </>
