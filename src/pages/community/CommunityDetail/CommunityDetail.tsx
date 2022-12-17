@@ -43,7 +43,6 @@ const CommunityDetail = () => {
             commentCount: post.commentCount!,
             hasAuthority: post.authority,
           }}
-          onClickProfile={() => navigation(BuildPaths.mypage("RECORD"))}
           onClickBack={() => {
             navigation(-1);
           }}

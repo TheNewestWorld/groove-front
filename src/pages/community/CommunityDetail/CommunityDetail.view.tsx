@@ -25,7 +25,6 @@ export interface Props {
     commentCount: number;
     hasAuthority?: boolean;
   };
-  onClickProfile?: () => void;
   onClickBack?: () => void;
   onClickModify: () => void;
   onClickDelete: () => void;
@@ -36,7 +35,6 @@ export interface Props {
 
 const CommunityDetailView = ({
   community,
-  onClickProfile,
   onClickBack,
   onClickModify,
   onClickDelete,
@@ -78,7 +76,6 @@ const CommunityDetailView = ({
         profileImage={profileImage}
         nickname={nickname}
         date={date}
-        onClickProfile={onClickProfile}
       />
       <ContentBody
         className={styles.content}
