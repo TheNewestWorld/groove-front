@@ -12,7 +12,7 @@ export type GetPostDetailResponse = {
   title: string;
   content: string;
   userId: number;
-  nickname: string;
+  nickName: string;
   profileUri: string;
   likeFlag: boolean;
   likeCount: number;

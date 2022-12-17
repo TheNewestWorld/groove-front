@@ -19,7 +19,7 @@ export const 글_목록 = {
               content:
                 "기업은 기본적으로 영리(재산상의 이익)를 얻기 위하여 재화나 용역을 생산하고 판매하는 조직체이다",
               userId: 0,
-              nickname: "권진아",
+              nickName: "권진아",
               profileUri:
                 "https://s3-alpha-sig.figma.com/img/4d5a/b364/fd94b16eebc2ad8a01916c327146c4ce?Expires=1670803200&Signature=cCBHrnZuGvXm9KnULpE4NFiU8tCiBKTW0312vJzkOFx55~hwZ5Ldm5f24tL9G7T-eOmU3T-ldep9mOpLKyXOkOpFQC1vc8Tvdg4-Of3cs91mpsY-lEWRkUfS2vvWmsYcYP7lSFBYkeFcV38bhZhwjzYE6Y8izlluU8rVhcbNxIX9s6EMeSo7fh2wJ8ETB8hVU--mbVrRT~ZQGle6CES9h57P7xuJZL~lAwXKpjTniZfefetjmfPWxSEkT43-~tgJOoA1s4dEWJyIlEfrvuJ07YgxDTXYRG6zY9kWGKdF7fgDUwZd15AxJewQhdt3Z6QpolVOk6g8peJkP-7bdGTuSw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
               likeFlag: true,
@@ -42,7 +42,7 @@ export const 글_목록 = {
               content:
                 "보컬코칭 받아보신분 계신가요? 어땠는지좀 알려주세요 제발요ㅠ궁금해서 미쳐버릴거 같으니까요",
               userId: 1,
-              nickname: "Greenholt",
+              nickName: "Greenholt",
               profileUri:
                 "https://s3-alpha-sig.figma.com/img/db25/4343/ba6eac1cac58dfe91757cdcc3afd572d?Expires=1670803200&Signature=MPzC9bOpugoO5X3aE-Wo6k1sSH5n8PywsCBRkUj5rf4beNCJE2FMBwNv67jS8855jUrP7vj-kbxtna04zusezAtp1C4RrSVGiQBe4SKmNn2OI6a3c1FRh2FZQE9b8zgTUo-W5fIw0CY4kNz3M4Q8sAsAT04Jtac1U~tHdmI0JB1aVSwSlXhwI0rBy6itvMPbvXg-d6CIwlw2W~HD15JXcesnfsm-ApEwCjwi9NGiGxDMGMfDEqY6qa3UA~9VmS0d~LVlEdAjAao1kPoOoGVEWh68OGR2et1YbSdRRww4GgUa5jIxnWYlR4jtxKqvgTwkZdynBxqaz1BYJJzoFp7zZA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
               likeFlag: true,

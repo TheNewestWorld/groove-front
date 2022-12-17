@@ -33,7 +33,7 @@ const CommunityDetail = () => {
         <CommunityDetailView
           title={post.title}
           profileImage={post.profileUri}
-          nickname={post.nickname}
+          nickname={post.nickName}
           date={new Date(post.createdAt)}
           onClickProfile={() => {}}
           content={post.content}
