@@ -11,20 +11,22 @@ import ImageDetailView from "../../ImageDetail";
 import { useState } from "react";
 
 export interface Props {
-  id: number;
-  title: string;
-  profileImage: string;
-  nickname: string;
-  date: Date;
+  community: {
+    id: number;
+    title: string;
+    profileImage: string;
+    nickname: string;
+    date: Date;
+    content: string;
+    imageList?: { src: string; id: number; type: string }[];
+    audio: { title: string; src: string; id: number };
+    likeCount: number;
+    liked?: boolean;
+    commentCount: number;
+    hasAuthority?: boolean;
+  };
   onClickProfile?: () => void;
-  content: string;
-  imageList?: { src: string; id: number; type: string }[];
-  audio: { title: string; src: string; id: number };
-  likeCount: number;
-  liked?: boolean;
-  commentCount: number;
   onClickBack?: () => void;
-  hasAuthority?: boolean;
   onClickModify: () => void;
   onClickDelete: () => void;
   onClickReport: () => void;
@@ -33,20 +35,9 @@ export interface Props {
 }
 
 const CommunityDetailView = ({
-  id,
-  title,
-  profileImage,
-  nickname,
-  date,
+  community,
   onClickProfile,
-  content,
-  imageList,
-  audio,
-  likeCount,
-  liked,
-  commentCount,
   onClickBack,
-  hasAuthority = false,
   onClickModify,
   onClickDelete,
   onClickReport,
@@ -56,6 +47,21 @@ const CommunityDetailView = ({
   const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isOpenOption, openOption] = useState<boolean>(false);
+
+  const {
+    id,
+    title,
+    profileImage,
+    nickname,
+    date,
+    content,
+    imageList,
+    audio,
+    likeCount,
+    liked,
+    commentCount,
+    hasAuthority = false,
+  } = community;
 
   return (
     <div className={styles.container}>

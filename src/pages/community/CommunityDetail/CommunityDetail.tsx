@@ -5,6 +5,7 @@ import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery
 import CommunityDetailView from "./CommunityDetail.view";
 
 const CommunityDetail = () => {
+  const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
   const { isLoading, isError, post } = usePostDetailQuery(
@@ -15,8 +16,6 @@ const CommunityDetail = () => {
       enabled: !!communityId,
     }
   );
-
-  const navigation = useNavigate();
 
   if (isLoading || !post) {
     return <div>로딩 화면 추가</div>;
@@ -30,19 +29,21 @@ const CommunityDetail = () => {
     <>
       {
         <CommunityDetailView
-          id={Number(communityId)}
-          title={post.title!}
-          profileImage={post.profileUri!}
-          nickname={post.nickName!}
-          date={new Date(post.createdAt!)}
-          onClickProfile={() => {}}
-          content={post.content!}
-          imageList={post.imageList}
-          audio={post.audio!}
-          likeCount={post.likeCount!}
-          liked={post.likeFlag}
-          commentCount={post.commentCount!}
-          hasAuthority={post.authority}
+          community={{
+            id: Number(communityId),
+            title: post.title!,
+            profileImage: post.profileUri!,
+            nickname: post.nickName!,
+            date: new Date(post.createdAt!),
+            content: post.content!,
+            imageList: post.imageList,
+            audio: post.audio!,
+            likeCount: post.likeCount!,
+            liked: post.likeFlag,
+            commentCount: post.commentCount!,
+            hasAuthority: post.authority,
+          }}
+          onClickProfile={() => navigation(BuildPaths.mypage("RECORD"))}
           onClickBack={() => {
             navigation(-1);
           }}
