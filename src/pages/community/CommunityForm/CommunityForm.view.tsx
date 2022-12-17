@@ -9,15 +9,24 @@ import ContentInput from "./components/ContentInput";
 export interface Props {
   categoryList: string[];
   isDisabledButton: boolean;
-  data: { title: string; content: string; imageList: []; audioList: [] };
+  data: {
+    title: string;
+    content: string;
+    imageUrls: string[];
+    audioUrl: string | null;
+  };
   selectedCategory: string;
+  onClickCamera: (image: File, url: string) => void;
+  onClickMic: (audio: File, url: string) => void;
+  onDeleteAudio: () => void;
+  onDeleteImage: (id: number) => void;
   onClickCreate: () => void;
   onClickClose: () => void;
   onChangeCategory: (category: string) => void;
   onChange: (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
   ) => void;
 }
 
@@ -26,6 +35,10 @@ const CommunityFormView = ({
   isDisabledButton,
   data,
   selectedCategory,
+  onClickCamera,
+  onClickMic,
+  onDeleteAudio,
+  onDeleteImage,
   onClickClose,
   onClickCreate,
   onChangeCategory,
@@ -58,17 +71,20 @@ const CommunityFormView = ({
         />
         <ContentInput
           value={data.content}
-          imageList={data.imageList}
-          audioList={data.audioList}
+          imageList={data.imageUrls}
+          audioUrl={data.audioUrl}
           onChange={onChange}
+          onClickCamera={onClickCamera}
+          onClickMic={onClickMic}
+          onDeleteAudio={onDeleteAudio}
+          onDeleteImage={onDeleteImage}
         />
 
         <RoundButton
           className={styles.button}
           onClick={onClickCreate}
           disabled={isDisabledButton}
-          colorTheme="dark"
-        >
+          colorTheme="dark">
           등록하기
         </RoundButton>
       </div>

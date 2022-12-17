@@ -6,11 +6,18 @@ export type PostPostBody = {
   title: string;
   content: string;
   categoryId: number;
-  attachments: string[]; // multipart 처리
+  attachments: File[]; // multipart 처리
 };
 
 export const postPost = (body: PostPostBody) => {
-  return resultData<null>(axios.post(apiUrls.post.postPost(), body, {
+  const frm = new FormData();
+  frm.append("title", body.title);
+  frm.append("content", body.content);
+  frm.append("categoryId", body.categoryId.toString());
+  // key(attachment) 값 확인 필요
+  body.attachments.map((file) => frm.append("attachment", file));
+
+  return resultData<null>(axios.post(apiUrls.post.postPost(), frm, {
     headers: {
       "Content-Type": "multipart/form-data",      
     }

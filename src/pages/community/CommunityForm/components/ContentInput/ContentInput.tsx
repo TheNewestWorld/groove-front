@@ -1,18 +1,29 @@
-import { CameraIcon, MicIcon } from "../../../../../assets/icon";
+import AudioPlayer from "../../../../../components/AudioPlayer";
 import ImageList from "../../../../../components/ImageList";
+import FileUploader from "../FileUploader";
 import styles from "./ContentInput.module.scss";
 
 interface Props {
   value: string;
-  imageList: []; // TODO: 타입 정의
-  audioList: []; // TODO: 타입 정의
+  imageList: string[];
+  audioUrl: string | null;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onClickCamera: (image: File, url: string) => void;
+  onClickMic: (audio: File, url: string) => void;
+  onDeleteImage: (id: number) => void;
+  onDeleteAudio: () => void;
 }
 
-const ContentInput = ({ value, imageList, audioList, onChange }: Props) => {
-  const onClickCamera = () => alert("TODO");
-  const onClickMic = () => alert("TODO");
-
+const ContentInput = ({
+  value,
+  imageList,
+  audioUrl,
+  onChange,
+  onClickCamera,
+  onClickMic,
+  onDeleteImage,
+  onDeleteAudio,
+}: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.label}>내용</div>
@@ -24,19 +35,36 @@ const ContentInput = ({ value, imageList, audioList, onChange }: Props) => {
           onChange={onChange}
           placeholder="내용을 입력해주세요."
         />
+        {audioUrl && (
+          <AudioPlayer
+            src={audioUrl}
+            canDelete={true}
+            onClickDelete={() => onDeleteAudio()}
+          />
+        )}
         <ImageList
           className={styles.imageList}
-          imageList={imageList}
+          imageList={imageList.map((image, idx) => {
+            return {
+              src: image,
+              id: idx,
+            };
+          })}
           canDelete
           maxCount={imageList.length}
+          onClickDelete={onDeleteImage}
         />
-        {/* TODO: 오디오 리스트 추가 */}
-        <div className={styles.button} onClick={onClickCamera}>
-          <CameraIcon />
-        </div>
-        <div className={styles.button} onClick={onClickMic}>
-          <MicIcon />
-        </div>
+        <FileUploader
+          type="IMAGE"
+          onClickFile={onClickCamera}
+          className={styles.button}
+        />
+        <FileUploader
+          type="AUDIO"
+          isDisabled={audioUrl != null}
+          onClickFile={onClickMic}
+          className={styles.button}
+        />
       </div>
     </div>
   );
