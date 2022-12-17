@@ -8,6 +8,7 @@ const RoutePath = {
   activeUser: "/active",
   communityHome: "/community/list/:category",
   communityForm: "/community/form",
+  communityEdit: "/community/:communityId/edit",
   communityComment: "/community/:communityId/comments",
   communityDetail: "/community/:communityId",
   mypage: "/mypage/:tab",
