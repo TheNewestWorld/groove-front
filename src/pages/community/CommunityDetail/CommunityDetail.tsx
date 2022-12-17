@@ -14,7 +14,7 @@ const CommunityDetail = () => {
     },
     {
       enabled: !!communityId,
-    }
+    },
   );
 
   const navigation = useNavigate();
@@ -31,21 +31,17 @@ const CommunityDetail = () => {
     <>
       {
         <CommunityDetailView
-          title={post.title}
-          profileImage={post.profileUri}
-          nickname={post.nickName}
-          date={new Date(post.createdAt)}
+          title={post.title!}
+          profileImage={post.profileUri!}
+          nickname={post.nickName!}
+          date={new Date(post.createdAt!)}
           onClickProfile={() => {}}
-          content={post.content}
-          imageList={post.attachmentUris.filter(
-            (file) => file.type === "IMAGE"
-          )}
-          audio={
-            post.attachmentUris.filter((file) => file.type === "RECORD")[0]
-          }
-          likeCount={post.likeCount}
+          content={post.content!}
+          imageList={post.imageList}
+          audio={post.audio!}
+          likeCount={post.likeCount!}
           liked={post.likeFlag}
-          commentCount={post.commentCount}
+          commentCount={post.commentCount!}
           hasAuthority={post.authority}
           onClickBack={() => {
             navigation(-1);
