@@ -30,41 +30,37 @@ const CommunityDetail = () => {
   }
 
   return (
-    <>
-      {
-        <CommunityDetailView
-          community={{
-            id: Number(communityId),
-            title: post.title!,
-            profileImage: post.profileUri!,
-            nickname: post.nickName!,
-            date: new Date(post.createdAt!),
-            content: post.content!,
-            imageList: post.imageList,
-            audio: post.audio!,
-            likeCount: post.likeCount!,
-            liked: post.likeFlag,
-            commentCount: post.commentCount!,
-            hasAuthority: post.authority,
-          }}
-          onClickBack={() => navigation(-1)}
-          onClickModify={() => {}}
-          onClickDelete={() => {
-            deletePost({ postId: Number(communityId) });
-            navigation(-1);
-          }}
-          onClickReport={() => {}}
-          onClickLike={(postId) => {
-            post.likeFlag
-              ? setCommunityDislike({ postId }).then(() => refetch())
-              : setCommunityLike({ postId }).then(() => refetch());
-          }}
-          goToCommentList={(id) =>
-            navigation(BuildPaths.communityComment(id.toString()))
-          }
-        />
+    <CommunityDetailView
+      community={{
+        id: Number(communityId),
+        title: post.title!,
+        profileImage: post.profileUri!,
+        nickname: post.nickName!,
+        date: new Date(post.createdAt!),
+        content: post.content!,
+        imageList: post.imageList,
+        audio: post.audio!,
+        likeCount: post.likeCount!,
+        liked: post.likeFlag,
+        commentCount: post.commentCount!,
+        hasAuthority: post.authority,
+      }}
+      onClickBack={() => navigation(-1)}
+      onClickModify={() => {}}
+      onClickDelete={() => {
+        deletePost({ postId: Number(communityId) });
+        navigation(-1);
+      }}
+      onClickReport={() => {}}
+      onClickLike={(postId) => {
+        post.likeFlag
+          ? setCommunityDislike({ postId }).then(() => refetch())
+          : setCommunityLike({ postId }).then(() => refetch());
+      }}
+      goToCommentList={(id) =>
+        navigation(BuildPaths.communityComment(id.toString()))
       }
-    </>
+    />
   );
 };
 

@@ -22,3 +22,11 @@
   bottom: 0;
   background-color: white;
 }
+
+.dialogButton{
+  width: calc((100% - 13px) / 2);
+
+  &:not(:first-of-type){
+    margin-left: 13px;
+  }
+}
