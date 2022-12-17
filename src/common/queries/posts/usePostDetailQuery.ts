@@ -10,13 +10,17 @@ const usePostDetailQuery = (
   { postId }: QueryProps,
   options?: UseQueryOptions<GetPostDetailResponse>,
 ) => {
-  const { isLoading, isError, data } = useQuery<GetPostDetailResponse>(
+  const {
+    isLoading,
+    isError,
+    data: post,
+  } = useQuery<GetPostDetailResponse>(
     ["getPostDetail", postId],
     () => getPostDetail({ postId }),
     options,
   );
 
-  return { isLoading, isError, post:data};
+  return { isLoading, isError, post };
 };
 
 export default usePostDetailQuery;

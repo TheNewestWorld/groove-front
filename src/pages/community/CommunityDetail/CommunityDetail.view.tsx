@@ -8,7 +8,7 @@ import ContentBody from "../../../components/ContentBody";
 import CommunityFooter from "../../../components/CommunityFooter";
 import BottomSheetList from "../../../components/BottomSheetList";
 import ImageDetailView from "../../ImageDetail";
-import { listenerCount } from "process";
+import { useState } from "react";
 
 export interface Props {
   title: string;
@@ -19,8 +19,6 @@ export interface Props {
   content: string;
   imageList?: { src: string; id: number; type: string }[];
   audio: { title: string; src: string; id: number };
-  onClickImage?: (id: number) => void;
-  onClickMore?: () => void;
   likeCount: number;
   liked?: boolean;
   commentCount: number;
@@ -29,9 +27,6 @@ export interface Props {
   isOpenOption?: boolean;
   hasAuthority?: boolean;
   onCloseOption: () => void;
-  isOpenImage?: boolean;
-  onCloseImage: () => void;
-  imageId: number;
   onClickModify: () => void;
   onClickDelete: () => void;
   onClickReport: () => void;
@@ -46,8 +41,6 @@ const CommunityDetailView = ({
   content,
   imageList,
   audio,
-  onClickImage,
-  onClickMore,
   likeCount,
   liked,
   commentCount,
@@ -56,13 +49,13 @@ const CommunityDetailView = ({
   isOpenOption = false,
   hasAuthority = false,
   onCloseOption,
-  isOpenImage = false,
-  onCloseImage,
-  imageId,
   onClickModify,
   onClickDelete,
   onClickReport,
 }: Props) => {
+  const [isOpenImage, openImage] = useState<boolean>(false);
+  const [imageId, setImageId] = useState<number>(0);
+
   return (
     <div className={styles.container}>
       <Header
@@ -85,8 +78,15 @@ const CommunityDetailView = ({
         content={content}
         imageList={imageList}
         audio={audio}
-        onClickImage={onClickImage}
-        onClickMore={onClickMore}
+        onClickImage={(id: number) => {
+          openImage(true);
+          setImageId(id);
+        }}
+        onClickMore={() => {
+          openImage(true);
+          // TODO(in.heo): Remove hard-code
+          setImageId(4);
+        }}
       />
       <CommunityFooter
         likeCount={likeCount}
@@ -119,7 +119,7 @@ const CommunityDetailView = ({
           className={styles.imageDetail}
           imageList={imageList}
           imageIndex={imageId}
-          onClickClose={onCloseImage}
+          onClickClose={() => openImage(false)}
         />
       )}
     </div>

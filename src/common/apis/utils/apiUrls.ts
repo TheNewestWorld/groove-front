@@ -36,12 +36,12 @@ export const apiUrls = {
     getWrittenPostList: () => `${BASE_URL}/users/self/posts`,
     getLikedPostList: () => `${BASE_URL}/users/self/liked-posts`,
   },
-  // comment: {
-  //   getCommentList: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-  //   postComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-  //   modifyComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
-  //   deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
-  // },
+  comment: {
+    getCommentList: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
+    postComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
+    updateComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
+    deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
+  },
   post: {
     getPostDetail: (postId: number) => `${BASE_URL}/community/post/${postId}`,
     getPostListByCategory: () => `${BASE_URL}/community/post/category`,
