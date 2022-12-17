@@ -46,7 +46,7 @@ const CommunityDetail = () => {
         hasAuthority: post.authority,
       }}
       onClickBack={() => navigation(-1)}
-      onClickModify={() => {}}
+      onClickModify={() => navigation(BuildPaths.communityEdit(communityId))}
       onClickDelete={() => {
         deletePost({ postId: Number(communityId) });
         navigation(-1);
