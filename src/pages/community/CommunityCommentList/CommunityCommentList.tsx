@@ -13,7 +13,7 @@ const CommunityCommentList = () => {
   const [optionStatus, setOptionStatus] =
     useState<{
       commentId: number;
-      authority: boolean;
+      canEdit: boolean;
     } | null>(null);
 
   const { isLoading, isError, commentList } = useCommentListQuery({
@@ -60,7 +60,7 @@ const CommunityCommentList = () => {
       onClickOption={(commentId: number, hasAuthority: boolean) => {
         setOptionStatus({
           commentId,
-          authority: hasAuthority,
+          canEdit: hasAuthority,
         });
       }}
       onCloseOption={() => {

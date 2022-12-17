@@ -24,7 +24,7 @@ export interface Props {
   }[];
   optionStatus: {
     commentId: number;
-    authority: boolean;
+    canEdit: boolean;
   } | null;
   onClose: () => void;
   onSubmitComment: (comment: string, parentId?: number) => void;
@@ -50,7 +50,7 @@ const CommunityCommentListView = ({
   onCloseOption,
   onClickUserProfile,
 }: Props) => {
-  const [isOpenOption, setIsOpenOption] = useState<Boolean>(false);
+  const [isOpenOption, setOpenOption] = useState<Boolean>(false);
 
   return (
     <div className={styles.container}>
@@ -64,7 +64,7 @@ const CommunityCommentListView = ({
             onClickUserProfile={onClickUserProfile}
             onClickReply={onClickReply}
             onClickOption={(comemntId: number, hasAuthority: boolean) => {
-              setIsOpenOption(true);
+              setOpenOption(true);
               onClickOption(comemntId, hasAuthority);
             }}
           />
@@ -73,7 +73,7 @@ const CommunityCommentListView = ({
       <CommunityCommentInput onSubmitComment={onSubmitComment} />
       {optionStatus &&
         isOpenOption &&
-        (optionStatus.authority ? (
+        (optionStatus.canEdit ? (
           <BottomSheetList
             hasCloseButton={true}
             list={["수정하기", "삭제하기"]}
@@ -85,7 +85,7 @@ const CommunityCommentListView = ({
               }
             }}
             onClose={() => {
-              setIsOpenOption(false);
+              setOpenOption(false);
               onCloseOption();
             }}
           />
@@ -97,7 +97,7 @@ const CommunityCommentListView = ({
               onClickReportOption(optionStatus!.commentId);
             }}
             onClose={() => {
-              setIsOpenOption(false);
+              setOpenOption(false);
               onCloseOption();
             }}
           />

@@ -15,19 +15,20 @@ const useCommentListQuery = (
     options,
   );
 
-  const commentList =
-    data &&
-    data
-      .filter(comment => comment.id === comment.parentId)
-      .map(comment => {
-        const replies = data.filter(reply => reply.id === comment.id);
-        return {
-          comment: comment,
-          replies: replies,
-        };
-      });
-
-  return { isLoading, isError, commentList };
+  return {
+    isLoading,
+    isError,
+    commentList:
+      data
+        ?.filter(comment => comment.id === comment.parentId)
+        .map(comment => {
+          const replies = data.filter(reply => reply.id === comment.id);
+          return {
+            comment: comment,
+            replies: replies,
+          };
+        }) ?? [],
+  };
 };
 
 export default useCommentListQuery;
