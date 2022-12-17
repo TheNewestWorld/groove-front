@@ -11,11 +11,14 @@ export type PostPostBody = {
 
 export const postPost = (body: PostPostBody) => {
   const frm = new FormData();
-  frm.append("title", body.title);
-  frm.append("content", body.content);
-  frm.append("categoryId", body.categoryId.toString());
-  // key(attachment) 값 확인 필요
-  body.attachments.map((file) => frm.append("attachment", file));
+  const json = {
+    title: body.title,
+    content: body.content,
+    categoryId: body.categoryId
+  }
+  const blob = new Blob([JSON.stringify(json)], { type: "application/json" });
+  frm.append("request", blob);
+  body.attachments.map(file => frm.append("attachments", file));
 
   return resultData<null>(axios.post(apiUrls.post.postPost(), frm, {
     headers: {
@@ -23,7 +26,3 @@ export const postPost = (body: PostPostBody) => {
     }
   }));
 };
-
-// 객체하나 만들어서 append를 붙여서 바디로 
-// 타입이 특수화된것이 있고 거기에 데이터 넣을 떄 append()
-// 이거 mock을 짜야댐
