@@ -75,7 +75,7 @@ const CommunityDetailView = ({
         audio={audio}
         onClickImage={(id: number) => {
           openImage(true);
-          setImageId(id);
+          setImageId(imageList!.findIndex(image => image.id === id));
         }}
         onClickMore={() => {
           openImage(true);
