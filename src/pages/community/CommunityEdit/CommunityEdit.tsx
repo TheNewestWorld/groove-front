@@ -50,9 +50,6 @@ const CommunityEdit = () => {
         onClickCreate={function (): void {
           throw new Error("Function not implemented.");
         }}
-        onClickClose={function (): void {
-          throw new Error("Function not implemented.");
-        }}
         onChangeCategory={function (category: string): void {
           throw new Error("Function not implemented.");
         }}
