@@ -48,7 +48,7 @@
 
 .search__input{display:flex;justify-content:space-between;padding:0px 20px}.search__input__container{flex-grow:1;display:flex;margin-right:20px;font-size:15px;border-radius:20px;border:1px solid #EBEBEB;padding:10px}.search__input__container>input{border:none;flex-grow:1}.search__input__container>input:focus{outline:none}.search__input__container>input::-webkit-input-placeholder{color:#8B95A1}.search__input__container>input::placeholder{color:#8B95A1}.search__input__icon{width:20px;margin-right:12px}.search__input>button{font-size:16px;border:0;outline:0;background-color:transparent;padding:0px;width:32px}
 
-.SelectCategory_container__QrpqF{display:flex;justify-content:space-between}.SelectCategory_category__z2lBR{background-color:#F2F4F5;color:#8B95A1;border-radius:10px;padding:16px 24px 16px 14px}.SelectCategory_category__active__gZdVt{display:flex;font-weight:bold;width:inherit}.SelectCategory_category__active__icon__zPMdT{width:10px;margin-left:5px}
+.SelectCategory_container__QrpqF{display:flex;justify-content:space-between}.SelectCategory_category__z2lBR{display:flex;font-weight:bold;width:inherit;background-color:#F2F4F5;color:#8B95A1;border-radius:10px;padding:16px 24px 16px 14px}.SelectCategory_icon__SVk8z{width:10px;margin-left:5px}.SelectCategory_active__3iirs{color:#191F28}
 
 .SettingList_item__CzO4u{margin-bottom:10px;background:#F6F7FA;border-radius:18px;display:flex;justify-content:space-between;padding:20px}.SettingList_titleSection__SLs\+R{display:flex;align-items:center}.SettingList_title__a7iEn{margin-right:8px;font-weight:600;font-size:16px;color:#191F28}.SettingList_content__qvPOF{margin-top:5px;font-weight:400;font-size:14px;color:#191F28}.SettingList_description__DmJLF{font-weight:400;font-size:12px;color:#8B95A1}.SettingList_arrow__\+TmsB{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
 
@@ -155,4 +155,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.3225805e.css.map*/
+/*# sourceMappingURL=main.45f5ef0c.css.map*/
