@@ -23,10 +23,7 @@ export interface Props {
   liked?: boolean;
   commentCount: number;
   onClickBack?: () => void;
-  onClickOption?: () => void;
-  isOpenOption?: boolean;
   hasAuthority?: boolean;
-  onCloseOption: () => void;
   onClickModify: () => void;
   onClickDelete: () => void;
   onClickReport: () => void;
@@ -45,16 +42,14 @@ const CommunityDetailView = ({
   liked,
   commentCount,
   onClickBack,
-  onClickOption,
-  isOpenOption = false,
   hasAuthority = false,
-  onCloseOption,
   onClickModify,
   onClickDelete,
   onClickReport,
 }: Props) => {
   const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageId, setImageId] = useState<number>(0);
+  const [isOpenOption, openOption] = useState<boolean>(false);
 
   return (
     <div className={styles.container}>
@@ -63,7 +58,7 @@ const CommunityDetailView = ({
         left={<ArrowTailIcon />}
         right={<SmallDotsIcon />}
         onClickLeft={onClickBack}
-        onClickRight={onClickOption}
+        onClickRight={() => openOption(true)}
       />
       <ContentHeader
         className={styles.header}
@@ -98,7 +93,7 @@ const CommunityDetailView = ({
         (hasAuthority ? (
           <BottomSheetList
             list={["수정하기", "삭제하기"]}
-            onClose={onCloseOption}
+            onClose={() => openOption(false)}
             onClick={(value: string) => {
               value === "수정하기" ? onClickModify() : onClickDelete();
             }}
@@ -107,7 +102,7 @@ const CommunityDetailView = ({
           <BottomSheetList
             list={["신고하기"]}
             activeItem="신고하기"
-            onClose={onCloseOption}
+            onClose={() => openOption(false)}
             onClick={(value: string) => {
               onClickReport();
             }}
