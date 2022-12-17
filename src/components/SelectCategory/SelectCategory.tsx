@@ -31,11 +31,11 @@ const SelectCategory = ({
           className,
           styles.container,
           styles.category,
-          activeCategory !== "" && styles.category__active,
+          activeCategory !== "" && styles.active,
         ])}
         onClick={onOpen}>
         {activeCategory === "" ? placeholder : activeCategory}
-        <SelectIcon className={styles.category__icon} />
+        <SelectIcon className={styles.icon} />
       </div>
       {isOpen && (
         <BottomSheetList
