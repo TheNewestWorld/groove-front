@@ -5,6 +5,8 @@ import SearchInput from "../../../../components/SearchInput";
 import styles from "./SearchEntry.module.scss";
 
 export interface Props {
+  keyword: string;
+  setKeyword: (keyword: string) => void;
   list: { title: string; type: "tag" | "line"; itemList: string[] }[];
   deleteItem: (value: string) => void;
   onClickCancle: () => void;
@@ -12,13 +14,20 @@ export interface Props {
 }
 
 const SearchEntry = ({
+  keyword,
+  setKeyword,
   list,
   deleteItem,
   onClickCancle,
   onSubmitSearch,
 }: Props) => {
   return (
-    <SearchInput onClickCancle={onClickCancle} onSubmitSearch={onSubmitSearch}>
+    <SearchInput
+      keyword={keyword}
+      setKeyword={setKeyword}
+      onClickCancle={onClickCancle}
+      onSubmitSearch={onSubmitSearch}
+    >
       {list.map(({ title, type, itemList }) => (
         <div className={styles.list} key={title}>
           <div className={styles.title}>{title}</div>

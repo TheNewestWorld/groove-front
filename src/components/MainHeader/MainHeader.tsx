@@ -14,6 +14,7 @@ export interface Props {
   onTitleClick?: () => void;
   onSearchClick?: () => void;
   onAlarmClick?: () => void;
+  onProfileClick?: () => void;
 }
 
 const MainHeader = ({
@@ -23,6 +24,7 @@ const MainHeader = ({
   onTitleClick,
   onSearchClick,
   onAlarmClick,
+  onProfileClick,
 }: Props) => {
   return (
     <div className={classnames([styles.container, className])}>
@@ -32,10 +34,15 @@ const MainHeader = ({
         <Notification
           className={styles.alarm}
           hasNotification={hasNotification}
-          onClick={onAlarmClick}>
+          onClick={onAlarmClick}
+        >
           <AlarmIcon />
         </Notification>
-        <CircleImage className={styles.userImage} src={userImageSrc} />
+        <CircleImage
+          className={styles.userImage}
+          src={userImageSrc}
+          onClick={onProfileClick}
+        />
       </div>
     </div>
   );

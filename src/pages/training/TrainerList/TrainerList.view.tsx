@@ -8,7 +8,6 @@ import TrainerItem, {
   Props as TrainerItemView,
 } from "../../../components/TrainerItem";
 import Navigation from "../../../components/Navigation";
-import MainHeader from "../../../components/MainHeader";
 
 export interface Props {
   userImageSrc: string;
@@ -17,15 +16,9 @@ export interface Props {
   trainerItems: TrainerItemView[];
 }
 
-const TrainerListView = ({
-  userImageSrc,
-  tabList,
-  topDownFilter,
-  trainerItems,
-}: Props) => {
+const TrainerListView = ({ tabList, topDownFilter, trainerItems }: Props) => {
   return (
     <div className={styles.container}>
-      <MainHeader className={styles.mainHeader} userImageSrc={userImageSrc} />
       <TabList className={styles.tabList} {...tabList} />
       <TopDownFilter className={styles.topDownFilter} {...topDownFilter} />
       <div className={styles.trainerItemContainer}>

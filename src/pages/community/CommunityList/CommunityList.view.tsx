@@ -7,42 +7,42 @@ import styles from "./CommunityList.module.scss";
 
 export interface Props {
   isLoading: boolean;
-  activeFilter: string;
-  filterList: string[];
-  activeTab: string;
-  tabList: string[];
+  activeSort: string;
+  sortList: string[];
+  activeCategory: string;
+  categoryList: string[];
   communityList: CommunityItemView[];
   isEmpty: boolean;
-  onChangeFilter: (filter: string) => void;
-  onClickTab: (tab: string) => void;
+  onChangeSortType: (filter: string) => void;
+  onChangeCategory: (tab: string) => void;
   onClickItem: (id: number) => void;
 }
 
 const CommunityListView = ({
   isLoading,
-  activeFilter,
-  filterList,
-  activeTab,
-  tabList,
+  activeSort,
+  sortList,
+  activeCategory,
+  categoryList,
   communityList,
   isEmpty,
-  onChangeFilter,
-  onClickTab,
+  onChangeSortType,
+  onChangeCategory,
   onClickItem,
 }: Props) => {
   return (
     <div className={styles.container}>
       <TabList
         type="round"
-        activeTab={activeTab}
-        tabList={tabList}
-        onClickTab={onClickTab}
+        activeTab={activeCategory}
+        tabList={categoryList}
+        onClickTab={onChangeCategory}
       />
       <TopDownFilter
         className={styles.filter}
-        activeFilter={activeFilter}
-        filterList={filterList}
-        onClickFilter={onChangeFilter}
+        activeFilter={activeSort}
+        filterList={sortList}
+        onClickFilter={onChangeSortType}
       />
       {isLoading ? (
         // TODO(in.heo): 로딩 화면 추가

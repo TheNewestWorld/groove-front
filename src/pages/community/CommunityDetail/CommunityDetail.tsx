@@ -1,19 +1,23 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { deletePost } from "../../../common/apis/post";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
 import CommunityDetailView from "./CommunityDetail.view";
 
 const CommunityDetail = () => {
-  // TODO(in.heo): path에 따라서 postId 변환 및 path 변환
-  const [postId, setPostId] = useState<number>(0);
+  const { communityId } = useParams<{ communityId: string }>();
   const [isOpenOption, openOption] = useState<boolean>(false);
   const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageId, setImageId] = useState<number>(0);
 
-  const { isLoading, isError, post } = usePostDetailQuery({
-    postId: postId,
-  });
+  const { isLoading, isError, post } = usePostDetailQuery(
+    {
+      postId: Number(communityId),
+    },
+    {
+      enabled: !!communityId,
+    }
+  );
 
   const navigation = useNavigate();
 
@@ -21,7 +25,7 @@ const CommunityDetail = () => {
     return <div>로딩 화면 추가</div>;
   }
 
-  if (isError) {
+  if (isError || !communityId) {
     return <div>에러 화면 추가</div>;
   }
 
@@ -35,8 +39,12 @@ const CommunityDetail = () => {
           date={new Date(post.createdAt)}
           onClickProfile={() => {}}
           content={post.content}
-          imageList={post.attachmentUris.filter(file => file.type === "IMAGE")}
-          audio={post.attachmentUris.filter(file => file.type === "RECORD")[0]}
+          imageList={post.attachmentUris.filter(
+            (file) => file.type === "IMAGE"
+          )}
+          audio={
+            post.attachmentUris.filter((file) => file.type === "RECORD")[0]
+          }
           onClickImage={(id: number) => {
             openImage(true);
             setImageId(id);
@@ -65,10 +73,9 @@ const CommunityDetail = () => {
           onCloseImage={() => {
             openImage(false);
           }}
-          onClickModify={() => {
-          }}
+          onClickModify={() => {}}
           onClickDelete={() => {
-            deletePost({postId});
+            deletePost({ postId: Number(communityId) });
             navigation(-1);
           }}
           onClickReport={() => {}}

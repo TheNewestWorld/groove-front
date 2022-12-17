@@ -1,5 +1,9 @@
 const TrainerList = () => {
-  return <></>;
+  return (
+    <>
+      {/* <MainHeader className={styles.mainHeader} userImageSrc={userImageSrc} /> */}
+    </>
+  );
 };
 
 export default TrainerList;

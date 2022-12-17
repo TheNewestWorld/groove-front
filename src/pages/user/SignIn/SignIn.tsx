@@ -38,9 +38,11 @@ const SignIn = () => {
             profile: profileUri,
           },
         });
-        // TODO: 전체 게시물 탭으로 보내는지 확인
-        // navigation(BuildPaths.communityHome("0"));
-        navigation(BuildPaths.mypage("RECORD"));
+        
+        localStorage.setItem("name", nickname);
+        localStorage.setItem("profile", profileUri);
+
+        navigation(BuildPaths.communityHome("전체 게시물"));
       })
       .catch((error) => {
         alert(error.message);

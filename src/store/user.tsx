@@ -1,6 +1,15 @@
 import React, { createContext, Dispatch, useReducer } from "react";
 
-const initialState = undefined;
+const name = localStorage.getItem("name");
+const profile = localStorage.getItem("profile");
+
+const initialState =
+  name && profile
+    ? {
+        name,
+        profile,
+      }
+    : undefined;
 
 export type UserState =
   | {
