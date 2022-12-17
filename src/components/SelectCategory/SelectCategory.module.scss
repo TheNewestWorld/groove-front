@@ -5,19 +5,20 @@
 }
 
 .category {
+  display: flex;
+  font-weight: bold;
+  width: inherit;
   background-color: $black-F2;
   color: $black-8B;
   border-radius: 10px;
   padding: 16px 24px 16px 14px;
 
+  &__icon{
+    width: 10px;
+    margin-left: 5px;
+  }
+
   &__active {
-    display: flex;
-    font-weight: bold;
-    width: inherit;
-    
-    &__icon{
-      width: 10px;
-      margin-left: 5px;
-    }
+    color: $black-19;
   }
 }

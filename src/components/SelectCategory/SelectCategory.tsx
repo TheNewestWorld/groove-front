@@ -25,10 +25,17 @@ const SelectCategory = ({
 }: Props) => {
   const { isOpen, onOpen, onClose } = useOpen();
   return (
-    <div>
-      <div className={classNames([className, styles.container, styles.category, styles.category__active])} onClick={onOpen}>
+    <>
+      <div
+        className={classNames([
+          className,
+          styles.container,
+          styles.category,
+          activeCategory !== "" && styles.category__active,
+        ])}
+        onClick={onOpen}>
         {activeCategory === "" ? placeholder : activeCategory}
-        <SelectIcon className={styles.category__active__icon} />
+        <SelectIcon className={styles.category__icon} />
       </div>
       {isOpen && (
         <BottomSheetList
@@ -40,7 +47,7 @@ const SelectCategory = ({
           onClose={onClose}
         />
       )}
-    </div>
+    </>
   );
 };
 
