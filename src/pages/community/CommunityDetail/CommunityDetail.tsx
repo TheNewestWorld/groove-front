@@ -1,4 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  setCommunityDislike,
+  setCommunityLike,
+} from "../../../common/apis/like";
 import { deletePost } from "../../../common/apis/post";
 import BuildPaths from "../../../common/paths";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
@@ -8,7 +12,7 @@ const CommunityDetail = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { isLoading, isError, post } = usePostDetailQuery(
+  const { isLoading, isError, post, refetch } = usePostDetailQuery(
     {
       postId: Number(communityId),
     },
@@ -43,16 +47,18 @@ const CommunityDetail = () => {
             commentCount: post.commentCount!,
             hasAuthority: post.authority,
           }}
-          onClickBack={() => {
-            navigation(-1);
-          }}
+          onClickBack={() => navigation(-1)}
           onClickModify={() => {}}
           onClickDelete={() => {
             deletePost({ postId: Number(communityId) });
             navigation(-1);
           }}
           onClickReport={() => {}}
-          onClickLike={(id) => {}}
+          onClickLike={(postId) => {
+            post.likeFlag
+              ? setCommunityDislike({ postId }).then(() => refetch())
+              : setCommunityLike({ postId }).then(() => refetch());
+          }}
           goToCommentList={(id) =>
             navigation(BuildPaths.communityComment(id.toString()))
           }

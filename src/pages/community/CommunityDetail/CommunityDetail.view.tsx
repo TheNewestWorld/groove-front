@@ -114,7 +114,7 @@ const CommunityDetailView = ({
             list={["신고하기"]}
             activeItem="신고하기"
             onClose={() => openOption(false)}
-            onClick={(value: string) => {
+            onClick={() => {
               onClickReport();
             }}
           />
