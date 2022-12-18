@@ -4,6 +4,7 @@ import {
   setCommunityLike,
 } from "../../../common/apis/like";
 import { deletePost } from "../../../common/apis/post";
+import { postReport } from "../../../common/apis/reports";
 import BuildPaths from "../../../common/paths";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
 import CommunityDetailView from "./CommunityDetail.view";
@@ -51,7 +52,18 @@ const CommunityDetail = () => {
         deletePost({ postId: Number(communityId) });
         navigation(-1);
       }}
-      onClickReport={() => {}}
+      onClickReport={(
+        reason:
+          | "HARSH_PROFANITY"
+          | "FALSE_INFORMATION"
+          | "INAPPROPRIATE_CONTENT"
+      ) => {
+        postReport({
+          postId: Number(communityId),
+          reportTargetType: "POST",
+          reportReasonType: reason,
+        });
+      }}
       onClickLike={(postId) => {
         post.likeFlag
           ? setCommunityDislike({ postId }).then(() => refetch())

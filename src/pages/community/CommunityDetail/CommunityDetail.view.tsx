@@ -12,6 +12,24 @@ import { useState } from "react";
 import Dialog from "../../../components/Dialog";
 import RoundButton from "../../../components/RoundButton";
 
+const reportReason: {
+  label: string;
+  key: "HARSH_PROFANITY" | "FALSE_INFORMATION" | "INAPPROPRIATE_CONTENT";
+}[] = [
+  {
+    label: "거친 욕설을 사용했어요.",
+    key: "HARSH_PROFANITY",
+  },
+
+  {
+    label: "거짓 정보를 담고있어요.",
+    key: "FALSE_INFORMATION",
+  },
+  {
+    label: "음란한 내용을 담고있어요.",
+    key: "INAPPROPRIATE_CONTENT",
+  },
+];
 export interface Props {
   community: {
     id: number;
@@ -30,7 +48,9 @@ export interface Props {
   onClickBack?: () => void;
   onClickModify: () => void;
   onClickDelete: () => void;
-  onClickReport: () => void;
+  onClickReport: (
+    reason: "HARSH_PROFANITY" | "FALSE_INFORMATION" | "INAPPROPRIATE_CONTENT"
+  ) => void;
   onClickLike: (id: number) => void;
   goToCommentList: (id: number) => void;
 }
@@ -48,6 +68,7 @@ const CommunityDetailView = ({
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [isOpenOption, openOption] = useState<boolean>(false);
   const [showDeleteDialog, setDeleteDialog] = useState<boolean>(false);
+  const [showReportOption, setReportOption] = useState<boolean>(false);
 
   const {
     id,
@@ -119,10 +140,25 @@ const CommunityDetailView = ({
               activeItem="신고하기"
               onClose={() => openOption(false)}
               onClick={() => {
-                onClickReport();
+                openOption(false);
+                setReportOption(true);
               }}
             />
           ))}
+
+        {showReportOption && (
+          <BottomSheetList
+            title="신고 사유를 알려주세요."
+            list={reportReason.map(({ label }) => label)}
+            onClose={() => setReportOption(false)}
+            onClick={(value: string) => {
+              onClickReport(
+                reportReason.filter(({ label }) => label === value)[0].key
+              );
+              setReportOption(false);
+            }}
+          />
+        )}
 
         {isOpenImage && imageList && (
           <ImageDetailView
