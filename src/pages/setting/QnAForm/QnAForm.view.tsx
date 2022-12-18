@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowIcon, CameraIcon } from "../../../assets/icon";
 import Header from "../../../components/Header";
 import RoundButton from "../../../components/RoundButton";
@@ -16,14 +16,10 @@ export type QnAContents = {
 export interface Props {
   onSubmit: (form: QnAContents) => void;
   goToBack: () => void;
-  imageList?: { src: string, id: number }[];
+  imageList?: { src: string; id: number }[];
 }
 
-const QnAFormView = ({
-  onSubmit,
-  goToBack,
-  imageList = [],
-}: Props) => {
+const QnAFormView = ({ onSubmit, goToBack, imageList = [] }: Props) => {
   const attachImage = useRef<HTMLInputElement>(null);
   const [attachImageUrl, setAttachImageUrl] = useState<string | null>(null);
   const [form, setForm] = useState<QnAContents>({
@@ -32,7 +28,7 @@ const QnAFormView = ({
     image: null,
   });
 
-  const onChange = (e: { target: { name: any; value: any; }; }) => {
+  const onChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
 
     setForm({ ...form, [name]: value });
@@ -40,11 +36,7 @@ const QnAFormView = ({
 
   return (
     <>
-      <Header
-        title="문의하기"
-        left={<ArrowIcon />}
-        onClickLeft={goToBack}
-      />
+      <Header title="문의하기" left={<ArrowIcon />} onClickLeft={goToBack} />
       <div className={styles.container}>
         <Input
           label="제목"
@@ -72,10 +64,13 @@ const QnAFormView = ({
               reader.onloadend = () => {
                 const attachImageUrl = reader.result?.toString();
                 attachImageUrl && setAttachImageUrl(attachImageUrl);
-                attachImageUrl && (imageList[0] = { src: attachImageUrl, id: 0 });
+                attachImageUrl &&
+                  (imageList[0] = { src: attachImageUrl, id: 0 });
               };
               reader.readAsDataURL(file);
+              e.target.value = "";
               form.image = file;
+              setForm(form);
             }
           }}
           ref={attachImage}
@@ -86,20 +81,22 @@ const QnAFormView = ({
           shadow
           className={styles.photoButton}
         />
-        {attachImageUrl &&
+        {attachImageUrl && (
           <ImageList
             className={styles.photo}
             maxCount={1}
             imageList={imageList}
             canDelete
-            onClickDelete={() => { setAttachImageUrl(""); form.image = null }}
+            onClickDelete={() => {
+              setAttachImageUrl(null);
+              setForm({ ...form, image: null });
+            }}
           />
-        }
+        )}
         <RoundButton
           colorTheme="dark"
           onClick={() => onSubmit(form)}
-          disabled={form.title.length === 0 || form.content.length === 0}
-        >
+          disabled={form.title.length === 0 || form.content.length === 0}>
           등록하기
         </RoundButton>
       </div>
