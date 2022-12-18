@@ -84,7 +84,7 @@ const CommunityList = () => {
           icon={
             <PencilIcon
               onClick={() => {
-                navigation(BuildPaths.communityForm());
+                navigation(BuildPaths.communityNew());
               }}
             />
           }

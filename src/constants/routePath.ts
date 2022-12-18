@@ -7,7 +7,7 @@ const RoutePath = {
   resetPassword: "/reset-password",
   activeUser: "/active",
   communityHome: "/community/list/:category",
-  communityForm: "/community/form",
+  communityNew: "/community/new",
   communityEdit: "/community/:communityId/edit",
   communityComment: "/community/:communityId/comments",
   communityDetail: "/community/:communityId",

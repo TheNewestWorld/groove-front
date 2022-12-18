@@ -1,22 +1,22 @@
-import { ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
-import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
+import { updatePost } from "../../../common/apis/post";
 import Header from "../../../components/Header";
 import CommunityFormView from "../CommunityForm/CommunityForm.view";
+import useCommunityEdit from "./hooks/useCommunityEdit";
 
 const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { isLoading, isError, post } = usePostDetailQuery(
-    {
-      postId: Number(communityId),
-    },
-    {
-      enabled: !!communityId,
-    }
-  );
+  const { isLoading, categoryList, community } = useCommunityEdit({
+    communityId: Number(communityId),
+  });
+
+  if (isLoading || !community) {
+    // TOOD
+    return <>LOADING...</>;
+  }
 
   return (
     <>
@@ -26,35 +26,18 @@ const CommunityEdit = () => {
         onClickLeft={() => navigation(-1)}
       />
       <CommunityFormView
-        categoryList={[]}
-        isDisabledButton={false}
-        data={{
-          title: "",
-          content: "",
-        }}
-        selectedCategory={""}
-        onDeleteAudio={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onDeleteImage={function (id: number): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickCreate={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onChangeCategory={function (category: string): void {
-          throw new Error("Function not implemented.");
-        }}
-        onChange={function (
-          e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-        ): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickCamera={function (image: File): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickMic={function (audio: File): void {
-          throw new Error("Function not implemented.");
+        categoryList={categoryList}
+        data={community}
+        onSubmit={(form) => {
+          updatePost(
+            { postId: Number(communityId) },
+            {
+              title: form.title,
+              content: form.content,
+              categoryId: form.categoryId,
+              attachments: form.imageFiles.concat(form.audioFile!),
+            }
+          ).then(() => navigation(-1));
         }}
       />
     </>

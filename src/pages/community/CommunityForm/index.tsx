@@ -1,1 +1,1 @@
-export { default } from "./CommunityForm";
+export { default } from "./CommunityForm.view";

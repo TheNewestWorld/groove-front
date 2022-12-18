@@ -28,7 +28,7 @@ const FileUploader = ({
             ? "image/jpg,image/png,image/jpeg,image/gif"
             : "audio/*"
         }
-        onChange={e => {
+        onChange={(e) => {
           if (e.target.files && e.target.files[0]) {
             const file = e.target.files[0];
             const reader = new FileReader();
@@ -44,8 +44,9 @@ const FileUploader = ({
       />
       <div
         className={classNames([className])}
-        onClick={() => fileInput.current?.click()}>
-        {type === "IMAGE" ? <CameraIcon /> : isDisabledMic && <MicIcon />}
+        onClick={() => fileInput.current?.click()}
+      >
+        {type === "IMAGE" ? <CameraIcon /> : !isDisabledMic && <MicIcon />}
       </div>
     </>
   );

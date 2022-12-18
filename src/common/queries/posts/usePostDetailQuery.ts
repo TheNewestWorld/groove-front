@@ -20,27 +20,29 @@ const usePostDetailQuery = (
   return {
     isLoading,
     isError,
-    post: {
-      ...data,
-      imageList: data?.attachments
-        .filter(({ fileType }) => fileType === "POST_IMAGE")
-        .map(({ id, uri, fileType }) => {
-          return {
-            id,
-            src: uri,
-            type: fileType,
-          };
-        }),
-      audio: data?.attachments
-        .filter(({ fileType }) => fileType === "POST_RECORD")
-        .map(({ id, uri, fileName }) => {
-          return {
-            id,
-            src: uri,
-            title: fileName,
-          };
-        })[0],
-    },
+    post: data
+      ? {
+          ...data,
+          imageList: data?.attachments
+            .filter(({ fileType }) => fileType === "POST_IMAGE")
+            .map(({ id, uri, fileType }) => {
+              return {
+                id,
+                src: uri,
+                type: fileType,
+              };
+            }),
+          audio: data?.attachments
+            .filter(({ fileType }) => fileType === "POST_RECORD")
+            .map(({ id, uri, fileName }) => {
+              return {
+                id,
+                src: uri,
+                title: fileName,
+              };
+            })[0],
+        }
+      : undefined,
     ...other,
   };
 };
