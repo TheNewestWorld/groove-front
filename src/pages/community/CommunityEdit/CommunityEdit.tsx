@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
+import useCategoryListQuery from "../../../common/queries/category/useCategoryListQuery";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
 import Header from "../../../components/Header";
 import CommunityFormView from "../CommunityForm/CommunityForm.view";
@@ -9,7 +10,10 @@ const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { isLoading, isError, post } = usePostDetailQuery(
+  const { categoryList } = useCategoryListQuery({
+    categoryGroup: "COMMUNITY",
+  });
+  const { isLoading, post } = usePostDetailQuery(
     {
       postId: Number(communityId),
     },
@@ -17,6 +21,11 @@ const CommunityEdit = () => {
       enabled: !!communityId,
     }
   );
+
+  if (isLoading) {
+    // TOOD
+    return <>LOADING...</>;
+  }
 
   return (
     <>
@@ -26,36 +35,16 @@ const CommunityEdit = () => {
         onClickLeft={() => navigation(-1)}
       />
       <CommunityFormView
-        categoryList={[]}
-        isDisabledButton={false}
+        categoryList={categoryList}
         data={{
           title: "",
           content: "",
+          category: "",
+          categoryId: 0,
+          imageFiles: [],
+          audioFile: null,
         }}
-        selectedCategory={""}
-        onDeleteAudio={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onDeleteImage={function (id: number): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickCreate={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onChangeCategory={function (category: string): void {
-          throw new Error("Function not implemented.");
-        }}
-        onChange={function (
-          e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-        ): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickCamera={function (image: File): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickMic={function (audio: File): void {
-          throw new Error("Function not implemented.");
-        }}
+        onSubmit={(form) => {}}
       />
     </>
   );
