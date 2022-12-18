@@ -3,25 +3,36 @@
 .container {
   width: calc(100% - 48px);
   display: flex;
-  justify-content: space-between;
   margin-bottom: 10px;
-  align-items: center;
   padding: 14px 20px;
   background: $black-F6;
   border-radius: 18px;
   position: relative;
 }
 
+.container_open {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container_close {
+  align-items: center;
+  justify-content: space-between;
+
+}
+
 .title {
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 3px;
+  text-align: start;
 }
 
 .date {
   font-weight: 400;
   font-size: 10px;
   color: $black-8B;
+  text-align: start;
 }
 
 .length {
@@ -29,4 +40,13 @@
   font-size: 10px;
   line-height: 10px;
   color: $black-8B;
+}
+
+.icons {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  fill: $black-19;
+  z-index: 100;
 }
