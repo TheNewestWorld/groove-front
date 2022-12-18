@@ -1,6 +1,4 @@
-import { ArrowIcon } from "../../../assets/icon";
 import ContentHeader from "../../../components/ContentHeader";
-import Header from "../../../components/Header";
 import styles from "./NoticeDetail.module.scss";
 
 export interface Props {
@@ -10,7 +8,6 @@ export interface Props {
   date: Date;
   content: string;
   onClickProfile?: () => void;
-  onClose: () => void;
 }
 
 const NoticeDetailView = ({
@@ -20,11 +17,9 @@ const NoticeDetailView = ({
   date,
   content,
   onClickProfile,
-  onClose,
 }: Props) => {
   return (
     <div className={styles.container}>
-      <Header title="공지사항" left={<ArrowIcon />} onClickLeft={onClose} />
       <ContentHeader
         title={title}
         profileImage={profileImage}

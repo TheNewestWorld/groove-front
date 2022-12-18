@@ -1,10 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useNoticeDetail from "./hooks/useNoticeDetail";
 import NoticeDetailView from "./NoticeDetail.view";
+import Header from "../../../components/Header";
+import { ArrowIcon } from "../../../assets/icon";
 
 const NoticeDetail = () => {
+  const { noticeId } = useParams<{ noticeId: string }>();
+
   const navigator = useNavigate();
-  const noticeId = "";
   const { isLoading, isError, notice } = useNoticeDetail({
     noticeId: Number(noticeId),
   });
@@ -19,7 +22,16 @@ const NoticeDetail = () => {
     return <>에러 발생</>;
   }
 
-  return <NoticeDetailView onClose={() => navigator(-1)} {...notice} />;
+  return (
+    <>
+      <Header
+        title="공지사항"
+        left={<ArrowIcon />}
+        onClickLeft={() => navigator(-1)}
+      />
+      <NoticeDetailView {...notice} />
+    </>
+  );
 };
 
 export default NoticeDetail;
