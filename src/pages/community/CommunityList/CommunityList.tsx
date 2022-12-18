@@ -9,6 +9,7 @@ import FloatingLayout from "../../../layout/FloatingLayout";
 import CommunityListView from "./CommunityList.view";
 import useCommunityList from "./hooks/useCommunityList";
 import styles from "./CommunityList.module.scss";
+import { InView } from "react-intersection-observer";
 
 interface SortOrderType {
   type: "CREATED_AT" | "LIKE_COUNT" | "COMMENT_COUNT";
@@ -36,11 +37,18 @@ const CommunityList = () => {
   const { category } = useParams<{ category: string }>();
   const [sortType, setSortType] = useState<SortOrderType>(sortList[0]);
 
-  const { isLoading, categoryList, activeCategoryName, communityList } =
-    useCommunityList({
-      category,
-      sortType: sortType.type,
-    });
+  const {
+    isLoading,
+    categoryList,
+    activeCategoryName,
+    communityList,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useCommunityList({
+    category,
+    sortType: sortType.type,
+  });
 
   if (isLoading) {
     return <></>;
@@ -59,23 +67,33 @@ const CommunityList = () => {
       <CommunityListView
         isLoading={isLoading}
         activeSort={sortType.label}
-        sortList={sortList.map(item => item.label)}
+        sortList={sortList.map((item) => item.label)}
         activeCategory={activeCategoryName}
-        categoryList={categoryList.map(item => item.name)}
+        categoryList={categoryList.map((item) => item.name)}
         communityList={communityList}
         isEmpty={communityList.length === 0}
         onChangeSortType={(selectedSort: string) => {
-          setSortType(sortList.filter(item => item.label === selectedSort)[0]);
+          setSortType(
+            sortList.filter((item) => item.label === selectedSort)[0]
+          );
         }}
         onChangeCategory={(tab: string) => {
           navigation(
             BuildPaths.communityHome(
-              categoryList.filter(item => item.name === tab)[0].name,
-            ),
+              categoryList.filter((item) => item.name === tab)[0].name
+            )
           );
         }}
         onClickItem={(postId: number) => {
           navigation(BuildPaths.communityDetail(postId.toString()));
+        }}
+      />
+      <InView
+        skip={!hasNextPage || isFetchingNextPage}
+        onChange={(inView) => {
+          if (inView && hasNextPage) {
+            fetchNextPage();
+          }
         }}
       />
       <FloatingLayout>

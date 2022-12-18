@@ -12,7 +12,13 @@ const useCommunityList = ({ category, sortType }: Props) => {
       categoryGroup: "COMMUNITY",
     });
 
-  const { isLoading: isLoadingPostList, postList } = usePostListByCategoryQuery(
+  const {
+    isLoading: isLoadingPostList,
+    postList,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = usePostListByCategoryQuery(
     {
       size: 10,
       page: 0,
@@ -37,7 +43,6 @@ const useCommunityList = ({ category, sortType }: Props) => {
         : categoryList?.filter((item) => item.name === category)[0]?.name ?? "",
     communityList:
       postList?.map((post) => {
-
         return {
           id: post.id,
           user: post.nickName,
@@ -49,6 +54,9 @@ const useCommunityList = ({ category, sortType }: Props) => {
           liked: post.likeFlag,
         };
       }) ?? [],
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
   };
 };
 
