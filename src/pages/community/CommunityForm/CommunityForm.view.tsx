@@ -1,23 +1,31 @@
+import { useState } from "react";
 import Header from "../../../components/Header";
 import Input from "../../../components/Input";
 import RoundButton from "../../../components/RoundButton";
 import SelectCategory from "../../../components/SelectCategory";
+import ContentInput from "./components/ContentInput";
 import { ArrowIcon } from "../../../assets/icon";
 import styles from "./CommunityForm.module.scss";
-import ContentInput from "./components/ContentInput";
 
 export interface Props {
   categoryList: string[];
   isDisabledButton: boolean;
-  data: { title: string; content: string; imageList: []; audioList: [] };
+  data: {
+    title: string;
+    content: string;
+  };
   selectedCategory: string;
+  onClickCamera: (image: File) => void;
+  onClickMic: (audio: File) => void;
+  onDeleteAudio: () => void;
+  onDeleteImage: (id: number) => void;
   onClickCreate: () => void;
   onClickClose: () => void;
   onChangeCategory: (category: string) => void;
   onChange: (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
   ) => void;
 }
 
@@ -26,11 +34,18 @@ const CommunityFormView = ({
   isDisabledButton,
   data,
   selectedCategory,
+  onClickCamera,
+  onClickMic,
+  onDeleteAudio,
+  onDeleteImage,
   onClickClose,
   onClickCreate,
   onChangeCategory,
   onChange,
 }: Props) => {
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+
   return (
     <div className={styles.container}>
       <Header
@@ -58,17 +73,35 @@ const CommunityFormView = ({
         />
         <ContentInput
           value={data.content}
-          imageList={data.imageList}
-          audioList={data.audioList}
+          imageList={imageUrls}
+          audioUrl={audioUrl}
           onChange={onChange}
+          onClickCamera={(image: File, url: string) => {
+            setImageUrls([...imageUrls, url]);
+            onClickCamera(image);
+          }}
+          onClickMic={(audio: File, url: string) => {
+            setAudioUrl(url);
+            onClickMic(audio);
+          }}
+          onDeleteAudio={() => {
+            setAudioUrl(null);
+            onDeleteAudio();
+          }}
+          onDeleteImage={(idx: number) => {
+            setImageUrls([
+              ...imageUrls.slice(0, idx),
+              ...imageUrls.slice(idx + 1),
+            ]);
+            onDeleteImage(idx);
+          }}
         />
 
         <RoundButton
           className={styles.button}
           onClick={onClickCreate}
           disabled={isDisabledButton}
-          colorTheme="dark"
-        >
+          colorTheme="dark">
           등록하기
         </RoundButton>
       </div>

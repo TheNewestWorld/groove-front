@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePost } from "../../../common/apis/post";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
@@ -6,7 +5,6 @@ import CommunityDetailView from "./CommunityDetail.view";
 
 const CommunityDetail = () => {
   const { communityId } = useParams<{ communityId: string }>();
-  const [isOpenOption, openOption] = useState<boolean>(false);
 
   const { isLoading, isError, post } = usePostDetailQuery(
     {
@@ -14,7 +12,7 @@ const CommunityDetail = () => {
     },
     {
       enabled: !!communityId,
-    }
+    },
   );
 
   const navigation = useNavigate();
@@ -31,31 +29,20 @@ const CommunityDetail = () => {
     <>
       {
         <CommunityDetailView
-          title={post.title}
-          profileImage={post.profileUri}
-          nickname={post.nickName}
-          date={new Date(post.createdAt)}
+          title={post.title!}
+          profileImage={post.profileUri!}
+          nickname={post.nickName!}
+          date={new Date(post.createdAt!)}
           onClickProfile={() => {}}
-          content={post.content}
-          imageList={post.attachmentUris.filter(
-            (file) => file.type === "IMAGE"
-          )}
-          audio={
-            post.attachmentUris.filter((file) => file.type === "RECORD")[0]
-          }
-          likeCount={post.likeCount}
+          content={post.content!}
+          imageList={post.imageList}
+          audio={post.audio!}
+          likeCount={post.likeCount!}
           liked={post.likeFlag}
-          commentCount={post.commentCount}
+          commentCount={post.commentCount!}
           hasAuthority={post.authority}
           onClickBack={() => {
             navigation(-1);
-          }}
-          onClickOption={() => {
-            openOption(true);
-          }}
-          isOpenOption={isOpenOption}
-          onCloseOption={() => {
-            openOption(false);
           }}
           onClickModify={() => {}}
           onClickDelete={() => {

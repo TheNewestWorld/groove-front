@@ -1,5 +1,17 @@
 @import "../../constants/color.scss";
 
+.audio {
+  display: inline-block;
+}
+
+.delete {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
 .title {
   margin: 0px 0px 4px 10px;
   color: $black-8B;

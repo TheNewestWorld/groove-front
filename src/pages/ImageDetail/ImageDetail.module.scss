@@ -11,14 +11,19 @@
 }
 
 .title {
-  margin-left: auto;
-  font-size: 1rem;
-  font-weight: 600;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
   color: black;
 }
 
 .icon {
-  margin-left: auto;
+  display: flex;
+  flex: 1;
+  justify-content: right;
+  margin-right: 20px;
   height: 24px;
   width: 24px;
 }

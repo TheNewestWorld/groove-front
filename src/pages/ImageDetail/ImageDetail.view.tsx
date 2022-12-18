@@ -22,10 +22,13 @@ const ImageDetailView = ({
   return (
     <div className={classNames([styles.container, className])}>
       <div className={styles.header}>
+        <div className={styles.icon}></div>
         <div className={styles.title}>
           {index + 1} / {imageList.length}
         </div>
-        <CloseIcon className={styles.icon} onClick={onClickClose} />
+        <div className={styles.icon}>
+          <CloseIcon onClick={onClickClose} />
+        </div>
       </div>
 
       <img src={imageList[index].src} className={styles.image} alt="" />

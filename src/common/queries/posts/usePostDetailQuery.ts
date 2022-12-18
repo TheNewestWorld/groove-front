@@ -10,17 +10,37 @@ const usePostDetailQuery = (
   { postId }: QueryProps,
   options?: UseQueryOptions<GetPostDetailResponse>,
 ) => {
-  const {
-    isLoading,
-    isError,
-    data: post,
-  } = useQuery<GetPostDetailResponse>(
+  const { isLoading, isError, data } = useQuery<GetPostDetailResponse>(
     ["getPostDetail", postId],
     () => getPostDetail({ postId }),
     options,
   );
 
-  return { isLoading, isError, post };
+  return {
+    isLoading,
+    isError,
+    post: {
+      ...data,
+      imageList: data?.attachments
+        .filter(({ fileType }) => fileType === "POST_IMAGE")
+        .map(({ id, uri, fileType }) => {
+          return {
+            id,
+            src: uri,
+            type: fileType,
+          };
+        }),
+      audio: data?.attachments
+        .filter(({ fileType }) => fileType === "POST_RECORD")
+        .map(({ id, uri, fileName }) => {
+          return {
+            id,
+            src: uri,
+            title: fileName,
+          };
+        })[0],
+    },
+  };
 };
 
 export default usePostDetailQuery;

@@ -11,10 +11,10 @@ export type GetPostDetailResponse = {
   commentCount: number;
   categoryId: number;
   authority: boolean;
-  attachmentUris: {
+  attachments: {
     id: number;
-    type: string;
-    src: string;
-    title: string;
+    fileType: "POST_RECORD" | "POST_IMAGE";
+    uri: string;
+    fileName: string;
   }[];
 };

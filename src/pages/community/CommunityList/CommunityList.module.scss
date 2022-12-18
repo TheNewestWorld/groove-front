@@ -1,3 +1,5 @@
+@import "../../../constants/color";
+
 .container{
   padding: 20px;
 }
@@ -8,4 +10,8 @@
 
 .item{
   margin-bottom: 16px;
+}
+
+.floatingPencil{
+  background-color: $black-19;
 }
