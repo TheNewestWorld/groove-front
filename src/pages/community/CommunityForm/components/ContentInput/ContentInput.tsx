@@ -61,7 +61,7 @@ const ContentInput = ({
         />
         <FileUploader
           type="AUDIO"
-          isDisabled={audioUrl != null}
+          isDisabledMic={audioUrl != null}
           onClickFile={onClickMic}
           className={styles.button}
         />

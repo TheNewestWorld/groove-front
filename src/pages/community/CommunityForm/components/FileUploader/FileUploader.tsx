@@ -6,14 +6,14 @@ import styles from "./FileUploader.module.scss";
 interface Props {
   type: "IMAGE" | "AUDIO";
   onClickFile: (file: File, url: string) => void;
-  isDisabled?: boolean;
+  isDisabledMic?: boolean;
   className?: string;
 }
 
 const FileUploader = ({
   type,
   onClickFile,
-  isDisabled = false,
+  isDisabledMic = false,
   className,
 }: Props) => {
   const fileInput = useRef<HTMLInputElement>(null);
@@ -44,12 +44,8 @@ const FileUploader = ({
       />
       <div
         className={classNames([className])}
-        onClick={() => {
-          // TODO: 비활성화시 아이콘 이미지 변경
-          if (isDisabled) return;
-          fileInput.current?.click();
-        }}>
-        {type === "IMAGE" ? <CameraIcon /> : <MicIcon />}
+        onClick={() => fileInput.current?.click()}>
+        {type === "IMAGE" ? <CameraIcon /> : isDisabledMic && <MicIcon />}
       </div>
     </>
   );
