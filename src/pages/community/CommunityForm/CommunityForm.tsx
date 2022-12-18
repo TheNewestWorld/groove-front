@@ -15,73 +15,55 @@ const CommunityForm = () => {
     category: string;
     categoryId: number;
     imageFiles: File[];
-    imageUrls: string[];
     audioFile: File | null;
-    audioUrl: string | null;
   }>({
     title: "",
     content: "",
     category: "",
     categoryId: 0,
     imageFiles: [],
-    imageUrls: [],
     audioFile: null,
-    audioUrl: null,
   });
 
-  const isDisabled = (): boolean => {
-    return (
-      data.title.length === 0 ||
-      data.content.length === 0 ||
-      data.categoryId === 0
-    );
-  };
+  const isDisabled =
+    data.title.length === 0 ||
+    data.content.length === 0 ||
+    data.categoryId === 0;
 
   const navigation = useNavigate();
 
   return (
     <CommunityFormView
       categoryList={categoryList!.map(category => category.name)}
-      isDisabledButton={isDisabled()}
+      isDisabledButton={isDisabled}
       data={data}
       selectedCategory={data.category}
-      onClickCamera={(image: File, url: string) => {
-        const newData = {
+      onClickCamera={(image: File) => {
+        setData({
           ...data,
           imageFiles: [...data.imageFiles, image],
-          imageUrls: [...data.imageUrls, url],
-        };
-        setData(newData);
+        });
       }}
-      onClickMic={(audio: File, url: string) => {
-        const newData = {
+      onClickMic={(audio: File) => {
+        setData({
           ...data,
           audioFile: audio,
-          audioUrl: url,
-        };
-        setData(newData);
+        });
       }}
       onDeleteAudio={() => {
-        const newData = {
+        setData({
           ...data,
           audioFile: null,
-          audioUrl: null,
-        };
-        setData(newData);
+        });
       }}
-      onDeleteImage={(id: number) => {
-        const newData = {
+      onDeleteImage={(idx: number) => {
+        setData({
           ...data,
           imageFiles: [
-            ...data.imageFiles.slice(0, id),
-            ...data.imageFiles.slice(id + 1),
+            ...data.imageFiles.slice(0, idx),
+            ...data.imageFiles.slice(idx + 1),
           ],
-          imageUrls: [
-            ...data.imageUrls.slice(0, id),
-            ...data.imageUrls.slice(id + 1),
-          ],
-        };
-        setData(newData);
+        });
       }}
       onClickCreate={() => {
         postPost({
@@ -94,21 +76,19 @@ const CommunityForm = () => {
       }}
       onClickClose={() => navigation(-1)}
       onChangeCategory={(categoryName: string) => {
-        const newData = {
+        setData({
           ...data,
           category: categoryName,
           categoryId: categoryList!.filter(
             category => category.name === categoryName,
           )[0].id,
-        };
-        setData(newData);
+        });
       }}
       onChange={e => {
-        const newData = {
+        setData({
           ...data,
           [e.target.name]: e.target.value,
-        };
-        setData(newData);
+        });
       }}
     />
   );

@@ -1,10 +1,11 @@
+import { useState } from "react";
 import Header from "../../../components/Header";
 import Input from "../../../components/Input";
 import RoundButton from "../../../components/RoundButton";
 import SelectCategory from "../../../components/SelectCategory";
+import ContentInput from "./components/ContentInput";
 import { ArrowIcon } from "../../../assets/icon";
 import styles from "./CommunityForm.module.scss";
-import ContentInput from "./components/ContentInput";
 
 export interface Props {
   categoryList: string[];
@@ -12,12 +13,10 @@ export interface Props {
   data: {
     title: string;
     content: string;
-    imageUrls: string[];
-    audioUrl: string | null;
   };
   selectedCategory: string;
-  onClickCamera: (image: File, url: string) => void;
-  onClickMic: (audio: File, url: string) => void;
+  onClickCamera: (image: File) => void;
+  onClickMic: (audio: File) => void;
   onDeleteAudio: () => void;
   onDeleteImage: (id: number) => void;
   onClickCreate: () => void;
@@ -44,6 +43,9 @@ const CommunityFormView = ({
   onChangeCategory,
   onChange,
 }: Props) => {
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+
   return (
     <div className={styles.container}>
       <Header
@@ -71,13 +73,28 @@ const CommunityFormView = ({
         />
         <ContentInput
           value={data.content}
-          imageList={data.imageUrls}
-          audioUrl={data.audioUrl}
+          imageList={imageUrls}
+          audioUrl={audioUrl}
           onChange={onChange}
-          onClickCamera={onClickCamera}
-          onClickMic={onClickMic}
-          onDeleteAudio={onDeleteAudio}
-          onDeleteImage={onDeleteImage}
+          onClickCamera={(image: File, url: string) => {
+            setImageUrls([...imageUrls, url]);
+            onClickCamera(image);
+          }}
+          onClickMic={(audio: File, url: string) => {
+            setAudioUrl(url);
+            onClickMic(audio);
+          }}
+          onDeleteAudio={() => {
+            setAudioUrl(null);
+            onDeleteAudio();
+          }}
+          onDeleteImage={(idx: number) => {
+            setImageUrls([
+              ...imageUrls.slice(0, idx),
+              ...imageUrls.slice(idx + 1),
+            ]);
+            onDeleteImage(idx);
+          }}
         />
 
         <RoundButton
