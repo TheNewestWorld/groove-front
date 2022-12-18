@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
 import SettingListForm from "../../../components/SettingListForm";
 import Badge from "./components/Badge";
+import Empty from "./components/Empty";
 import useNotice from "./hooks/useNotice";
 
 const Notice = () => {
@@ -29,6 +30,7 @@ const Notice = () => {
           badge: isNew ? <Badge type="NEW" /> : undefined,
         };
       })}
+      emptyPage={<Empty />}
       onClickBack={() => navigation(-1)}
     />
   );
