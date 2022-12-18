@@ -29,7 +29,8 @@ const AudioPlayer = ({
         />
       )}
 
-      {/* <div className={styles.title}>{title}</div>
+      {/* NOTE: Custom 오디오 플레이어로 변경하는 작업이 필요합니다. 
+      <div className={styles.title}>{title}</div>
       <div className={styles.player}>
         {isPlaying ? (
           <div
