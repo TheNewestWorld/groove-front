@@ -6,8 +6,23 @@ export type PostQnaBody = {
   title: string;
   content: string;
   image: File | null;
-}
+};
 
-export const postQna = (body: PostQnaBody) => {
-  return resultData<null>(axios.post(apiUrls.qna.postQna(), body));
+export const postQna = ({ title, content, image }: PostQnaBody) => {
+  const frm = new FormData();
+  const json = {
+    title,
+    content,
+  };
+  const blob = new Blob([JSON.stringify(json)], { type: "application/json" });
+  frm.append("request", blob);
+  image && frm.append("image", image);
+
+  return resultData<null>(
+    axios.post(apiUrls.qna.postQna(), frm, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }),
+  );
 };
