@@ -35,7 +35,7 @@ const QnADetail = () => {
         navigation(BuildPaths.qnaEdit(qnaId));
       }}
       onClickReQnA={() => {
-        navigation(BuildPaths.qnaForm());
+        navigation(BuildPaths.qnaNew());
       }}
     />
   );
