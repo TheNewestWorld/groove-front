@@ -8,13 +8,14 @@ type QueryProps = {
 
 const usePostDetailQuery = (
   { postId }: QueryProps,
-  options?: UseQueryOptions<GetPostDetailResponse>,
+  options?: UseQueryOptions<GetPostDetailResponse>
 ) => {
-  const { isLoading, isError, data } = useQuery<GetPostDetailResponse>(
-    ["getPostDetail", postId],
-    () => getPostDetail({ postId }),
-    options,
-  );
+  const { isLoading, isError, data, ...other } =
+    useQuery<GetPostDetailResponse>(
+      ["getPostDetail", postId],
+      () => getPostDetail({ postId }),
+      options
+    );
 
   return {
     isLoading,
@@ -40,6 +41,7 @@ const usePostDetailQuery = (
           };
         })[0],
     },
+    ...other,
   };
 };
 

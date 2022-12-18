@@ -1,10 +1,8 @@
 import { useState } from "react";
-import Header from "../../../components/Header";
 import Input from "../../../components/Input";
 import RoundButton from "../../../components/RoundButton";
 import SelectCategory from "../../../components/SelectCategory";
 import ContentInput from "./components/ContentInput";
-import { ArrowIcon } from "../../../assets/icon";
 import styles from "./CommunityForm.module.scss";
 
 export interface Props {
@@ -20,12 +18,11 @@ export interface Props {
   onDeleteAudio: () => void;
   onDeleteImage: (id: number) => void;
   onClickCreate: () => void;
-  onClickClose: () => void;
   onChangeCategory: (category: string) => void;
   onChange: (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
 }
 
@@ -38,7 +35,6 @@ const CommunityFormView = ({
   onClickMic,
   onDeleteAudio,
   onDeleteImage,
-  onClickClose,
   onClickCreate,
   onChangeCategory,
   onChange,
@@ -47,13 +43,7 @@ const CommunityFormView = ({
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
   return (
-    <div className={styles.container}>
-      <Header
-        title="게시물 작성하기"
-        left={<ArrowIcon />}
-        onClickLeft={onClickClose}
-      />
-
+    <>
       <div className={styles.body}>
         <div className={styles.label}>카테고리</div>
         <SelectCategory
@@ -101,11 +91,12 @@ const CommunityFormView = ({
           className={styles.button}
           onClick={onClickCreate}
           disabled={isDisabledButton}
-          colorTheme="dark">
+          colorTheme="dark"
+        >
           등록하기
         </RoundButton>
       </div>
-    </div>
+    </>
   );
 };
 

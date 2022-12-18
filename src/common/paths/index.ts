@@ -10,6 +10,8 @@ const BuildPaths = {
   communityHome: (category: string) =>
     `${RoutePath.communityHome.replace(":category", category)}`,
   communityForm: () => `${RoutePath.communityForm}`,
+  communityEdit: (communityId: string) =>
+    `${RoutePath.communityEdit.replace(":communityId", communityId)}`,
   communityComment: (communityId: string) =>
     `${RoutePath.communityComment.replace(":communityId", communityId)}`,
   communityDetail: (communityId: string) =>

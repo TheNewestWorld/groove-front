@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  deleteComment,
-  postComment,
-  updateComment,
-} from "../../../common/apis/comment";
+import { deleteComment, postComment } from "../../../common/apis/comment";
 import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
 import CommunityCommentListView from "./CommunityCommentList.view";
 
 const CommunityCommentList = () => {
-  const { postId } = useParams<{ postId: string }>();
+  const { communityId } = useParams<{ communityId: string }>();
   const [optionStatus, setOptionStatus] =
     useState<{
       commentId: number;
@@ -17,7 +13,7 @@ const CommunityCommentList = () => {
     } | null>(null);
 
   const { isLoading, isError, commentList } = useCommentListQuery({
-    postId: Number(postId),
+    postId: Number(communityId),
   });
 
   const navigation = useNavigate();
@@ -39,8 +35,8 @@ const CommunityCommentList = () => {
       onClose={() => navigation(-1)}
       onSubmitComment={(comment: string, parentId?: number) => {
         postComment(
-          { postId: Number(postId) },
-          { content: comment, parentId: parentId ?? NOT_REPLY },
+          { postId: Number(communityId) },
+          { content: comment, parentId: parentId ?? NOT_REPLY }
         );
       }}
       onClickUpdateOption={(commentId: number) => {
