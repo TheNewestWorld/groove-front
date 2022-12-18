@@ -9,20 +9,27 @@ export type PostPostBody = {
   attachments: File[]; // multipart 처리
 };
 
-export const postPost = (body: PostPostBody) => {
+export const postPost = ({
+  title,
+  content,
+  categoryId,
+  attachments,
+}: PostPostBody) => {
   const frm = new FormData();
   const json = {
-    title: body.title,
-    content: body.content,
-    categoryId: body.categoryId
-  }
+    title,
+    content,
+    categoryId,
+  };
   const blob = new Blob([JSON.stringify(json)], { type: "application/json" });
   frm.append("request", blob);
-  body.attachments.map(file => frm.append("attachments", file));
+  attachments.map(file => frm.append("attachments", file));
 
-  return resultData<null>(axios.post(apiUrls.post.postPost(), frm, {
-    headers: {
-      "Content-Type": "multipart/form-data",      
-    }
-  }));
+  return resultData<null>(
+    axios.post(apiUrls.post.postPost(), frm, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }),
+  );
 };
