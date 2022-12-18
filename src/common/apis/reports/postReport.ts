@@ -3,7 +3,6 @@ import { resultData } from "../../configs/axios";
 import { apiUrls } from "../utils";
 
 export type PostReportBody = {
-  userId: number;
   postId: number;
   reportTargetType: "POST" | "COMMENT";
   reportReasonType:
