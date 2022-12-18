@@ -104,6 +104,7 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
                 ...community,
                 audioFile: null,
               });
+              setAudioUrl(null);
             }}
             onDeleteImage={(idx: number) => {
               setCommunity({
