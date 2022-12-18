@@ -18,10 +18,18 @@ type FormType = {
 export interface Props {
   categoryList: { id: number; name: string }[];
   data?: FormType;
+  imageList?: string[];
+  audio?: string;
   onSubmit: (form: FormType) => void;
 }
 
-const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
+const CommunityFormView = ({
+  categoryList,
+  data,
+  imageList,
+  audio,
+  onSubmit,
+}: Props) => {
   const [community, setCommunity] = useState<FormType>(
     data ?? {
       title: "",
@@ -33,8 +41,8 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
     }
   );
 
-  const [imageUrls, setImageUrls] = useState<string[]>([]);
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [imageUrls, setImageUrls] = useState<string[]>(imageList ?? []);
+  const [audioUrl, setAudioUrl] = useState<string | null>(audio ?? null);
 
   const isDisabled =
     community.title.length === 0 ||

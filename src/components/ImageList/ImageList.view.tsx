@@ -24,7 +24,7 @@ const ImageList = ({
   return (
     <div className={classNames([styles.container, className])}>
       {imageList.slice(0, maxCount).map(({ src, id }) => (
-        <div className={styles.image}>
+        <div className={styles.image} key={id}>
           <img key={id} onClick={() => onClickImage?.(id)} src={src} alt="" />
           {canDelete && (
             <GreyDeleteCircle
