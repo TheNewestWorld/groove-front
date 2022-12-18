@@ -3,7 +3,7 @@ import { ArrowIcon, CameraIcon } from "../../../assets/icon";
 import Header from "../../../components/Header";
 import RoundButton from "../../../components/RoundButton";
 import Input from "../../../components/Input";
-import styles from "./QnAForm.module.scss";
+import styles from "./QnANew.module.scss";
 import CircleButton from "../../../components/CircleButton";
 import ImageList from "../../../components/ImageList";
 
@@ -16,11 +16,10 @@ export type QnAContents = {
 export interface Props {
   onSubmit: (form: QnAContents) => void;
   goToBack: () => void;
-  imageList?: { src: string; id: number }[];
 }
 
-const QnAFormView = ({ onSubmit, goToBack, imageList = [] }: Props) => {
-  const attachImage = useRef<HTMLInputElement>(null);
+const QnANewView = ({ onSubmit, goToBack }: Props) => {
+  const imageInput = useRef<HTMLInputElement>(null);
   const [attachImageUrl, setAttachImageUrl] = useState<string | null>(null);
   const [form, setForm] = useState<QnAContents>({
     title: "",
@@ -62,22 +61,18 @@ const QnAFormView = ({ onSubmit, goToBack, imageList = [] }: Props) => {
               const reader = new FileReader();
               const file = e.target.files[0];
               reader.onloadend = () => {
-                const attachImageUrl = reader.result?.toString();
-                attachImageUrl && setAttachImageUrl(attachImageUrl);
-                attachImageUrl &&
-                  (imageList[0] = { src: attachImageUrl, id: 0 });
+                setAttachImageUrl(reader.result!.toString());
               };
               reader.readAsDataURL(file);
               e.target.value = "";
-              form.image = file;
-              setForm(form);
+              setForm({ ...form, image: file });
             }
           }}
-          ref={attachImage}
+          ref={imageInput}
         />
         <CircleButton
           colorTheme="light"
-          icon={<CameraIcon onClick={() => attachImage.current?.click()} />}
+          icon={<CameraIcon onClick={() => imageInput.current?.click()} />}
           shadow
           className={styles.photoButton}
         />
@@ -85,7 +80,7 @@ const QnAFormView = ({ onSubmit, goToBack, imageList = [] }: Props) => {
           <ImageList
             className={styles.photo}
             maxCount={1}
-            imageList={imageList}
+            imageList={attachImageUrl ? [{ src: attachImageUrl, id: 0 }] : []}
             canDelete
             onClickDelete={() => {
               setAttachImageUrl(null);
@@ -104,4 +99,4 @@ const QnAFormView = ({ onSubmit, goToBack, imageList = [] }: Props) => {
   );
 };
 
-export default QnAFormView;
+export default QnANewView;

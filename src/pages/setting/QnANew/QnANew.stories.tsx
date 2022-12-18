@@ -1,14 +1,14 @@
 import { Meta } from "@storybook/react";
 import { buildStory } from "../../../common/configs/storybook";
 import * as mswHandlers from "./mocks/mswHandler";
-import QnAForm from "./QnAForm";
+import QnANew from "./QnANew";
 
 export default {
-  title: "Pages/setting/QnAForm/mock",
-  component: QnAForm,
+  title: "Pages/setting/QnANew/mock",
+  component: QnANew,
 } as Meta;
 
-const Template = () => <QnAForm />;
+const Template = () => <QnANew />;
 
 export const 성공 = buildStory(Template, { mswHandlers: mswHandlers.성공 });
 
