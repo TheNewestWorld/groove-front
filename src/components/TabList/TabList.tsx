@@ -20,6 +20,7 @@ const TabList = ({
     <div className={classnames(["tab-list", type, className])}>
       {tabList.map(tab => (
         <div
+          key={tab}
           className={classnames([
             "tab-list__item",
             type,
