@@ -1,29 +1,12 @@
-import AudioPlayer from "../../../../../components/AudioPlayer";
-import ImageList from "../../../../../components/ImageList";
-import FileUploader from "../FileUploader";
 import styles from "./ContentInput.module.scss";
 
 interface Props {
   value: string;
-  imageList: string[];
-  audioUrl: string | null;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onClickCamera: (image: File, url: string) => void;
-  onClickMic: (audio: File, url: string) => void;
-  onDeleteImage: (id: number) => void;
-  onDeleteAudio: () => void;
+  children?: React.ReactNode;
 }
 
-const ContentInput = ({
-  value,
-  imageList,
-  audioUrl,
-  onChange,
-  onClickCamera,
-  onClickMic,
-  onDeleteImage,
-  onDeleteAudio,
-}: Props) => {
+const ContentInput = ({ value, onChange, children }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.label}>내용</div>
@@ -35,36 +18,7 @@ const ContentInput = ({
           onChange={onChange}
           placeholder="내용을 입력해주세요."
         />
-        {audioUrl && (
-          <AudioPlayer
-            src={audioUrl}
-            canDelete={true}
-            onClickDelete={() => onDeleteAudio()}
-          />
-        )}
-        <ImageList
-          className={styles.imageList}
-          imageList={imageList.map((image, idx) => {
-            return {
-              src: image,
-              id: idx,
-            };
-          })}
-          canDelete
-          maxCount={imageList.length}
-          onClickDelete={onDeleteImage}
-        />
-        <FileUploader
-          type="IMAGE"
-          onClickFile={onClickCamera}
-          className={styles.button}
-        />
-        <FileUploader
-          type="AUDIO"
-          isDisabledMic={audioUrl != null}
-          onClickFile={onClickMic}
-          className={styles.button}
-        />
+        {children}
       </div>
     </div>
   );

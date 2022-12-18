@@ -4,6 +4,7 @@ import RoundButton from "../../../components/RoundButton";
 import SelectCategory from "../../../components/SelectCategory";
 import ContentInput from "./components/ContentInput";
 import styles from "./CommunityForm.module.scss";
+import FileInput from "./components/FileInput";
 
 type FormType = {
   title: string;
@@ -74,42 +75,45 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
         />
         <ContentInput
           value={community.content}
-          imageList={imageUrls}
-          audioUrl={audioUrl}
           onChange={(e) => {
             setCommunity({
               ...community,
               [e.target.name]: e.target.value,
             });
           }}
-          onClickCamera={(image: File) => {
-            setCommunity({
-              ...community,
-              imageFiles: [...community.imageFiles, image],
-            });
-          }}
-          onClickMic={(audio: File) => {
-            setCommunity({
-              ...community,
-              audioFile: audio,
-            });
-          }}
-          onDeleteAudio={() => {
-            setCommunity({
-              ...community,
-              audioFile: null,
-            });
-          }}
-          onDeleteImage={(idx: number) => {
-            setCommunity({
-              ...community,
-              imageFiles: [
-                ...community.imageFiles.slice(0, idx),
-                ...community.imageFiles.slice(idx + 1),
-              ],
-            });
-          }}
-        />
+        >
+          <FileInput
+            imageList={imageUrls}
+            audioUrl={audioUrl}
+            onClickCamera={(image: File) => {
+              setCommunity({
+                ...community,
+                imageFiles: [...community.imageFiles, image],
+              });
+            }}
+            onClickMic={(audio: File) => {
+              setCommunity({
+                ...community,
+                audioFile: audio,
+              });
+            }}
+            onDeleteAudio={() => {
+              setCommunity({
+                ...community,
+                audioFile: null,
+              });
+            }}
+            onDeleteImage={(idx: number) => {
+              setCommunity({
+                ...community,
+                imageFiles: [
+                  ...community.imageFiles.slice(0, idx),
+                  ...community.imageFiles.slice(idx + 1),
+                ],
+              });
+            }}
+          />
+        </ContentInput>
 
         <RoundButton
           className={styles.button}
