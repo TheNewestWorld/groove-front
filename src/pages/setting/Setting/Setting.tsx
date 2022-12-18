@@ -60,6 +60,7 @@ const Setting = () => {
           { title: "로그아웃", onClick: () => setLogoutDialog(true) },
           { title: "회원탈퇴", onClick: () => setSignOutDialog(true) },
         ]}
+        emptyMessage=""
         onClickBack={() => navigation(BuildPaths.mypage("RECORD"))}
       />
 

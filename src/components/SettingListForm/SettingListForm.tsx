@@ -7,7 +7,7 @@ import styles from "./SettingListForm.module.scss";
 export interface Props {
   headerTitle: string;
   settingList: SettingListProps["list"];
-  emptyMessage?: string;
+  emptyMessage: string;
   onClickBack: () => void;
 }
 

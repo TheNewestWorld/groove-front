@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import { ArrowIcon } from "../../assets/icon";
+import EmptyPage from "../EmptyPage";
 import styles from "./SettingList.module.scss";
 
 export interface Props {
@@ -10,7 +11,7 @@ export interface Props {
     badge?: React.ReactNode;
     onClick: () => void;
   }[];
-  emptyMessage?: string;
+  emptyMessage: string;
   classNames?: string;
 }
 
@@ -37,7 +38,7 @@ const SettingList = ({ list, classNames, emptyMessage }: Props) => {
           ))}
         </div>
       ) : (
-        <div className={styles.emptyMessage}>{emptyMessage}</div>
+        <EmptyPage description={emptyMessage} className={styles.emptyMessage} />
       )}
     </>
   );
