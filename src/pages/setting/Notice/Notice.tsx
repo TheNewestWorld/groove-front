@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
 import SettingListForm from "../../../components/SettingListForm";
 import Badge from "./components/Badge";
-import Empty from "./components/Empty";
 import useNotice from "./hooks/useNotice";
 
 const Notice = () => {
@@ -30,7 +29,7 @@ const Notice = () => {
           badge: isNew ? <Badge type="NEW" /> : undefined,
         };
       })}
-      emptyPage={<Empty />}
+      emptyMessage="등록된 공지사항이 없어요."
       onClickBack={() => navigation(-1)}
     />
   );
