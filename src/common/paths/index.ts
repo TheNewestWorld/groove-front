@@ -27,6 +27,7 @@ const BuildPaths = {
   qnaDetail: (qnaId: string) =>
     `${RoutePath.qnaDetail.replace(":qnaId", qnaId)}`,
   qnaNew:() => `${RoutePath.qnaNew}`,
+  qnaEdit: (qnaId: string) => `${RoutePath.qnaEdit.replace(":qnaId", qnaId)}`,
   vocForm: () => `${RoutePath.vocForm}`,
 };
 
