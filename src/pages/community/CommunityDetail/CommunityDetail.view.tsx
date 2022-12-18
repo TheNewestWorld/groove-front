@@ -48,7 +48,7 @@ const CommunityDetailView = ({
   onClickReport,
 }: Props) => {
   const [isOpenImage, openImage] = useState<boolean>(false);
-  const [imageId, setImageId] = useState<number>(0);
+  const [imageIndex, setImageIndex] = useState<number>(0);
   const [isOpenOption, openOption] = useState<boolean>(false);
 
   return (
@@ -75,12 +75,12 @@ const CommunityDetailView = ({
         audio={audio}
         onClickImage={(id: number) => {
           openImage(true);
-          setImageId(imageList!.findIndex(image => image.id === id));
+          setImageIndex(imageList!.findIndex(image => image.id === id));
         }}
         onClickMore={() => {
           openImage(true);
           // TODO(in.heo): Remove hard-code
-          setImageId(4);
+          setImageIndex(4);
         }}
       />
       <CommunityFooter
@@ -113,7 +113,7 @@ const CommunityDetailView = ({
         <ImageDetailView
           className={styles.imageDetail}
           imageList={imageList}
-          imageIndex={imageId}
+          imageIndex={imageIndex}
           onClickClose={() => openImage(false)}
         />
       )}
