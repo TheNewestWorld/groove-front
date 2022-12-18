@@ -5,6 +5,7 @@ import Header from "../../../components/Header";
 import { CloseIcon } from "../../../assets/icon";
 import styles from "./CommunityCommentList.module.scss";
 import { useState } from "react";
+import EmptyPage from "../../../components/EmptyPage";
 
 export interface CommentProps {
   id: number;
@@ -56,19 +57,26 @@ const CommunityCommentListView = ({
     <div className={styles.container}>
       <div className={styles.containerBody}>
         <Header title="댓글" right={<CloseIcon />} onClickRight={onClose} />
-        {/* TODO(ho2eny): 빈 페이지 작업 필요 */}
-        {comments.map(item => (
-          <CommunityComment
-            comment={item.comment}
-            replies={item.replies}
-            onClickUserProfile={onClickUserProfile}
-            onClickReply={onClickReply}
-            onClickOption={(comemntId: number, hasAuthority: boolean) => {
-              setOpenOption(true);
-              onClickOption(comemntId, hasAuthority);
-            }}
+        {comments.length === 0 ? (
+          <EmptyPage
+            type="full"
+            title="남겨진 댓글이 없어요. 🥲"
+            description="처음으로 댓글을 남겨주시겠어요?"
           />
-        ))}
+        ) : (
+          comments.map((item) => (
+            <CommunityComment
+              comment={item.comment}
+              replies={item.replies}
+              onClickUserProfile={onClickUserProfile}
+              onClickReply={onClickReply}
+              onClickOption={(comemntId: number, hasAuthority: boolean) => {
+                setOpenOption(true);
+                onClickOption(comemntId, hasAuthority);
+              }}
+            />
+          ))
+        )}
       </div>
       <CommunityCommentInput onSubmitComment={onSubmitComment} />
       {optionStatus &&

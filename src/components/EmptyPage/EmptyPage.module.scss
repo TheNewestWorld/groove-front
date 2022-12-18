@@ -1,14 +1,20 @@
 @import "../../constants/color";
+
 .container {
   height: 100%;
   width: 100%;
   text-align: center;
   display:table;
 }
+
 .message {
   text-align: center;
   display:table-cell;
   vertical-align:middle;
+
+  &.full {
+    height: calc(100vh - 130px);
+  }
 }
 
 .title {
