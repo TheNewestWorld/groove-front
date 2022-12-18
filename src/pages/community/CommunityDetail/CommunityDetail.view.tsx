@@ -150,7 +150,7 @@ const CommunityDetailView = ({
           <BottomSheetList
             title="신고 사유를 알려주세요."
             list={reportReason.map(({ label }) => label)}
-            onClose={() => openOption(false)}
+            onClose={() => setReportOption(false)}
             onClick={(value: string) => {
               onClickReport(
                 reportReason.filter(({ label }) => label === value)[0].key
