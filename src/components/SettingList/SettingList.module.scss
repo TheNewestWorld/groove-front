@@ -32,6 +32,11 @@
   font-size: 12px;
   color: $black-8B;
 }
+
 .arrow {
   transform: rotate(180deg);
+}
+
+.emptyMessage {
+  padding-top: 40vh;
 }

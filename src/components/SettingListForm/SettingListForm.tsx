@@ -7,10 +7,17 @@ import styles from "./SettingListForm.module.scss";
 export interface Props {
   headerTitle: string;
   settingList: SettingListProps["list"];
+  emptyMessage: string;
   onClickBack: () => void;
 }
 
-const SettingListForm = ({ headerTitle, settingList, onClickBack }: Props) => {
+const SettingListForm = ({
+  headerTitle,
+  settingList,
+  emptyMessage,
+  onClickBack,
+}: Props) => {
+
   return (
     <>
       <Header
@@ -18,7 +25,11 @@ const SettingListForm = ({ headerTitle, settingList, onClickBack }: Props) => {
         left={<ArrowIcon />}
         onClickLeft={onClickBack}
       />
-      <SettingList classNames={styles.list} list={settingList} />
+      <SettingList
+        classNames={styles.list}
+        list={settingList}
+        emptyMessage={emptyMessage}
+      />
     </>
   );
 };

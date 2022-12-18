@@ -29,6 +29,7 @@ const Notice = () => {
           badge: isNew ? <Badge type="NEW" /> : undefined,
         };
       })}
+      emptyMessage="등록된 공지사항이 없어요."
       onClickBack={() => navigation(-1)}
     />
   );
