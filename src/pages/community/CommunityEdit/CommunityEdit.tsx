@@ -31,16 +31,8 @@ const CommunityEdit = () => {
         data={{
           title: "",
           content: "",
-          imageUrls: [],
-          audioUrl: null,
         }}
         selectedCategory={""}
-        onClickCamera={function (image: File, url: string): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClickMic={function (audio: File, url: string): void {
-          throw new Error("Function not implemented.");
-        }}
         onDeleteAudio={function (): void {
           throw new Error("Function not implemented.");
         }}
@@ -56,6 +48,12 @@ const CommunityEdit = () => {
         onChange={function (
           e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
         ): void {
+          throw new Error("Function not implemented.");
+        }}
+        onClickCamera={function (image: File): void {
+          throw new Error("Function not implemented.");
+        }}
+        onClickMic={function (audio: File): void {
           throw new Error("Function not implemented.");
         }}
       />
