@@ -19,6 +19,15 @@ const MyPage = () => {
     recordList,
     likedList,
     writtenList,
+    hasNextWrittenPage,
+    fetchNextWrittenPage,
+    isFetchingNextWrittenPage,
+    hasNextLikedPage,
+    fetchNextLikedPage,
+    isFetchingNextLikedPage,
+    hasNextRecordPage,
+    fetchNextRecordPage,
+    isFetchingNextRecordPage,
   } = useMyPage();
 
   if (isLoading) {
@@ -57,6 +66,15 @@ const MyPage = () => {
           // TODO
         }}
         onClickEdit={() => navigation(BuildPaths.myProfile())}
+        hasNextWrittenPage={hasNextWrittenPage}
+        fetchNextWrittenPage={fetchNextWrittenPage}
+        isFetchingNextWrittenPage={isFetchingNextWrittenPage}
+        hasNextLikedPage={hasNextLikedPage}
+        fetchNextLikedPage={fetchNextLikedPage}
+        isFetchingNextLikedPage={isFetchingNextLikedPage}
+        hasNextRecordPage={hasNextRecordPage}
+        fetchNextRecordPage={fetchNextRecordPage}
+        isFetchingNextRecordPage={isFetchingNextRecordPage}
       />
     </>
   );
