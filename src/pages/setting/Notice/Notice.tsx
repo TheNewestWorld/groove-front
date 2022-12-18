@@ -1,3 +1,4 @@
+import { InView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
 import SettingListForm from "../../../components/SettingListForm";
@@ -7,7 +8,14 @@ import useNotice from "./hooks/useNotice";
 const Notice = () => {
   const navigation = useNavigate();
 
-  const { isLoading, isError, settingList } = useNotice();
+  const {
+    isLoading,
+    isError,
+    settingList,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useNotice();
 
   if (isLoading) {
     // TODO: 스켈레톤 적용
@@ -20,18 +28,28 @@ const Notice = () => {
   }
 
   return (
-    <SettingListForm
-      headerTitle="공지사항"
-      settingList={settingList.map(({ id, isNew, ...item }) => {
-        return {
-          ...item,
-          onClick: () => navigation(BuildPaths.noticeDetail(String(id))),
-          badge: isNew ? <Badge type="NEW" /> : undefined,
-        };
-      })}
-      emptyMessage="등록된 공지사항이 없어요."
-      onClickBack={() => navigation(-1)}
-    />
+    <>
+      <SettingListForm
+        headerTitle="공지사항"
+        settingList={settingList.map(({ id, isNew, ...item }) => {
+          return {
+            ...item,
+            onClick: () => navigation(BuildPaths.noticeDetail(String(id))),
+            badge: isNew ? <Badge type="NEW" /> : undefined,
+          };
+        })}
+        emptyMessage="등록된 공지사항이 없어요."
+        onClickBack={() => navigation(-1)}
+      />
+      <InView
+        skip={!hasNextPage || isFetchingNextPage}
+        onChange={(inView) => {
+          if (inView && hasNextPage) {
+            fetchNextPage();
+          }
+        }}
+      />
+    </>
   );
 };
 

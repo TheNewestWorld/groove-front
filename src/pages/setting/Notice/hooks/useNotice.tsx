@@ -2,7 +2,14 @@ import { format } from "date-fns";
 import useNoticeListQuery from "../../../../common/queries/notices/useNoticeListQuery";
 
 const useNotice = () => {
-  const { isLoading, isError, noticeList } = useNoticeListQuery({});
+  const {
+    isLoading,
+    isError,
+    noticeList,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useNoticeListQuery({});
 
   return {
     isLoading,
@@ -17,6 +24,9 @@ const useNotice = () => {
           isNew,
         };
       }) ?? [],
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
   };
 };
 
