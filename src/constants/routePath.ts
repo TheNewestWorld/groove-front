@@ -19,6 +19,7 @@ const RoutePath = {
   noticeDetail: "/setting/notice/:noticeId",
   qnaList: "/setting/qna/list",
   qnaDetail: "/setting/qna/:qnaId",
+  qnaNew: "/setting/qna/new",
   vocForm: "/setting/voc/form",
 };
 
