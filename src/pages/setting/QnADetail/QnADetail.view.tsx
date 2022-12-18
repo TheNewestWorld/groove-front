@@ -9,8 +9,6 @@ import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
   qnaInfo: {
-    qnaId: number;
-    userId: number;
     title: string;
     profileImage: string;
     nickname: string;
@@ -21,17 +19,15 @@ export interface Props {
     answerTitle: string;
     answerContent: string;
   };
-  onClickProfile: (id: number) => void;
   onClose: () => void;
-  onDelete: (id: number) => void;
-  onModify: (id: number) => void;
+  onDelete: () => void;
+  onModify: () => void;
   onClickReQnA?: () => void;
 }
 
 const QnADetailView = ({
   qnaInfo,
   answerInfo,
-  onClickProfile,
   onClose,
   onDelete,
   onModify,
@@ -58,15 +54,14 @@ const QnADetailView = ({
         profileImage={qnaInfo.profileImage}
         nickname={qnaInfo.nickname}
         date={qnaInfo.date}
-        onClickProfile={() => onClickProfile(qnaInfo.userId)}
         className={styles.header}
       />
       <div className={styles.content}>{qnaInfo.content}</div>
       <QnABottomSheet
         isShow={isOpenOption}
         onClose={onCloseOption}
-        onClickDelete={() => onDelete(qnaInfo.qnaId)}
-        onClickModify={() => onModify(qnaInfo.qnaId)}
+        onClickDelete={() => onDelete()}
+        onClickModify={() => onModify()}
       />
       {answerInfo && (
         <>
