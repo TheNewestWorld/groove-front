@@ -4,9 +4,9 @@ import { ArrowIcon } from "../../../assets/icon";
 import { postPost } from "../../../common/apis/post";
 import useCategoryListQuery from "../../../common/queries/category/useCategoryListQuery";
 import Header from "../../../components/Header";
-import CommunityFormView from "./CommunityForm.view";
+import CommunityFormView from "../CommunityForm/CommunityForm.view";
 
-const CommunityForm = () => {
+const CommunityNew = () => {
   const { categoryList } = useCategoryListQuery({
     categoryGroup: "COMMUNITY",
   });
@@ -102,4 +102,4 @@ const CommunityForm = () => {
   );
 };
 
-export default CommunityForm;
+export default CommunityNew;

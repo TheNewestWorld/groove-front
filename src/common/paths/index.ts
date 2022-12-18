@@ -9,7 +9,7 @@ const BuildPaths = {
   resetPassword: () => `${RoutePath.resetPassword}`,
   communityHome: (category: string) =>
     `${RoutePath.communityHome.replace(":category", category)}`,
-  communityForm: () => `${RoutePath.communityForm}`,
+  communityNew: () => `${RoutePath.communityNew}`,
   communityEdit: (communityId: string) =>
     `${RoutePath.communityEdit.replace(":communityId", communityId)}`,
   communityComment: (communityId: string) =>
