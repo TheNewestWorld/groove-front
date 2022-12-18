@@ -123,7 +123,7 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
           disabled={isDisabled}
           colorTheme="dark"
         >
-          등록하기
+          {data ? "수정하기" : "등록하기"}
         </RoundButton>
       </div>
     </>
