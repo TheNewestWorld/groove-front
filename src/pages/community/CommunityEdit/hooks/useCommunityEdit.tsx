@@ -1,11 +1,16 @@
+import { useState } from "react";
 import useCategoryListQuery from "../../../../common/queries/category/useCategoryListQuery";
 import usePostDetailQuery from "../../../../common/queries/posts/usePostDetailQuery";
+import convertURLtoFile from "../../../../helpers/convertUrlToFile";
 
 type Props = {
   communityId: number;
 };
 
 const useCommunityEdit = ({ communityId }: Props) => {
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [audioFile, setAudioFile] = useState<File | null>(null);
+
   const { isLoading: isLoadingCategoryList, categoryList } =
     useCategoryListQuery({
       categoryGroup: "COMMUNITY",
@@ -16,7 +21,23 @@ const useCommunityEdit = ({ communityId }: Props) => {
       postId: communityId,
     },
     {
-      enabled: !!communityId,
+      enabled: !!communityId || !!categoryList,
+      onSuccess: (post) => {
+        post.attachments
+          .filter(({ fileType }) => fileType === "POST_IMAGE")
+          .map(async ({ uri, ...item }) => {
+            console.log(item);
+            const image = await convertURLtoFile(uri);
+            setImageFiles([...imageFiles, image]);
+          });
+
+        post?.attachments
+          .filter(({ fileType }) => fileType === "POST_RECORD")
+          .map(async ({ uri }) => {
+            const audio = await convertURLtoFile(uri);
+            setAudioFile(audio);
+          });
+      },
     }
   );
 
