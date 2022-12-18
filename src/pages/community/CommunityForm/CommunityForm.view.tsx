@@ -85,13 +85,14 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
           <FileInput
             imageList={imageUrls}
             audioUrl={audioUrl}
-            onClickCamera={(image: File) => {
+            onClickCamera={(image: File, url: string) => {
               setCommunity({
                 ...community,
                 imageFiles: [...community.imageFiles, image],
               });
+              setImageUrls([...imageUrls, url]);
             }}
-            onClickMic={(audio: File) => {
+            onClickMic={(audio: File, url: string) => {
               setCommunity({
                 ...community,
                 audioFile: audio,
@@ -111,6 +112,7 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
                   ...community.imageFiles.slice(idx + 1),
                 ],
               });
+              setImageUrls(imageUrls.filter((_, index) => index !== idx));
             }}
           />
         </ContentInput>
