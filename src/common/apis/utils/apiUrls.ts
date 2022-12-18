@@ -37,10 +37,14 @@ export const apiUrls = {
     getLikedPostList: () => `${BASE_URL}/users/self/liked-posts`,
   },
   comment: {
-    getCommentList: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-    postComment: (postId: number) => `${BASE_URL}/community/post/${postId}/comment`,
-    updateComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
-    deleteComment: (commentId: number) => `${BASE_URL}/community/comment/${commentId}`,
+    getCommentList: (postId: number) =>
+      `${BASE_URL}/community/post/${postId}/comment`,
+    postComment: (postId: number) =>
+      `${BASE_URL}/community/post/${postId}/comment`,
+    updateComment: (commentId: number) =>
+      `${BASE_URL}/community/comment/${commentId}`,
+    deleteComment: (commentId: number) =>
+      `${BASE_URL}/community/comment/${commentId}`,
   },
   post: {
     getPostDetail: (postId: number) => `${BASE_URL}/community/post/${postId}`,
@@ -61,5 +65,8 @@ export const apiUrls = {
   notices: {
     getNoticeList: () => `${BASE_URL}/notice`,
     getNoticeDetail: (noticeId: number) => `${BASE_URL}/notice/${noticeId}`,
+  },
+  reports: {
+    postReport: () => `${BASE_URL}/reports`,
   },
 };
