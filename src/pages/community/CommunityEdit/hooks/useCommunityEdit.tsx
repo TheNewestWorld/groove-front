@@ -35,6 +35,12 @@ const useCommunityEdit = ({ communityId }: Props) => {
           audioFile: null,
         }
       : undefined,
+    imageList: post?.attachments
+      .filter(({ fileType }) => fileType === "POST_IMAGE")
+      .map(({ uri }) => uri),
+    audio: post?.attachments
+      .filter(({ fileType }) => fileType === "POST_RECORD")
+      .map(({ uri }) => uri)[0],
   };
 };
 

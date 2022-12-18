@@ -9,9 +9,10 @@ const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { isLoading, categoryList, community } = useCommunityEdit({
-    communityId: Number(communityId),
-  });
+  const { isLoading, categoryList, community, imageList, audio } =
+    useCommunityEdit({
+      communityId: Number(communityId),
+    });
 
   if (isLoading || !community) {
     // TOOD
@@ -28,6 +29,8 @@ const CommunityEdit = () => {
       <CommunityFormView
         categoryList={categoryList}
         data={community}
+        imageList={imageList}
+        audio={audio}
         onSubmit={(form) => {
           updatePost(
             { postId: Number(communityId) },
