@@ -8,6 +8,7 @@ import {
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "./common/configs/query";
 import { lazy } from "react";
+import QnANew from "./pages/setting/QnANew";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Entry = lazy(() => import("./pages/Entry"));
@@ -65,6 +66,7 @@ function App() {
             <Route path={RoutePath.qnaList} element={<QnA />} />
             <Route path={RoutePath.qnaDetail} element={<QnADetail />} />
             <Route path={RoutePath.vocForm} element={<VocForm />} />
+            <Route path={RoutePath.qnaNew} element={<QnANew />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </GlobalApiErrorBoundary>
