@@ -1,8 +1,6 @@
 import BottomSheetList from "../../../components/BottomSheetList";
 import CommunityComment from "./components/CommunityComment";
 import CommunityCommentInput from "./components/CommunityCommentInput";
-import Header from "../../../components/Header";
-import { CloseIcon } from "../../../assets/icon";
 import styles from "./CommunityCommentList.module.scss";
 import { useState } from "react";
 import EmptyPage from "../../../components/EmptyPage";
@@ -27,7 +25,6 @@ export interface Props {
     commentId: number;
     canEdit: boolean;
   } | null;
-  onClose: () => void;
   onSubmitComment: (comment: string, parentId?: number) => void;
   onClickUpdateOption: (commentId: number) => void;
   onClickDeleteOption: (commentId: number) => void;
@@ -41,7 +38,6 @@ export interface Props {
 const CommunityCommentListView = ({
   comments = [],
   optionStatus,
-  onClose,
   onSubmitComment,
   onClickUpdateOption,
   onClickDeleteOption,
@@ -56,7 +52,6 @@ const CommunityCommentListView = ({
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
-        <Header title="댓글" right={<CloseIcon />} onClickRight={onClose} />
         {comments.length === 0 ? (
           <EmptyPage
             type="full"
