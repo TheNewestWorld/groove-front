@@ -1,28 +1,19 @@
-import { ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
-import useCategoryListQuery from "../../../common/queries/category/useCategoryListQuery";
-import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
+import { updatePost } from "../../../common/apis/post";
 import Header from "../../../components/Header";
 import CommunityFormView from "../CommunityForm/CommunityForm.view";
+import useCommunityEdit from "./hooks/useCommunityEdit";
 
 const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { categoryList } = useCategoryListQuery({
-    categoryGroup: "COMMUNITY",
+  const { isLoading, categoryList, community } = useCommunityEdit({
+    communityId: Number(communityId),
   });
-  const { isLoading, post } = usePostDetailQuery(
-    {
-      postId: Number(communityId),
-    },
-    {
-      enabled: !!communityId,
-    }
-  );
 
-  if (isLoading) {
+  if (isLoading || !community) {
     // TOOD
     return <>LOADING...</>;
   }
@@ -36,15 +27,18 @@ const CommunityEdit = () => {
       />
       <CommunityFormView
         categoryList={categoryList}
-        data={{
-          title: "",
-          content: "",
-          category: "",
-          categoryId: 0,
-          imageFiles: [],
-          audioFile: null,
+        data={community}
+        onSubmit={(form) => {
+          updatePost(
+            { postId: Number(communityId) },
+            {
+              title: form.title,
+              content: form.content,
+              categoryId: form.categoryId,
+              attachments: form.imageFiles.concat(form.audioFile!),
+            }
+          ).then(() => navigation(-1));
         }}
-        onSubmit={(form) => {}}
       />
     </>
   );

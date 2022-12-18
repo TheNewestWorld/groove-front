@@ -97,6 +97,7 @@ const CommunityFormView = ({ categoryList, data, onSubmit }: Props) => {
                 ...community,
                 audioFile: audio,
               });
+              setAudioUrl(url);
             }}
             onDeleteAudio={() => {
               setCommunity({
