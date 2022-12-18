@@ -1,4 +1,4 @@
-import { useInfiniteQuery, UseInfiniteQueryOptions } from "react-query";
+import { useQuery, UseQueryOptions } from "react-query";
 import { getCategoryList, GetCategoryListResponse } from "../../apis/category";
 
 type QueryProps = {
@@ -7,9 +7,9 @@ type QueryProps = {
 
 const useCategoryListQuery = (
   { categoryGroup }: QueryProps,
-  options?: UseInfiniteQueryOptions<GetCategoryListResponse>,
+  options?: UseQueryOptions<GetCategoryListResponse>
 ) => {
-  const { data, ...result } = useInfiniteQuery<GetCategoryListResponse>(
+  const { data, ...result } = useQuery<GetCategoryListResponse>(
     ["getCategory", categoryGroup],
     ({}) =>
       getCategoryList({
@@ -17,15 +17,12 @@ const useCategoryListQuery = (
       }),
     {
       ...options,
-    },
+    }
   );
 
   return {
     ...result,
-    categoryList: data?.pages.reduce(
-      (acc: GetCategoryListResponse, list) => [...acc, ...list],
-      [],
-    ),
+    categoryList: data ?? [],
   };
 };
 
