@@ -76,9 +76,7 @@
 
 .ImageDetail_container__-szGE{padding-bottom:110px}.ImageDetail_header__mPOnT{width:100%;height:110px;display:flex;align-items:center}.ImageDetail_title__DdPmH{display:flex;flex:1 1;justify-content:center;font-size:16px;font-weight:400;color:black}.ImageDetail_icon__D85hJ{display:flex;flex:1 1;justify-content:right;margin-right:20px;height:24px;width:24px}.ImageDetail_image__-BhKb{position:absolute;left:0;width:100%;height:calc(100% - 236px)}.ImageDetail_prev__KMvdI{position:absolute;top:calc(50% - 8px);left:20px;background:rgba(0,0,0,0.5);float:left}.ImageDetail_next__JpLJ8{position:absolute;top:calc(50% - 8px);right:20px;background:rgba(0,0,0,0.5);float:right}
 
-.PushList_division__NO\+ZL{height:16px;background-color:#F2F4F5}
-
-.ListSection_title__U7Lbb{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.ListSection_items__Ietv9{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.ListSection_image__VugF8{width:40px;height:40px;margin-right:18px;background-color:#8B95A1}.ListSection_content__9DzM0{font-size:15px;font-weight:600;color:#191F28}.ListSection_ago__9buCB{font-size:12px;font-weight:400;color:#8B95A1}
+.PushList_title__2Nqbg{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.PushList_items__pRe9B{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.PushList_image__qZC7z{width:40px;height:40px;margin-right:18px;background-color:#8B95A1}.PushList_content__YvLKU{font-size:15px;font-weight:600;color:#191F28}.PushList_ago__iP2HY{font-size:12px;font-weight:400;color:#8B95A1}.PushList_division__NO\+ZL{height:16px;background-color:#F2F4F5}.PushList_empty__vPMUc{position:absolute;height:100%;left:0;bottom:0}.PushList_emptyImage__G8ShP{width:140px;height:210px;position:absolute;top:calc(50% - 210px);left:calc(50% - 70px)}
 
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
 
@@ -122,6 +120,8 @@
 
 .AnswerComponent_container__5gLYR{background-color:#F6F7FA;padding:20px;border-radius:20px}.AnswerComponent_title__BppZL{padding-bottom:16px;font-size:16px;font-weight:600;line-height:137.5%;color:#191F28}.AnswerComponent_content__vupL7{font-size:16px;line-height:162.5%;color:#191F28;word-break:break-word;white-space:pre-wrap}
 
+.QnANew_container__L9pw5{padding:20px;display:flex;flex-direction:column;height:calc(100vh - 105px)}.QnANew_textarea__CqPGw{resize:none;border:none;width:auto;position:relative;margin:5px 0px 16px 0px;padding:16px 14px;border-radius:10px;background-color:#F2F4F5;font-weight:600;font-size:16px;line-height:24px;flex-grow:1;color:#191F28}.QnANew_textarea__CqPGw::-webkit-input-placeholder{color:#8B95A1}.QnANew_textarea__CqPGw::placeholder{color:#8B95A1}.QnANew_textarea__CqPGw:focus{outline:none}.QnANew_label__\+xgp4{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.QnANew_hidden__FSmX-{display:none}.QnANew_photoButton__-EXIU{position:absolute;bottom:125px;left:40px;width:50px;height:35px;border-radius:12px}.QnANew_photo__pHbj0{position:absolute;bottom:85px;right:0px;width:120px;height:120px}
+
 .Setting_dialogButton__F51Ep{width:calc((100% - 13px) / 2)}.Setting_dialogButton__F51Ep:not(:first-of-type){margin-left:13px}.Setting_description__B1Duv{font-weight:600;font-size:15px;color:#6B7684}.Setting_icon__4GVvJ{width:24px;height:24px;margin-right:8px}
 
 .VocForm_container__AzqXo{padding:20px;display:flex;flex-direction:column;height:calc(100vh - 105px)}.VocForm_textarea__4Zlyu{resize:none;border:none;width:calc(100% - 40px);margin-bottom:16px;padding:16px 14px;border-radius:10px;background-color:#F2F4F5;font-weight:600;font-size:16px;line-height:24px;flex-grow:1}.VocForm_textarea__4Zlyu ::-webkit-input-placeholder{color:#8B95A1}.VocForm_textarea__4Zlyu ::placeholder{color:#8B95A1}.VocForm_textarea__4Zlyu:focus{outline:none}
@@ -159,4 +159,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.1f03b206.css.map*/
+/*# sourceMappingURL=main.c4e77ad5.css.map*/
