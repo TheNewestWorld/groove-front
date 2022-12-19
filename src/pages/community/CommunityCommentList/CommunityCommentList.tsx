@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CloseIcon } from "../../../assets/icon";
 import { deleteComment, postComment } from "../../../common/apis/comment";
-import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
 import Error from "../../../components/Error";
 import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
 import CommunityCommentListView from "./CommunityCommentList.view";
+import useCommunityCommentList from "./hooks/useCommunityCommentList";
 
 const CommunityCommentList = () => {
+  const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
   const [optionStatus, setOptionStatus] =
     useState<{
@@ -16,13 +17,11 @@ const CommunityCommentList = () => {
       canEdit: boolean;
     } | null>(null);
 
-  const { isLoading, isError, commentList } = useCommentListQuery({
-    postId: Number(communityId),
+  const { isLoading, isError, comments, refetch } = useCommunityCommentList({
+    communityId: Number(communityId),
   });
 
-  const navigation = useNavigate();
-
-  if (isLoading || !commentList) {
+  if (isLoading ) {
     return <Loading />;
   }
 
@@ -38,13 +37,13 @@ const CommunityCommentList = () => {
         onClickRight={() => navigation(-1)}
       />
       <CommunityCommentListView
-        comments={commentList!}
+        comments={comments}
         optionStatus={optionStatus}
         onSubmitComment={(comment: string, parentId?: number) => {
           postComment(
             { postId: Number(communityId) },
-            { content: comment, parentId: parentId ?? Number(communityId) }
-          );
+            { content: comment, parentId: parentId ?? 0 }
+          ).then(() => refetch());
         }}
         onClickUpdateOption={(commentId: number) => {
           // TODO(in.heo): 수정 쿼리
