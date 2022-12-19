@@ -20,7 +20,7 @@
 
 .dialog__background{position:fixed;width:100vw;height:100vh;top:0;left:0;background-color:rgba(0,0,0,0.5)}.dialog__background .dialog__container{background-color:#fff;border-radius:18px;position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);padding:24px;width:calc(85% - 40px)}.dialog__background .dialog__title{font-size:18px;font-weight:bold;color:#191F28;word-break:keep-all;margin-bottom:20px;display:flex}
 
-.EmptyPage_container__L16Hv{height:100%;width:100%;text-align:center;display:table}.EmptyPage_message__tnL9W{text-align:center;display:table-cell;vertical-align:middle}.EmptyPage_title__dU07W{font-weight:500;font-size:18px;color:#191F28}.EmptyPage_description__XV6\+r{font-weight:600;font-size:16px;line-height:150%;color:#8B95A1}
+.EmptyPage_container__L16Hv{height:100%;width:100%;text-align:center;display:table}.EmptyPage_message__tnL9W{text-align:center;display:table-cell;vertical-align:middle}.EmptyPage_message__tnL9W.EmptyPage_full__K4BFL{height:calc(100vh - 130px)}.EmptyPage_title__dU07W{font-weight:500;font-size:18px;color:#191F28}.EmptyPage_description__XV6\+r{font-weight:600;font-size:16px;line-height:150%;color:#8B95A1}
 
 .round-button{-webkit-appearance:none;appearance:none;display:inline-block;border:none;border-radius:20px;font-size:17px;text-align:center;text-decoration:none;height:55px;width:100%}.round-button.primary{background:#4880EE;color:#fff}.round-button.secondary{background:#F2F4F5;color:#4E5968}.round-button.dark{background:#191F28;color:#fff}.round-button:disabled{background:#BABCBF;color:#fff}
 
@@ -159,4 +159,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.c4e77ad5.css.map*/
+/*# sourceMappingURL=main.9d4a2b83.css.map*/
