@@ -81,5 +81,5 @@
   "msw": {
     "workerDirectory": ".storybook-public"
   },
-  "proxy": "http://193.122.106.249:9090"
+  "proxy": "https://bogus-dev.shop"
 }
