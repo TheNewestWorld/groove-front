@@ -9,26 +9,13 @@ const useCommentListQuery = (
   { postId }: QueryProps,
   options?: UseQueryOptions<GetCommentListResponse>,
 ) => {
-  const { isLoading, isError, data } = useQuery<GetCommentListResponse>(
+  const result = useQuery<GetCommentListResponse>(
     ["getCommentList", postId],
     () => getCommentList({ postId }),
-    options,
+    options
   );
 
-  return {
-    isLoading,
-    isError,
-    commentList:
-      data
-        ?.filter(comment => comment.id === comment.parentId)
-        .map(comment => {
-          const replies = data.filter(reply => reply.id === comment.id);
-          return {
-            comment: comment,
-            replies: replies,
-          };
-        }) ?? [],
-  };
+  return result;
 };
 
 export default useCommentListQuery;
