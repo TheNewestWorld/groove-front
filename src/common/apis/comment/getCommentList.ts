@@ -8,14 +8,14 @@ export type GetCommentListParams = {
 
 export type GetCommentListResponse = {
   id: number;
+  createdAt: string;
+  content: string;
+  parentId: number;
   userId: number;
   nickName: string;
   profileUri: string;
-  content: string;
-  createdAt: string;
+  postId: number;
   authority: boolean;
-  parentId: number;
-  taggedUsers: { userId: number; nickname: string }[];
 }[];
 
 export const getCommentList = ({ postId }: GetCommentListParams) => {
