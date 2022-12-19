@@ -8,18 +8,27 @@ const useMyPage = () => {
     isLoading: isLoadingWrittenPost,
     isError: isErrorWrittenPost,
     writtenList,
+    hasNextPage: hasNextWrittenPage,
+    fetchNextPage: fetchNextWrittenPage,
+    isFetchingNextPage: isFetchingNextWrittenPage,
   } = useWrittenPostListQuery({});
 
   const {
     isLoading: isLoadingLikedPost,
     isError: isErrorLikedPost,
     likedList,
+    hasNextPage: hasNextLikedPage,
+    fetchNextPage: fetchNextLikedPage,
+    isFetchingNextPage: isFetchingNextLikedPage,
   } = useLikedPostListQuery({});
 
   const {
     isLoading: isLoadingRecordList,
     isError: isErrorRecordList,
     recordList,
+    hasNextPage: hasNextRecordPage,
+    fetchNextPage: fetchNextRecordPage,
+    isFetchingNextPage: isFetchingNextRecordPage,
   } = useRecordListQuery({});
 
   const {
@@ -98,6 +107,15 @@ const useMyPage = () => {
           };
         }
       ) ?? [],
+    hasNextWrittenPage,
+    fetchNextWrittenPage,
+    isFetchingNextWrittenPage,
+    hasNextLikedPage,
+    fetchNextLikedPage,
+    isFetchingNextLikedPage,
+    hasNextRecordPage,
+    fetchNextRecordPage,
+    isFetchingNextRecordPage,
   };
 };
 

@@ -1,3 +1,4 @@
+import { InView } from "react-intersection-observer";
 import { PencilIcon } from "../../../assets/icon";
 import CircleImage from "../../../components/CircleImage";
 import EmptyPage from "../../../components/EmptyPage";
@@ -44,6 +45,15 @@ export interface Props {
   onClickCommunityItem: (id: number) => void;
   onDeleteRecord: (id: number) => void;
   onClickEdit: () => void;
+  hasNextWrittenPage?: boolean;
+  fetchNextWrittenPage: () => void;
+  isFetchingNextWrittenPage: boolean;
+  hasNextLikedPage?: boolean;
+  fetchNextLikedPage: () => void;
+  isFetchingNextLikedPage: boolean;
+  hasNextRecordPage?: boolean;
+  fetchNextRecordPage: () => void;
+  isFetchingNextRecordPage: boolean;
 }
 
 const MyPageView = ({
@@ -57,6 +67,15 @@ const MyPageView = ({
   onClickCommunityItem,
   onDeleteRecord,
   onClickEdit,
+  hasNextWrittenPage,
+  fetchNextWrittenPage,
+  isFetchingNextWrittenPage,
+  hasNextLikedPage,
+  fetchNextLikedPage,
+  isFetchingNextLikedPage,
+  hasNextRecordPage,
+  fetchNextRecordPage,
+  isFetchingNextRecordPage,
 }: Props) => {
   const activeTab = TabTitle.filter((tab) => tab.id === currentTab)[0].label;
 
@@ -67,7 +86,6 @@ const MyPageView = ({
         <div className={styles.nickname}>{nickname}</div>
         <PencilIcon className={styles.icon} onClick={onClickEdit} />
       </div>
-
       <TabList
         className={styles.tab}
         type="round"
@@ -77,40 +95,68 @@ const MyPageView = ({
           onChangeTab(TabTitle.filter((tab) => tab.label === newTab)[0].id)
         }
       />
-
       {currentTab === "RECORD" &&
         (recordList.length === 0 ? (
           <EmptyPage title="녹음 내용이 없어요." className={styles.empty} />
         ) : (
-          <RecordSection
-            className={styles.section}
-            recordList={recordList}
-            onDelete={onDeleteRecord}
-          />
-        ))}
+          <>
+            <RecordSection
+              className={styles.section}
+              recordList={recordList}
+              onDelete={onDeleteRecord}
+            />
 
+            <InView
+              skip={!hasNextRecordPage || isFetchingNextRecordPage}
+              onChange={(inView) => {
+                if (inView && hasNextRecordPage) {
+                  fetchNextRecordPage();
+                }
+              }}
+            />
+          </>
+        ))}
       {currentTab === "LIKED" &&
         (likedList.length === 0 ? (
           <EmptyPage title="좋아한 게시물이 없어요." className={styles.empty} />
         ) : (
-          <CommunitySection
-            className={styles.section}
-            communityList={likedList}
-            onClick={onClickCommunityItem}
-          />
-        ))}
+          <>
+            <CommunitySection
+              className={styles.section}
+              communityList={likedList}
+              onClick={onClickCommunityItem}
+            />
 
+            <InView
+              skip={!hasNextLikedPage || isFetchingNextLikedPage}
+              onChange={(inView) => {
+                if (inView && hasNextLikedPage) {
+                  fetchNextLikedPage();
+                }
+              }}
+            />
+          </>
+        ))}
       {currentTab === "WRITTEN" &&
         (writtenList.length === 0 ? (
           <EmptyPage title="작성한 게시물이 없어요." className={styles.empty} />
         ) : (
-          <CommunitySection
-            className={styles.section}
-            communityList={writtenList}
-            onClick={onClickCommunityItem}
-          />
+          <>
+            <CommunitySection
+              className={styles.section}
+              communityList={writtenList}
+              onClick={onClickCommunityItem}
+            />
+            <InView
+              skip={!hasNextWrittenPage || isFetchingNextWrittenPage}
+              onChange={(inView) => {
+                if (inView && hasNextWrittenPage) {
+                  fetchNextWrittenPage();
+                }
+              }}
+            />
+          </>
         ))}
-      {/* TODO: 리스트 마지막에 도착 시 추가 데이터 요청 */}
     </div>
   );
 };
