@@ -16,6 +16,17 @@ export type GetCommentListResponse = {
   profileUri: string;
   postId: number;
   authority: boolean;
+  reComments: {
+    id: number;
+    createdAt: string;
+    content: string;
+    parentId: number;
+    userId: number;
+    nickName: string;
+    profileUri: string;
+    postId: number;
+    authority: boolean;
+  }[];
 }[];
 
 export const getCommentList = ({ postId }: GetCommentListParams) => {
