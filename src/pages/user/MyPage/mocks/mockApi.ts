@@ -33,7 +33,7 @@ export const 작성한_글_목록 = {
               content: Content.content + index,
               likeCount: index,
               commentCount: index,
-              // TODO: liked 추가
+              likeFlag: index % 2 === 0
             };
           }),
         },
@@ -71,7 +71,7 @@ export const 좋아요_글_목록 = {
               content: Content.content + index,
               likeCount: index,
               commentCount: index,
-              // TODO: liked 추가
+              likeFlag: index % 2 === 0
             };
           }),
         },
