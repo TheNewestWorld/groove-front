@@ -1,0 +1,17 @@
+@import "../../constants/color.scss";
+
+.description{
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: $black-8B;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button{
+  width: calc((100% - 9px) / 2);
+}
