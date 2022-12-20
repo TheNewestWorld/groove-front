@@ -1,0 +1,1 @@
+export const COMMENT_NOT_REPLY_ID = 0;

@@ -4,6 +4,7 @@ import { CloseIcon } from "../../../assets/icon";
 import { deleteComment, postComment } from "../../../common/apis/comment";
 import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
 import Header from "../../../components/Header";
+import { COMMENT_NOT_REPLY_ID } from "../../../constants/comment";
 import CommunityCommentListView from "./CommunityCommentList.view";
 
 const CommunityCommentList = () => {
@@ -27,6 +28,7 @@ const CommunityCommentList = () => {
   if (isError) {
     return <div>에러 화면 추가</div>;
   }
+
   return (
     <>
       <Header
@@ -40,7 +42,7 @@ const CommunityCommentList = () => {
         onSubmitComment={(comment: string, parentId?: number) => {
           postComment(
             { postId: Number(communityId) },
-            { content: comment, parentId: parentId ?? Number(communityId) }
+            { content: comment, parentId: parentId ?? COMMENT_NOT_REPLY_ID }
           );
         }}
         onClickUpdateOption={(commentId: number) => {

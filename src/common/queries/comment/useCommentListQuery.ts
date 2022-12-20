@@ -1,4 +1,5 @@
 import { useQuery, UseQueryOptions } from "react-query";
+import { COMMENT_NOT_REPLY_ID } from "../../../constants/comment";
 import { getCommentList, GetCommentListResponse } from "../../apis/comment";
 
 type QueryProps = {
@@ -20,7 +21,7 @@ const useCommentListQuery = (
     isError,
     commentList:
       data
-        ?.filter(comment => comment.id === comment.parentId)
+        ?.filter(comment => comment.id === COMMENT_NOT_REPLY_ID)
         .map(comment => {
           const replies = data.filter(reply => reply.id === comment.id);
           return {
