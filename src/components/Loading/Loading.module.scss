@@ -9,6 +9,16 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
-  padding-top: 50vh;
   z-index: 100;
+}
+
+.content {
+  position: absolute;
+  top: calc(50% - 200px);
+  width: 100%;
+}
+
+.gif {
+  width: 200px;
+  height: 200px;
 }
