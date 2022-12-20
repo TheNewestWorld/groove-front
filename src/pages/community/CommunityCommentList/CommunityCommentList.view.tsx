@@ -1,9 +1,9 @@
-import BottomSheetList from "../../../components/BottomSheetList";
 import CommunityComment from "./components/CommunityComment";
 import CommunityCommentInput from "./components/CommunityCommentInput";
 import styles from "./CommunityCommentList.module.scss";
-import { useState } from "react";
 import EmptyPage from "../../../components/EmptyPage";
+import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
+import { useState } from "react";
 
 export interface CommentProps {
   id: number;
@@ -14,6 +14,7 @@ export interface CommentProps {
   createdAt: string;
   authority: boolean;
   taggedUsers?: { userId: number; nickname: string }[];
+  canEdit: boolean;
 }
 
 export interface Props {
@@ -21,33 +22,25 @@ export interface Props {
     comment: CommentProps;
     replies: CommentProps[];
   }[];
-  optionStatus: {
-    commentId: number;
-    canEdit: boolean;
-  } | null;
   onSubmitComment: (comment: string, parentId?: number) => void;
-  onClickUpdateOption: (commentId: number) => void;
-  onClickDeleteOption: (commentId: number) => void;
-  onClickReportOption: (commentId: number) => void;
-  onClickReply: (commentId: number) => void;
-  onClickOption: (commentId: number, hasAuthority: boolean) => void;
-  onCloseOption: () => void;
+  onSubmitUpdateComment: (commentId: number, comment: string) => void;
+  onClickDeleteComment: (commentId: number) => void;
+  onClickReport: (commentId: number, value: ReasonType) => void;
+  onSubmitReply: (commentId: number, comment: string) => void;
   onClickUserProfile?: (userId: number) => void;
 }
 
 const CommunityCommentListView = ({
   comments = [],
-  optionStatus,
   onSubmitComment,
-  onClickUpdateOption,
-  onClickDeleteOption,
-  onClickReportOption,
-  onClickReply,
-  onClickOption,
-  onCloseOption,
+  onSubmitUpdateComment,
+  onClickDeleteComment,
+  onClickReport,
+  onSubmitReply,
   onClickUserProfile,
 }: Props) => {
-  const [isOpenOption, setOpenOption] = useState<Boolean>(false);
+  const [updatingId, setUpdatingId] = useState<number | null>(null);
+  const [replyingId, setReplyingId] = useState<number | null>(null);
 
   return (
     <div className={styles.container}>
@@ -61,50 +54,45 @@ const CommunityCommentListView = ({
         ) : (
           comments.map((item) => (
             <CommunityComment
+              key={item.comment.id}
               comment={item.comment}
               replies={item.replies}
               onClickUserProfile={onClickUserProfile}
-              onClickReply={onClickReply}
-              onClickOption={(comemntId: number, hasAuthority: boolean) => {
-                setOpenOption(true);
-                onClickOption(comemntId, hasAuthority);
+              onClickReply={(id) => {
+                setReplyingId(id);
+                console.log(id);
               }}
+              onClickReport={onClickReport}
+              onClickModifyComment={setUpdatingId}
+              onClickDeleteComment={onClickDeleteComment}
             />
           ))
         )}
       </div>
-      <CommunityCommentInput onSubmitComment={onSubmitComment} />
-      {optionStatus &&
-        isOpenOption &&
-        (optionStatus.canEdit ? (
-          <BottomSheetList
-            hasCloseButton={true}
-            list={["수정하기", "삭제하기"]}
-            onClick={(value: string) => {
-              if (value === "수정하기") {
-                onClickUpdateOption(optionStatus!.commentId);
-              } else {
-                onClickDeleteOption(optionStatus!.commentId);
-              }
-            }}
-            onClose={() => {
-              setOpenOption(false);
-              onCloseOption();
-            }}
-          />
-        ) : (
-          <BottomSheetList
-            hasCloseButton={true}
-            list={["신고하기"]}
-            onClick={(value: string) => {
-              onClickReportOption(optionStatus!.commentId);
-            }}
-            onClose={() => {
-              setOpenOption(false);
-              onCloseOption();
-            }}
-          />
-        ))}
+      <CommunityCommentInput
+        initialComment={
+          updatingId
+            ? comments.filter(({ comment }) => comment.id === updatingId)[0]
+                .comment.content
+            : replyingId
+            ? `@${
+                comments.filter(({ comment }) => comment.id === replyingId)[0]
+                  .comment.nickName
+              }`
+            : undefined
+        }
+        onSubmitComment={(value) => {
+          if (updatingId) {
+            onSubmitUpdateComment(updatingId, value);
+            setUpdatingId(null);
+          } else if (replyingId) {
+            onSubmitReply(replyingId, value);
+            setReplyingId(null);
+          } else {
+            onSubmitComment(value);
+          }
+        }}
+      />
     </div>
   );
 };

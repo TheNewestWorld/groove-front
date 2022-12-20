@@ -1,9 +1,8 @@
 import useOpen from "../../../../../hooks/useOpen";
 import CommunityCommentReadMore from "../CommunityCommentReadMore";
-import CommunityCommentItem, {
-  Props as CommunityCommentItemType,
-} from "../CommunityCommentItem";
+import CommunityCommentItem from "../CommunityCommentItem";
 import styles from "./CommunityComment.module.scss";
+import { ReasonType } from "../../../../../components/ReportBottomSheet/ReportBottomSheet";
 
 export interface CommentProps {
   id: number;
@@ -14,6 +13,7 @@ export interface CommentProps {
   createdAt: string;
   authority: boolean;
   taggedUsers?: { userId: number; nickname: string }[];
+  canEdit: boolean;
 }
 
 export interface Props {
@@ -21,7 +21,9 @@ export interface Props {
   replies?: CommentProps[];
   onClickUserProfile?: (userId: number) => void;
   onClickReply: (commentId: number) => void;
-  onClickOption: (commentId: number, hasAuthority: boolean) => void;
+  onClickReport: (id: number, reason: ReasonType) => void;
+  onClickModifyComment: (id: number) => void;
+  onClickDeleteComment: (id: number) => void;
 }
 
 const CommunityComment = ({
@@ -29,7 +31,9 @@ const CommunityComment = ({
   replies,
   onClickUserProfile,
   onClickReply,
-  onClickOption,
+  onClickReport,
+  onClickModifyComment,
+  onClickDeleteComment,
 }: Props) => {
   const { isOpen, onOpen, onClose } = useOpen();
 
@@ -37,21 +41,26 @@ const CommunityComment = ({
     <div>
       <CommunityCommentItem
         {...comment}
-        hasReply={true}
+        hasReply={!!replies}
         onClickUserProfile={() => onClickUserProfile!(comment.userId)}
+        onClickDeleteComment={onClickDeleteComment}
+        onClickModifyComment={onClickModifyComment}
         onClickReply={() => onClickReply(comment.id)}
-        onClickOption={() => onClickOption(comment.id, comment.authority)}
+        onClickReport={onClickReport}
       />
       {replies &&
         replies.length > 0 &&
         isOpen &&
-        replies!.map(reply => (
+        replies!.map((reply) => (
           <CommunityCommentItem
+            key={reply.id}
             {...reply}
             onClickUserProfile={() => onClickUserProfile!(reply.userId)}
             onClickReply={() => onClickReply(reply.id)}
-            onClickOption={() => onClickOption(reply.id, reply.authority)}
+            onClickDeleteComment={onClickDeleteComment}
+            onClickModifyComment={onClickModifyComment}
             className={styles.reply}
+            onClickReport={onClickReport}
           />
         ))}
       {replies && replies.length > 0 && (

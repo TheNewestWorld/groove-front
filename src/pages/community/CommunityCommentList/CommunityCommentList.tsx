@@ -1,28 +1,27 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CloseIcon } from "../../../assets/icon";
-import { deleteComment, postComment } from "../../../common/apis/comment";
-import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
-import Error from "../../../components/Error";
+import {
+  deleteComment,
+  postComment,
+  updateComment,
+} from "../../../common/apis/comment";
+import { postReport } from "../../../common/apis/reports";
 import Header from "../../../components/Header";
+import Error from "../../../components/Error";
 import Loading from "../../../components/Loading";
+import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
 import CommunityCommentListView from "./CommunityCommentList.view";
+import useCommunityCommentList from "./hooks/useCommunityCommentList";
 
 const CommunityCommentList = () => {
+  const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
-  const [optionStatus, setOptionStatus] =
-    useState<{
-      commentId: number;
-      canEdit: boolean;
-    } | null>(null);
 
-  const { isLoading, isError, commentList } = useCommentListQuery({
-    postId: Number(communityId),
+  const { isLoading, isError, comments, refetch } = useCommunityCommentList({
+    communityId: Number(communityId),
   });
 
-  const navigation = useNavigate();
-
-  if (isLoading || !commentList) {
+  if (isLoading ) {
     return <Loading />;
   }
 
@@ -38,36 +37,33 @@ const CommunityCommentList = () => {
         onClickRight={() => navigation(-1)}
       />
       <CommunityCommentListView
-        comments={commentList!}
-        optionStatus={optionStatus}
-        onSubmitComment={(comment: string, parentId?: number) => {
+        comments={comments}
+        onSubmitComment={(comment: string) => {
           postComment(
             { postId: Number(communityId) },
-            { content: comment, parentId: parentId ?? Number(communityId) }
+            { content: comment, parentId: 0 }
+          ).finally(() => refetch());
+        }}
+        onSubmitUpdateComment={(commentId: number, comment: string) => {
+          updateComment({ commentId }, { content: comment }).finally(() =>
+            refetch()
           );
         }}
-        onClickUpdateOption={(commentId: number) => {
-          // TODO(in.heo): 수정 쿼리
-          // 수정하기, 답글 달기 내용 구분짓게
-          // updateComment({commentId}, )
+        onClickDeleteComment={(commentId: number) => {
+          deleteComment({ commentId }).finally(() => refetch());
         }}
-        onClickDeleteOption={(commentId: number) => {
-          deleteComment({ commentId });
-        }}
-        onClickReportOption={(commentId: number) => {
-          // TODO(in.heo): 신고 기능 쿼리
-        }}
-        onClickReply={(commentId: number) => {
-          // TODO(in.heo) 입력 포커싱
-        }}
-        onClickOption={(commentId: number, hasAuthority: boolean) => {
-          setOptionStatus({
-            commentId,
-            canEdit: hasAuthority,
+        onClickReport={(commentId: number, value: ReasonType) => {
+          postReport({
+            postId: commentId,
+            reportTargetType: "COMMENT",
+            reportReasonType: value,
           });
         }}
-        onCloseOption={() => {
-          setOptionStatus(null);
+        onSubmitReply={(commentId: number, comment: string) => {
+          postComment(
+            { postId: Number(communityId) },
+            { content: comment, parentId: commentId }
+          ).finally(() => refetch());
         }}
       />
     </>

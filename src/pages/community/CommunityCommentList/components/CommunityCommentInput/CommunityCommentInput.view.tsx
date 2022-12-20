@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { PencilIcon } from "../../../../../assets/icon";
 
 import styles from "./CommunityCommentInput.module.scss";
 
 export interface Props {
+  initialComment?: string;
   onSubmitComment: (comment: string) => void;
 }
 
-const CommunityCommentInput = ({ onSubmitComment }: Props) => {
-  const [comment, setComment] = useState<string>("");
+const CommunityCommentInput = ({
+  initialComment = "",
+  onSubmitComment,
+}: Props) => {
+  const [comment, setComment] = useState<string>(initialComment);
+
+  useEffect(() => {
+    setComment(initialComment);
+  }, [initialComment]);
 
   return (
     <div className={styles.container}>
