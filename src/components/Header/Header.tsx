@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
 
 export interface Props {
-  title: string;
+  title?: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
   onClickLeft?: () => void;

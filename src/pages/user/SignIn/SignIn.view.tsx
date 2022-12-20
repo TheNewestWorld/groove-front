@@ -19,7 +19,6 @@ const SignInView = ({
 }: Props) => {
   return (
     <div className={styles.container}>
-      {/* TODO: 헤더 추가하기 */}
       <Form
         title="이메일로 시작하기"
         buttonText="시작하기"

@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { signIn } from "../../../common/apis/auth";
 import { getUserInfo } from "../../../common/apis/users";
 import BuildPaths from "../../../common/paths";
+import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
 import { useUserDispatch, useTokenDispatch } from "../../../hooks";
 import SignInView from "./SignIn.view";
+import { ArrowIcon } from "../../../assets/icon";
 
 const SignIn = () => {
   const navigation = useNavigate();
@@ -38,7 +40,7 @@ const SignIn = () => {
             profile: profileUri,
           },
         });
-        
+
         localStorage.setItem("name", nickname);
         localStorage.setItem("profile", profileUri);
 
@@ -54,6 +56,11 @@ const SignIn = () => {
 
   return (
     <>
+      <Header
+        title="게시물 작성하기"
+        left={<ArrowIcon />}
+        onClickLeft={() => navigation(-1)}
+      />
       <SignInView
         data={data}
         onChange={(e) => {
@@ -62,7 +69,6 @@ const SignIn = () => {
           setData({ ...data, [name]: value });
         }}
         onClickConfirm={onClickConfirm}
-        // TODO: 비활성화 조건 추가
         isDisabledButton={!data.email || !data.password}
         goToFindPassword={() => navigation(BuildPaths.findPassword())}
       />
