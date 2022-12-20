@@ -3,6 +3,7 @@ import CommunityCommentInput from "./components/CommunityCommentInput";
 import styles from "./CommunityCommentList.module.scss";
 import EmptyPage from "../../../components/EmptyPage";
 import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
+import { useState } from "react";
 
 export interface CommentProps {
   id: number;
@@ -22,7 +23,7 @@ export interface Props {
     replies: CommentProps[];
   }[];
   onSubmitComment: (comment: string, parentId?: number) => void;
-  onClickUpdateComment: (commentId: number) => void;
+  onSubmitUpdateComment: (commentId: number, comment: string) => void;
   onClickDeleteComment: (commentId: number) => void;
   onClickReport: (commentId: number, value: ReasonType) => void;
   onClickReply: (commentId: number) => void;
@@ -32,12 +33,14 @@ export interface Props {
 const CommunityCommentListView = ({
   comments = [],
   onSubmitComment,
-  onClickUpdateComment,
+  onSubmitUpdateComment,
   onClickDeleteComment,
   onClickReport,
   onClickReply,
   onClickUserProfile,
 }: Props) => {
+  const [updatingId, setUpdatingId] = useState<number | null>(null);
+
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
@@ -55,13 +58,28 @@ const CommunityCommentListView = ({
               onClickUserProfile={onClickUserProfile}
               onClickReply={onClickReply}
               onClickReport={onClickReport}
-              onClickModifyComment={onClickUpdateComment}
+              onClickModifyComment={setUpdatingId}
               onClickDeleteComment={onClickDeleteComment}
             />
           ))
         )}
       </div>
-      <CommunityCommentInput onSubmitComment={onSubmitComment} />
+      <CommunityCommentInput
+        initialComment={
+          updatingId
+            ? comments.filter(({ comment }) => comment.id === updatingId)[0]
+                .comment.content
+            : undefined
+        }
+        onSubmitComment={(value) => {
+          if (updatingId) {
+            onSubmitUpdateComment(updatingId, value);
+            setUpdatingId(null);
+          } else {
+            onSubmitComment(value);
+          }
+        }}
+      />
     </div>
   );
 };
