@@ -31,6 +31,7 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
             checkDisabled(image, newNickname);
           }}
           defaultImage={EmptyProfile}
+          className={styles.profileImage}
         />
       </div>
       <Input
