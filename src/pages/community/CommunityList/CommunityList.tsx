@@ -66,13 +66,11 @@ const CommunityList = () => {
         onProfileClick={() => navigation(BuildPaths.mypage("RECORD"))}
       />
       <CommunityListView
-        isLoading={isLoading}
         activeSort={sortType.label}
         sortList={sortList.map((item) => item.label)}
         activeCategory={activeCategoryName}
         categoryList={categoryList.map((item) => item.name)}
         communityList={communityList}
-        isEmpty={communityList.length === 0}
         onChangeSortType={(selectedSort: string) => {
           setSortType(
             sortList.filter((item) => item.label === selectedSort)[0]
