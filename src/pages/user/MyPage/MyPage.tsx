@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon, SettingIcon } from "../../../assets/icon";
 import BuildPaths from "../../../common/paths";
 import Header from "../../../components/Header";
@@ -8,8 +7,7 @@ import useMyPage from "./hooks/useMyPage";
 import MyPageView, { Tab } from "./MyPage.view";
 
 const MyPage = () => {
-  // TODO: path에 따라서 tab 변환 및 tab 변환 시 path 변환
-  const [tab, setTab] = useState<Tab>("RECORD");
+  const { tab } = useParams<{ tab: Tab }>();
   const navigation = useNavigate();
 
   const {
@@ -58,8 +56,10 @@ const MyPage = () => {
         recordList={recordList}
         likedList={likedList}
         writtenList={writtenList}
-        onChangeTab={(tab: Tab) => setTab(tab)}
-        onClickCommunityItem={id =>
+        onChangeTab={(tab: Tab) =>
+          navigation(BuildPaths.mypage(tab), { replace: true })
+        }
+        onClickCommunityItem={(id: number) =>
           navigation(BuildPaths.communityDetail(String(id)))
         }
         onDeleteRecord={id => {
