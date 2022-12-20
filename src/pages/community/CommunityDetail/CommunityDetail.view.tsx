@@ -1,8 +1,4 @@
 import styles from "./CommunityDetail.module.scss";
-import Header from "../../../components/Header";
-
-import { ArrowTailIcon, SmallDotsIcon } from "../../../assets/icon";
-
 import ContentHeader from "../../../components/ContentHeader";
 import ContentBody from "../../../components/ContentBody";
 import CommunityFooter from "../../../components/CommunityFooter";
@@ -28,7 +24,6 @@ export interface Props {
     commentCount: number;
     hasAuthority?: boolean;
   };
-  onClickBack?: () => void;
   onClickModify: () => void;
   onClickDelete: () => void;
   onClickReport: (
@@ -36,20 +31,22 @@ export interface Props {
   ) => void;
   onClickLike: (id: number) => void;
   goToCommentList: (id: number) => void;
+  isOpenOption: boolean;
+  setOpenOption: (value: boolean) => void;
 }
 
 const CommunityDetailView = ({
   community,
-  onClickBack,
   onClickModify,
   onClickDelete,
   onClickReport,
   onClickLike,
   goToCommentList,
+  isOpenOption,
+  setOpenOption,
 }: Props) => {
   const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
-  const [isOpenOption, openOption] = useState<boolean>(false);
   const [showDeleteDialog, setDeleteDialog] = useState<boolean>(false);
   const [showReportOption, setReportOption] = useState<boolean>(false);
 
@@ -71,13 +68,6 @@ const CommunityDetailView = ({
   return (
     <>
       <div className={styles.container}>
-        <Header
-          title="게시물"
-          left={<ArrowTailIcon />}
-          right={<SmallDotsIcon />}
-          onClickLeft={onClickBack}
-          onClickRight={() => openOption(true)}
-        />
         <ContentHeader
           className={styles.header}
           title={title}
@@ -112,7 +102,7 @@ const CommunityDetailView = ({
           (hasAuthority ? (
             <BottomSheetList
               list={["수정하기", "삭제하기"]}
-              onClose={() => openOption(false)}
+              onClose={() => setOpenOption(false)}
               onClick={(value: string) => {
                 value === "수정하기" ? onClickModify() : setDeleteDialog(true);
               }}
@@ -121,9 +111,9 @@ const CommunityDetailView = ({
             <BottomSheetList
               list={["신고하기"]}
               activeItem="신고하기"
-              onClose={() => openOption(false)}
+              onClose={() => setOpenOption(false)}
               onClick={() => {
-                openOption(false);
+                setOpenOption(false);
                 setReportOption(true);
               }}
             />
