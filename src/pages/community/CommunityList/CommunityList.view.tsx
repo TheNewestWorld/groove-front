@@ -41,9 +41,6 @@ const CommunityListView = ({
         onClickFilter={onChangeSortType}
       />
       {communityList.length ? (
-        // TODO(in.heo): 빈 페이지 추가
-        <div>작성된 글이 없어요. </div>
-      ) : (
         communityList.map((item, index) => (
           <div className={styles.item} key={index}>
             <CommunityItem
@@ -54,6 +51,9 @@ const CommunityListView = ({
             />
           </div>
         ))
+      ) : (
+        // TODO(in.heo): 빈 페이지 추가
+        <div>작성된 글이 없어요. </div>
       )}
     </div>
   );
