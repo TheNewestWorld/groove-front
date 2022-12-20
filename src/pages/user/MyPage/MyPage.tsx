@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowIcon, SettingIcon } from "../../../assets/icon";
 import BuildPaths from "../../../common/paths";
 import Header from "../../../components/Header";
+import Loading from "../../../components/Loading";
 import useMyPage from "./hooks/useMyPage";
 import MyPageView, { Tab } from "./MyPage.view";
 
@@ -30,9 +31,8 @@ const MyPage = () => {
     isFetchingNextRecordPage,
   } = useMyPage();
 
-  if (isLoading) {
-    // TODO: 스켈레톤 추가
-    return <>Loading...</>;
+  if (isLoading || !tab) {
+    return <Loading />;
   }
 
   if (isError) {
@@ -59,10 +59,10 @@ const MyPage = () => {
         likedList={likedList}
         writtenList={writtenList}
         onChangeTab={(tab: Tab) => setTab(tab)}
-        onClickCommunityItem={(id) =>
+        onClickCommunityItem={id =>
           navigation(BuildPaths.communityDetail(String(id)))
         }
-        onDeleteRecord={(id) => {
+        onDeleteRecord={id => {
           // TODO
         }}
         onClickEdit={() => navigation(BuildPaths.myProfile())}

@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
 import { updatePost } from "../../../common/apis/post";
 import Header from "../../../components/Header";
+import Loading from "../../../components/Loading";
 import CommunityFormView from "../CommunityForm/CommunityForm.view";
 import useCommunityEdit from "./hooks/useCommunityEdit";
 
@@ -15,8 +16,7 @@ const CommunityEdit = () => {
     });
 
   if (isLoading || !community) {
-    // TOOD
-    return <>LOADING...</>;
+    return <Loading />;
   }
 
   return (

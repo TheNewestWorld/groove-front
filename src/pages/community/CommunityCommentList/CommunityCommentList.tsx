@@ -4,6 +4,7 @@ import { CloseIcon } from "../../../assets/icon";
 import { deleteComment, postComment } from "../../../common/apis/comment";
 import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
 import Header from "../../../components/Header";
+import Loading from "../../../components/Loading";
 import CommunityCommentListView from "./CommunityCommentList.view";
 
 const CommunityCommentList = () => {
@@ -21,7 +22,7 @@ const CommunityCommentList = () => {
   const navigation = useNavigate();
 
   if (isLoading || !commentList) {
-    return <div>로딩 화면 추가</div>;
+    return <Loading />;
   }
 
   if (isError) {

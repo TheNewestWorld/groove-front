@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../common/paths";
 import usePostListByCategoryQuery from "../../common/queries/posts/usePostListQuery";
+import Loading from "../../components/Loading";
 import SearchListView from "./SearchList.view";
 
 const SearchList = () => {
@@ -22,8 +23,7 @@ const SearchList = () => {
   );
 
   if (isLoading) {
-    // TODO
-    return <>로딩중...</>;
+    return <Loading />;
   }
 
   return (

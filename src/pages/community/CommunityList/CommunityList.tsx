@@ -10,6 +10,7 @@ import CommunityListView from "./CommunityList.view";
 import useCommunityList from "./hooks/useCommunityList";
 import styles from "./CommunityList.module.scss";
 import { InView } from "react-intersection-observer";
+import Loading from "../../../components/Loading";
 
 interface SortOrderType {
   type: "CREATED_AT" | "LIKE_COUNT" | "COMMENT_COUNT";
@@ -51,7 +52,7 @@ const CommunityList = () => {
   });
 
   if (isLoading) {
-    return <></>;
+    return <Loading />;
   }
 
   return (

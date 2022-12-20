@@ -5,7 +5,6 @@ export default {
   title: "Pages/community/CommunityList/views",
   component: CommunityListView,
   args: {
-    isLoading: false,
     activeSort: "최신순",
     sortList: ["최신순", "인기순", "댓글순"],
     activeCategory: "전체 게시물",

@@ -1,6 +1,7 @@
 import { InView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
+import Loading from "../../../components/Loading";
 import SettingListForm from "../../../components/SettingListForm";
 import Badge from "./components/Badge";
 import useNotice from "./hooks/useNotice";
@@ -18,8 +19,7 @@ const Notice = () => {
   } = useNotice();
 
   if (isLoading) {
-    // TODO: 스켈레톤 적용
-    return <>Loading...</>;
+    return <Loading />;
   }
 
   if (isError) {
