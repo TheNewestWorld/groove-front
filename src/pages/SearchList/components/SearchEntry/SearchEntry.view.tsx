@@ -43,7 +43,14 @@ const SearchEntry = ({
                   <div className={classnames([styles.item, styles[type]])}>
                     {itemList.map((item, index) => (
                       <div key={`${item}-${index}`}>
-                        <span onClick={() => onSubmitSearch(item)}>{item}</span>
+                        <span
+                          onClick={() => {
+                            setKeyword(item);
+                            onSubmitSearch(item);
+                          }}
+                        >
+                          {item}
+                        </span>
                         {type === "line" && (
                           <CloseIcon onClick={() => deleteItem(item, index)} />
                         )}
