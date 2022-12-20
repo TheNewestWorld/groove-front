@@ -8,11 +8,17 @@
   width: calc(100% - 40px);
   border-top: 1px solid $black-EB;
   padding: 22px 20px;
+
   display: flex;
   font-size: 16px;
   font-weight: 400;
   color: $black-4E;
   justify-content: flex-end;
+}
+
+.iconContainer{
+  display: flex;
+  align-items: center;
 }
 
 .icon {
