@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
 import { updatePost } from "../../../common/apis/post";
+import Error from "../../../components/Error";
 import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
 import CommunityFormView from "../CommunityForm/CommunityForm.view";
@@ -10,13 +11,17 @@ const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
 
-  const { isLoading, categoryList, community, imageList, audio } =
+  const { isLoading, isError, categoryList, community, imageList, audio } =
     useCommunityEdit({
       communityId: Number(communityId),
     });
 
   if (isLoading || !community) {
     return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
   }
 
   return (
@@ -31,7 +36,7 @@ const CommunityEdit = () => {
         data={community}
         imageList={imageList}
         audio={audio}
-        onSubmit={(form) => {
+        onSubmit={form => {
           updatePost(
             { postId: Number(communityId) },
             {
@@ -39,7 +44,7 @@ const CommunityEdit = () => {
               content: form.content,
               categoryId: form.categoryId,
               attachments: form.imageFiles.concat(form.audioFile!),
-            }
+            },
           ).then(() => navigation(-1));
         }}
       />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../common/paths";
 import usePostListByCategoryQuery from "../../common/queries/posts/usePostListQuery";
+import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 import SearchListView from "./SearchList.view";
 
@@ -10,7 +11,7 @@ const SearchList = () => {
   const [searchWord, setSearchWord] = useState<string>("");
   const [submitKeyword, setSubmitKeyword] = useState<string>("");
 
-  const { isLoading, postList } = usePostListByCategoryQuery(
+  const { isLoading, isError, postList } = usePostListByCategoryQuery(
     {
       size: 10,
       page: 0,
@@ -19,11 +20,15 @@ const SearchList = () => {
     },
     {
       enabled: submitKeyword.length !== 0,
-    }
+    },
   );
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
   }
 
   return (

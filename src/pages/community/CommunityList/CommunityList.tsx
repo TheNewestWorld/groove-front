@@ -11,6 +11,7 @@ import useCommunityList from "./hooks/useCommunityList";
 import styles from "./CommunityList.module.scss";
 import { InView } from "react-intersection-observer";
 import Loading from "../../../components/Loading";
+import Error from "../../../components/Error";
 
 interface SortOrderType {
   type: "CREATED_AT" | "LIKE_COUNT" | "COMMENT_COUNT";
@@ -40,6 +41,7 @@ const CommunityList = () => {
 
   const {
     isLoading,
+    isError,
     categoryList,
     activeCategoryName,
     communityList,
@@ -53,6 +55,10 @@ const CommunityList = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
   }
 
   return (

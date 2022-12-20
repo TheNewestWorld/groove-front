@@ -7,6 +7,7 @@ import { deletePost } from "../../../common/apis/post";
 import { postReport } from "../../../common/apis/reports";
 import BuildPaths from "../../../common/paths";
 import usePostDetailQuery from "../../../common/queries/posts/usePostDetailQuery";
+import Error from "../../../components/Error";
 import Loading from "../../../components/Loading";
 import CommunityDetailView from "./CommunityDetail.view";
 
@@ -28,7 +29,7 @@ const CommunityDetail = () => {
   }
 
   if (isError || !communityId) {
-    return <div>에러 화면 추가</div>;
+    return <Error />;
   }
 
   return (

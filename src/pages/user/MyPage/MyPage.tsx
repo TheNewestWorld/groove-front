@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon, SettingIcon } from "../../../assets/icon";
 import BuildPaths from "../../../common/paths";
+import Error from "../../../components/Error";
 import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
 import useMyPage from "./hooks/useMyPage";
@@ -34,8 +35,7 @@ const MyPage = () => {
   }
 
   if (isError) {
-    // TODO: 에러 처리
-    return <>에러가 발생하였습니다.</>;
+    return <Error />;
   }
 
   // TODO: floating button 추가
