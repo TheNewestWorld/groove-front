@@ -24,6 +24,7 @@ const CommunityDetail = () => {
   const [isOpenOption, setOpenOption] = useState<boolean>(false);
   const [showReportOption, setReportOption] = useState<boolean>(false);
   const [showDeleteDialog, setDeleteDialog] = useState<boolean>(false);
+  const [isUpdating, setUpdating] = useState<boolean>(false);
 
   const { communityId } = useParams<{ communityId: string }>();
 
@@ -49,20 +50,27 @@ const CommunityDetail = () => {
   const onClickReport = (
     reason: "HARSH_PROFANITY" | "FALSE_INFORMATION" | "INAPPROPRIATE_CONTENT"
   ) => {
+    setUpdating(true);
     postReport({
       postId: Number(communityId),
       reportTargetType: "POST",
       reportReasonType: reason,
+    }).then(() => {
+      setUpdating(false);
     });
   };
 
   const onClickDelete = () => {
-    deletePost({ postId: Number(communityId) });
-    navigation(-1);
+    setUpdating(true);
+    deletePost({ postId: Number(communityId) }).finally(() => {
+      setUpdating(false);
+      navigation(-1);
+    });
   };
 
   return (
     <>
+      {isUpdating && <Loading />}
       <Header
         left={<ArrowTailIcon />}
         right={<SmallDotsIcon />}
@@ -85,9 +93,16 @@ const CommunityDetail = () => {
           hasAuthority: post.authority,
         }}
         onClickLike={(postId) => {
+          setUpdating(true);
           post.likeFlag
-            ? setCommunityDislike({ postId }).then(() => refetch())
-            : setCommunityLike({ postId }).then(() => refetch());
+            ? setCommunityDislike({ postId }).finally(() => {
+                setUpdating(false);
+                refetch();
+              })
+            : setCommunityLike({ postId }).finally(() => {
+                setUpdating(false);
+                refetch();
+              });
         }}
         goToCommentList={(id) =>
           navigation(BuildPaths.communityComment(id.toString()))
