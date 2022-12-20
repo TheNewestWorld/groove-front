@@ -56,10 +56,8 @@ const SignIn = () => {
 
   return (
     <>
-      <Header
-        left={<ArrowIcon />}
-        onClickLeft={() => navigation(-1)}
-      />
+      {isLoading && <Loading />}
+      <Header left={<ArrowIcon />} onClickLeft={() => navigation(-1)} />
       <SignInView
         data={data}
         onChange={(e) => {
@@ -71,7 +69,6 @@ const SignIn = () => {
         isDisabledButton={!data.email || !data.password}
         goToFindPassword={() => navigation(BuildPaths.findPassword())}
       />
-      {isLoading && <Loading />}
     </>
   );
 };

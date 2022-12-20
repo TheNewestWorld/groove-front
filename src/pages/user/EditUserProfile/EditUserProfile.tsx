@@ -17,12 +17,9 @@ const EditUserProfile = () => {
   const navigation = useNavigate();
   const [isLoading, setLoading] = useState<boolean>(false);
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <>
+      {isLoading && <Loading />}
       <Header
         title="프로필 수정"
         left={<ArrowIcon />}
