@@ -17,8 +17,6 @@ const QnABottomSheet = ({
   onClickModify,
 }: Props) => {
 
-  // TODO(in.heo) 신고하기도 추가해야 합니다.
-  // isEditing: false 를 받아서 2 가지 화면을 보여줍니다. 
   return (
     <BottomSheet isShow={isShow} onClose={onClose}>
       <div

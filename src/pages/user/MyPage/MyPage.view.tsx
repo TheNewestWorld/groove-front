@@ -97,7 +97,7 @@ const MyPageView = ({
       />
       {currentTab === "RECORD" &&
         (recordList.length === 0 ? (
-          <EmptyPage title="녹음 내용이 없어요." className={styles.empty} />
+          <EmptyPage description="녹음 내용이 없어요." className={styles.empty} />
         ) : (
           <>
             <RecordSection

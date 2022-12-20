@@ -11,18 +11,25 @@ const useCommunityEdit = ({ communityId }: Props) => {
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [audioFile, setAudioFile] = useState<File | null>(null);
 
-  const { isLoading: isLoadingCategoryList, categoryList } =
-    useCategoryListQuery({
-      categoryGroup: "COMMUNITY",
-    });
+  const {
+    isLoading: isLoadingCategoryList,
+    isError: isErrorCategoryList,
+    categoryList,
+  } = useCategoryListQuery({
+    categoryGroup: "COMMUNITY",
+  });
 
-  const { isLoading: isLoadingPostDetail, post } = usePostDetailQuery(
+  const {
+    isLoading: isLoadingPostDetail,
+    isError: isErrorPostDetail,
+    post,
+  } = usePostDetailQuery(
     {
       postId: communityId,
     },
     {
       enabled: !!communityId || !!categoryList,
-      onSuccess: (post) => {
+      onSuccess: post => {
         post.attachments
           .filter(({ fileType }) => fileType === "POST_IMAGE")
           .map(async ({ uri, ...item }) => {
@@ -38,11 +45,12 @@ const useCommunityEdit = ({ communityId }: Props) => {
             setAudioFile(audio);
           });
       },
-    }
+    },
   );
 
   return {
     isLoading: isLoadingCategoryList || isLoadingPostDetail,
+    isError: isErrorCategoryList || isErrorPostDetail,
     categoryList: categoryList ?? [],
     community: post
       ? {

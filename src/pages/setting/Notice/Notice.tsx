@@ -1,6 +1,8 @@
 import { InView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import BuildPaths from "../../../common/paths";
+import Error from "../../../components/Error";
+import Loading from "../../../components/Loading";
 import SettingListForm from "../../../components/SettingListForm";
 import Badge from "./components/Badge";
 import useNotice from "./hooks/useNotice";
@@ -18,13 +20,11 @@ const Notice = () => {
   } = useNotice();
 
   if (isLoading) {
-    // TODO: 스켈레톤 적용
-    return <>Loading...</>;
+    return <Loading />;
   }
 
   if (isError) {
-    // TODO: 에러 발생 처리
-    return <>에러가 발생했습니다.</>;
+    return <Error />;
   }
 
   return (

@@ -7,17 +7,21 @@ type Props = {
 };
 
 const useCommunityList = ({ category, sortType }: Props) => {
-  const { isLoading: isLoadingCategoryList, categoryList } =
-    useCategoryListQuery({
-      categoryGroup: "COMMUNITY",
-    });
+  const {
+    isLoading: isLoadingCategoryList,
+    isError: isErrorCategoryList,
+    categoryList
+  } = useCategoryListQuery({
+    categoryGroup: "COMMUNITY",
+  });
 
   const {
     isLoading: isLoadingPostList,
+    isError: isErrorPostList,
     postList,
     hasNextPage,
     fetchNextPage,
-    isFetchingNextPage,
+    isFetchingNextPage
   } = usePostListByCategoryQuery(
     {
       size: 10,
@@ -26,13 +30,14 @@ const useCommunityList = ({ category, sortType }: Props) => {
       categoryId:
         category === "전체 게시물"
           ? undefined
-          : categoryList?.filter((item) => category === item.name)[0].id,
+          : categoryList?.filter(item => category === item.name)[0].id,
     },
-    { enabled: !!category }
+    { enabled: !!category },
   );
 
   return {
     isLoading: isLoadingCategoryList || isLoadingPostList,
+    isError: isErrorCategoryList || isErrorPostList,
     categoryList: [
       { id: -1, name: "전체 게시물", categoryGroup: "COMMUNITY" },
       ...(categoryList ?? []),
@@ -40,9 +45,9 @@ const useCommunityList = ({ category, sortType }: Props) => {
     activeCategoryName:
       category === "전체 게시물"
         ? category
-        : categoryList?.filter((item) => item.name === category)[0]?.name ?? "",
+        : categoryList?.filter(item => item.name === category)[0]?.name ?? "",
     communityList:
-      postList?.map((post) => {
+      postList?.map(post => {
         return {
           id: post.id,
           user: post.nickName,

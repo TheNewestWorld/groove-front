@@ -3,7 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { CloseIcon } from "../../../assets/icon";
 import { deleteComment, postComment } from "../../../common/apis/comment";
 import useCommentListQuery from "../../../common/queries/comment/useCommentListQuery";
+import Error from "../../../components/Error";
 import Header from "../../../components/Header";
+import Loading from "../../../components/Loading";
 import CommunityCommentListView from "./CommunityCommentList.view";
 
 const CommunityCommentList = () => {
@@ -21,12 +23,13 @@ const CommunityCommentList = () => {
   const navigation = useNavigate();
 
   if (isLoading || !commentList) {
-    return <div>로딩 화면 추가</div>;
+    return <Loading />;
   }
 
   if (isError) {
-    return <div>에러 화면 추가</div>;
+    return <Error />;
   }
+
   return (
     <>
       <Header

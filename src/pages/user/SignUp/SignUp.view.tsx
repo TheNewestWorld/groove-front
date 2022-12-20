@@ -49,8 +49,6 @@ const SignUpView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
           buttonColorTheme="dark"
           onClick={goToEtry}
         >
-          {/* TODO: 이미지 무엇인지 확인 */}
-          <CircleImage className={styles.image} src="" />
         </Form>
       ) : (
         <Form

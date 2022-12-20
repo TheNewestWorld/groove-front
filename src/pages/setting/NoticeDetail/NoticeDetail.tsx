@@ -3,6 +3,8 @@ import useNoticeDetail from "./hooks/useNoticeDetail";
 import NoticeDetailView from "./NoticeDetail.view";
 import Header from "../../../components/Header";
 import { ArrowIcon } from "../../../assets/icon";
+import Loading from "../../../components/Loading";
+import Error from "../../../components/Error";
 
 const NoticeDetail = () => {
   const { noticeId } = useParams<{ noticeId: string }>();
@@ -13,13 +15,11 @@ const NoticeDetail = () => {
   });
 
   if (isLoading || !notice) {
-    // TODO: 스켈레톤
-    return <>LOADING...</>;
+    return <Loading />;
   }
 
   if (isError) {
-    // TODO: 에러 처리
-    return <>에러 발생</>;
+    return <Error />;
   }
 
   return (
