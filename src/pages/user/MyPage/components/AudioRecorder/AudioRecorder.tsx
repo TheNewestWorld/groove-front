@@ -25,12 +25,12 @@ const AudioRecorder = ({ onRecordingComplete }: Props) => {
 
   return (
     <>
-      {!isRecording ? (
-        <MicButtonIcon onClick={startRecording} />
-      ) : (
+      {isRecording ? (
         <div>
           <StopRecordingButton onClick={stopRecording} />
         </div>
+      ) : (
+        <MicButtonIcon onClick={startRecording} />
       )}
     </>
   );
