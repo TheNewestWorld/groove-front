@@ -45,6 +45,7 @@ const CommunityComment = ({
         onClickUserProfile={() => onClickUserProfile!(comment.userId)}
         onClickDeleteComment={onClickDeleteComment}
         onClickModifyComment={onClickModifyComment}
+        onClickReply={() => onClickReply(comment.id)}
         onClickReport={onClickReport}
       />
       {replies &&
@@ -52,6 +53,7 @@ const CommunityComment = ({
         isOpen &&
         replies!.map((reply) => (
           <CommunityCommentItem
+            key={reply.id}
             {...reply}
             onClickUserProfile={() => onClickUserProfile!(reply.userId)}
             onClickReply={() => onClickReply(reply.id)}

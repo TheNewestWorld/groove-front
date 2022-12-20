@@ -26,7 +26,7 @@ export interface Props {
   onSubmitUpdateComment: (commentId: number, comment: string) => void;
   onClickDeleteComment: (commentId: number) => void;
   onClickReport: (commentId: number, value: ReasonType) => void;
-  onClickReply: (commentId: number) => void;
+  onSubmitReply: (commentId: number, comment: string) => void;
   onClickUserProfile?: (userId: number) => void;
 }
 
@@ -36,10 +36,11 @@ const CommunityCommentListView = ({
   onSubmitUpdateComment,
   onClickDeleteComment,
   onClickReport,
-  onClickReply,
+  onSubmitReply,
   onClickUserProfile,
 }: Props) => {
   const [updatingId, setUpdatingId] = useState<number | null>(null);
+  const [replyingId, setReplyingId] = useState<number | null>(null);
 
   return (
     <div className={styles.container}>
@@ -53,10 +54,14 @@ const CommunityCommentListView = ({
         ) : (
           comments.map((item) => (
             <CommunityComment
+              key={item.comment.id}
               comment={item.comment}
               replies={item.replies}
               onClickUserProfile={onClickUserProfile}
-              onClickReply={onClickReply}
+              onClickReply={(id) => {
+                setReplyingId(id);
+                console.log(id);
+              }}
               onClickReport={onClickReport}
               onClickModifyComment={setUpdatingId}
               onClickDeleteComment={onClickDeleteComment}
@@ -69,12 +74,20 @@ const CommunityCommentListView = ({
           updatingId
             ? comments.filter(({ comment }) => comment.id === updatingId)[0]
                 .comment.content
+            : replyingId
+            ? `@${
+                comments.filter(({ comment }) => comment.id === replyingId)[0]
+                  .comment.nickName
+              }`
             : undefined
         }
         onSubmitComment={(value) => {
           if (updatingId) {
             onSubmitUpdateComment(updatingId, value);
             setUpdatingId(null);
+          } else if (replyingId) {
+            onSubmitReply(replyingId, value);
+            setReplyingId(null);
           } else {
             onSubmitComment(value);
           }

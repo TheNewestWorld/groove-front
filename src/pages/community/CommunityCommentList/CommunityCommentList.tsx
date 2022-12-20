@@ -38,10 +38,10 @@ const CommunityCommentList = () => {
       />
       <CommunityCommentListView
         comments={comments}
-        onSubmitComment={(comment: string, parentId?: number) => {
+        onSubmitComment={(comment: string) => {
           postComment(
             { postId: Number(communityId) },
-            { content: comment, parentId: parentId ?? 0 }
+            { content: comment, parentId: 0 }
           ).then(() => refetch());
         }}
         onSubmitUpdateComment={(commentId: number, comment: string) => {
@@ -50,7 +50,7 @@ const CommunityCommentList = () => {
           );
         }}
         onClickDeleteComment={(commentId: number) => {
-          deleteComment({ commentId });
+          deleteComment({ commentId }).then(() => refetch());
         }}
         onClickReport={(commentId: number, value: ReasonType) => {
           postReport({
@@ -59,8 +59,11 @@ const CommunityCommentList = () => {
             reportReasonType: value,
           });
         }}
-        onClickReply={(commentId: number) => {
-          // TODO(in.heo) 입력 포커싱
+        onSubmitReply={(commentId: number, comment: string) => {
+          postComment(
+            { postId: Number(communityId) },
+            { content: comment, parentId: commentId }
+          ).then(() => refetch());
         }}
       />
     </>
