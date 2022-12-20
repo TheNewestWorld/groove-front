@@ -4,8 +4,11 @@ import BuildPaths from "../../../common/paths";
 import Error from "../../../components/Error";
 import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
+import FloatingLayout from "../../../layout/FloatingLayout";
 import useMyPage from "./hooks/useMyPage";
 import MyPageView, { Tab } from "./MyPage.view";
+import AudioRecorder from "./components/AudioRecorder";
+import { deleteRecord, postRecord } from "../../../common/apis/records";
 
 const MyPage = () => {
   const { tab } = useParams<{ tab: Tab }>();
@@ -38,7 +41,6 @@ const MyPage = () => {
     return <Error />;
   }
 
-  // TODO: floating button 추가
   return (
     <>
       <Header
@@ -62,8 +64,8 @@ const MyPage = () => {
         onClickCommunityItem={(id: number) =>
           navigation(BuildPaths.communityDetail(String(id)))
         }
-        onDeleteRecord={id => {
-          // TODO
+        onDeleteRecord={(id: number) => {
+          deleteRecord({ recordId: id });
         }}
         onClickEdit={() => navigation(BuildPaths.myProfile())}
         hasNextWrittenPage={hasNextWrittenPage}
@@ -76,6 +78,14 @@ const MyPage = () => {
         fetchNextRecordPage={fetchNextRecordPage}
         isFetchingNextRecordPage={isFetchingNextRecordPage}
       />
+
+      <FloatingLayout>
+        <AudioRecorder
+          onRecordingComplete={(audio: Blob) => {
+            postRecord({ record: audio });
+          }}
+        />
+      </FloatingLayout>
     </>
   );
 };
