@@ -9,8 +9,12 @@ export interface Props {
   goToEtry: () => void;
 }
 
+const emailRegex =
+  /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
 const FindPasswordView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
   const [email, setEmail] = useState<string>("");
+  const isDisabled = email.length === 0 || !emailRegex.test(email);
 
   return (
     <>
@@ -29,14 +33,14 @@ const FindPasswordView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
           buttonText="인증코드 요청하기"
           buttonColorTheme="dark"
           onClick={() => onSubmit(email)}
-          isDisabledButton={email.length === 0} // TODO: 이메일 양식 확인 로직 추가
+          isDisabledButton={isDisabled}
         >
           <div className={styles.inputGroup}>
             <Input
               label="아이디(이메일)"
               placeholder="groove@groove.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
         </Form>
