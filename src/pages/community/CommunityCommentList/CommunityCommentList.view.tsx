@@ -1,9 +1,8 @@
-import BottomSheetList from "../../../components/BottomSheetList";
 import CommunityComment from "./components/CommunityComment";
 import CommunityCommentInput from "./components/CommunityCommentInput";
 import styles from "./CommunityCommentList.module.scss";
-import { useState } from "react";
 import EmptyPage from "../../../components/EmptyPage";
+import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
 
 export interface CommentProps {
   id: number;
@@ -14,6 +13,7 @@ export interface CommentProps {
   createdAt: string;
   authority: boolean;
   taggedUsers?: { userId: number; nickname: string }[];
+  canEdit: boolean;
 }
 
 export interface Props {
@@ -21,34 +21,23 @@ export interface Props {
     comment: CommentProps;
     replies: CommentProps[];
   }[];
-  optionStatus: {
-    commentId: number;
-    canEdit: boolean;
-  } | null;
   onSubmitComment: (comment: string, parentId?: number) => void;
-  onClickUpdateOption: (commentId: number) => void;
-  onClickDeleteOption: (commentId: number) => void;
-  onClickReportOption: (commentId: number) => void;
+  onClickUpdateComment: (commentId: number) => void;
+  onClickDeleteComment: (commentId: number) => void;
+  onClickReport: (commentId: number, value: ReasonType) => void;
   onClickReply: (commentId: number) => void;
-  onClickOption: (commentId: number, hasAuthority: boolean) => void;
-  onCloseOption: () => void;
   onClickUserProfile?: (userId: number) => void;
 }
 
 const CommunityCommentListView = ({
   comments = [],
-  optionStatus,
   onSubmitComment,
-  onClickUpdateOption,
-  onClickDeleteOption,
-  onClickReportOption,
+  onClickUpdateComment,
+  onClickDeleteComment,
+  onClickReport,
   onClickReply,
-  onClickOption,
-  onCloseOption,
   onClickUserProfile,
 }: Props) => {
-  const [isOpenOption, setOpenOption] = useState<Boolean>(false);
-
   return (
     <div className={styles.container}>
       <div className={styles.containerBody}>
@@ -65,46 +54,14 @@ const CommunityCommentListView = ({
               replies={item.replies}
               onClickUserProfile={onClickUserProfile}
               onClickReply={onClickReply}
-              onClickOption={(comemntId: number, hasAuthority: boolean) => {
-                setOpenOption(true);
-                onClickOption(comemntId, hasAuthority);
-              }}
+              onClickReport={onClickReport}
+              onClickModifyComment={onClickUpdateComment}
+              onClickDeleteComment={onClickDeleteComment}
             />
           ))
         )}
       </div>
       <CommunityCommentInput onSubmitComment={onSubmitComment} />
-      {optionStatus &&
-        isOpenOption &&
-        (optionStatus.canEdit ? (
-          <BottomSheetList
-            hasCloseButton={true}
-            list={["수정하기", "삭제하기"]}
-            onClick={(value: string) => {
-              if (value === "수정하기") {
-                onClickUpdateOption(optionStatus!.commentId);
-              } else {
-                onClickDeleteOption(optionStatus!.commentId);
-              }
-            }}
-            onClose={() => {
-              setOpenOption(false);
-              onCloseOption();
-            }}
-          />
-        ) : (
-          <BottomSheetList
-            hasCloseButton={true}
-            list={["신고하기"]}
-            onClick={(value: string) => {
-              onClickReportOption(optionStatus!.commentId);
-            }}
-            onClose={() => {
-              setOpenOption(false);
-              onCloseOption();
-            }}
-          />
-        ))}
     </div>
   );
 };

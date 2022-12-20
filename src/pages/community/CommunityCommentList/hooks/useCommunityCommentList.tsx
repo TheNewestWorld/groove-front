@@ -22,7 +22,14 @@ const useCommunityCommentList = ({ communityId }: Props) => {
     isError,
     comments:
       commentList?.map((comment) => {
-        return { comment: { ...comment }, replies: comment.reComments };
+        return {
+          comment: { ...comment, canEdit: comment.authority },
+          replies: [
+            ...(comment.reComments.map((item) => {
+              return { ...item, canEdit: item.authority };
+            }) ?? undefined),
+          ],
+        };
       }) ?? [],
     refetch,
   };
