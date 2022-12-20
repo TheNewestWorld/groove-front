@@ -63,6 +63,7 @@ const SearchList = () => {
         setSubmitKeyword(keyword);
       }}
       deleteItem={() => alert("TODO")}
+      // TODO: 검색 기록 기능 추가
       list={[]}
       searchWord={searchWord}
     />
