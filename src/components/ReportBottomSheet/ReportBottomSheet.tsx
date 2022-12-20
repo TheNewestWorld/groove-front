@@ -5,7 +5,7 @@ import RoundButton from "../RoundButton";
 
 import styles from "./ReportBottomSheet.module.scss";
 
-type ReasonType =
+export type ReasonType =
   | "HARSH_PROFANITY"
   | "FALSE_INFORMATION"
   | "INAPPROPRIATE_CONTENT";
@@ -112,7 +112,6 @@ const ReportBottomSheet = ({ isShow, submitReport, onClickClose }: Props) => {
           </RoundButton>
         </div>
       </BottomSheet>
-
       <BottomSheet
         isShow={complete}
         title="신고 접수를 완료했어요."
