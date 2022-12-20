@@ -42,15 +42,15 @@ const CommunityCommentList = () => {
           postComment(
             { postId: Number(communityId) },
             { content: comment, parentId: 0 }
-          ).then(() => refetch());
+          ).finally(() => refetch());
         }}
         onSubmitUpdateComment={(commentId: number, comment: string) => {
-          updateComment({ commentId }, { content: comment }).then(() =>
+          updateComment({ commentId }, { content: comment }).finally(() =>
             refetch()
           );
         }}
         onClickDeleteComment={(commentId: number) => {
-          deleteComment({ commentId }).then(() => refetch());
+          deleteComment({ commentId }).finally(() => refetch());
         }}
         onClickReport={(commentId: number, value: ReasonType) => {
           postReport({
@@ -63,7 +63,7 @@ const CommunityCommentList = () => {
           postComment(
             { postId: Number(communityId) },
             { content: comment, parentId: commentId }
-          ).then(() => refetch());
+          ).finally(() => refetch());
         }}
       />
     </>
