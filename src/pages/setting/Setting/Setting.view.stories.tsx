@@ -7,11 +7,11 @@ export default {
   args: {
     headerTitle: "설정",
     settingList: [
-      { title: "공지사항", onClick: () => alert("TODO") },
-      { title: "문의하기", onClick: () => alert("TODO") },
-      { title: "VOC", onClick: () => alert("TODO") },
-      { title: "로그아웃", onClick: () => alert("TODO") },
-      { title: "회원탈퇴", onClick: () => alert("TODO") },
+      { title: "공지사항", onClick: () => alert("공지사항 이동") },
+      { title: "문의하기", onClick: () => alert("문의하기 이동") },
+      { title: "VOC", onClick: () => alert("VOC 이동") },
+      { title: "로그아웃", onClick: () => alert("로그아웃 이동") },
+      { title: "회원탈퇴", onClick: () => alert("회원탈퇴 이동") },
     ],
     onClickBack: () => alert("뒤로가기"),
   },
