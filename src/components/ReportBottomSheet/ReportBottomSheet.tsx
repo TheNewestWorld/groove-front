@@ -39,14 +39,23 @@ const ReportBottomSheet = ({ isShow, submitReport, onClickClose }: Props) => {
   const [showReportOption, setReportOption] = useState<boolean>(false);
   const [showConfirm, setComfirm] = useState<boolean>(false);
   const [reason, setReason] = useState<ReasonType | null>(null);
+  const [complete, setComplete] = useState<boolean>(false);
 
-  const inProgress = isShow || showReportOption || showConfirm;
+  const inProgress = isShow || showReportOption || showConfirm || complete;
 
   useEffect(() => {
     if (isShow) {
       setReportOption(true);
     }
   }, [isShow]);
+
+  useEffect(() => {
+    if (complete) {
+      setTimeout(() => {
+        setComplete(false);
+      }, 3000);
+    }
+  }, [complete]);
 
   if (!inProgress) {
     return <></>;
@@ -96,10 +105,21 @@ const ReportBottomSheet = ({ isShow, submitReport, onClickClose }: Props) => {
             onClick={() => {
               submitReport(reason as ReasonType);
               setComfirm(false);
+              setComplete(true);
             }}
           >
             네, 신고할게요
           </RoundButton>
+        </div>
+      </BottomSheet>
+
+      <BottomSheet
+        isShow={complete}
+        title="신고 접수를 완료했어요."
+        onClose={() => setComplete(false)}
+      >
+        <div className={styles.description}>
+          쾌적한 GROOVE 이용환경 조성을 위해 더욱 노력하겠습니다.
         </div>
       </BottomSheet>
     </>
