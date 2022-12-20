@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { CloseIcon } from "../../../assets/icon";
 import { deleteComment, postComment } from "../../../common/apis/comment";
 import Error from "../../../components/Error";
+import { postReport } from "../../../common/apis/reports";
 import Header from "../../../components/Header";
 import Loading from "../../../components/Loading";
 import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
@@ -48,7 +49,11 @@ const CommunityCommentList = () => {
           deleteComment({ commentId });
         }}
         onClickReport={(commentId: number, value: ReasonType) => {
-          // TODO(in.heo): 신고 기능 쿼리
+          postReport({
+            postId: commentId,
+            reportTargetType: "COMMENT",
+            reportReasonType: value,
+          });
         }}
         onClickReply={(commentId: number) => {
           // TODO(in.heo) 입력 포커싱
