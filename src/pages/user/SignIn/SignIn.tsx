@@ -57,7 +57,6 @@ const SignIn = () => {
   return (
     <>
       <Header
-        title="게시물 작성하기"
         left={<ArrowIcon />}
         onClickLeft={() => navigation(-1)}
       />
