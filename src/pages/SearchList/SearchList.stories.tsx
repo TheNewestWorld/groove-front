@@ -61,13 +61,11 @@ export const 기본 = Template.bind({});
 
 export const 검색결과있음 = Template.bind({});
 검색결과있음.args = {
-  searchWord: "강호동",
   list: [],
-}
+};
 
 export const 검색결과없음 = Template.bind({});
 검색결과없음.args = {
-  searchWord: "강호동",
   list: [],
   communityList: [],
-}
+};

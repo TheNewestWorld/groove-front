@@ -12,16 +12,24 @@ import Loading from "../../../components/Loading";
 import { ReasonType } from "../../../components/ReportBottomSheet/ReportBottomSheet";
 import CommunityCommentListView from "./CommunityCommentList.view";
 import useCommunityCommentList from "./hooks/useCommunityCommentList";
+import { useEffect, useState } from "react";
 
 const CommunityCommentList = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
+  const [isUpdating, setUpdating] = useState<boolean>(false);
 
   const { isLoading, isError, comments, refetch } = useCommunityCommentList({
     communityId: Number(communityId),
   });
 
-  if (isLoading ) {
+  useEffect(() => {
+    if (!isUpdating) {
+      refetch();
+    }
+  }, [isUpdating]);
+
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -31,6 +39,7 @@ const CommunityCommentList = () => {
 
   return (
     <>
+      {isUpdating && <Loading />}
       <Header
         title="댓글"
         right={<CloseIcon />}
@@ -39,31 +48,36 @@ const CommunityCommentList = () => {
       <CommunityCommentListView
         comments={comments}
         onSubmitComment={(comment: string) => {
+          setUpdating(true);
           postComment(
             { postId: Number(communityId) },
             { content: comment, parentId: 0 }
-          ).finally(() => refetch());
+          ).finally(() => setUpdating(false));
         }}
         onSubmitUpdateComment={(commentId: number, comment: string) => {
+          setUpdating(true);
           updateComment({ commentId }, { content: comment }).finally(() =>
-            refetch()
+            setUpdating(false)
           );
         }}
         onClickDeleteComment={(commentId: number) => {
-          deleteComment({ commentId }).finally(() => refetch());
+          setUpdating(true);
+          deleteComment({ commentId }).finally(() => setUpdating(false));
         }}
         onClickReport={(commentId: number, value: ReasonType) => {
+          setUpdating(true);
           postReport({
             postId: commentId,
             reportTargetType: "COMMENT",
             reportReasonType: value,
-          });
+          }).finally(() => setUpdating(false));
         }}
         onSubmitReply={(commentId: number, comment: string) => {
+          setUpdating(true);
           postComment(
             { postId: Number(communityId) },
             { content: comment, parentId: commentId }
-          ).finally(() => refetch());
+          ).finally(() => setUpdating(false));
         }}
       />
     </>

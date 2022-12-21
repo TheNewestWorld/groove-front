@@ -11,9 +11,8 @@ export interface Props {
   communityList: CommunityItemView[];
   onClickCancle: () => void;
   onSubmitSearch: (value: string) => void;
-  deleteItem: (value: string) => void;
+  deleteItem: (value: string, index?: number) => void;
   list: { title: string; type: "tag" | "line"; itemList: string[] }[];
-  searchWord: string;
 }
 
 const SearchListView = ({
@@ -24,31 +23,36 @@ const SearchListView = ({
   deleteItem,
   onClickCancle,
   onSubmitSearch,
-  searchWord = "",
 }: Props) => {
-  const [result, setResult] = useState<boolean>(false);
+  const [showEmpty, setEmpty] = useState<boolean>(false);
+  const hasResult = !!communityList.length;
+
+  console.log("showEmpty", showEmpty);
 
   return (
-    <div>
+    <div className={styles.container}>
       <SearchEntry
         keyword={keyword}
         setKeyword={setKeyword}
         list={list}
         deleteItem={deleteItem}
         onClickCancle={onClickCancle}
-        onSubmitSearch={(keyword) => {
-          setResult(true);
-          onSubmitSearch(keyword);
+        onSubmitSearch={(value) => {
+          onSubmitSearch(value);
+          setEmpty(true);
         }}
+        showList={!showEmpty}
       />
-      {communityList.length === 0 && searchWord !== "" && result && (
-        <div className={styles.text}>찾으시는 내용이 없어요.</div>
-      )}
-      {communityList.map((item, index) => (
-        <div className={styles.item} key={index}>
-          <CommunityItem {...item} />
-        </div>
-      ))}
+
+      {hasResult
+        ? communityList.map((item) => (
+            <div className={styles.item} key={item.id}>
+              <CommunityItem {...item} />
+            </div>
+          ))
+        : showEmpty && (
+            <div className={styles.text}>찾으시는 내용이 없어요.</div>
+          )}
     </div>
   );
 };

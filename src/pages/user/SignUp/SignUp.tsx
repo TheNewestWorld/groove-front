@@ -28,13 +28,13 @@ const SignUp = () => {
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header left={<ArrowIcon />} onClickLeft={() => navigation(-1)} />
       <SignUpView
         isSubmitted={isSubmitted}
         onSubmit={onSubmitSignUp}
         goToEtry={() => navigation(BuildPaths.entry())}
       />
-      {isLoading && <Loading />}
     </>
   );
 };

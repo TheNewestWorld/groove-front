@@ -26,7 +26,7 @@ const UserProfile = ({
         className={styles.hidden}
         type="file"
         accept="image/jpg,image/png,image/jpeg,image/gif"
-        onChange={e => {
+        onChange={(e) => {
           if (e.target.files && e.target.files[0]) {
             const reader = new FileReader();
             const file = e.target.files[0];
@@ -41,8 +41,9 @@ const UserProfile = ({
         ref={imageInput}
       />
       <div
-        className={classNames([className, styles.container])}
-        onClick={() => imageInput.current?.click()}>
+        className={classNames([styles.container, className])}
+        onClick={() => imageInput.current?.click()}
+      >
         <CircleImage
           src={imagePreviewUrl ? imagePreviewUrl : src ? src : defaultImage}
           className={styles.userProfile}

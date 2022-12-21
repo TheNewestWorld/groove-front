@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon } from "../../../assets/icon";
 import { updatePost } from "../../../common/apis/post";
@@ -10,6 +11,7 @@ import useCommunityEdit from "./hooks/useCommunityEdit";
 const CommunityEdit = () => {
   const navigation = useNavigate();
   const { communityId } = useParams<{ communityId: string }>();
+  const [isUpdating, setUpdating] = useState<boolean>(false);
 
   const { isLoading, isError, categoryList, community, imageList, audio } =
     useCommunityEdit({
@@ -26,6 +28,7 @@ const CommunityEdit = () => {
 
   return (
     <>
+      {isUpdating && <Loading />}
       <Header
         title="게시물 수정하기"
         left={<ArrowIcon />}
@@ -36,7 +39,8 @@ const CommunityEdit = () => {
         data={community}
         imageList={imageList}
         audio={audio}
-        onSubmit={form => {
+        onSubmit={(form) => {
+          setUpdating(true);
           updatePost(
             { postId: Number(communityId) },
             {
@@ -44,8 +48,11 @@ const CommunityEdit = () => {
               content: form.content,
               categoryId: form.categoryId,
               attachments: form.imageFiles.concat(form.audioFile!),
-            },
-          ).then(() => navigation(-1));
+            }
+          ).finally(() => {
+            setUpdating(false);
+            navigation(-1);
+          });
         }}
       />
     </>

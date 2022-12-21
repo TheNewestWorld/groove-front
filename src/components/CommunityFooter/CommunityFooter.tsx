@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { Fragment } from "react";
 import { ChatIcon, HeartIcon } from "../../assets/icon";
 import styles from "./CommunityFooter.module.scss";
 
@@ -21,13 +22,19 @@ const CommunityFooter = ({
 }: Props) => {
   return (
     <div className={classNames([styles.container, className])}>
-      <HeartIcon
-        className={classNames([styles.icon, liked && styles.liked])}
-        onClick={onClickLike}
-      />
-      {likeCount}
-      <ChatIcon className={styles.icon} onClick={goToCommentList} />
-      {commentCount}
+      <div className={classNames(styles.iconContainer)} onClick={onClickLike}>
+        <HeartIcon
+          className={classNames([styles.icon, liked && styles.liked])}
+        />
+        {likeCount}
+      </div>
+      <div
+        className={classNames(styles.iconContainer)}
+        onClick={goToCommentList}
+      >
+        <ChatIcon className={styles.icon} />
+        {commentCount}
+      </div>
     </div>
   );
 };

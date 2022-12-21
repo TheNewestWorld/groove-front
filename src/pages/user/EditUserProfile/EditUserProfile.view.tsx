@@ -3,23 +3,16 @@ import Header from "../../../components/Header";
 import UserProfile from "../../../components/UserProfile";
 import Input from "../../../components/Input";
 import styles from "./EditUserProfile.module.scss";
-import { ArrowIcon } from "../../../assets/icon";
 import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
   src?: string;
   nickname: string;
-  onClose: () => void;
   onClickConfirm: (nickname: string, image: File | null) => void;
 }
 
-const EditUserProfileView = ({
-  src,
-  nickname,
-  onClose,
-  onClickConfirm,
-}: Props) => {
+const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
   const [newNickname, setNewNickname] = useState<string>(nickname);
   const [image, setImage] = useState<File | null>(null);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -30,7 +23,6 @@ const EditUserProfileView = ({
 
   return (
     <div className={styles.container}>
-      <Header title="프로필 수정" left={<ArrowIcon />} onClickLeft={onClose} />
       <div className={styles.profile}>
         <UserProfile
           src={src}
@@ -39,6 +31,7 @@ const EditUserProfileView = ({
             checkDisabled(image, newNickname);
           }}
           defaultImage={EmptyProfile}
+          className={styles.profileImage}
         />
       </div>
       <Input

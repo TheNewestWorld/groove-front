@@ -1,12 +1,16 @@
 @import "../../constants/color";
 
+.container{
+  margin-top: 8px;
+}
+
 .item {
   padding: 0 20px;
   margin-top: 16px;
 }
 
 .text {
-    text-align: center;
-    margin-top: 176px;
-    color: $black-8B;
+  text-align: center;
+  margin-top: 176px;
+  color: $black-8B;
 }

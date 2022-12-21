@@ -20,7 +20,6 @@ export interface Props {
 }
 
 const CommunityItem = ({
-  id,
   user,
   userImageSrc,
   title,
