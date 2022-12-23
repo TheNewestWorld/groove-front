@@ -18,10 +18,6 @@ export const postQnA = ({ title, content, image }: PostQnABody) => {
   frm.append("request", blob);
   image && frm.append("attachments", image);
 
-  console.log("Api Url: " + apiUrls.qnas.postQnA());
-  console.log("Request: " + JSON.stringify(json));
-  console.log("Image name: " + image?.name);
-
   return resultData<null>(
     axios.post(apiUrls.qnas.postQnA(), frm, {
       headers: {

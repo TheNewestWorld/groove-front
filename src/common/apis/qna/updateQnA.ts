@@ -25,10 +25,6 @@ export const updateQnA = (
   frm.append("inquiryUpdateRequest", blob);
   image && frm.append("attachments", image);
 
-  console.log("Api Url: " + apiUrls.qnas.updateQnA(qnaId));
-  console.log("Request: " + JSON.stringify(json));
-  console.log("Image name: " + image?.name);
-
   return resultData<null>(
     axios.put(apiUrls.qnas.updateQnA(qnaId), frm, {
       headers: {

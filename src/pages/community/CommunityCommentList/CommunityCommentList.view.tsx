@@ -60,7 +60,6 @@ const CommunityCommentListView = ({
               onClickUserProfile={onClickUserProfile}
               onClickReply={(id) => {
                 setReplyingId(id);
-                console.log(id);
               }}
               onClickReport={onClickReport}
               onClickModifyComment={setUpdatingId}

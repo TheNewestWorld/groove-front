@@ -24,7 +24,7 @@ const SearchEntry = ({
   onSubmitSearch,
   showList,
 }: Props) => {
-  console.log("showList", showList, list);
+
   return (
     <>
       <SearchInput

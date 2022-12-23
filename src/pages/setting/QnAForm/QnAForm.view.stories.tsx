@@ -10,7 +10,6 @@ export default {
     onSubmit: (form: QnAForm) => {
       postQnA(form)
         .then(() => {
-          console.log(form.title + " / " + form.content + " / " + form.image)
         })
         .catch((error) => {
           alert(error.message);
