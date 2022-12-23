@@ -3,27 +3,30 @@ import { ArrowIcon, CameraIcon } from "../../../assets/icon";
 import Header from "../../../components/Header";
 import RoundButton from "../../../components/RoundButton";
 import Input from "../../../components/Input";
-import styles from "./QnANew.module.scss";
 import CircleButton from "../../../components/CircleButton";
 import ImageList from "../../../components/ImageList";
+import styles from "./QnAForm.module.scss";
 
-export type QnAContents = {
+export interface QnAForm {
   title: string;
   content: string;
   image: File | null;
-};
+}
 
 export interface Props {
-  onSubmit: (form: QnAContents) => void;
+  title?: string;
+  content?: string;
+  image?: File | null;
+  onSubmit: (form: QnAForm) => void;
   goToBack: () => void;
 }
 
-const QnANewView = ({ onSubmit, goToBack }: Props) => {
+const QnAFormView = ({ title, content, image, onSubmit, goToBack }: Props) => {
   const imageInput = useRef<HTMLInputElement>(null);
   const [attachImageUrl, setAttachImageUrl] = useState<string | null>(null);
-  const [form, setForm] = useState<QnAContents>({
-    title: "",
-    content: "",
+  const [form, setForm] = useState<QnAForm>({
+    title: title ?? "",
+    content: content ?? "",
     image: null,
   });
 
@@ -99,4 +102,4 @@ const QnANewView = ({ onSubmit, goToBack }: Props) => {
   );
 };
 
-export default QnANewView;
+export default QnAFormView;

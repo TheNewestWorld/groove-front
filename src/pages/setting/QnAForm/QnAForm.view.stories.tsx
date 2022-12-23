@@ -1,13 +1,13 @@
 import { Meta } from "@storybook/react";
-import QnANewView, { Props, QnAContents } from "./QnANew.view";
+import QnAFormView, { Props, QnAForm } from "./QnAForm.view";
 import { postQnA } from "../../../common/apis/qna/postQnA";
 
 export default {
   title: "Pages/setting/QnANew/views",
-  component: QnANewView,
+  component: QnAFormView,
   args: {
     goToBack: () => alert("뒤로 가기"),
-    onSubmit: (form: QnAContents) => {
+    onSubmit: (form: QnAForm) => {
       postQnA(form)
         .then(() => {
           console.log(form.title + " / " + form.content + " / " + form.image)
@@ -20,6 +20,6 @@ export default {
   },
 } as Meta;
 
-const Template = (args: Props) => <QnANewView {...args} />;
+const Template = (args: Props) => <QnAFormView {...args} />;
 
 export const 기본 = Template.bind({});
