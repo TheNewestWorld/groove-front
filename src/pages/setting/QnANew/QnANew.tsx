@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { postQna } from "../../../common/apis/qna/postQna";
+import { postQnA } from "../../../common/apis/qna/postQnA";
 import QnANewView, { QnAContents } from "./QnANew.view";
 
 const QnANew = () => {
   const navigation = useNavigate();
 
   const onSubmitQnA = (form: QnAContents) => {
-    postQna(form);
+    postQnA(form);
     navigation(-1);
   };
 

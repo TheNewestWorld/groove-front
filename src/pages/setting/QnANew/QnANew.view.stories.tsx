@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import QnANewView, { Props, QnAContents } from "./QnANew.view";
-import { postQna } from "../../../common/apis/qna/postQna";
+import { postQnA } from "../../../common/apis/qna/postQnA";
 
 export default {
   title: "Pages/setting/QnANew/views",
@@ -8,7 +8,7 @@ export default {
   args: {
     goToBack: () => alert("뒤로 가기"),
     onSubmit: (form: QnAContents) => {
-      postQna(form)
+      postQnA(form)
         .then(() => {
           console.log(form.title + " / " + form.content + " / " + form.image)
         })

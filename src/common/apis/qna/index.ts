@@ -1,1 +1,1 @@
-export * from "./postQna";
+export * from "./postQnA";

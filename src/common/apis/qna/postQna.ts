@@ -2,13 +2,13 @@ import axios from "axios";
 import { resultData } from "../../configs/axios";
 import { apiUrls } from "../utils";
 
-export type PostQnaBody = {
+export type PostQnABody = {
   title: string;
   content: string;
   image: File | null;
 };
 
-export const postQna = ({ title, content, image }: PostQnaBody) => {
+export const postQnA = ({ title, content, image }: PostQnABody) => {
   const frm = new FormData();
   const json = {
     title,
