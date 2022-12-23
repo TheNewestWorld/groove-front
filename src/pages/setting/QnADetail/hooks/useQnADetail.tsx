@@ -12,7 +12,6 @@ const useQnADetail = ({ qnaId }: Props) => {
   return {
     isLoading,
     isError,
-    // TODO: 서버와 인터페이스 Adaptation이 필요할 수 있습니다.
     qna: data && {
       qnaInfo: {
         title: data.title,
@@ -23,8 +22,8 @@ const useQnADetail = ({ qnaId }: Props) => {
       },
       answerInfo: data.hasAnswer
         ? {
-            answerTitle: data.answerTitle,
-            answerContent: data.answerContent,
+            answerTitle: data.inquiryAnswer.title,
+            answerContent: data.inquiryAnswer.content,
           }
         : undefined,
     },

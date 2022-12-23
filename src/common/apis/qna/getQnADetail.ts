@@ -6,14 +6,21 @@ export type QnADetailQueryParams = {
   qnaId: number;
 };
 
-// TODO: 서버와 인터페이스 맞추는 작업이 필요합니다.
 export type QnADetailResponse = {
   title: string;
   content: string;
   createdAt: string;
   hasAnswer: boolean;
-  answerTitle: string;
-  answerContent: string;
+  inquiryAnswer: {
+    title: string;
+    content: string;
+  };
+  attachments: {
+    id: number;
+    fileType: "POST_RECORD" | "POST_IMAGE";
+    uri: string;
+    fileName: string;
+  }[];
 };
 
 export const getQnADetail = ({ qnaId }: QnADetailQueryParams) => {

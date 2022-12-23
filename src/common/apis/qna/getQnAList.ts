@@ -7,7 +7,6 @@ export type QnAListQueryParams = {
   size: number;
 };
 
-// TODO: 서버와 인터페이스 맞추는 작업이 필요합니다.
 export type QnAListResponse = {
   page: number;
   size: number;
@@ -18,8 +17,6 @@ export type QnAListResponse = {
     content: string;
     createdAt: string;
     hasAnswer: boolean;
-    answerTitle: string;
-    answerContent: string;
   }[];
 };
 
