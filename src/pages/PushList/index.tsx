@@ -1,2 +1,2 @@
-export { default } from "./PushList.view";
+export { default } from "./PushList";
 export type { Props } from "./PushList.view";

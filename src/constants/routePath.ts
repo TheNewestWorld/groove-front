@@ -17,6 +17,7 @@ const RoutePath = {
   setting: "/setting",
   noticeList: "/setting/notice/list",
   noticeDetail: "/setting/notice/:noticeId",
+  notification: "/notification",
   qnaList: "/setting/qna/list",
   qnaDetail: "/setting/qna/:qnaId",
   qnaNew: "/setting/qna/new",

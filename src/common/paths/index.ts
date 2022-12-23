@@ -23,6 +23,7 @@ const BuildPaths = {
   noticeList: () => `${RoutePath.noticeList}`,
   noticeDetail: (noticeId: string) =>
     `${RoutePath.noticeDetail.replace(":noticeId", noticeId)}`,
+  notification: () => `${RoutePath.notification}`,
   qnaList: () => `${RoutePath.qnaList}`,
   qnaDetail: (qnaId: string) =>
     `${RoutePath.qnaDetail.replace(":qnaId", qnaId)}`,
