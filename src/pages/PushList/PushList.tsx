@@ -5,6 +5,7 @@ import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 import PushListView from "./PushList.view";
 import { ArrowTailIcon } from "../../assets/icon";
+import BuildPaths from "../../common/paths";
 
 const PushList = () => {
   const navigation = useNavigate();
@@ -18,6 +19,21 @@ const PushList = () => {
     return <Error />;
   }
 
+  const getBuildPath = (
+    notificationType: "LIKE" | "COMMENT",
+    linkUrl: string,
+  ) => {
+    const communityId = linkUrl.split("/")[4];
+
+    if (notificationType === "LIKE") {
+      return BuildPaths.communityDetail(communityId);
+    } else if (notificationType === "COMMENT") {
+      return BuildPaths.communityComment(communityId);
+    } else {
+      return "";
+    }
+  };
+
   return (
     <>
       <Header
@@ -30,7 +46,10 @@ const PushList = () => {
         pastList={notificationList.pastList}
         emptyText="아직 전해드릴 소식이 없어요."
         onClickItem={(id: number) => {
-          // TODO: Navigation 추가 핊요. (서버에서 내려오는 linkUrl, notificationType 형태 변경 및 합의 필요)
+          const { notificationType, linkUrl } = notificationList.all.filter(
+            notification => notification.id === id,
+          )[0];
+          navigation(getBuildPath(notificationType, linkUrl));
         }}
       />
     </>
