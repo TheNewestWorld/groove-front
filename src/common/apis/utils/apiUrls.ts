@@ -72,4 +72,7 @@ export const apiUrls = {
   qna: {
     postQna: () => `${BASE_URL}/qna`,
   },
+  notification: {
+    getNotificationList: () => `${BASE_URL}/notification/list`
+  }
 };
