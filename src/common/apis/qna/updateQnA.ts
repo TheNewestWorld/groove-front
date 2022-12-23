@@ -9,8 +9,31 @@ export type UpdateQnAParams = {
 export type UpdateQnABody = {
   title: string;
   content: string;
+  image: File | null;
 };
 
-export const UpdateQnA = ({ qnaId }: UpdateQnAParams, body: UpdateQnABody) => {
-  return resultData<null>(axios.put(apiUrls.qnas.updateQnA(qnaId), body));
+export const updateQnA = (
+  { qnaId }: UpdateQnAParams,
+  { title, content, image }: UpdateQnABody,
+) => {
+  const frm = new FormData();
+  const json = {
+    title,
+    content,
+  };
+  const blob = new Blob([JSON.stringify(json)], { type: "application/json" });
+  frm.append("inquiryUpdateRequest", blob);
+  image && frm.append("attachments", image);
+
+  console.log("Api Url: " + apiUrls.qnas.updateQnA(qnaId));
+  console.log("Request: " + JSON.stringify(json));
+  console.log("Image name: " + image?.name);
+
+  return resultData<null>(
+    axios.put(apiUrls.qnas.updateQnA(qnaId), frm, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }),
+  );
 };

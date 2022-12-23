@@ -5,7 +5,6 @@ type QueryProps = { size?: number; page?: number };
 
 const useQnAListQuery = (
   { size = 10, page = 0 }: QueryProps,
-  // TODO: 서버 인터페이스에 Adaptation이 필요할 수 있습니다.
   options?: UseInfiniteQueryOptions<QnAListResponse>,
 ) => {
   const { data, ...result } = useInfiniteQuery<QnAListResponse>(
