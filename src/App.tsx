@@ -8,7 +8,6 @@ import {
 import { QueryClientProvider } from "react-query";
 import { getGlobalQueryClient } from "./common/configs/query";
 import { lazy } from "react";
-import QnANew from "./pages/setting/QnANew";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Entry = lazy(() => import("./pages/Entry"));
@@ -32,6 +31,8 @@ const Notice = lazy(() => import("./pages/setting/Notice"));
 const NoticeDetail = lazy(() => import("./pages/setting/NoticeDetail"));
 const QnA = lazy(() => import("./pages/setting/QnA"));
 const QnADetail = lazy(() => import("./pages/setting/QnADetail"));
+const QnANew = lazy(() => import("./pages/setting/QnANew"));
+const QnAEdit = lazy(() => import("./pages/setting/QnAEdit"));
 const VocForm = lazy(() => import("./pages/setting/VocForm"));
 
 function App() {
@@ -65,8 +66,9 @@ function App() {
             <Route path={RoutePath.noticeDetail} element={<NoticeDetail />} />
             <Route path={RoutePath.qnaList} element={<QnA />} />
             <Route path={RoutePath.qnaDetail} element={<QnADetail />} />
-            <Route path={RoutePath.vocForm} element={<VocForm />} />
             <Route path={RoutePath.qnaNew} element={<QnANew />} />
+            <Route path={RoutePath.qnaEdit} element={<QnAEdit />} />
+            <Route path={RoutePath.vocForm} element={<VocForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </GlobalApiErrorBoundary>

@@ -3,7 +3,7 @@ import { apiUrls } from "../../../../common/apis/utils";
 import { ApiResponseData } from "../../../../common/configs/axios";
 
 export const QnA작성 = {
-  성공: rest.post(apiUrls.qna.postQna(), (_, res, ctx) => {
+  성공: rest.post(apiUrls.qnas.postQnA(), (_, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json<ApiResponseData<null>>({
@@ -11,7 +11,7 @@ export const QnA작성 = {
       })
     );
   }),
-  실패: rest.post(apiUrls.qna.postQna(), (_, res, ctx) => {
+  실패: rest.post(apiUrls.qnas.postQnA(), (_, res, ctx) => {
     return res(
       ctx.status(500),
       ctx.json<ApiResponseData<null>>({

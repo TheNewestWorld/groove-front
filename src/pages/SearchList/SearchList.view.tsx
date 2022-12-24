@@ -27,8 +27,6 @@ const SearchListView = ({
   const [showEmpty, setEmpty] = useState<boolean>(false);
   const hasResult = !!communityList.length;
 
-  console.log("showEmpty", showEmpty);
-
   return (
     <div className={styles.container}>
       <SearchEntry
