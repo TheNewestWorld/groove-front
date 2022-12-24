@@ -17,7 +17,9 @@ const useQnADetail = ({ qnaId }: Props) => {
         title: data.title,
         profileImage: profile,
         nickname: name,
-        date: new Date(data.createdAt),
+        // TODO: 서버에서 createdAt 내려오게 요청
+        // date: new Date(data.createdAt),
+        date: new Date(),
         content: data.content,
       },
       answerInfo: data.hasAnswer

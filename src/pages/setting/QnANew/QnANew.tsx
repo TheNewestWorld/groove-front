@@ -7,7 +7,7 @@ const QnANew = () => {
 
   const onSubmitQnA = (form: QnAForm) => {
     postQnA(form);
-    // navigation(-1);
+    navigation(-1);
   };
 
   return <QnAFormView onSubmit={onSubmitQnA} goToBack={() => navigation(-1)} />;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateQnA } from "../../../common/apis/qna";
 import Error from "../../../components/Error";
@@ -9,7 +8,6 @@ import useQnAEdit from "./hooks/useQnAEdit";
 const QnAEdit = () => {
   const navigation = useNavigate();
   const { qnaId } = useParams<{ qnaId: string }>();
-  const [isUpdating, setUpdating] = useState<boolean>(false);
 
   const { isLoading, isError, qna } = useQnAEdit({ qnaId: Number(qnaId) });
 
@@ -23,7 +21,7 @@ const QnAEdit = () => {
 
   const onSubmitQnA = (form: QnAForm) => {
     updateQnA({ qnaId: Number(qnaId) }, form);
-    // navigation(-1);
+    navigation(-1);
   };
 
   return (
