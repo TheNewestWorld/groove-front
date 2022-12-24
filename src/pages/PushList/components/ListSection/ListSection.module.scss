@@ -15,8 +15,8 @@
 }
 
 .image {
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   margin-right: 18px;
   background-color: $black-8B;
 }

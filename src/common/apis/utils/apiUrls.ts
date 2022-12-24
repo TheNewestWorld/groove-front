@@ -76,6 +76,9 @@ export const apiUrls = {
     updateQnA: (qnaId: number) => `${BASE_URL}/inquiry/${qnaId}`,
     deleteQnA: (qnaId: number) => `${BASE_URL}/inquiry/${qnaId}`,
   },
+  notification: {
+    getNotificationList: () => `${BASE_URL}/notification/list`,
+  },
   voc: {
     postVoC: () => `${BASE_URL}/voc`
   }

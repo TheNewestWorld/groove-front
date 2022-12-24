@@ -66,9 +66,7 @@ const CommunityList = () => {
       <MainHeader
         userImageSrc={profile}
         onSearchClick={() => navigation(BuildPaths.search())}
-        onAlarmClick={() => {
-          alert("TODO");
-        }}
+        onAlarmClick={() => navigation(BuildPaths.notification())}
         onProfileClick={() => navigation(BuildPaths.mypage("RECORD"))}
       />
       <CommunityListView

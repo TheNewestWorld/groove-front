@@ -29,6 +29,7 @@ const SearchList = lazy(() => import("./pages/SearchList"));
 const Setting = lazy(() => import("./pages/setting/Setting"));
 const Notice = lazy(() => import("./pages/setting/Notice"));
 const NoticeDetail = lazy(() => import("./pages/setting/NoticeDetail"));
+const Notification = lazy(() => import("./pages/PushList"));
 const QnA = lazy(() => import("./pages/setting/QnA"));
 const QnADetail = lazy(() => import("./pages/setting/QnADetail"));
 const QnANew = lazy(() => import("./pages/setting/QnANew"));
@@ -64,6 +65,7 @@ function App() {
             <Route path={RoutePath.setting} element={<Setting />} />
             <Route path={RoutePath.noticeList} element={<Notice />} />
             <Route path={RoutePath.noticeDetail} element={<NoticeDetail />} />
+            <Route path={RoutePath.notification} element={<Notification/>}/>
             <Route path={RoutePath.qnaList} element={<QnA />} />
             <Route path={RoutePath.qnaDetail} element={<QnADetail />} />
             <Route path={RoutePath.qnaNew} element={<QnANew />} />
