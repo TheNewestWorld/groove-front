@@ -80,6 +80,8 @@
 
 .PushList_title__2Nqbg{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.PushList_items__pRe9B{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.PushList_image__qZC7z{width:40px;height:40px;margin-right:18px;background-color:#8B95A1}.PushList_content__YvLKU{font-size:15px;font-weight:600;color:#191F28}.PushList_ago__iP2HY{font-size:12px;font-weight:400;color:#8B95A1}.PushList_division__NO\+ZL{height:16px;background-color:#F2F4F5}.PushList_empty__vPMUc{position:absolute;height:100%;left:0;bottom:0}.PushList_emptyImage__G8ShP{width:140px;height:210px;position:absolute;top:calc(50% - 210px);left:calc(50% - 70px)}
 
+.ListSection_title__U7Lbb{padding:16px 20px 0px 20px;font-size:16px;font-weight:600;color:#191F28}.ListSection_items__Ietv9{width:calc(100% - 36px);display:flex;align-items:center;padding:20px}.ListSection_image__VugF8{min-width:40px;min-height:40px;margin-right:18px;background-color:#8B95A1}.ListSection_content__9DzM0{font-size:15px;font-weight:600;color:#191F28}.ListSection_ago__9buCB{font-size:12px;font-weight:400;color:#8B95A1}
+
 .review-history{padding:20px}.review-history__filter{margin:0px 0px 20px 10px}.review-history__item{margin-bottom:10px}
 
 .SearchEntry_list__6jRKN{padding:0px 20px}.SearchEntry_title__cNwZC{margin-top:24px;padding:16px 0px;font-size:14px;color:#8B95A1}.SearchEntry_item__98N4b{color:#191F28;font-size:16px;font-weight:bold}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd{display:flex;flex-wrap:nowrap;white-space:nowrap;flex-direction:row;justify-content:flex-start;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd::-webkit-scrollbar{display:none}.SearchEntry_item__98N4b.SearchEntry_tag__BPidd>div{border-radius:10px;background-color:#F2F4F5;padding:10px 10px;margin-right:10px}.SearchEntry_item__98N4b.SearchEntry_line__S-bKU>div{display:flex;justify-content:space-between;padding:10px 0px}
@@ -165,4 +167,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.94b94ea3.css.map*/
+/*# sourceMappingURL=main.f1ae4ff1.css.map*/
