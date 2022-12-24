@@ -9,7 +9,7 @@ export type QnADetailQueryParams = {
 export type QnADetailResponse = {
   title: string;
   content: string;
-  createdAt: string;
+  createAt: string;
   hasAnswer: boolean;
   inquiryAnswer: {
     title: string;
