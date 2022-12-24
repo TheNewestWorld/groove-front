@@ -30,7 +30,6 @@ const QnADetail = () => {
   return (
     <>
       <Header
-        title="공지사항"
         left={<ArrowIcon />}
         right={<DotsHorizonIcon />}
         onClickLeft={() => navigation(-1)}

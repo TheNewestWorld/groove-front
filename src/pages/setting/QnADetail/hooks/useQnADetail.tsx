@@ -19,6 +19,12 @@ const useQnADetail = ({ qnaId }: Props) => {
         nickname: name,
         date: new Date(data.createAt),
         content: data.content,
+        imageList: data.attachments.map(attachment => {
+          return {
+            id: attachment.id,
+            src: attachment.uri,
+          };
+        }),
       },
       answerInfo: data.hasAnswer
         ? {

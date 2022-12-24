@@ -17,9 +17,9 @@ export type QnADetailResponse = {
   };
   attachments: {
     id: number;
-    fileType: "POST_RECORD" | "POST_IMAGE";
-    uri: string;
+    fileType: "POST_RECORD" | "POST_IMAGE" | "INQUIRY_IMAGE";
     fileName: string;
+    uri: string;
   }[];
 };
 
