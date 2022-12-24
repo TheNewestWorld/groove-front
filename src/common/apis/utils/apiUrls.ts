@@ -69,10 +69,17 @@ export const apiUrls = {
   reports: {
     postReport: () => `${BASE_URL}/reports`,
   },
-  qna: {
-    postQna: () => `${BASE_URL}/qna`,
+  qnas: {
+    getQnAList: () => `${BASE_URL}/inquiry`,
+    getQnADetail: (qnaId: number) => `${BASE_URL}/inquiry/${qnaId}`,
+    postQnA: () => `${BASE_URL}/inquiry`,
+    updateQnA: (qnaId: number) => `${BASE_URL}/inquiry/${qnaId}`,
+    deleteQnA: (qnaId: number) => `${BASE_URL}/inquiry/${qnaId}`,
   },
   notification: {
-    getNotificationList: () => `${BASE_URL}/notification/list`
+    getNotificationList: () => `${BASE_URL}/notification/list`,
+  },
+  voc: {
+    postVoC: () => `${BASE_URL}/voc`
   }
 };

@@ -39,8 +39,7 @@ const useAudioRecord = () => {
           recorder.stream.getTracks().forEach(t => t.stop());
           setMediaRecorder(null);
         });
-      })
-      .catch(error => console.log(error));
+      });
   }, [timerInterval]);
 
   const stopRecording = () => {

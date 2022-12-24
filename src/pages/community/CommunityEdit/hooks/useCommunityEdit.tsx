@@ -33,7 +33,6 @@ const useCommunityEdit = ({ communityId }: Props) => {
         post.attachments
           .filter(({ fileType }) => fileType === "POST_IMAGE")
           .map(async ({ uri, ...item }) => {
-            console.log(item);
             const image = await convertURLtoFile(uri);
             setImageFiles([...imageFiles, image]);
           });
