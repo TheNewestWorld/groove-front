@@ -3,6 +3,7 @@ import QnABottomSheet from "./components/QnABottomSheet";
 import styles from "./QnADetail.module.scss";
 import AnswerComponent from "./components/AnswerComponent";
 import RoundButton from "../../../components/RoundButton";
+import ContentBody from "../../../components/ContentBody";
 
 export interface Props {
   qnaInfo: {
@@ -11,6 +12,7 @@ export interface Props {
     nickname: string;
     date: Date;
     content: string;
+    imageList: { id: number; src: string }[];
   };
   answerInfo?: {
     answerTitle: string;
@@ -32,7 +34,6 @@ const QnADetailView = ({
   onCloseOption,
   onClickReQnA,
 }: Props) => {
-
   return (
     <div className={styles.container}>
       {/* TODO: badge(답변완료) */}
@@ -43,7 +44,11 @@ const QnADetailView = ({
         date={qnaInfo.date}
         className={styles.header}
       />
-      <div className={styles.content}>{qnaInfo.content}</div>
+      <ContentBody
+        className={styles.content}
+        content={qnaInfo.content}
+        imageList={qnaInfo.imageList}
+      />
       <QnABottomSheet
         isShow={isOpen}
         onClose={onCloseOption}

@@ -17,10 +17,14 @@ const useQnADetail = ({ qnaId }: Props) => {
         title: data.title,
         profileImage: profile,
         nickname: name,
-        // TODO: 서버에서 createdAt 내려오게 요청
-        // date: new Date(data.createdAt),
-        date: new Date(),
+        date: new Date(data.createAt),
         content: data.content,
+        imageList: data.attachments.map(attachment => {
+          return {
+            id: attachment.id,
+            src: attachment.uri,
+          };
+        }),
       },
       answerInfo: data.hasAnswer
         ? {

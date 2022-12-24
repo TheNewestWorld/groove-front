@@ -15,7 +15,7 @@ export type QnAListResponse = {
     id: number;
     title: string;
     content: string;
-    createdAt: string;
+    createAt: string;
     hasAnswer: boolean;
   }[];
 };
