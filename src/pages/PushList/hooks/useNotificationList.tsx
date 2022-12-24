@@ -27,8 +27,7 @@ const useNotificationList = () => {
                 ...result.monthList,
                 {
                   id: notification.id,
-                  // TODO: 서버에서 userId가 아닌 userImage를 주도록 수정 요청 필요
-                  src: notification.userImage,
+                  src: notification.profileUri,
                   content: notification.content,
                   ago: convertToElapsedTime(new Date(notification.createdAt)),
                 },
@@ -41,7 +40,7 @@ const useNotificationList = () => {
                 ...result.monthList,
                 {
                   id: notification.id,
-                  src: notification.userImage,
+                  src: notification.profileUri,
                   content: notification.content,
                   ago: convertToElapsedTime(new Date(notification.createdAt)),
                 },

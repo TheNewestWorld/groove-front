@@ -17,7 +17,7 @@ export type GetNotificationListResponse = {
     readFlag: boolean;
     deleteFlag: boolean;
     linkUrl: string;
-    userImage: string;
+    profileUri: string;
     createdAt: string;
   }[];
 };
