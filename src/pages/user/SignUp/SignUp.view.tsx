@@ -28,13 +28,13 @@ const SignUpView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value.trim() });
   };
 
   const isDisabledButton =
     form.email.length === 0 ||
-    form.nickname.length === 0 ||
-    form.password.length === 0 ||
+    form.nickname.length < 8 ||
+    form.password.length < 8 ||
     form.password !== confirmPassword;
 
   return (

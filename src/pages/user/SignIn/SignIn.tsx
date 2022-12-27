@@ -63,7 +63,7 @@ const SignIn = () => {
         onChange={(e) => {
           const { name, value } = e.target;
 
-          setData({ ...data, [name]: value });
+          setData({ ...data, [name]: value.trim() });
         }}
         onClickConfirm={onClickConfirm}
         isDisabledButton={!data.email || !data.password}
