@@ -104,7 +104,7 @@
 
 .ContentInput_container__4bJjn{flex-grow:1}.ContentInput_label__H4pAq{margin-left:8px;font-size:12px;font-weight:700;color:#6B7684}.ContentInput_input__SHV5p{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;background-color:#F2F4F5;border-radius:10px;padding:16px 14px;margin:5px 0px;position:relative}.ContentInput_input__SHV5p>textarea{width:100%;height:300px;font-size:16px;font-weight:600;color:#191F28;outline:none;border:none;background:none;resize:none}.ContentInput_input__SHV5p>textarea::-webkit-input-placeholder{color:#8B95A1}.ContentInput_input__SHV5p>textarea::placeholder{color:#8B95A1}
 
-.CommunityForm_body__GYQBF{display:flex;padding:12px 20px;flex-grow:1;flex-direction:column}.CommunityForm_label__93QBe{margin:0px 8px 5px;font-size:12px;font-weight:700;color:#6B7684}.CommunityForm_category__tZXIg{margin-bottom:8px}.CommunityForm_button__fmHkH{margin:16px auto 0px;width:calc(100% - 60px);position:fixed;left:30px;bottom:18px}
+.CommunityForm_body__GYQBF{display:flex;padding:12px 20px 100px;flex-grow:1;flex-direction:column}.CommunityForm_label__93QBe{margin:0px 8px 5px;font-size:12px;font-weight:700;color:#6B7684}.CommunityForm_category__tZXIg{margin-bottom:8px}.CommunityForm_button__fmHkH{margin:16px auto 0px;width:calc(100% - 60px);position:fixed;left:30px;bottom:18px}
 
 .FileUploader_hidden__aBR-4{display:none}
 
@@ -167,4 +167,4 @@
 .SignUp_container__vge43{width:100%}.SignUp_container__vge43.SignUp_center__OyI2k{padding-top:80px}.SignUp_image__o2-U4{margin:64px auto 0px;text-align:center;width:260px;height:260px}.SignUp_inputGroup__UGgzN{margin:30px 0px 40px}
 
 
-/*# sourceMappingURL=main.f1ae4ff1.css.map*/
+/*# sourceMappingURL=main.642393b7.css.map*/
