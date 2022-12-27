@@ -1,10 +1,9 @@
 import { useState } from "react";
 import UserProfile from "../../../components/UserProfile";
+import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import Input from "../../../components/Input";
 import styles from "./EditUserProfile.module.scss";
 import RoundButton from "../../../components/RoundButton";
-
-const EmptyProfile = "../../../assets/empty_profile.svg";
 
 export interface Props {
   src?: string;

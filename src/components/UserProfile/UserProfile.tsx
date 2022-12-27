@@ -61,7 +61,7 @@ const UserProfile = ({
           onClose={() => setProfileBottomSheet(false)}
           onClick={(value) => {
             if (value === "이미지 삭제") {
-              setImagePreviewUrl(null);
+              setImagePreviewUrl(defaultImage);
               onChangeProfile?.(null);
               setProfileBottomSheet(false);
             } else {
