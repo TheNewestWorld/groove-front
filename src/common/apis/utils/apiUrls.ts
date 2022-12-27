@@ -19,6 +19,7 @@ export const apiUrls = {
     sendEmail: () => `${BASE_URL}/mail/change-password`,
     setPassword: () => `${BASE_URL}/users/password`,
     signOut: () => `${BASE_URL}/users/self`,
+    deleteProfile: () => `${BASE_URL}/users/self/profile`
   },
   records: {
     getRecordList: () => `${BASE_URL}/records`,

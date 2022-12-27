@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Header from "../../../components/Header";
 import UserProfile from "../../../components/UserProfile";
+import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import Input from "../../../components/Input";
 import styles from "./EditUserProfile.module.scss";
-import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import RoundButton from "../../../components/RoundButton";
 
 export interface Props {
@@ -17,8 +16,8 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
   const [image, setImage] = useState<File | null>(null);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
-  const checkDisabled = (image: File | null, nickname: string) => {
-    setIsDisabled(!image && newNickname === nickname);
+  const checkDisabled = (nickname: string) => {
+    setIsDisabled(newNickname === nickname);
   };
 
   return (
@@ -26,9 +25,9 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
       <div className={styles.profile}>
         <UserProfile
           src={src}
-          onChangeProfile={(image: File) => {
+          onChangeProfile={(image: File | null) => {
             setImage(image);
-            checkDisabled(image, newNickname);
+            checkDisabled(newNickname);
           }}
           defaultImage={EmptyProfile}
           className={styles.profileImage}
@@ -39,7 +38,7 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
         value={newNickname}
         placeholder="8자 이내 한글 또는 영문"
         onChange={(e) => {
-          checkDisabled(image, e.target.value);
+          checkDisabled(e.target.value);
           setNewNickname(e.target.value);
         }}
       />
