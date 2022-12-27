@@ -3,12 +3,13 @@ import classNames from "classnames";
 import CircleImage from "../CircleImage";
 import styles from "./UserProfile.module.scss";
 import { BlackAddIcon } from "../../assets/icon";
+import BottomSheetList from "../BottomSheetList";
 
 export interface Props {
   src?: string;
   defaultImage: string;
   className?: string;
-  onChangeProfile?: (image: File) => void;
+  onChangeProfile?: (image: File | null) => void;
 }
 
 const UserProfile = ({
@@ -18,6 +19,8 @@ const UserProfile = ({
   onChangeProfile,
 }: Props) => {
   const imageInput = useRef<HTMLInputElement>(null);
+  const [showProfileBottonSheet, setProfileBottomSheet] =
+    useState<boolean>(false);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
 
   return (
@@ -35,14 +38,16 @@ const UserProfile = ({
               imagePreviewUrl && setImagePreviewUrl(imagePreviewUrl);
             };
             reader.readAsDataURL(file);
-            onChangeProfile && onChangeProfile(file);
+            onChangeProfile?.(file);
           }
         }}
         ref={imageInput}
       />
       <div
         className={classNames([styles.container, className])}
-        onClick={() => imageInput.current?.click()}
+        onClick={() => {
+          setProfileBottomSheet(true);
+        }}
       >
         <CircleImage
           src={imagePreviewUrl ? imagePreviewUrl : src ? src : defaultImage}
@@ -50,6 +55,22 @@ const UserProfile = ({
         />
         <BlackAddIcon className={styles.plusIcon} />
       </div>
+      {showProfileBottonSheet && (
+        <BottomSheetList
+          list={["파일 선택", "이미지 삭제"]}
+          onClose={() => setProfileBottomSheet(false)}
+          onClick={(value) => {
+            if (value === "이미지 삭제") {
+              setImagePreviewUrl(null);
+              onChangeProfile?.(null);
+              setProfileBottomSheet(false);
+            } else {
+              imageInput.current?.click();
+              setProfileBottomSheet(false);
+            }
+          }}
+        />
+      )}
     </>
   );
 };

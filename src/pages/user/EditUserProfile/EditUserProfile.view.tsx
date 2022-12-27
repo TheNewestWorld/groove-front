@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Header from "../../../components/Header";
 import UserProfile from "../../../components/UserProfile";
 import Input from "../../../components/Input";
 import styles from "./EditUserProfile.module.scss";
-import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import RoundButton from "../../../components/RoundButton";
+
+const EmptyProfile = "../../../assets/empty_profile.svg";
 
 export interface Props {
   src?: string;
@@ -26,7 +26,7 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
       <div className={styles.profile}>
         <UserProfile
           src={src}
-          onChangeProfile={(image: File) => {
+          onChangeProfile={(image: File | null) => {
             setImage(image);
             checkDisabled(image, newNickname);
           }}
