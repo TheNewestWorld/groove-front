@@ -33,8 +33,8 @@ const SignUpView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
 
   const isDisabledButton =
     form.email.length === 0 ||
-    form.nickname.length === 0 ||
-    form.password.length === 0 ||
+    form.nickname.length < 8 ||
+    form.password.length < 8 ||
     form.password !== confirmPassword;
 
   return (
