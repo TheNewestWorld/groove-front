@@ -19,7 +19,7 @@
 }
 
 .button {
-  width: calc(100% - 40px);
+  width: calc(100% - 40px) !important;
   position: fixed;
   bottom: 18px;
 }

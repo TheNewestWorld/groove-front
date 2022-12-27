@@ -16,5 +16,5 @@
 .button{
   position: fixed;
   bottom: 28px;
-  width: calc(100% - 40px);
+  width: calc(100% - 40px) !important;
 }
