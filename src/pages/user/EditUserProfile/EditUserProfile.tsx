@@ -12,6 +12,8 @@ import Loading from "../../../components/Loading";
 import Error from "../../../components/Error";
 import { useUserDispatch } from "../../../hooks";
 import EditUserProfileView from "./EditUserProfile.view";
+import { deletePost } from "../../../common/apis/post";
+import { deleteProfile } from "../../../common/apis/users/deleteProfile";
 
 const EditUserProfile = () => {
   const { isLoading, isError, data: userInfo } = useUserInfoQuery();
@@ -43,7 +45,13 @@ const EditUserProfile = () => {
           setUpdating(true);
 
           await setUserInfo({ nickname: newNickname });
-          await setUserProfileImage({ profile: image });
+
+          if (image) {
+            
+            await setUserProfileImage({ profile: image });
+          } else {
+            await deleteProfile();
+          }
 
           const { nickname, profileUri } = await getUserInfo();
 
