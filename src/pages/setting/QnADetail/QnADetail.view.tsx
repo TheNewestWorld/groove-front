@@ -4,6 +4,7 @@ import styles from "./QnADetail.module.scss";
 import AnswerComponent from "./components/AnswerComponent";
 import RoundButton from "../../../components/RoundButton";
 import ContentBody from "../../../components/ContentBody";
+import { useState } from "react";
 
 export interface Props {
   qnaInfo: {
@@ -18,22 +19,20 @@ export interface Props {
     answerTitle: string;
     answerContent: string;
   };
-  isOpen: boolean;
   onDelete: () => void;
   onModify: () => void;
-  onCloseOption: () => void;
   onClickReQnA?: () => void;
 }
 
 const QnADetailView = ({
   qnaInfo,
   answerInfo,
-  isOpen,
   onDelete,
   onModify,
-  onCloseOption,
   onClickReQnA,
 }: Props) => {
+  const [isOpenOption, setOpenOption] = useState<boolean>(false);
+
   return (
     <div className={styles.container}>
       {/* TODO: badge(답변완료) */}
@@ -50,8 +49,8 @@ const QnADetailView = ({
         imageList={qnaInfo.imageList}
       />
       <QnABottomSheet
-        isShow={isOpen}
-        onClose={onCloseOption}
+        isShow={isOpenOption}
+        onClose={() => setOpenOption(false)}
         onClickDelete={() => onDelete()}
         onClickModify={() => onModify()}
       />
@@ -65,7 +64,8 @@ const QnADetailView = ({
           <RoundButton
             colorTheme="dark"
             onClick={onClickReQnA}
-            className={styles.button}>
+            className={styles.button}
+          >
             다시 문의하기
           </RoundButton>
         </>

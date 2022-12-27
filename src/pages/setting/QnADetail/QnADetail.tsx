@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowIcon, DotsHorizonIcon } from "../../../assets/icon";
 import { deleteQnA } from "../../../common/apis/qna/deleteQnA";
@@ -9,7 +8,6 @@ import QnADetailView from "./QnADetail.view";
 
 const QnADetail = () => {
   const { qnaId } = useParams<{ qnaId: string }>();
-  const [isOpenOption, setOpenOption] = useState<boolean>(false);
 
   const { isLoading, isError, qna } = useQnADetail({
     qnaId: Number(qnaId),
@@ -33,11 +31,9 @@ const QnADetail = () => {
         left={<ArrowIcon />}
         right={<DotsHorizonIcon />}
         onClickLeft={() => navigation(-1)}
-        onClickRight={() => setOpenOption(true)}
       />
       <QnADetailView
         {...qna}
-        isOpen={isOpenOption}
         onDelete={() => {
           deleteQnA({ qnaId: Number(qnaId) });
           navigation(-1);
@@ -45,7 +41,6 @@ const QnADetail = () => {
         onModify={() => {
           navigation(BuildPaths.qnaEdit(qnaId));
         }}
-        onCloseOption={() => setOpenOption(false)}
         onClickReQnA={() => {
           navigation(BuildPaths.qnaNew(), { replace: true });
         }}
