@@ -28,7 +28,7 @@ const SignUpView = ({ isSubmitted, onSubmit, goToEtry }: Props) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value.trim() });
   };
 
   const isDisabledButton =
