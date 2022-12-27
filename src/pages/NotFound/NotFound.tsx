@@ -1,9 +1,22 @@
-import "./NotFound.scss";
+import { useNavigate } from "react-router-dom";
+import BuildPaths from "../../common/paths";
+import EmptyPage from "../../components/EmptyPage";
+import RoundButton from "../../components/RoundButton";
+
+import styles from "./NotFound.module.scss";
 
 const NotFound = () => {
-  // TODO: 디자인 나오면 반영
+  const navigation = useNavigate();
+
   return (
-    <h2 className="not-found__title">요청하신 페이지를 찾을 수 없습니다.</h2>
+    <EmptyPage title="요청하신 페이지를 찾을 수 없습니다." type="full">
+      <RoundButton
+        className={styles.button}
+        onClick={() => navigation(BuildPaths.entry())}
+      >
+        홈으로
+      </RoundButton>
+    </EmptyPage>
   );
 };
 
