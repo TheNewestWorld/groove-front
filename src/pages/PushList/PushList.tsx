@@ -47,7 +47,7 @@ const PushList = () => {
         emptyText="아직 전해드릴 소식이 없어요."
         onClickItem={(id: number) => {
           const { notificationType, linkUrl } = notificationList.all.filter(
-            notification => notification.id === id,
+            (notification) => notification.id === id
           )[0];
           navigation(getBuildPath(notificationType, linkUrl));
         }}
