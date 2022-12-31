@@ -25,10 +25,13 @@ const RecordSection = ({ className, recordList, onDelete }: Props) => {
 
   return (
     <div className={className}>
-      {recordList.map(item => (
-        <SlideItem hasDelete onClickDelete={() => onDelete(item.id)}>
+      {recordList.map((item) => (
+        <SlideItem
+          hasDelete
+          onClickDelete={() => onDelete(item.id)}
+          key={item.id}
+        >
           <RecordItem
-            key={item.id}
             {...item}
             isOpen={selectedAudio?.id === item.id}
             isPlaying={isPlaying}
