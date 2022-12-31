@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserProfile from "../../../components/UserProfile";
 import EmptyProfile from "../../../assets/icon/empty_profile.svg";
 import Input from "../../../components/Input";
@@ -16,9 +16,9 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
   const [image, setImage] = useState<File | null>(null);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
-  const checkDisabled = (nickname: string) => {
-    setIsDisabled(newNickname === nickname);
-  };
+  useEffect(() => {
+    setIsDisabled(newNickname.length === 0);
+  }, [newNickname]);
 
   return (
     <div className={styles.container}>
@@ -27,7 +27,6 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
           src={src}
           onChangeProfile={(image: File | null) => {
             setImage(image);
-            checkDisabled(newNickname);
           }}
           defaultImage={EmptyProfile}
           className={styles.profileImage}
@@ -38,7 +37,6 @@ const EditUserProfileView = ({ src, nickname, onClickConfirm }: Props) => {
         value={newNickname}
         placeholder="8자 이내 한글 또는 영문"
         onChange={(e) => {
-          checkDisabled(e.target.value);
           setNewNickname(e.target.value);
         }}
       />
