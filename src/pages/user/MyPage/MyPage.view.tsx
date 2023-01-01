@@ -118,7 +118,7 @@ const MyPageView = ({
         ))}
       {currentTab === "LIKED" &&
         (likedList.length === 0 ? (
-          <EmptyPage title="좋아한 게시물이 없어요." className={styles.empty} />
+          <EmptyPage description="좋아한 게시물이 없어요." className={styles.empty} />
         ) : (
           <>
             <CommunitySection
@@ -139,7 +139,7 @@ const MyPageView = ({
         ))}
       {currentTab === "WRITTEN" &&
         (writtenList.length === 0 ? (
-          <EmptyPage title="작성한 게시물이 없어요." className={styles.empty} />
+          <EmptyPage description="작성한 게시물이 없어요." className={styles.empty} />
         ) : (
           <>
             <CommunitySection
