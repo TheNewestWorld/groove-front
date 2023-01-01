@@ -48,7 +48,7 @@ const CommunityCommentListView = ({
         {comments.length === 0 ? (
           <EmptyPage
             type="full"
-            title="남겨진 댓글이 없어요. 🥲"
+            title="남겨진 댓글이 없어요."
             description="처음으로 댓글을 남겨주시겠어요?"
           />
         ) : (
