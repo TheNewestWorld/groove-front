@@ -25,6 +25,7 @@ const CommunityDetail = () => {
   const [showReportOption, setReportOption] = useState<boolean>(false);
   const [showDeleteDialog, setDeleteDialog] = useState<boolean>(false);
   const [isUpdating, setUpdating] = useState<boolean>(false);
+  const [isOpenImage, openImage] = useState<boolean>(false);
 
   const { communityId } = useParams<{ communityId: string }>();
 
@@ -34,7 +35,7 @@ const CommunityDetail = () => {
     },
     {
       enabled: !!communityId,
-    }
+    },
   );
 
   if (isLoading || !post) {
@@ -48,7 +49,7 @@ const CommunityDetail = () => {
   const onClickModify = () => navigation(BuildPaths.communityEdit(communityId));
 
   const onClickReport = (
-    reason: "HARSH_PROFANITY" | "FALSE_INFORMATION" | "INAPPROPRIATE_CONTENT"
+    reason: "HARSH_PROFANITY" | "FALSE_INFORMATION" | "INAPPROPRIATE_CONTENT",
   ) => {
     setUpdating(true);
     postReport({
@@ -76,6 +77,7 @@ const CommunityDetail = () => {
         right={<SmallDotsIcon />}
         onClickLeft={() => navigation(-1)}
         onClickRight={() => setOpenOption(true)}
+        className={isOpenImage ? styles.disableHeader : undefined}
       />
       <CommunityDetailView
         community={{
@@ -92,7 +94,10 @@ const CommunityDetail = () => {
           commentCount: post.commentCount!,
           hasAuthority: post.authority,
         }}
-        onClickLike={(postId) => {
+        isOpenImage={isOpenImage}
+        openImageViewer={() => openImage(true)}
+        closeImageViewer={() => openImage(false)}
+        onClickLike={postId => {
           setUpdating(true);
           post.likeFlag
             ? setCommunityDislike({ postId }).finally(() => {
@@ -104,7 +109,7 @@ const CommunityDetail = () => {
                 refetch();
               });
         }}
-        goToCommentList={(id) =>
+        goToCommentList={id =>
           navigation(BuildPaths.communityComment(id.toString()))
         }
       />
@@ -141,15 +146,13 @@ const CommunityDetail = () => {
           <RoundButton
             className={styles.dialogButton}
             colorTheme="secondary"
-            onClick={() => setDeleteDialog(false)}
-          >
+            onClick={() => setDeleteDialog(false)}>
             아니요
           </RoundButton>
           <RoundButton
             className={styles.dialogButton}
             colorTheme="dark"
-            onClick={onClickDelete}
-          >
+            onClick={onClickDelete}>
             네, 할게요
           </RoundButton>
         </Dialog>
