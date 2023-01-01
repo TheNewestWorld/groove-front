@@ -22,13 +22,13 @@ const VocFormView = ({ onSubmit, goToBack }: Props) => {
       <div className={styles.container}>
         <textarea
           className={styles.textarea}
-          onChange={(e) => setContent(e.target.value)}
+          onChange={e => setContent(e.target.value)}
           placeholder="이용하시면서 불편했던 점, 칭찬할 만한 점 또는 제안하실 아이디어가 있다면 모두 들려주세요!"
         />
         <RoundButton
+          colorTheme="dark"
           onClick={() => onSubmit(content)}
-          disabled={content.length === 0}
-        >
+          disabled={content.length === 0}>
           제출하기
         </RoundButton>
       </div>

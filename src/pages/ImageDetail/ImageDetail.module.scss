@@ -39,7 +39,7 @@
   position: absolute;
   top: calc(50% - 8px);
   left: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5) !important;
   float: left;
 }
 
@@ -47,6 +47,6 @@
   position: absolute;
   top: calc(50% - 8px);
   right: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5) !important;
   float: right;
 }

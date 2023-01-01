@@ -20,16 +20,21 @@ export interface Props {
     commentCount: number;
     hasAuthority?: boolean;
   };
+  isOpenImage: boolean;
+  openImageViewer: () => void;
+  closeImageViewer: () => void;
   onClickLike: (id: number) => void;
   goToCommentList: (id: number) => void;
 }
 
 const CommunityDetailView = ({
   community,
+  isOpenImage,
+  openImageViewer,
+  closeImageViewer,
   onClickLike,
   goToCommentList,
 }: Props) => {
-  const [isOpenImage, openImage] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
 
   const {
@@ -61,12 +66,11 @@ const CommunityDetailView = ({
         imageList={imageList}
         audio={audio}
         onClickImage={(id: number) => {
-          openImage(true);
-          setImageIndex(imageList!.findIndex((image) => image.id === id));
+          openImageViewer();
+          setImageIndex(imageList!.findIndex(image => image.id === id));
         }}
         onClickMore={() => {
-          openImage(true);
-          // TODO(in.heo): Remove hard-code
+          openImageViewer();
           setImageIndex(4);
         }}
       />
@@ -83,7 +87,7 @@ const CommunityDetailView = ({
           className={styles.imageDetail}
           imageList={imageList}
           imageIndex={imageIndex}
-          onClickClose={() => openImage(false)}
+          onClickClose={closeImageViewer}
         />
       )}
     </div>

@@ -4,7 +4,6 @@ import styles from "./QnADetail.module.scss";
 import AnswerComponent from "./components/AnswerComponent";
 import RoundButton from "../../../components/RoundButton";
 import ContentBody from "../../../components/ContentBody";
-import { useState } from "react";
 
 export interface Props {
   qnaInfo: {
@@ -19,6 +18,8 @@ export interface Props {
     answerTitle: string;
     answerContent: string;
   };
+  isOpenOption: boolean;
+  onCloseOption: () => void;
   onDelete: () => void;
   onModify: () => void;
   onClickReQnA?: () => void;
@@ -27,11 +28,12 @@ export interface Props {
 const QnADetailView = ({
   qnaInfo,
   answerInfo,
+  isOpenOption,
+  onCloseOption,
   onDelete,
   onModify,
   onClickReQnA,
 }: Props) => {
-  const [isOpenOption, setOpenOption] = useState<boolean>(false);
 
   return (
     <div className={styles.container}>
@@ -50,7 +52,7 @@ const QnADetailView = ({
       />
       <QnABottomSheet
         isShow={isOpenOption}
-        onClose={() => setOpenOption(false)}
+        onClose={() => onCloseOption()}
         onClickDelete={() => onDelete()}
         onClickModify={() => onModify()}
       />
