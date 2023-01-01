@@ -52,13 +52,13 @@ const CommunityCommentListView = ({
             description="처음으로 댓글을 남겨주시겠어요?"
           />
         ) : (
-          comments.map((item) => (
+          comments.map(item => (
             <CommunityComment
               key={item.comment.id}
               comment={item.comment}
               replies={item.replies}
               onClickUserProfile={onClickUserProfile}
-              onClickReply={(id) => {
+              onClickReply={id => {
                 setReplyingId(id);
               }}
               onClickReport={onClickReport}
@@ -71,16 +71,22 @@ const CommunityCommentListView = ({
       <CommunityCommentInput
         initialComment={
           updatingId
-            ? comments.filter(({ comment }) => comment.id === updatingId)[0]
-                .comment.content
+            ? comments
+                .reduce(
+                  (result, x) => result.concat(x.comment).concat(x.replies),
+                  [] as CommentProps[],
+                )
+                .filter(comment => comment.id === updatingId)[0].content
             : replyingId
-            ? `@${
-                comments.filter(({ comment }) => comment.id === replyingId)[0]
-                  .comment.nickName
-              }`
+            ? comments
+                .reduce(
+                  (result, x) => result.concat(x.comment).concat(x.replies),
+                  [] as CommentProps[],
+                )
+                .filter(comment => comment.id === replyingId)[0].content
             : undefined
         }
-        onSubmitComment={(value) => {
+        onSubmitComment={value => {
           if (updatingId) {
             onSubmitUpdateComment(updatingId, value);
             setUpdatingId(null);
